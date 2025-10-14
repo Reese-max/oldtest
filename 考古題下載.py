@@ -693,13 +693,25 @@ def download_exam(session, exam_info, base_folder, stats):
                         stats['failed_list'].append({
                             'year': year,
                             'exam': exam_name,
-                            'category': category_name,
-                            'subject': subject_info['original_name'],
-                            'type': file_type,
-                            'reason': result,
-                            'url': pdf_url,
-                            'file_path': file_path,
-                            'timestamp': datetime.now().isoformat()
+      def main():
+    # 顯示歡迎畫面
+    print_banner()
+    
+    # 非互動模式：使用預設設定
+    save_dir = "考選部考古題完整庫"
+    years = [114]  # 只下載民國114年
+    keywords = [
+        "警察人員考試",
+        "一般警察人員考試", 
+        "司法人員考試",
+        "國家安全情報人員考試",
+        "移民行政人員考試"
+    ]
+    
+    print(f"💾 儲存位置: {save_dir}")
+    print(f"📅 下載年份: 民國 {years[0]} 年")
+    print(f"🔍 考試篩選: {', '.join(keywords)}")
+    print("="*70)                'timestamp': datetime.now().isoformat()
                         })
                         # 對於失敗的檔案，等待更長時間再繼續
                         time.sleep(2)
