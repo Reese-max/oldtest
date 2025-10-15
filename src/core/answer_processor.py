@@ -33,7 +33,22 @@ class AnswerProcessor:
             self.logger.info("開始提取答案")
             answers = {}
             
-            for pattern in self.config.answer_patterns:
+            # 真實考古題答案格式：表格形式
+            # 題號 第1題 第2題 第3題 第4題 第5題 第6題 第7題 第8題 第9題 第10題
+            # 答案 C D D B
+            table_answers = self._extract_table_answers(text)
+            if table_answers:
+                answers.update(table_answers)
+                self.logger.info(f"表格格式答案: {len(table_answers)} 個")
+            
+            # 標準答案格式
+            standard_patterns = [
+                r'第(\d+)題[：:]?\s*([ABCD])',
+                r'(\d+)[：:]?\s*([ABCD])',
+                r'題號\s*(\d+)[：:]?\s*答案\s*([ABCD])',
+            ]
+            
+            for pattern in standard_patterns:
                 matches = re.findall(pattern, text)
                 for match in matches:
                     question_num = match[0]
@@ -48,6 +63,49 @@ class AnswerProcessor:
             error_msg = f"答案提取失敗: {e}"
             self.logger.failure(error_msg)
             raise AnswerProcessingError(error_msg) from e
+    
+    def _extract_table_answers(self, text: str) -> Dict[str, str]:
+        """提取表格格式的答案"""
+        answers = {}
+        
+        try:
+            # 尋找答案表格
+            # 格式：題號 第1題 第2題 第3題 ... 答案 C D D B ...
+            lines = text.split('\n')
+            
+            for i, line in enumerate(lines):
+                line = line.strip()
+                
+                # 尋找題號行
+                if '題號' in line and '第' in line:
+                    # 提取題號
+                    question_numbers = []
+                    # 使用正則表達式提取第X題
+                    question_matches = re.findall(r'第(\d+)題', line)
+                    for q_num in question_matches:
+                        question_numbers.append(q_num)
+                    
+                    # 尋找下一行的答案
+                    if i + 1 < len(lines):
+                        answer_line = lines[i + 1].strip()
+                        if answer_line.startswith('答案'):
+                            # 提取答案
+                            answer_text = answer_line.replace('答案', '').strip()
+                            # 按空格分割答案
+                            answers_list = answer_text.split()
+                            
+                            # 配對題號和答案
+                            for j, answer in enumerate(answers_list):
+                                if j < len(question_numbers) and answer in 'ABCD':
+                                    question_num = question_numbers[j]
+                                    answers[question_num] = answer
+                                    self.logger.debug(f"表格答案: 第{question_num}題 = {answer}")
+            
+            return answers
+            
+        except Exception as e:
+            self.logger.warning(f"表格答案提取失敗: {e}")
+            return {}
     
     def extract_corrected_answers(self, text: str) -> Dict[str, str]:
         """

@@ -154,10 +154,12 @@ class QuestionParser:
         """解析一般題目"""
         questions = []
         
-        # 題目檢測模式
+        # 題目檢測模式 - 支援多種格式
         question_patterns = [
             r'第(\d+)題[：:]?\s*(.*?)(?=第\d+題|$)',
             r'(\d+)\.\s*(.*?)(?=\d+\.|$)',
+            r'^(\d+)\s+(.*?)(?=^\d+\s+|$)',  # 真實考古題格式：數字+空格
+            r'(\d+)\s+(.*?)(?=\d+\s+|$)',   # 更寬鬆的匹配
         ]
         
         for pattern in question_patterns:
@@ -165,6 +167,10 @@ class QuestionParser:
             for match in matches:
                 question_num = match.group(1)
                 question_text = match.group(2).strip()
+                
+                # 過濾掉非題目的內容
+                if self._is_not_a_question(question_num, question_text):
+                    continue
                 
                 if len(question_text) < self.config.min_question_length:
                     continue
@@ -190,26 +196,105 @@ class QuestionParser:
         
         return questions
     
+    def _is_not_a_question(self, question_num: str, question_text: str) -> bool:
+        """判斷是否不是題目"""
+        # 過濾掉代號（如2501）
+        if len(question_num) > 3:
+            return True
+            
+        # 過濾掉包含特定關鍵詞的內容
+        filter_keywords = [
+            '代號', '頁次', '考試', '科目', '時間', '座號', '注意', '禁止', '使用',
+            '本試題', '單一選擇題', '選出', '正確', '適當', '答案', '共', '每題',
+            '須用', '鉛筆', '試卡', '依題號', '清楚', '劃記', '作答者', '不予', '計分'
+        ]
+        
+        for keyword in filter_keywords:
+            if keyword in question_text:
+                return True
+        
+        # 過濾掉太短的內容
+        if len(question_text) < 10:
+            return True
+            
+        return False
+    
     def _extract_options(self, question_text: str) -> List[str]:
         """提取選項"""
         options = []
         
-        # 選項模式
-        option_patterns = [
+        # 先嘗試標準格式：(A) 選項內容
+        standard_patterns = [
             r'[（(]A[）)]\s*(.*?)(?=[（(]B[）)]|$)',
             r'[（(]B[）)]\s*(.*?)(?=[（(]C[）)]|$)',
             r'[（(]C[）)]\s*(.*?)(?=[（(]D[）)]|$)',
             r'[（(]D[）)]\s*(.*?)(?=[（(]E[）)]|$)',
         ]
         
-        for pattern in option_patterns:
+        standard_matches = []
+        for pattern in standard_patterns:
             match = re.search(pattern, question_text, re.DOTALL)
             if match:
                 option_text = match.group(1).strip()
                 if option_text:
-                    options.append(option_text)
+                    standard_matches.append(option_text)
         
-        return options
+        if len(standard_matches) >= 2:
+            return standard_matches
+        
+        # 真實考古題格式：每行包含兩個選項，用空格分隔
+        # 例如：經公務人員考試錄取，接受訓練之人員 各級學校之軍訓教官
+        lines = question_text.split('\n')
+        
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+                
+            # 跳過題目行（包含問號的行）
+            if '？' in line or '?' in line:
+                continue
+                
+            # 使用正則表達式分割選項
+            # 尋找選項分割點：選項開始詞後面的空格
+            option_starters = ['經', '各', '行', '私', '於', '依', '關', '當', '偶', '下', '應', '若', '原', '該', '法', '警', '義', '偶', '褫', '受', '無', '須', '向', '得', '限']
+            
+            # 構建正則表達式模式
+            pattern_parts = []
+            for starter in option_starters:
+                pattern_parts.append(f'{starter}[^\\s]*')
+            
+            # 使用正則表達式分割
+            pattern = '|'.join(pattern_parts)
+            matches = re.findall(pattern, line)
+            
+            for match in matches:
+                if len(match.strip()) > 5:  # 選項應該有一定長度
+                    options.append(match.strip())
+        
+        # 如果還是沒找到足夠選項，嘗試更簡單的方法
+        if len(options) < 2:
+            # 直接按空格分割整個文字
+            words = question_text.split()
+            current_option = ""
+            
+            for word in words:
+                option_starters = ['經', '各', '行', '私', '於', '依', '關', '當', '偶', '下', '應', '若', '原', '該', '法', '警', '義', '偶', '褫', '受', '無']
+                
+                if word in option_starters and current_option:
+                    if len(current_option.strip()) > 5:
+                        options.append(current_option.strip())
+                    current_option = word
+                else:
+                    if current_option:
+                        current_option += " " + word
+                    else:
+                        current_option = word
+            
+            if current_option and len(current_option.strip()) > 5:
+                options.append(current_option.strip())
+        
+        return options[:4]  # 最多返回4個選項
     
     def _validate_questions(self, questions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """驗證題目"""
