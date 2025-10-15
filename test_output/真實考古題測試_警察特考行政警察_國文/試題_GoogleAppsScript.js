@@ -2,7 +2,7 @@
 /**
  * 考古題練習表單生成器
  * 自動從CSV資料建立Google表單
- * 生成時間: 2025-10-15 16:28:31
+ * 生成時間: 2025-10-15 16:35:46
  */
 
 function createPracticeForm() {
@@ -106,7 +106,7 @@ function addSubmitHandler(form) {
       sheet.appendRow([timestamp, score, correctCount, totalCount]);
       
       // 顯示結果
-      console.log(`分數: ${score}分 (${correctCount}/${totalCount})`);
+      console.log(`Score: ${score}% (${correctCount}/${totalCount})`);
     }
   `;
   
