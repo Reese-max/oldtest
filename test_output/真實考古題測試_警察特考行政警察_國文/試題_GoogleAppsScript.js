@@ -2,13 +2,13 @@
 /**
  * 考古題練習表單生成器
  * 自動從CSV資料建立Google表單
- * 生成時間: 2025-10-15 16:14:39
+ * 生成時間: 2025-10-15 16:28:31
  */
 
 function createPracticeForm() {
   // 表單設定
   const formTitle = "考古題練習表單";
-  const formDescription = "此表單包含 3 題考古題，用於練習和自測";
+  const formDescription = "此表單包含 2 題考古題，用於練習和自測";
   
   // 建立新表單
   const form = FormApp.create(formTitle);
@@ -36,31 +36,21 @@ function createPracticeForm() {
 function addQuestionsToForm(form) {
   const questions = [
     {
-      title: "下列文句「」中用詞，何者最為妥切？\n好友已值「從心所欲」之年，是拚搏事業的好時機\n土耳其大地震，死傷人數慘重，令人「忍俊不住」\n王生誤解了李生的好意，慚愧的登門「負荊請罪」\n他們兄弟感情深厚，真是「舉案齊眉」，令人稱羨",
-      optionA: "好友已值「從心所欲」之年，是拚搏事業的好時機",
-      optionB: "土耳其大地震，死傷人數慘重，令人「忍俊不住」",
-      optionC: "王生誤解了李生的好意，慚愧的登門「負荊請罪」",
-      optionD: "他們兄弟感情深厚，真是「舉案齊眉」，令人稱羨",
-      category: "其他",
-      difficulty: "困難",
-      isGroup: False,
-    },
-    {
       title: "下列文句，存在語病的是：\n儘管比賽前他受了點傷，但比賽時依舊所向披靡\n參加試鏡者很少，我得用盡心力才能爭取到角色\n這些八卦新聞經過查證後，實屬空穴來風\n他被債務逼得走投無路，不得不鋌而走險",
       optionA: "下列文句，存在語病的是：",
-      optionB: "儘管比賽前他受了點傷，但比賽時依舊所向披靡",
-      optionC: "參加試鏡者很少，我得用盡心力才能爭取到角色",
-      optionD: "這些八卦新聞經過查證後，實屬空穴來風",
+      optionB: "受了點傷，但比賽時依舊所向披靡",
+      optionC: "得用盡心力才能爭取到角色",
+      optionD: "經過查證後，實屬空穴來風",
       category: "其他",
       difficulty: "中等",
       isGroup: False,
     },
     {
       title: "「『形破』（Deformation）是對既定的形的突破，要說是追求自由的人們所表現出\n的念想也可以；也可以說是『未定型』或『未成形』，我想以容易理解的『奇數之\n美』來稱之。『奇』並不是奇怪的意思，是與『偶』相對的『奇』，或『不完整』。」\n下列選項，何者最貼近上文的觀點？\n奇數的美，往往比偶數的美，來得更容易被看見\n勇於打破形式的框架限制，展現創作的自由意志\n形破，因為還不完整，故能取得最大的想像空間\n創作自由，就是要不斷地推陳出新，表現新形式",
-      optionA: "「『形破』（Deformation）是對既定的形的突破，要說是追求自由的人們所表現出",
-      optionB: "的念想也可以；也可以說是『未定型』或『未成形』，我想以容易理解的『奇數之",
-      optionC: "美』來稱之。『奇』並不是奇怪的意思，是與『偶』相對的『奇』，或『不完整』。」",
-      optionD: "奇數的美，往往比偶數的美，來得更容易被看見",
+      optionA: "偶』相對的『奇』，或『不完整』。」",
+      optionB: "偶數的美，來得更容易被看見",
+      optionC: "於打破形式的框架限制，展現創作的自由意志",
+      optionD: "得最大的想像空間",
       category: "閱讀理解",
       difficulty: "困難",
       isGroup: False,
@@ -94,6 +84,8 @@ function addSubmitHandler(form) {
       let totalCount = responses.length;
       
       const answers = {
+    1: "B",
+    2: "B",
   };
       
       responses.forEach((response, index) => {

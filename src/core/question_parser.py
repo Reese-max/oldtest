@@ -242,8 +242,8 @@ class QuestionParser:
         if len(standard_matches) >= 2:
             return standard_matches
         
-        # 真實考古題格式：按空格分割，尋找選項
-        # 先按行分割，然後在每行中按空格分割
+        # 真實考古題格式：每行包含兩個選項，用空格分隔
+        # 例如：經公務人員考試錄取，接受訓練之人員 各級學校之軍訓教官
         lines = question_text.split('\n')
         
         for line in lines:
@@ -255,29 +255,22 @@ class QuestionParser:
             if '？' in line or '?' in line:
                 continue
                 
-            # 按空格分割這一行
-            words = line.split()
-            current_option = ""
+            # 使用正則表達式分割選項
+            # 尋找選項分割點：選項開始詞後面的空格
+            option_starters = ['經', '各', '行', '私', '於', '依', '關', '當', '偶', '下', '應', '若', '原', '該', '法', '警', '義', '偶', '褫', '受', '無', '須', '向', '得', '限']
             
-            for word in words:
-                # 檢查是否是選項的開始
-                option_starters = ['經', '各', '行', '私', '於', '依', '關', '當', '偶', '下', '應', '若', '原', '該', '法', '警', '義', '偶', '褫', '受', '無', '須', '向', '得', '限', '偶', '褫', '受', '無', '應', '若', '原', '該', '法', '警', '義', '偶', '褫', '受', '無', '須', '向', '得', '限']
-                
-                if word in option_starters and current_option:
-                    # 如果當前選項不為空，先保存它
-                    if len(current_option.strip()) > 5:  # 選項應該有一定長度
-                        options.append(current_option.strip())
-                    current_option = word
-                else:
-                    # 繼續累積當前選項
-                    if current_option:
-                        current_option += " " + word
-                    else:
-                        current_option = word
+            # 構建正則表達式模式
+            pattern_parts = []
+            for starter in option_starters:
+                pattern_parts.append(f'{starter}[^\\s]*')
             
-            # 保存最後一個選項
-            if current_option and len(current_option.strip()) > 5:
-                options.append(current_option.strip())
+            # 使用正則表達式分割
+            pattern = '|'.join(pattern_parts)
+            matches = re.findall(pattern, line)
+            
+            for match in matches:
+                if len(match.strip()) > 5:  # 選項應該有一定長度
+                    options.append(match.strip())
         
         # 如果還是沒找到足夠選項，嘗試更簡單的方法
         if len(options) < 2:

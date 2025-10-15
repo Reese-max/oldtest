@@ -820,3 +820,1570 @@
 2025-10-15 16:14:42 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/真實考古題測試_警察特考行政警察_警察情境實務/試題_GoogleAppsScript.js
 2025-10-15 16:14:42 - archaeology_questions - INFO - ✅ ✅ 警察特考行政警察_警察情境實務 處理成功
 2025-10-15 16:14:42 - archaeology_questions - INFO - ✅ 測試報告已生成: /workspace/test_output/真實考古題測試報告_20251015_161442.md
+2025-10-15 16:25:23 - archaeology_questions - INFO - 
+================================================================================
+2025-10-15 16:25:23 - archaeology_questions - INFO - 調試答案檔案: 答案.pdf
+2025-10-15 16:25:23 - archaeology_questions - INFO - ================================================================================
+2025-10-15 16:25:23 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/國文(作文與測驗)/答案.pdf
+2025-10-15 16:25:23 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，1023 字元
+2025-10-15 16:25:23 - archaeology_questions - INFO - 文字長度: 1023 字元
+2025-10-15 16:25:23 - archaeology_questions - INFO - 前500字元內容:
+2025-10-15 16:25:23 - archaeology_questions - INFO - 測驗式試題標準答案
+114年公務人員特種考試警察人員、一般警察人員、國家安全局國家安全情報人員、移民
+考試名稱：
+行政人員考試及114年特種考試退除役軍人轉任公務人員考試
+國境警察人員、行政警察人員、公共安全人員、警察資訊管理人員、刑事鑑識人員、行政管理人員、交通警察人員交通組、水上警察人員、刑事警察人員、犯罪防治人員預防組、消防警察人員、警察法制人員、外事
+類科名稱：警察人員(選試英語)、社會工作、勞工行政、一般行政、法律廉政、衛生行政、人事行政、會計、社會行政、資訊組(選試英文)、情報組(選試英文)、政經組(選試英文)、電子組(選試英文)、國際組(選試英文)、數
+理組(選試英文)、移民行政(選試日文)、移民行政(選試英文)、移民行政(選試泰文)、移民行政(選試印尼文)、移民行政(選試西班牙文)、移民行政(選試越南文)、移民行政(選試韓文)
+國文(作文與測驗)（試題代號：1131)
+科目名稱：
+單選題數：10題 單選每題配分：2.00分
+複選題數： 複選每題配分：
+標準答案：
+題號 第1題 第2題 第3題 第4題 第5題 第6題 第7題 第8題 第9題 第10題
+答案 C D D B
+2025-10-15 16:25:23 - archaeology_questions - INFO - 總行數: 34
+2025-10-15 16:25:23 - archaeology_questions - INFO - 可能的答案模式 (前10個):
+2025-10-15 16:25:23 - archaeology_questions - INFO - 數字開頭的行 (前10個):
+2025-10-15 16:25:23 - archaeology_questions - INFO -   第2行: 114年公務人員特種考試警察人員、一般警察人員、國家安全局國家安全情報人員、移民
+2025-10-15 16:25:23 - archaeology_questions - INFO - 
+================================================================================
+2025-10-15 16:25:23 - archaeology_questions - INFO - 調試答案檔案: 答案.pdf
+2025-10-15 16:25:23 - archaeology_questions - INFO - ================================================================================
+2025-10-15 16:25:23 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/答案.pdf
+2025-10-15 16:25:23 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，901 字元
+2025-10-15 16:25:23 - archaeology_questions - INFO - 文字長度: 901 字元
+2025-10-15 16:25:23 - archaeology_questions - INFO - 前500字元內容:
+2025-10-15 16:25:23 - archaeology_questions - INFO - 測驗式試題標準答案
+114年公務人員特種考試警察人員、一般警察人員、國家安全局國家安全情報人員、移民
+考試名稱：
+行政人員考試及114年特種考試退除役軍人轉任公務人員考試
+犯罪防治人員預防組、刑事警察人員、交通警察人員交通組、國境警察人員、警察法制人員、公共安全人員
+類科名稱：
+、行政警察人員、行政管理人員、外事警察人員(選試英語)、警察資訊管理人員
+警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警
+科目名稱：
+察職權行使法、公務人員行政中立法)（試題代號：2501)
+單選題數：25題 單選每題配分：2.00分
+複選題數： 複選每題配分：
+標準答案：
+題號 第1題 第2題 第3題 第4題 第5題 第6題 第7題 第8題 第9題 第10題
+答案 D C C D D B A C D D
+題號 第11題 第12題 第13題 第14題 第15題 第16題 第17題 第18題 第19題 第20題
+答案 D A D D D B A D C B
+題號 第21題 第22題 第23題 第24題 第25題 第26題 第27題 第28題 第29題 第30題
+答案 C D D C
+2025-10-15 16:25:23 - archaeology_questions - INFO - 總行數: 35
+2025-10-15 16:25:23 - archaeology_questions - INFO - 可能的答案模式 (前10個):
+2025-10-15 16:25:23 - archaeology_questions - INFO - 數字開頭的行 (前10個):
+2025-10-15 16:25:23 - archaeology_questions - INFO -   第2行: 114年公務人員特種考試警察人員、一般警察人員、國家安全局國家安全情報人員、移民
+2025-10-15 16:26:38 - archaeology_questions - INFO - 配置已載入: config.json
+2025-10-15 16:26:38 - archaeology_questions - INFO - 
+================================================================================
+2025-10-15 16:26:38 - archaeology_questions - INFO - 測試答案檔案: 答案.pdf
+2025-10-15 16:26:38 - archaeology_questions - INFO - ================================================================================
+2025-10-15 16:26:38 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/國文(作文與測驗)/答案.pdf
+2025-10-15 16:26:38 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，1023 字元
+2025-10-15 16:26:38 - archaeology_questions - INFO - 文字長度: 1023 字元
+2025-10-15 16:26:38 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:26:38 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-10-15 16:26:38 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+2025-10-15 16:26:38 - archaeology_questions - INFO - 提取到 10 個答案
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第1題: C
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第2題: D
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第3題: D
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第4題: B
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第5題: B
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第6題: D
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第7題: A
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第8題: B
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第9題: C
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第10題: C
+2025-10-15 16:26:38 - archaeology_questions - INFO - 
+================================================================================
+2025-10-15 16:26:38 - archaeology_questions - INFO - 測試答案檔案: 答案.pdf
+2025-10-15 16:26:38 - archaeology_questions - INFO - ================================================================================
+2025-10-15 16:26:38 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/答案.pdf
+2025-10-15 16:26:38 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，901 字元
+2025-10-15 16:26:38 - archaeology_questions - INFO - 文字長度: 901 字元
+2025-10-15 16:26:38 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:26:38 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-10-15 16:26:38 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+2025-10-15 16:26:38 - archaeology_questions - INFO - 提取到 25 個答案
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第1題: D
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第2題: C
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第3題: C
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第4題: D
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第5題: D
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第6題: B
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第7題: A
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第8題: C
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第9題: D
+2025-10-15 16:26:38 - archaeology_questions - INFO - 第10題: D
+2025-10-15 16:27:09 - archaeology_questions - INFO - 配置已載入: config.json
+2025-10-15 16:27:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:27:10 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，4221 字元
+2025-10-15 16:27:10 - archaeology_questions - INFO - 第一題分析:
+2025-10-15 16:27:10 - archaeology_questions - INFO - 原始內容: '1 下列何者非屬準用公務人員行政中立法之人員？\n經公務人員考試錄取，接受訓練之人員 各級學校之軍訓教官\n行政法人有給專任之理事 私立學校校長及其兼任行政職務之教師'
+2025-10-15 16:27:10 - archaeology_questions - INFO - 提取到的選項: ['經公務人員考試錄取，接受訓練之人員 各級學校之軍訓教官', '行政法人有給專任之理事 私立學校校長及其兼任行政職務之教師']
+2025-10-15 16:27:10 - archaeology_questions - INFO - 按行分割: ['1 下列何者非屬準用公務人員行政中立法之人員？', '經公務人員考試錄取，接受訓練之人員 各級學校之軍訓教官', '行政法人有給專任之理事 私立學校校長及其兼任行政職務之教師']
+2025-10-15 16:27:10 - archaeology_questions - INFO - 跳過題目行: 1 下列何者非屬準用公務人員行政中立法之人員？
+2025-10-15 16:27:10 - archaeology_questions - INFO - 第2行單詞: ['經公務人員考試錄取，接受訓練之人員', '各級學校之軍訓教官']
+2025-10-15 16:27:10 - archaeology_questions - INFO - 最終選項: '經公務人員考試錄取，接受訓練之人員 各級學校之軍訓教官'
+2025-10-15 16:27:10 - archaeology_questions - INFO - 第3行單詞: ['行政法人有給專任之理事', '私立學校校長及其兼任行政職務之教師']
+2025-10-15 16:27:10 - archaeology_questions - INFO - 最終選項: '行政法人有給專任之理事 私立學校校長及其兼任行政職務之教師'
+2025-10-15 16:28:10 - archaeology_questions - INFO - 配置已載入: config.json
+2025-10-15 16:28:10 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:28:11 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，4221 字元
+2025-10-15 16:28:11 - archaeology_questions - INFO - 第一題分析:
+2025-10-15 16:28:11 - archaeology_questions - INFO - 原始內容: '1 下列何者非屬準用公務人員行政中立法之人員？\n經公務人員考試錄取，接受訓練之人員 各級學校之軍訓教官\n行政法人有給專任之理事 私立學校校長及其兼任行政職務之教師'
+2025-10-15 16:28:11 - archaeology_questions - ERROR - ❌ 調試失敗: cannot access local variable 're' where it is not associated with a value
+2025-10-15 16:28:25 - archaeology_questions - INFO - 配置已載入: config.json
+2025-10-15 16:28:25 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:28:26 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，4221 字元
+2025-10-15 16:28:26 - archaeology_questions - INFO - 第一題分析:
+2025-10-15 16:28:26 - archaeology_questions - INFO - 原始內容: '1 下列何者非屬準用公務人員行政中立法之人員？\n經公務人員考試錄取，接受訓練之人員 各級學校之軍訓教官\n行政法人有給專任之理事 私立學校校長及其兼任行政職務之教師'
+2025-10-15 16:28:26 - archaeology_questions - INFO - 提取到的選項: ['經公務人員考試錄取，接受訓練之人員', '各級學校之軍訓教官', '行政法人有給專任之理事', '私立學校校長及其兼任行政職務之教師']
+2025-10-15 16:28:26 - archaeology_questions - INFO - 按行分割: ['1 下列何者非屬準用公務人員行政中立法之人員？', '經公務人員考試錄取，接受訓練之人員 各級學校之軍訓教官', '行政法人有給專任之理事 私立學校校長及其兼任行政職務之教師']
+2025-10-15 16:28:26 - archaeology_questions - INFO - 跳過題目行: 1 下列何者非屬準用公務人員行政中立法之人員？
+2025-10-15 16:28:26 - archaeology_questions - INFO - 第2行單詞: ['經公務人員考試錄取，接受訓練之人員', '各級學校之軍訓教官']
+2025-10-15 16:28:26 - archaeology_questions - INFO - 最終選項: '經公務人員考試錄取，接受訓練之人員 各級學校之軍訓教官'
+2025-10-15 16:28:26 - archaeology_questions - INFO - 第3行單詞: ['行政法人有給專任之理事', '私立學校校長及其兼任行政職務之教師']
+2025-10-15 16:28:26 - archaeology_questions - INFO - 最終選項: '行政法人有給專任之理事 私立學校校長及其兼任行政職務之教師'
+2025-10-15 16:28:31 - archaeology_questions - INFO - 配置已載入: config.json
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始測試 4 個真實考古題
+2025-10-15 16:28:31 - archaeology_questions - INFO - 
+============================================================
+2025-10-15 16:28:31 - archaeology_questions - INFO - 測試 1/4: 警察特考行政警察_國文
+2025-10-15 16:28:31 - archaeology_questions - INFO - 描述: 國文選擇題，測試基本解析功能
+2025-10-15 16:28:31 - archaeology_questions - INFO - ============================================================
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，3736 字元
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:28:31 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:28:31 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ 題目解析完成，共 2 題
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/國文(作文與測驗)/答案.pdf
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，1023 字元
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:28:31 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_國文/試題.csv
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_國文/試題.csv
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_國文/試題_Google表單.csv
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_國文/試題_Google表單.csv
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_國文
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_國文/一般題目.csv
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_國文/一般題目.csv
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_國文/完整題目.csv
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_國文/完整題目.csv
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:28:31 - archaeology_questions - INFO - 答案統計: {'A': 1, 'B': 3, 'C': 3, 'D': 3, '無效': 0}
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ PDF處理完成: 2 題，4 個CSV檔案
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/真實考古題測試_警察特考行政警察_國文/試題_Google表單.csv
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_國文/試題_GoogleAppsScript.js
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/真實考古題測試_警察特考行政警察_國文/試題_GoogleAppsScript.js
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ ✅ 警察特考行政警察_國文 處理成功
+2025-10-15 16:28:31 - archaeology_questions - INFO - 
+============================================================
+2025-10-15 16:28:31 - archaeology_questions - INFO - 測試 2/4: 警察特考行政警察_警察法規
+2025-10-15 16:28:31 - archaeology_questions - INFO - 描述: 專業法規題目，測試複雜題型解析
+2025-10-15 16:28:31 - archaeology_questions - INFO - ============================================================
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，4221 字元
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:28:31 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:28:31 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:28:31 - archaeology_questions - WARNING - 題目 5 選項不足，跳過
+2025-10-15 16:28:31 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:28:31 - archaeology_questions - WARNING - 題目 15 選項不足，跳過
+2025-10-15 16:28:31 - archaeology_questions - WARNING - 題目 666 選項不足，跳過
+2025-10-15 16:28:31 - archaeology_questions - WARNING - 題目 689 選項不足，跳過
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ 題目解析完成，共 14 題
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/答案.pdf
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，901 字元
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:28:31 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-10-15 16:28:31 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+2025-10-15 16:28:31 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/更正答案.pdf
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，925 字元
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_警察法規/試題.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_警察法規/試題.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_警察法規/試題_Google表單.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_警察法規/試題_Google表單.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_警察法規
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_警察法規/一般題目.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_警察法規/一般題目.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_警察法規/完整題目.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_警察法規/完整題目.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:28:32 - archaeology_questions - INFO - 答案統計: {'A': 4, 'B': 3, 'C': 6, 'D': 12, '無效': 0}
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ PDF處理完成: 14 題，4 個CSV檔案
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/真實考古題測試_警察特考行政警察_警察法規/試題_Google表單.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_警察法規/試題_GoogleAppsScript.js
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/真實考古題測試_警察特考行政警察_警察法規/試題_GoogleAppsScript.js
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ ✅ 警察特考行政警察_警察法規 處理成功
+2025-10-15 16:28:32 - archaeology_questions - INFO - 
+============================================================
+2025-10-15 16:28:32 - archaeology_questions - INFO - 測試 3/4: 司法特考監獄官_國文
+2025-10-15 16:28:32 - archaeology_questions - INFO - 描述: 司法特考國文，測試不同考試類型
+2025-10-15 16:28:32 - archaeology_questions - INFO - ============================================================
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/國文（作文與測驗）/試題.pdf
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/國文（作文與測驗）/試題.pdf
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/國文（作文與測驗）/試題.pdf
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，4521 字元
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:28:32 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:28:32 - archaeology_questions - WARNING - 題目 23 選項不足，跳過
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題目解析完成，共 3 題
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/國文（作文與測驗）/答案.pdf
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，1061 字元
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:28:32 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/真實考古題測試_司法特考監獄官_國文/試題.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/真實考古題測試_司法特考監獄官_國文/試題.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/真實考古題測試_司法特考監獄官_國文/試題_Google表單.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/真實考古題測試_司法特考監獄官_國文/試題_Google表單.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/真實考古題測試_司法特考監獄官_國文
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/真實考古題測試_司法特考監獄官_國文/一般題目.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/真實考古題測試_司法特考監獄官_國文/一般題目.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/真實考古題測試_司法特考監獄官_國文/完整題目.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/真實考古題測試_司法特考監獄官_國文/完整題目.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:28:32 - archaeology_questions - INFO - 答案統計: {'A': 2, 'B': 1, 'C': 5, 'D': 2, '無效': 0}
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ PDF處理完成: 3 題，4 個CSV檔案
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/真實考古題測試_司法特考監獄官_國文/試題_Google表單.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/真實考古題測試_司法特考監獄官_國文/試題_GoogleAppsScript.js
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/真實考古題測試_司法特考監獄官_國文/試題_GoogleAppsScript.js
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ ✅ 司法特考監獄官_國文 處理成功
+2025-10-15 16:28:32 - archaeology_questions - INFO - 
+============================================================
+2025-10-15 16:28:32 - archaeology_questions - INFO - 測試 4/4: 警察特考行政警察_警察情境實務
+2025-10-15 16:28:32 - archaeology_questions - INFO - 描述: 情境實務題目，測試應用題型
+2025-10-15 16:28:32 - archaeology_questions - INFO - ============================================================
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，5424 字元
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:28:32 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:28:32 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:28:32 - archaeology_questions - WARNING - 題目 18 選項不足，跳過
+2025-10-15 16:28:32 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題目解析完成，共 12 題
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/答案.pdf
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，879 字元
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:28:32 - archaeology_questions - INFO - 表格格式答案: 20 個
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 20 個答案
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/更正答案.pdf
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，915 字元
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_警察情境實務/試題.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_警察情境實務/試題.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_警察情境實務/試題_Google表單.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_警察情境實務/試題_Google表單.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_警察情境實務
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_警察情境實務/一般題目.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_警察情境實務/一般題目.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/真實考古題測試_警察特考行政警察_警察情境實務/完整題目.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_警察情境實務/完整題目.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:28:32 - archaeology_questions - INFO - 答案統計: {'A': 5, 'B': 3, 'C': 7, 'D': 5, '無效': 0}
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ PDF處理完成: 12 題，4 個CSV檔案
+2025-10-15 16:28:32 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/真實考古題測試_警察特考行政警察_警察情境實務/試題_Google表單.csv
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/真實考古題測試_警察特考行政警察_警察情境實務/試題_GoogleAppsScript.js
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/真實考古題測試_警察特考行政警察_警察情境實務/試題_GoogleAppsScript.js
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ ✅ 警察特考行政警察_警察情境實務 處理成功
+2025-10-15 16:28:32 - archaeology_questions - INFO - ✅ 測試報告已生成: /workspace/test_output/真實考古題測試報告_20251015_162832.md
+2025-10-15 16:29:56 - archaeology_questions - INFO - 配置已載入: config.json
+2025-10-15 16:29:56 - archaeology_questions - INFO - 開始批量處理考古題庫: /workspace/考選部考古題完整庫/民國114年
+2025-10-15 16:29:56 - archaeology_questions - INFO - 輸出目錄: /workspace/test_output/批量處理測試
+2025-10-15 16:29:56 - archaeology_questions - INFO - 找到 44 個考試目錄
+2025-10-15 16:29:56 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:29:56 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:29:56 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 8 頁，12898 字元
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:29:57 - archaeology_questions - INFO - 檢測到 2 個題組
+2025-10-15 16:29:57 - archaeology_questions - INFO - 解析題組: 第51題至第55題
+2025-10-15 16:29:57 - archaeology_questions - INFO - 解析題組: 第56題至第60題
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 51 長度過長，截斷
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 51 選項不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 52 長度不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 53 長度不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 54 長度不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 55 長度過長，截斷
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 55 選項不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 56 長度過長，截斷
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 56 選項不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 57 長度不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 58 長度不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 59 長度不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 60 長度過長，截斷
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 60 選項不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ 題目解析完成，共 0 題
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 未找到任何題目
+2025-10-15 16:29:57 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/中華民國憲法與警察專業英文 - 未找到任何題目
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，5424 字元
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:29:57 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 18 選項不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ 題目解析完成，共 12 題
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/答案.pdf
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，879 字元
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:29:57 - archaeology_questions - INFO - 表格格式答案: 20 個
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 20 個答案
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/更正答案.pdf
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，915 字元
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/一般題目.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/一般題目.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/完整題目.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/完整題目.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:29:57 - archaeology_questions - INFO - 答案統計: {'A': 5, 'B': 3, 'C': 7, 'D': 5, '無效': 0}
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ PDF處理完成: 12 題，4 個CSV檔案
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_GoogleAppsScript.js
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_GoogleAppsScript.js
+2025-10-15 16:29:57 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序) - 'int' object has no attribute 'strip'
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國土安全與非傳統安全/試題.pdf
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國土安全與非傳統安全/試題.pdf
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國土安全與非傳統安全/試題.pdf
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，666 字元
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:29:57 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 25 選項不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - WARNING - 題目 5 選項不足，跳過
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ 題目解析完成，共 3 題
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國土安全與非傳統安全/試題.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國土安全與非傳統安全/試題.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/國土安全與非傳統安全/試題_Google表單.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/國土安全與非傳統安全/試題_Google表單.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/國土安全與非傳統安全
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國土安全與非傳統安全/一般題目.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國土安全與非傳統安全/一般題目.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國土安全與非傳統安全/完整題目.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國土安全與非傳統安全/完整題目.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:29:57 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ PDF處理完成: 3 題，4 個CSV檔案
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/國土安全與非傳統安全/試題_Google表單.csv
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/國土安全與非傳統安全/試題_GoogleAppsScript.js
+2025-10-15 16:29:57 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/國土安全與非傳統安全/試題_GoogleAppsScript.js
+2025-10-15 16:29:57 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國土安全與非傳統安全 - 'int' object has no attribute 'strip'
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國文(作文與測驗)/試題.pdf
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國文(作文與測驗)/試題.pdf
+2025-10-15 16:29:57 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國文(作文與測驗)/試題.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，3736 字元
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:29:58 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:29:58 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目解析完成，共 2 題
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國文(作文與測驗)/答案.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，1023 字元
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:29:58 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/一般題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/一般題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/完整題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/完整題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:29:58 - archaeology_questions - INFO - 答案統計: {'A': 1, 'B': 3, 'C': 3, 'D': 3, '無效': 0}
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ PDF處理完成: 2 題，4 個CSV檔案
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_GoogleAppsScript.js
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_GoogleAppsScript.js
+2025-10-15 16:29:58 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國文(作文與測驗) - 'int' object has no attribute 'strip'
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/情報學/試題.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/情報學/試題.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/情報學/試題.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，519 字元
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:29:58 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:29:58 - archaeology_questions - WARNING - 題目 25 選項不足，跳過
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目解析完成，共 1 題
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/情報學/試題.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/情報學/試題.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/情報學/試題_Google表單.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/情報學/試題_Google表單.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/情報學
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/情報學/一般題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/情報學/一般題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/情報學/完整題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/情報學/完整題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:29:58 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ PDF處理完成: 1 題，4 個CSV檔案
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/情報學/試題_Google表單.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/情報學/試題_GoogleAppsScript.js
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/情報學/試題_GoogleAppsScript.js
+2025-10-15 16:29:58 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/情報學 - 'int' object has no attribute 'strip'
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國家安全情報法制/試題.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國家安全情報法制/試題.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國家安全情報法制/試題.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 2 頁，1110 字元
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:29:58 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:29:58 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:29:58 - archaeology_questions - WARNING - 題目 2 選項不足，跳過
+2025-10-15 16:29:58 - archaeology_questions - WARNING - 題目 40 選項不足，跳過
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目解析完成，共 6 題
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國家安全情報法制/試題.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國家安全情報法制/試題.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/國家安全情報法制/試題_Google表單.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/國家安全情報法制/試題_Google表單.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/國家安全情報法制
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國家安全情報法制/一般題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國家安全情報法制/一般題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國家安全情報法制/完整題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國家安全情報法制/完整題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:29:58 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ PDF處理完成: 6 題，4 個CSV檔案
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/國家安全情報法制/試題_Google表單.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/國家安全情報法制/試題_GoogleAppsScript.js
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/國家安全情報法制/試題_GoogleAppsScript.js
+2025-10-15 16:29:58 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國家安全情報法制 - 'int' object has no attribute 'strip'
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，4221 字元
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:29:58 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:29:58 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:29:58 - archaeology_questions - WARNING - 題目 5 選項不足，跳過
+2025-10-15 16:29:58 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:29:58 - archaeology_questions - WARNING - 題目 15 選項不足，跳過
+2025-10-15 16:29:58 - archaeology_questions - WARNING - 題目 666 選項不足，跳過
+2025-10-15 16:29:58 - archaeology_questions - WARNING - 題目 689 選項不足，跳過
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目解析完成，共 14 題
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/答案.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，901 字元
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:29:58 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/更正答案.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，925 字元
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/一般題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/一般題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/完整題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/完整題目.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:29:58 - archaeology_questions - INFO - 答案統計: {'A': 4, 'B': 3, 'C': 6, 'D': 12, '無效': 0}
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ PDF處理完成: 14 題，4 個CSV檔案
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_GoogleAppsScript.js
+2025-10-15 16:29:58 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_GoogleAppsScript.js
+2025-10-15 16:29:58 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法) - 'int' object has no attribute 'strip'
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:29:58 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 8 頁，12898 字元
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:29:59 - archaeology_questions - INFO - 檢測到 2 個題組
+2025-10-15 16:29:59 - archaeology_questions - INFO - 解析題組: 第51題至第55題
+2025-10-15 16:29:59 - archaeology_questions - INFO - 解析題組: 第56題至第60題
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 51 長度過長，截斷
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 51 選項不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 52 長度不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 53 長度不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 54 長度不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 55 長度過長，截斷
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 55 選項不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 56 長度過長，截斷
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 56 選項不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 57 長度不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 58 長度不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 59 長度不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 60 長度過長，截斷
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 60 選項不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 題目解析完成，共 0 題
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 未找到任何題目
+2025-10-15 16:29:59 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/中華民國憲法與警察專業英文 - 未找到任何題目
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/外事警察學/試題.pdf
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/外事警察學/試題.pdf
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/外事警察學/試題.pdf
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，571 字元
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:29:59 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 15 選項不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 5 選項不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 13 選項不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 題目解析完成，共 3 題
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/外事警察學/試題.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/外事警察學/試題.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/外事警察學/試題_Google表單.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/外事警察學/試題_Google表單.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/外事警察學
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/外事警察學/一般題目.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/外事警察學/一般題目.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/外事警察學/完整題目.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/外事警察學/完整題目.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:29:59 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ PDF處理完成: 3 題，4 個CSV檔案
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/外事警察學/試題_Google表單.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/外事警察學/試題_GoogleAppsScript.js
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/外事警察學/試題_GoogleAppsScript.js
+2025-10-15 16:29:59 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/外事警察學 - 'int' object has no attribute 'strip'
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，5424 字元
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:29:59 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 18 選項不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 題目解析完成，共 12 題
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/答案.pdf
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，879 字元
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:29:59 - archaeology_questions - INFO - 表格格式答案: 20 個
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 20 個答案
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/更正答案.pdf
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，915 字元
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/一般題目.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/一般題目.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/完整題目.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/完整題目.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:29:59 - archaeology_questions - INFO - 答案統計: {'A': 5, 'B': 3, 'C': 7, 'D': 5, '無效': 0}
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ PDF處理完成: 12 題，4 個CSV檔案
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_GoogleAppsScript.js
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_GoogleAppsScript.js
+2025-10-15 16:29:59 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序) - 'int' object has no attribute 'strip'
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，3736 字元
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:29:59 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:29:59 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:29:59 - archaeology_questions - INFO - ✅ 題目解析完成，共 2 題
+2025-10-15 16:29:59 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/國文(作文與測驗)/答案.pdf
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，1023 字元
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:00 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/一般題目.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/一般題目.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/完整題目.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/完整題目.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:00 - archaeology_questions - INFO - 答案統計: {'A': 1, 'B': 3, 'C': 3, 'D': 3, '無效': 0}
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ PDF處理完成: 2 題，4 個CSV檔案
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_GoogleAppsScript.js
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_GoogleAppsScript.js
+2025-10-15 16:30:00 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/國文(作文與測驗) - 'int' object has no attribute 'strip'
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/國際警察合作與跨國(境)犯罪防制/試題.pdf
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/國際警察合作與跨國(境)犯罪防制/試題.pdf
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/國際警察合作與跨國(境)犯罪防制/試題.pdf
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，581 字元
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:00 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:00 - archaeology_questions - WARNING - 題目 25 選項不足，跳過
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題目解析完成，共 5 題
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國際警察合作與跨國(境)犯罪防制/試題.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國際警察合作與跨國(境)犯罪防制/試題.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/國際警察合作與跨國(境)犯罪防制/試題_Google表單.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/國際警察合作與跨國(境)犯罪防制/試題_Google表單.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/國際警察合作與跨國(境)犯罪防制
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國際警察合作與跨國(境)犯罪防制/一般題目.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國際警察合作與跨國(境)犯罪防制/一般題目.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國際警察合作與跨國(境)犯罪防制/完整題目.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國際警察合作與跨國(境)犯罪防制/完整題目.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:00 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ PDF處理完成: 5 題，4 個CSV檔案
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/國際警察合作與跨國(境)犯罪防制/試題_Google表單.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/國際警察合作與跨國(境)犯罪防制/試題_GoogleAppsScript.js
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/國際警察合作與跨國(境)犯罪防制/試題_GoogleAppsScript.js
+2025-10-15 16:30:00 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/國際警察合作與跨國(境)犯罪防制 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，4221 字元
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:00 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:00 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:30:00 - archaeology_questions - WARNING - 題目 5 選項不足，跳過
+2025-10-15 16:30:00 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:30:00 - archaeology_questions - WARNING - 題目 15 選項不足，跳過
+2025-10-15 16:30:00 - archaeology_questions - WARNING - 題目 666 選項不足，跳過
+2025-10-15 16:30:00 - archaeology_questions - WARNING - 題目 689 選項不足，跳過
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題目解析完成，共 14 題
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/答案.pdf
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，901 字元
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:00 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/更正答案.pdf
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，925 字元
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/一般題目.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/一般題目.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/完整題目.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/完整題目.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:00 - archaeology_questions - INFO - 答案統計: {'A': 4, 'B': 3, 'C': 6, 'D': 12, '無效': 0}
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ PDF處理完成: 14 題，4 個CSV檔案
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_GoogleAppsScript.js
+2025-10-15 16:30:00 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_GoogleAppsScript.js
+2025-10-15 16:30:00 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法) - 'int' object has no attribute 'strip'
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:30:00 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 8 頁，12898 字元
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:01 - archaeology_questions - INFO - 檢測到 2 個題組
+2025-10-15 16:30:01 - archaeology_questions - INFO - 解析題組: 第51題至第55題
+2025-10-15 16:30:01 - archaeology_questions - INFO - 解析題組: 第56題至第60題
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 51 長度過長，截斷
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 51 選項不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 52 長度不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 53 長度不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 54 長度不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 55 長度過長，截斷
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 55 選項不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 56 長度過長，截斷
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 56 選項不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 57 長度不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 58 長度不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 59 長度不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 60 長度過長，截斷
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 60 選項不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題目解析完成，共 0 題
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 未找到任何題目
+2025-10-15 16:30:01 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/中華民國憲法與警察專業英文 - 未找到任何題目
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，5424 字元
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:01 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 18 選項不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題目解析完成，共 12 題
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/答案.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，879 字元
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:01 - archaeology_questions - INFO - 表格格式答案: 20 個
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 20 個答案
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/更正答案.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，915 字元
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/一般題目.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/一般題目.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/完整題目.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/完整題目.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:01 - archaeology_questions - INFO - 答案統計: {'A': 5, 'B': 3, 'C': 7, 'D': 5, '無效': 0}
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ PDF處理完成: 12 題，4 個CSV檔案
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_GoogleAppsScript.js
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_GoogleAppsScript.js
+2025-10-15 16:30:01 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序) - 'int' object has no attribute 'strip'
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/偵查法學/試題.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/偵查法學/試題.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/偵查法學/試題.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 2 頁，1103 字元
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:01 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 2 選項不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題目解析完成，共 3 題
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/偵查法學/試題.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/偵查法學/試題.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/偵查法學/試題_Google表單.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/偵查法學/試題_Google表單.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/偵查法學
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/偵查法學/一般題目.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/偵查法學/一般題目.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/偵查法學/完整題目.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/偵查法學/完整題目.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:01 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ PDF處理完成: 3 題，4 個CSV檔案
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/偵查法學/試題_Google表單.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/偵查法學/試題_GoogleAppsScript.js
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/偵查法學/試題_GoogleAppsScript.js
+2025-10-15 16:30:01 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/偵查法學 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，3736 字元
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:01 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:01 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題目解析完成，共 2 題
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/國文(作文與測驗)/答案.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，1023 字元
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:01 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/一般題目.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/一般題目.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/完整題目.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/完整題目.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:01 - archaeology_questions - INFO - 答案統計: {'A': 1, 'B': 3, 'C': 3, 'D': 3, '無效': 0}
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ PDF處理完成: 2 題，4 個CSV檔案
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_GoogleAppsScript.js
+2025-10-15 16:30:01 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_GoogleAppsScript.js
+2025-10-15 16:30:01 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/國文(作文與測驗) - 'int' object has no attribute 'strip'
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/犯罪偵查學/試題.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/犯罪偵查學/試題.pdf
+2025-10-15 16:30:01 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/犯罪偵查學/試題.pdf
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，5289 字元
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:02 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 題目解析完成，共 9 題
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/犯罪偵查學/答案.pdf
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，770 字元
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:02 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/犯罪偵查學/更正答案.pdf
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，811 字元
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/犯罪偵查學/試題.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/犯罪偵查學/試題.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/犯罪偵查學/試題_Google表單.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/犯罪偵查學/試題_Google表單.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/犯罪偵查學
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/犯罪偵查學/一般題目.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/犯罪偵查學/一般題目.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/犯罪偵查學/完整題目.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/犯罪偵查學/完整題目.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:02 - archaeology_questions - INFO - 答案統計: {'A': 6, 'B': 8, 'C': 8, 'D': 3, '無效': 0}
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ PDF處理完成: 9 題，4 個CSV檔案
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/犯罪偵查學/試題_Google表單.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/犯罪偵查學/試題_GoogleAppsScript.js
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/犯罪偵查學/試題_GoogleAppsScript.js
+2025-10-15 16:30:02 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/犯罪偵查學 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，4221 字元
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:02 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:02 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:30:02 - archaeology_questions - WARNING - 題目 5 選項不足，跳過
+2025-10-15 16:30:02 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:30:02 - archaeology_questions - WARNING - 題目 15 選項不足，跳過
+2025-10-15 16:30:02 - archaeology_questions - WARNING - 題目 666 選項不足，跳過
+2025-10-15 16:30:02 - archaeology_questions - WARNING - 題目 689 選項不足，跳過
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 題目解析完成，共 14 題
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/答案.pdf
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，901 字元
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:02 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/更正答案.pdf
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，925 字元
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/一般題目.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/一般題目.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/完整題目.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/完整題目.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:02 - archaeology_questions - INFO - 答案統計: {'A': 4, 'B': 3, 'C': 6, 'D': 12, '無效': 0}
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ PDF處理完成: 14 題，4 個CSV檔案
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_GoogleAppsScript.js
+2025-10-15 16:30:02 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_GoogleAppsScript.js
+2025-10-15 16:30:02 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法) - 'int' object has no attribute 'strip'
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/刑案現場處理與刑事鑑識/試題.pdf
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/刑案現場處理與刑事鑑識/試題.pdf
+2025-10-15 16:30:02 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/刑案現場處理與刑事鑑識/試題.pdf
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，6437 字元
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:03 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 15 選項不足，跳過
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 5 選項不足，跳過
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 19 選項不足，跳過
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ 題目解析完成，共 8 題
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/刑案現場處理與刑事鑑識/答案.pdf
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，776 字元
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:03 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/刑案現場處理與刑事鑑識/更正答案.pdf
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，818 字元
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/刑案現場處理與刑事鑑識/試題.csv
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/刑案現場處理與刑事鑑識/試題.csv
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/刑案現場處理與刑事鑑識/試題_Google表單.csv
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/刑案現場處理與刑事鑑識/試題_Google表單.csv
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/刑案現場處理與刑事鑑識
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/刑案現場處理與刑事鑑識/一般題目.csv
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/刑案現場處理與刑事鑑識/一般題目.csv
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/刑案現場處理與刑事鑑識/完整題目.csv
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/刑案現場處理與刑事鑑識/完整題目.csv
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:03 - archaeology_questions - INFO - 答案統計: {'A': 6, 'B': 7, 'C': 5, 'D': 7, '無效': 0}
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ PDF處理完成: 8 題，4 個CSV檔案
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/刑案現場處理與刑事鑑識/試題_Google表單.csv
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/刑案現場處理與刑事鑑識/試題_GoogleAppsScript.js
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/刑案現場處理與刑事鑑識/試題_GoogleAppsScript.js
+2025-10-15 16:30:03 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/刑案現場處理與刑事鑑識 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 8 頁，12898 字元
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:03 - archaeology_questions - INFO - 檢測到 2 個題組
+2025-10-15 16:30:03 - archaeology_questions - INFO - 解析題組: 第51題至第55題
+2025-10-15 16:30:03 - archaeology_questions - INFO - 解析題組: 第56題至第60題
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 51 長度過長，截斷
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 51 選項不足，跳過
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 52 長度不足，跳過
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 53 長度不足，跳過
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 54 長度不足，跳過
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 55 長度過長，截斷
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 55 選項不足，跳過
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 56 長度過長，截斷
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 56 選項不足，跳過
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 57 長度不足，跳過
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 58 長度不足，跳過
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 59 長度不足，跳過
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 60 長度過長，截斷
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 題目 60 選項不足，跳過
+2025-10-15 16:30:03 - archaeology_questions - INFO - ✅ 題目解析完成，共 0 題
+2025-10-15 16:30:03 - archaeology_questions - WARNING - 未找到任何題目
+2025-10-15 16:30:03 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/中華民國憲法與警察專業英文 - 未找到任何題目
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:30:03 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，5424 字元
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:04 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:04 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:30:04 - archaeology_questions - WARNING - 題目 18 選項不足，跳過
+2025-10-15 16:30:04 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 題目解析完成，共 12 題
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/答案.pdf
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，879 字元
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:04 - archaeology_questions - INFO - 表格格式答案: 20 個
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 20 個答案
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/更正答案.pdf
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，915 字元
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/一般題目.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/一般題目.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/完整題目.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/完整題目.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:04 - archaeology_questions - INFO - 答案統計: {'A': 5, 'B': 3, 'C': 7, 'D': 5, '無效': 0}
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ PDF處理完成: 12 題，4 個CSV檔案
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_GoogleAppsScript.js
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_GoogleAppsScript.js
+2025-10-15 16:30:04 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序) - 'int' object has no attribute 'strip'
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察政策與犯罪預防/試題.pdf
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察政策與犯罪預防/試題.pdf
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察政策與犯罪預防/試題.pdf
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，6372 字元
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:04 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:04 - archaeology_questions - WARNING - 題目 15 選項不足，跳過
+2025-10-15 16:30:04 - archaeology_questions - WARNING - 題目 8 選項不足，跳過
+2025-10-15 16:30:04 - archaeology_questions - WARNING - 題目 20 選項不足，跳過
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 題目解析完成，共 9 題
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察政策與犯罪預防/答案.pdf
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，774 字元
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:04 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察政策與犯罪預防/更正答案.pdf
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，797 字元
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察政策與犯罪預防/試題.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察政策與犯罪預防/試題.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/警察政策與犯罪預防/試題_Google表單.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/警察政策與犯罪預防/試題_Google表單.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/警察政策與犯罪預防
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察政策與犯罪預防/一般題目.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察政策與犯罪預防/一般題目.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察政策與犯罪預防/完整題目.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察政策與犯罪預防/完整題目.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:04 - archaeology_questions - INFO - 答案統計: {'A': 3, 'B': 6, 'C': 6, 'D': 10, '無效': 0}
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ PDF處理完成: 9 題，4 個CSV檔案
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/警察政策與犯罪預防/試題_Google表單.csv
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/警察政策與犯罪預防/試題_GoogleAppsScript.js
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/警察政策與犯罪預防/試題_GoogleAppsScript.js
+2025-10-15 16:30:04 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察政策與犯罪預防 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，3736 字元
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:04 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:04 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:30:04 - archaeology_questions - INFO - ✅ 題目解析完成，共 2 題
+2025-10-15 16:30:04 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/國文(作文與測驗)/答案.pdf
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，1023 字元
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:05 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/一般題目.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/一般題目.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/完整題目.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/完整題目.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:05 - archaeology_questions - INFO - 答案統計: {'A': 1, 'B': 3, 'C': 3, 'D': 3, '無效': 0}
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ PDF處理完成: 2 題，4 個CSV檔案
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_GoogleAppsScript.js
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_GoogleAppsScript.js
+2025-10-15 16:30:05 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/國文(作文與測驗) - 'int' object has no attribute 'strip'
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/偵查法學與犯罪偵查/試題.pdf
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/偵查法學與犯罪偵查/試題.pdf
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/偵查法學與犯罪偵查/試題.pdf
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 6 頁，7043 字元
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:05 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:05 - archaeology_questions - WARNING - 題目 7 選項不足，跳過
+2025-10-15 16:30:05 - archaeology_questions - WARNING - 題目 18 選項不足，跳過
+2025-10-15 16:30:05 - archaeology_questions - WARNING - 題目 22 選項不足，跳過
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題目解析完成，共 12 題
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/偵查法學與犯罪偵查/答案.pdf
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，774 字元
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:05 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/偵查法學與犯罪偵查/試題.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/偵查法學與犯罪偵查/試題.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/偵查法學與犯罪偵查/試題_Google表單.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/偵查法學與犯罪偵查/試題_Google表單.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/偵查法學與犯罪偵查
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/偵查法學與犯罪偵查/一般題目.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/偵查法學與犯罪偵查/一般題目.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/偵查法學與犯罪偵查/完整題目.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/偵查法學與犯罪偵查/完整題目.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:05 - archaeology_questions - INFO - 答案統計: {'A': 5, 'B': 6, 'C': 6, 'D': 8, '無效': 0}
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ PDF處理完成: 12 題，4 個CSV檔案
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/偵查法學與犯罪偵查/試題_Google表單.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/偵查法學與犯罪偵查/試題_GoogleAppsScript.js
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/偵查法學與犯罪偵查/試題_GoogleAppsScript.js
+2025-10-15 16:30:05 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/偵查法學與犯罪偵查 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，4221 字元
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:05 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:05 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:30:05 - archaeology_questions - WARNING - 題目 5 選項不足，跳過
+2025-10-15 16:30:05 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:30:05 - archaeology_questions - WARNING - 題目 15 選項不足，跳過
+2025-10-15 16:30:05 - archaeology_questions - WARNING - 題目 666 選項不足，跳過
+2025-10-15 16:30:05 - archaeology_questions - WARNING - 題目 689 選項不足，跳過
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題目解析完成，共 14 題
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/答案.pdf
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，901 字元
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:05 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/更正答案.pdf
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，925 字元
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/一般題目.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/一般題目.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/完整題目.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/完整題目.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:05 - archaeology_questions - INFO - 答案統計: {'A': 4, 'B': 3, 'C': 6, 'D': 12, '無效': 0}
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ PDF處理完成: 14 題，4 個CSV檔案
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_GoogleAppsScript.js
+2025-10-15 16:30:05 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_GoogleAppsScript.js
+2025-10-15 16:30:05 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法) - 'int' object has no attribute 'strip'
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察學與警察勤務/試題.pdf
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察學與警察勤務/試題.pdf
+2025-10-15 16:30:05 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察學與警察勤務/試題.pdf
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，5211 字元
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:06 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ 題目解析完成，共 9 題
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察學與警察勤務/答案.pdf
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，773 字元
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:06 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察學與警察勤務/更正答案.pdf
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，813 字元
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察學與警察勤務/試題.csv
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察學與警察勤務/試題.csv
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/警察學與警察勤務/試題_Google表單.csv
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/警察學與警察勤務/試題_Google表單.csv
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/警察學與警察勤務
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察學與警察勤務/一般題目.csv
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察學與警察勤務/一般題目.csv
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察學與警察勤務/完整題目.csv
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察學與警察勤務/完整題目.csv
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:06 - archaeology_questions - INFO - 答案統計: {'A': 5, 'B': 7, 'C': 5, 'D': 8, '無效': 0}
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ PDF處理完成: 9 題，4 個CSV檔案
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/警察學與警察勤務/試題_Google表單.csv
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/警察學與警察勤務/試題_GoogleAppsScript.js
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/警察學與警察勤務/試題_GoogleAppsScript.js
+2025-10-15 16:30:06 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/行政警察/警察學與警察勤務 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/中華民國憲法與警察專業英文/試題.pdf
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 8 頁，12898 字元
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:06 - archaeology_questions - INFO - 檢測到 2 個題組
+2025-10-15 16:30:06 - archaeology_questions - INFO - 解析題組: 第51題至第55題
+2025-10-15 16:30:06 - archaeology_questions - INFO - 解析題組: 第56題至第60題
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 51 長度過長，截斷
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 51 選項不足，跳過
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 52 長度不足，跳過
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 53 長度不足，跳過
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 54 長度不足，跳過
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 55 長度過長，截斷
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 55 選項不足，跳過
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 56 長度過長，截斷
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 56 選項不足，跳過
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 57 長度不足，跳過
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 58 長度不足，跳過
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 59 長度不足，跳過
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 60 長度過長，截斷
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 題目 60 選項不足，跳過
+2025-10-15 16:30:06 - archaeology_questions - INFO - ✅ 題目解析完成，共 0 題
+2025-10-15 16:30:06 - archaeology_questions - WARNING - 未找到任何題目
+2025-10-15 16:30:06 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/中華民國憲法與警察專業英文 - 未找到任何題目
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:30:06 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，5424 字元
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:07 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:07 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:30:07 - archaeology_questions - WARNING - 題目 18 選項不足，跳過
+2025-10-15 16:30:07 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目解析完成，共 12 題
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/答案.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，879 字元
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 表格格式答案: 20 個
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 20 個答案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/更正答案.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，915 字元
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/一般題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/一般題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/完整題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/完整題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 答案統計: {'A': 5, 'B': 3, 'C': 7, 'D': 5, '無效': 0}
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ PDF處理完成: 12 題，4 個CSV檔案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_GoogleAppsScript.js
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題_GoogleAppsScript.js
+2025-10-15 16:30:07 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序) - 'int' object has no attribute 'strip'
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/國文(作文與測驗)/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/國文(作文與測驗)/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/國文(作文與測驗)/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，3736 字元
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:07 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:07 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目解析完成，共 2 題
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/國文(作文與測驗)/答案.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，1023 字元
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/一般題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/一般題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/完整題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/完整題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 答案統計: {'A': 1, 'B': 3, 'C': 3, 'D': 3, '無效': 0}
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ PDF處理完成: 2 題，4 個CSV檔案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_GoogleAppsScript.js
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_GoogleAppsScript.js
+2025-10-15 16:30:07 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/國文(作文與測驗) - 'int' object has no attribute 'strip'
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/犯罪分析/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/犯罪分析/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/犯罪分析/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 2 頁，1317 字元
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:07 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:07 - archaeology_questions - WARNING - 題目 5 選項不足，跳過
+2025-10-15 16:30:07 - archaeology_questions - WARNING - 題目 5 選項不足，跳過
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目解析完成，共 2 題
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/犯罪分析/試題.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/犯罪分析/試題.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/犯罪分析/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/犯罪分析/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/犯罪分析
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/犯罪分析/一般題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/犯罪分析/一般題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/犯罪分析/完整題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/犯罪分析/完整題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ PDF處理完成: 2 題，4 個CSV檔案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/犯罪分析/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/犯罪分析/試題_GoogleAppsScript.js
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/犯罪分析/試題_GoogleAppsScript.js
+2025-10-15 16:30:07 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/犯罪分析 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/犯罪學與犯罪預防/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/犯罪學與犯罪預防/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/犯罪學與犯罪預防/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，668 字元
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:07 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:07 - archaeology_questions - WARNING - 題目 25 選項不足，跳過
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目解析完成，共 2 題
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/犯罪學與犯罪預防/試題.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/犯罪學與犯罪預防/試題.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/犯罪學與犯罪預防/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/犯罪學與犯罪預防/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/犯罪學與犯罪預防
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/犯罪學與犯罪預防/一般題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/犯罪學與犯罪預防/一般題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/犯罪學與犯罪預防/完整題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/犯罪學與犯罪預防/完整題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ PDF處理完成: 2 題，4 個CSV檔案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/犯罪學與犯罪預防/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/犯罪學與犯罪預防/試題_GoogleAppsScript.js
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/犯罪學與犯罪預防/試題_GoogleAppsScript.js
+2025-10-15 16:30:07 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/犯罪學與犯罪預防 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/諮商輔導與婦幼保護/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/諮商輔導與婦幼保護/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/諮商輔導與婦幼保護/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，668 字元
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:07 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:07 - archaeology_questions - WARNING - 題目 25 選項不足，跳過
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目解析完成，共 2 題
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/諮商輔導與婦幼保護/試題.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/諮商輔導與婦幼保護/試題.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/諮商輔導與婦幼保護/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/諮商輔導與婦幼保護/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/諮商輔導與婦幼保護
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/諮商輔導與婦幼保護/一般題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/諮商輔導與婦幼保護/一般題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/諮商輔導與婦幼保護/完整題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/諮商輔導與婦幼保護/完整題目.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ PDF處理完成: 2 題，4 個CSV檔案
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/諮商輔導與婦幼保護/試題_Google表單.csv
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/諮商輔導與婦幼保護/試題_GoogleAppsScript.js
+2025-10-15 16:30:07 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/諮商輔導與婦幼保護/試題_GoogleAppsScript.js
+2025-10-15 16:30:07 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/諮商輔導與婦幼保護 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:30:07 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，4221 字元
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:08 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:08 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:30:08 - archaeology_questions - WARNING - 題目 5 選項不足，跳過
+2025-10-15 16:30:08 - archaeology_questions - WARNING - 題目 10 選項不足，跳過
+2025-10-15 16:30:08 - archaeology_questions - WARNING - 題目 15 選項不足，跳過
+2025-10-15 16:30:08 - archaeology_questions - WARNING - 題目 666 選項不足，跳過
+2025-10-15 16:30:08 - archaeology_questions - WARNING - 題目 689 選項不足，跳過
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ 題目解析完成，共 14 題
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/答案.pdf
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，901 字元
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:08 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/更正答案.pdf
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，925 字元
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始提取更正答案
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ 更正答案提取完成，共找到 0 個更正答案
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/一般題目.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/一般題目.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/完整題目.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/完整題目.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:08 - archaeology_questions - INFO - 答案統計: {'A': 4, 'B': 3, 'C': 6, 'D': 12, '無效': 0}
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ PDF處理完成: 14 題，4 個CSV檔案
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_Google表單.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_GoogleAppsScript.js
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題_GoogleAppsScript.js
+2025-10-15 16:30:08 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法) - 'int' object has no attribute 'strip'
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/消防警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/消防警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/消防警察/國文(作文與測驗)/試題.pdf
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，3736 字元
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:08 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:08 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ 題目解析完成，共 2 題
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/消防警察/國文(作文與測驗)/答案.pdf
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，1023 字元
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:08 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/一般題目.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/一般題目.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文(作文與測驗)/完整題目.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/完整題目.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:08 - archaeology_questions - INFO - 答案統計: {'A': 1, 'B': 3, 'C': 3, 'D': 3, '無效': 0}
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ PDF處理完成: 2 題，4 個CSV檔案
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_Google表單.csv
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_GoogleAppsScript.js
+2025-10-15 16:30:08 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/國文(作文與測驗)/試題_GoogleAppsScript.js
+2025-10-15 16:30:08 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/消防警察/國文(作文與測驗) - 'int' object has no attribute 'strip'
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/消防警察/中華民國憲法與消防警察專業英文/試題.pdf
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/消防警察/中華民國憲法與消防警察專業英文/試題.pdf
+2025-10-15 16:30:08 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/消防警察/中華民國憲法與消防警察專業英文/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 8 頁，11594 字元
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:09 - archaeology_questions - INFO - 檢測到 2 個題組
+2025-10-15 16:30:09 - archaeology_questions - INFO - 解析題組: 第51題至第55題
+2025-10-15 16:30:09 - archaeology_questions - INFO - 解析題組: 第56題至第60題
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 51 長度過長，截斷
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 51 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 52 長度不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 53 長度不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 54 長度不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 55 長度過長，截斷
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 55 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 56 長度過長，截斷
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 56 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 57 長度不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 58 長度不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 59 長度不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 60 長度過長，截斷
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 60 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目解析完成，共 0 題
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 未找到任何題目
+2025-10-15 16:30:09 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_警察特考/消防警察/中華民國憲法與消防警察專業英文 - 未找到任何題目
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/刑事政策/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/刑事政策/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/刑事政策/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，866 字元
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:09 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 791 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 25 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 1 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目解析完成，共 5 題
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/刑事政策/試題.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/刑事政策/試題.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/刑事政策/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/刑事政策/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/刑事政策
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/刑事政策/一般題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/刑事政策/一般題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/刑事政策/完整題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/刑事政策/完整題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:09 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ PDF處理完成: 5 題，4 個CSV檔案
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/刑事政策/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/刑事政策/試題_GoogleAppsScript.js
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/刑事政策/試題_GoogleAppsScript.js
+2025-10-15 16:30:09 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/刑事政策 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/監獄行刑法與羈押法/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/監獄行刑法與羈押法/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/監獄行刑法與羈押法/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，496 字元
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:09 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 25 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目解析完成，共 2 題
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/監獄行刑法與羈押法/試題.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/監獄行刑法與羈押法/試題.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/監獄行刑法與羈押法/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/監獄行刑法與羈押法/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/監獄行刑法與羈押法
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/監獄行刑法與羈押法/一般題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/監獄行刑法與羈押法/一般題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/監獄行刑法與羈押法/完整題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/監獄行刑法與羈押法/完整題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:09 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ PDF處理完成: 2 題，4 個CSV檔案
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/監獄行刑法與羈押法/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/監獄行刑法與羈押法/試題_GoogleAppsScript.js
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/監獄行刑法與羈押法/試題_GoogleAppsScript.js
+2025-10-15 16:30:09 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/監獄行刑法與羈押法 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/刑法與少年事件處理法/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/刑法與少年事件處理法/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/刑法與少年事件處理法/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，715 字元
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:09 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 8 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目解析完成，共 2 題
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/刑法與少年事件處理法/試題.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/刑法與少年事件處理法/試題.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/刑法與少年事件處理法/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/刑法與少年事件處理法/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/刑法與少年事件處理法
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/刑法與少年事件處理法/一般題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/刑法與少年事件處理法/一般題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/刑法與少年事件處理法/完整題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/刑法與少年事件處理法/完整題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:09 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ PDF處理完成: 2 題，4 個CSV檔案
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/刑法與少年事件處理法/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/刑法與少年事件處理法/試題_GoogleAppsScript.js
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/刑法與少年事件處理法/試題_GoogleAppsScript.js
+2025-10-15 16:30:09 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/刑法與少年事件處理法 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/國文（作文與測驗）/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/國文（作文與測驗）/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/國文（作文與測驗）/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，4521 字元
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:09 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 23 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目解析完成，共 3 題
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/國文（作文與測驗）/答案.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，1061 字元
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始提取答案
+2025-10-15 16:30:09 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文（作文與測驗）/試題.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文（作文與測驗）/試題.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/國文（作文與測驗）/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/國文（作文與測驗）/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/國文（作文與測驗）
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文（作文與測驗）/一般題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文（作文與測驗）/一般題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/國文（作文與測驗）/完整題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/國文（作文與測驗）/完整題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:09 - archaeology_questions - INFO - 答案統計: {'A': 2, 'B': 1, 'C': 5, 'D': 2, '無效': 0}
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ PDF處理完成: 3 題，4 個CSV檔案
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/國文（作文與測驗）/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/國文（作文與測驗）/試題_GoogleAppsScript.js
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/國文（作文與測驗）/試題_GoogleAppsScript.js
+2025-10-15 16:30:09 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/國文（作文與測驗） - 'int' object has no attribute 'strip'
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/法學知識與英文（包括中華民國憲法、法學緒論、英文）/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/法學知識與英文（包括中華民國憲法、法學緒論、英文）/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/法學知識與英文（包括中華民國憲法、法學緒論、英文）/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 4 頁，10863 字元
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:09 - archaeology_questions - INFO - 檢測到 2 個題組
+2025-10-15 16:30:09 - archaeology_questions - INFO - 解析題組: 第41題至第45題
+2025-10-15 16:30:09 - archaeology_questions - INFO - 解析題組: 第46題至第50題
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 41 長度過長，截斷
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 41 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 42 長度不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 43 長度不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 44 長度不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 45 長度過長，截斷
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 45 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 46 長度過長，截斷
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 46 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 47 長度不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 48 長度不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 49 長度不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 50 長度過長，截斷
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 50 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目解析完成，共 0 題
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 未找到任何題目
+2025-10-15 16:30:09 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/法學知識與英文（包括中華民國憲法、法學緒論、英文） - 未找到任何題目
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/監獄學/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/監獄學/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/監獄學/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，621 字元
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:09 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 25 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - WARNING - 題目 25 選項不足，跳過
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目解析完成，共 3 題
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/監獄學/試題.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/監獄學/試題.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/監獄學/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/監獄學/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/監獄學
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/監獄學/一般題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/監獄學/一般題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/監獄學/完整題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/監獄學/完整題目.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:09 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ PDF處理完成: 3 題，4 個CSV檔案
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/監獄學/試題_Google表單.csv
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/監獄學/試題_GoogleAppsScript.js
+2025-10-15 16:30:09 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/監獄學/試題_GoogleAppsScript.js
+2025-10-15 16:30:09 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/監獄學 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/諮商與矯正輔導/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/諮商與矯正輔導/試題.pdf
+2025-10-15 16:30:09 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/諮商與矯正輔導/試題.pdf
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，657 字元
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:10 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ 題目解析完成，共 3 題
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/諮商與矯正輔導/試題.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/諮商與矯正輔導/試題.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/諮商與矯正輔導/試題_Google表單.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/諮商與矯正輔導/試題_Google表單.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/諮商與矯正輔導
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/諮商與矯正輔導/一般題目.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/諮商與矯正輔導/一般題目.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/諮商與矯正輔導/完整題目.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/諮商與矯正輔導/完整題目.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:10 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ PDF處理完成: 3 題，4 個CSV檔案
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/諮商與矯正輔導/試題_Google表單.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/諮商與矯正輔導/試題_GoogleAppsScript.js
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/諮商與矯正輔導/試題_GoogleAppsScript.js
+2025-10-15 16:30:10 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/諮商與矯正輔導 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始處理單一PDF: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/犯罪學與再犯預測/試題.pdf
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/犯罪學與再犯預測/試題.pdf
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始處理PDF檔案: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/犯罪學與再犯預測/試題.pdf
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ PDF文字提取完成，共 1 頁，950 字元
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始解析題目
+2025-10-15 16:30:10 - archaeology_questions - INFO - 未檢測到題組，解析一般題目
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ 題目解析完成，共 3 題
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/犯罪學與再犯預測/試題.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/犯罪學與再犯預測/試題.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始生成Google表單CSV: /workspace/test_output/批量處理測試/犯罪學與再犯預測/試題_Google表單.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ Google表單CSV生成完成: /workspace/test_output/批量處理測試/犯罪學與再犯預測/試題_Google表單.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始生成題組分類CSV: /workspace/test_output/批量處理測試/犯罪學與再犯預測
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/犯罪學與再犯預測/一般題目.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/犯罪學與再犯預測/一般題目.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始生成題目CSV: /workspace/test_output/批量處理測試/犯罪學與再犯預測/完整題目.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ 題目CSV生成完成: /workspace/test_output/批量處理測試/犯罪學與再犯預測/完整題目.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ 題組分類CSV生成完成，共 2 個檔案
+2025-10-15 16:30:10 - archaeology_questions - INFO - 答案統計: {'A': 0, 'B': 0, 'C': 0, 'D': 0, '無效': 0}
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ PDF處理完成: 3 題，4 個CSV檔案
+2025-10-15 16:30:10 - archaeology_questions - INFO - 開始生成Google Apps Script: /workspace/test_output/批量處理測試/犯罪學與再犯預測/試題_Google表單.csv
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ Google Apps Script生成完成: /workspace/test_output/批量處理測試/犯罪學與再犯預測/試題_GoogleAppsScript.js
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ Google Apps Script已生成: /workspace/test_output/批量處理測試/犯罪學與再犯預測/試題_GoogleAppsScript.js
+2025-10-15 16:30:10 - archaeology_questions - ERROR - ❌ ❌ 處理失敗: /workspace/考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/犯罪學與再犯預測 - 'int' object has no attribute 'strip'
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ 批量處理報告已生成: /workspace/test_output/批量處理測試/批量處理報告.md
+2025-10-15 16:30:10 - archaeology_questions - INFO - ✅ 批量處理完成: 0/44 成功

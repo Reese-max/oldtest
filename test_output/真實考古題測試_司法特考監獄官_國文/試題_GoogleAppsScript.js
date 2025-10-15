@@ -2,13 +2,13 @@
 /**
  * 考古題練習表單生成器
  * 自動從CSV資料建立Google表單
- * 生成時間: 2025-10-15 16:14:41
+ * 生成時間: 2025-10-15 16:28:32
  */
 
 function createPracticeForm() {
   // 表單設定
   const formTitle = "考古題練習表單";
-  const formDescription = "此表單包含 4 題考古題，用於練習和自測";
+  const formDescription = "此表單包含 3 題考古題，用於練習和自測";
   
   // 建立新表單
   const form = FormApp.create(formTitle);
@@ -37,9 +37,9 @@ function addQuestionsToForm(form) {
   const questions = [
     {
       title: "年 未 具 擬 任 職 務 任 用 資 格 者 取 得 法 官 遴 選 資 格 考 試 試 題\n50110-",
-      optionA: "年 未 具 擬 任 職 務 任 用 資 格 者 取",
-      optionB: "法 官 遴 選 資 格 考 試 試 題",
-      optionC: "50110-",
+      optionA: "年 未 具 擬 任 職 務 任 用 資 格 者 取 得",
+      optionB: "法 官 遴 選 資 格 考 試 試 題 50110-",
+      optionC: "nan",
       optionD: "nan",
       category: "其他",
       difficulty: "中等",
@@ -47,8 +47,8 @@ function addQuestionsToForm(form) {
     },
     {
       title: "分）\n二、請以「按部就班，還是隨遇而安」為題，作文一篇，以自己的生\n活經驗或所見所聞為例，抒發己見。（",
-      optionA: "二、請以「按部就班，還是隨遇而安」為題，作文一篇，以自己的生",
-      optionB: "活經驗或所見所聞為例，抒發己見。（",
+      optionA: "經驗或所見所聞為例，抒發己見。（",
+      optionB: "分） 二、請以「按部就班，還是隨遇而安」為題，作文一篇，以自己的生 活經驗或所見所聞為例，抒發己見。（",
       optionC: "nan",
       optionD: "nan",
       category: "其他",
@@ -56,19 +56,9 @@ function addQuestionsToForm(form) {
       isGroup: False,
     },
     {
-      title: "日的澄清公告：「有關",
-      optionA: "日的澄清公告：「有關",
-      optionB: "日的澄清公告：「有關",
-      optionC: "nan",
-      optionD: "nan",
-      category: "其他",
-      difficulty: "簡單",
-      isGroup: False,
-    },
-    {
       title: "條，任何人不得對兒童及少年遺棄、\n身心虐待、犯罪或為不正當行為等",
-      optionA: "條，任何人不得對兒童及少年遺棄、",
-      optionB: "身心虐待、犯罪或為不正當行為等",
+      optionA: "得對兒童及少年遺棄、",
+      optionB: "條，任何人不得對兒童及少年遺棄、 身心虐待、犯罪或為不正當行為等",
       optionC: "nan",
       optionD: "nan",
       category: "其他",
@@ -104,6 +94,7 @@ function addSubmitHandler(form) {
       let totalCount = responses.length;
       
       const answers = {
+    1: "C",
   };
       
       responses.forEach((response, index) => {
