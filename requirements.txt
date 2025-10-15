@@ -1,0 +1,19 @@
+# 考古題處理系統依賴清單
+
+# PDF處理
+pdfplumber>=0.9.0
+
+# 資料處理
+pandas>=1.5.0
+
+# Google AI
+google-generativeai>=0.3.0
+
+# 測試框架
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# 開發工具
+black>=22.0.0
+flake8>=5.0.0
+mypy>=1.0.0
