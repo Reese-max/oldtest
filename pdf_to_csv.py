@@ -7,7 +7,7 @@ import hashlib
 from typing import List, Dict, Any, Optional, Tuple
 import glob
 from datetime import datetime, timedelta
-from google import genai
+import google.generativeai as genai
 from google.generativeai.client import configure
 from google.generativeai.generative_models import GenerativeModel
 from google.generativeai.files import upload_file, get_file
@@ -665,7 +665,7 @@ def main():
     print("PDF轉CSV工具 - 零誤差版 + 答案檔案過濾")
     print("="*70)
 
-    api_key = "AIzaSyDkeFFssyn-Srci1zJPBF8FxXPbILrKj6k"  # 請替換為您的API key
+    api_key = "test_key"  # 測試用API key
     setup_gemini_api(api_key)
 
     input_dir = r"考選部考古題完整庫\民國114年"
