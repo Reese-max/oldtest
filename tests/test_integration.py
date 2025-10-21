@@ -73,20 +73,21 @@ class TestArchaeologyAPI(unittest.TestCase):
         self.assertFalse(result['success'])
         self.assertIn('PDF處理失敗', result['message'])
     
-    @patch('os.walk')
-    @patch('src.api.ArchaeologyAPI.process_single_pdf')
-    def test_process_directory_success(self, mock_process_single, mock_walk):
+    @patch('src.processors.archaeology_processor.ArchaeologyProcessor.process_directory')
+    def test_process_directory_success(self, mock_process_directory):
         """測試成功處理目錄"""
-        # 模擬目錄結構
-        mock_walk.return_value = [
-            ('/test', [], ['file1.pdf', 'file2.pdf', 'other.txt'])
-        ]
-        
-        # 模擬單一檔案處理結果
-        mock_process_single.return_value = {
+        # 模擬目錄處理結果
+        mock_process_directory.return_value = {
             'success': True,
-            'questions_count': 5,
-            'csv_files': ['/tmp/file1.csv']
+            'input_dir': '/test',
+            'output_dir': '/tmp/output',
+            'total_files': 2,
+            'successful_files': 2,
+            'total_questions': 10,
+            'results': [
+                {'success': True, 'questions_count': 5, 'csv_files': ['/tmp/file1.csv']},
+                {'success': True, 'questions_count': 5, 'csv_files': ['/tmp/file2.csv']}
+            ]
         }
         
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -113,26 +114,22 @@ class TestEndToEnd(unittest.TestCase):
     
     def test_complete_workflow_mock(self):
         """測試完整工作流程（使用模擬）"""
-        # 創建測試PDF內容
-        test_pdf_content = """
-        第1題：下列何者正確？
-        (A) 選項A
-        (B) 選項B
-        (C) 選項C
-        (D) 選項D
-        
-        第2題：下列何者錯誤？
-        (A) 選項A
-        (B) 選項B
-        (C) 選項C
-        (D) 選項D
-        """
-        
-        test_answer_content = """
-        答案：
-        1. A
-        2. B
-        """
+        # 創建測試PDF內容 - 使用更符合真實格式的內容
+        test_pdf_content = """1 下列何者正確？這是一個測試題目，用來驗證系統的題目解析功能是否正常運作。
+(A) 選項A內容
+(B) 選項B內容  
+(C) 選項C內容
+(D) 選項D內容
+
+2 下列何者錯誤？這是另一個測試題目，用來驗證系統能夠正確處理多個題目的情況。
+(A) 選項A內容
+(B) 選項B內容
+(C) 選項C內容
+(D) 選項D內容"""
+
+        test_answer_content = """答案：
+第1題 A
+第2題 B"""
         
         with tempfile.TemporaryDirectory() as temp_dir:
             # 創建測試PDF檔案
