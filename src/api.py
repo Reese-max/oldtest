@@ -174,6 +174,7 @@ def main():
     
     # 載入配置（如果指定）
     if args.config:
+        from .utils.config import ConfigManager
         config_manager = ConfigManager(args.config)
     
     # 建立API實例
