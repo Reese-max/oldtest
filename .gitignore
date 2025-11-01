@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# 虛擬環境
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 日誌文件
+*.log
+logs/
+*.log.*
+
+# 測試和輸出
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+test_output/
+*.pyc
+
+# 環境變量
+.env
+.env.local
+.env.*.local
+
+# 臨時文件
+*.tmp
+*.bak
+*.cache
+
+# 專案特定
+test_pdfs/*.pdf
+考選部考古題完整庫/**/*.pdf
+
+# 備份和歸檔
+archive/
+*.old
