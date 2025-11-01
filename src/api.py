@@ -12,6 +12,7 @@ from .processors.archaeology_processor import ArchaeologyProcessor
 from .core.google_script_generator import GoogleScriptGenerator
 from .utils.logger import logger
 from .utils.config import config_manager
+from .utils.exceptions import ArchaeologyQuestionsError
 
 
 class ArchaeologyAPI:
@@ -73,9 +74,16 @@ class ArchaeologyAPI:
             
             return result
             
-        except Exception as e:
+        except ArchaeologyQuestionsError as e:
+            # 已知的自定義異常，直接使用
             error_msg = f"單一PDF處理失敗: {e}"
             self.logger.failure(error_msg)
+            return {'success': False, 'message': str(e)}
+        except Exception as e:
+            # 未知異常，記錄詳細資訊
+            error_msg = f"單一PDF處理失敗: {e}"
+            self.logger.failure(error_msg)
+            self.logger.debug(f"異常詳情: {type(e).__name__}: {e}", exc_info=True)
             return {'success': False, 'message': error_msg}
     
     def process_directory(self, input_dir: str, 
@@ -126,9 +134,16 @@ class ArchaeologyAPI:
             
             return result
             
-        except Exception as e:
+        except ArchaeologyQuestionsError as e:
+            # 已知的自定義異常，直接使用
             error_msg = f"目錄處理失敗: {e}"
             self.logger.failure(error_msg)
+            return {'success': False, 'message': str(e)}
+        except Exception as e:
+            # 未知異常，記錄詳細資訊
+            error_msg = f"目錄處理失敗: {e}"
+            self.logger.failure(error_msg)
+            self.logger.debug(f"異常詳情: {type(e).__name__}: {e}", exc_info=True)
             return {'success': False, 'message': error_msg}
     
     def generate_script_from_csv(self, csv_path: str, 
@@ -154,10 +169,18 @@ class ArchaeologyAPI:
             self.logger.success(f"Google Apps Script生成完成: {script_path}")
             return script_path
             
-        except Exception as e:
+        except ArchaeologyQuestionsError as e:
+            # 已知的自定義異常，直接重新拋出
             error_msg = f"Google Apps Script生成失敗: {e}"
             self.logger.failure(error_msg)
             raise
+        except Exception as e:
+            # 未知異常，轉換為GoogleFormError
+            from .utils.exceptions import GoogleFormError
+            error_msg = f"Google Apps Script生成失敗: {e}"
+            self.logger.failure(error_msg)
+            self.logger.debug(f"異常詳情: {type(e).__name__}: {e}", exc_info=True)
+            raise GoogleFormError(error_msg) from e
 
 
 def main():
@@ -215,8 +238,14 @@ def main():
             logger.failure(f"處理失敗: {result['message']}")
             return 1
             
-    except Exception as e:
+    except ArchaeologyQuestionsError as e:
+        # 已知的自定義異常
         logger.failure(f"執行失敗: {e}")
+        return 1
+    except Exception as e:
+        # 未知異常
+        logger.failure(f"執行失敗: {e}")
+        logger.debug(f"異常詳情: {type(e).__name__}: {e}", exc_info=True)
         return 1
 
 
