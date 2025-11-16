@@ -191,10 +191,9 @@ def main():
     parser.add_argument('--config', help='配置檔案路徑')
     
     args = parser.parse_args()
-    
+
     # 載入配置（如果指定）
     if args.config:
-        from .utils.config import ConfigManager
         ConfigManager(args.config)
     
     # 建立API實例

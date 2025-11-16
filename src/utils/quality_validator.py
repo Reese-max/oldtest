@@ -165,7 +165,10 @@ class QualityValidator:
             f.write(f"- **總題數**: {stats['total_questions']}\n")
             f.write(f"- **有效題數**: {stats['valid_questions']}\n")
             f.write(f"- **無效題數**: {stats['invalid_questions']}\n")
-            f.write(f"- **有效率**: {stats['valid_questions']/stats['total_questions']*100:.1f}%\n\n")
+            # 避免除零錯誤
+            valid_rate = (stats['valid_questions']/stats['total_questions']*100
+                         if stats['total_questions'] > 0 else 0)
+            f.write(f"- **有效率**: {valid_rate:.1f}%\n\n")
             
             # 選項統計
             f.write("## 🔤 選項統計\n\n")
