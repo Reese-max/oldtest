@@ -7,6 +7,7 @@ OCR處理器 - 整合 PaddleOCR
 
 import os
 import tempfile
+import shutil
 from typing import Optional, List, Dict, Any, Tuple
 from pathlib import Path
 from ..utils.logger import logger
@@ -29,6 +30,7 @@ class OCRProcessor:
         self.lang = lang
         self._ocr_engine = None
         self._structure_engine = None
+        self._temp_dirs = []  # 追蹤臨時目錄以便清理
 
     def _init_ocr_engine(self):
         """延遲初始化 OCR 引擎（節省記憶體）"""
@@ -139,32 +141,33 @@ class OCRProcessor:
             self.logger.info("轉換 PDF 為圖片...")
             images = []
 
-            # 創建臨時目錄
+            # 創建臨時目錄並追蹤
             temp_dir = tempfile.mkdtemp(prefix='ocr_')
+            self._temp_dirs.append(temp_dir)
 
-            # 打開 PDF
+            # 打開 PDF（使用 try-finally 確保關閉）
             pdf_document = fitz.open(pdf_path)
+            try:
+                # 轉換每一頁
+                for page_num in range(len(pdf_document)):
+                    page = pdf_document[page_num]
 
-            # 轉換每一頁
-            for page_num in range(len(pdf_document)):
-                page = pdf_document[page_num]
+                    # 設定較高的解析度以提升 OCR 準確度
+                    zoom = 2.0  # 放大倍數
+                    mat = fitz.Matrix(zoom, zoom)
+                    pix = page.get_pixmap(matrix=mat, alpha=False)
 
-                # 設定較高的解析度以提升 OCR 準確度
-                zoom = 2.0  # 放大倍數
-                mat = fitz.Matrix(zoom, zoom)
-                pix = page.get_pixmap(matrix=mat, alpha=False)
+                    # 儲存圖片
+                    image_path = os.path.join(temp_dir, f"page_{page_num + 1}.png")
+                    pix.save(image_path)
+                    images.append(image_path)
 
-                # 儲存圖片
-                image_path = os.path.join(temp_dir, f"page_{page_num + 1}.png")
-                pix.save(image_path)
-                images.append(image_path)
+                    self.logger.debug(f"轉換第 {page_num + 1} 頁")
 
-                self.logger.debug(f"轉換第 {page_num + 1} 頁")
-
-            pdf_document.close()
-
-            self.logger.success(f"PDF 轉圖片完成，共 {len(images)} 頁")
-            return images
+                self.logger.success(f"PDF 轉圖片完成，共 {len(images)} 頁")
+                return images
+            finally:
+                pdf_document.close()
 
         except ImportError:
             # 降級到使用 pdf2image
@@ -173,6 +176,7 @@ class OCRProcessor:
 
                 self.logger.info("使用 pdf2image 轉換...")
                 temp_dir = tempfile.mkdtemp(prefix='ocr_')
+                self._temp_dirs.append(temp_dir)  # 追蹤臨時目錄
 
                 images_pil = convert_from_path(
                     pdf_path,
@@ -427,6 +431,18 @@ class OCRProcessor:
 
     def cleanup(self):
         """清理資源"""
+        # 清理 OCR 引擎
         self._ocr_engine = None
         self._structure_engine = None
+
+        # 清理臨時目錄
+        for temp_dir in self._temp_dirs:
+            try:
+                if os.path.exists(temp_dir):
+                    shutil.rmtree(temp_dir)
+                    self.logger.debug(f"已清理臨時目錄: {temp_dir}")
+            except Exception as e:
+                self.logger.warning(f"清理臨時目錄失敗 {temp_dir}: {e}")
+
+        self._temp_dirs.clear()
         self.logger.info("OCR 處理器資源已釋放")

@@ -86,14 +86,20 @@ class ArchaeologyProcessor:
             # 3. 處理答案
             answers = {}
             corrected_answers = {}
-            
+
             if answer_pdf_path and os.path.exists(answer_pdf_path):
                 answer_text = self.pdf_processor.extract_text(answer_pdf_path)
-                answers = self.answer_processor.extract_answers(answer_text)
-            
+                if answer_text:  # 檢查 None 值
+                    answers = self.answer_processor.extract_answers(answer_text)
+                else:
+                    self.logger.warning(f"無法從答案PDF提取文字: {answer_pdf_path}")
+
             if corrected_answer_pdf_path and os.path.exists(corrected_answer_pdf_path):
                 corrected_text = self.pdf_processor.extract_text(corrected_answer_pdf_path)
-                corrected_answers = self.answer_processor.extract_corrected_answers(corrected_text)
+                if corrected_text:  # 檢查 None 值
+                    corrected_answers = self.answer_processor.extract_corrected_answers(corrected_text)
+                else:
+                    self.logger.warning(f"無法從更正答案PDF提取文字: {corrected_answer_pdf_path}")
             
             # 4. 生成CSV檔案
             csv_files = self._generate_csv_files(questions, answers, corrected_answers, 
