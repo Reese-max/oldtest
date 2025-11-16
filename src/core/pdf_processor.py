@@ -45,6 +45,13 @@ class PDFProcessor:
                     try:
                         page_text = page.extract_text()
                         if page_text:
+                            # 處理特殊 Unicode 字符，避免編碼錯誤
+                            try:
+                                page_text = page_text.encode('utf-8', errors='ignore').decode('utf-8')
+                                # 移除常見的問題字符
+                                page_text = page_text.replace('\x00', '').replace('\ufeff', '')
+                            except UnicodeError as ue:
+                                self.logger.warning(f"第 {page_num} 頁 Unicode 清理失敗: {ue}")
                             text += page_text + "\n"
                         self.logger.debug(f"處理第 {page_num}/{total_pages} 頁")
                     except Exception as e:
@@ -85,6 +92,13 @@ class PDFProcessor:
                         try:
                             page_text = pdf.pages[page_num - 1].extract_text()
                             if page_text:
+                                # 處理特殊 Unicode 字符，避免編碼錯誤
+                                try:
+                                    page_text = page_text.encode('utf-8', errors='ignore').decode('utf-8')
+                                    # 移除常見的問題字符
+                                    page_text = page_text.replace('\x00', '').replace('\ufeff', '')
+                                except UnicodeError as ue:
+                                    self.logger.warning(f"第 {page_num} 頁 Unicode 清理失敗: {ue}")
                                 text += page_text + "\n"
                             self.logger.debug(f"處理第 {page_num} 頁")
                         except Exception as e:
