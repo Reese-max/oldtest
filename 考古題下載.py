@@ -117,7 +117,7 @@ def get_year_input():
         try:
             # 全部年份
             if user_input.lower() in ['all', '*', '全部']:
-                return list(range(81, 115))
+                return AVAILABLE_YEARS
             
             # 年份範圍
             elif '-' in user_input:
@@ -537,17 +537,17 @@ def download_file(session, url, file_path, max_retries=5):
         except requests.exceptions.Timeout:
             if attempt == max_retries - 1:
                 return False, "請求超時"
-            time.sleep(5 ** attempt)
+            time.sleep(2 ** attempt)
 
         except requests.exceptions.ConnectionError:
             if attempt == max_retries - 1:
                 return False, "連線錯誤"
-            time.sleep(5 ** attempt)
+            time.sleep(2 ** attempt)
 
         except Exception as e:
             if attempt == max_retries - 1:
                 return False, str(e)[:50]
-            time.sleep(5 ** attempt)
+            time.sleep(2 ** attempt)
 
     return False, "重試失敗"
 
