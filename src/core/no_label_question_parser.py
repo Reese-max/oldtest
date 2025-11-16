@@ -84,15 +84,20 @@ class NoLabelQuestionParser:
             # 確保有4個選項（補空白）
             while len(options) < 4:
                 options.append('')
-            
+
+            # 安全獲取選項，防止索引越界
+            def safe_get(lst, idx, default=''):
+                """安全獲取列表元素"""
+                return lst[idx] if 0 <= idx < len(lst) else default
+
             question = {
                 '題號': question_num,
                 '題目': question_text,
                 '題型': '選擇題',
-                '選項A': options[0] if len(options) > 0 else '',
-                '選項B': options[1] if len(options) > 1 else '',
-                '選項C': options[2] if len(options) > 2 else '',
-                '選項D': options[3] if len(options) > 3 else '',
+                '選項A': safe_get(options, 0),
+                '選項B': safe_get(options, 1),
+                '選項C': safe_get(options, 2),
+                '選項D': safe_get(options, 3),
                 '正確答案': '',
                 '難度': '中等',
                 '分類': '法律/英文',
