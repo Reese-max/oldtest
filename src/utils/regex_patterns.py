@@ -6,7 +6,7 @@
 """
 
 import re
-from typing import List, Pattern
+from typing import List, Pattern, Optional
 
 # ==================== 題目檢測模式 ====================
 
@@ -133,7 +133,7 @@ def match_patterns(text: str, patterns: List[Pattern]) -> List[re.Match]:
     return matches
 
 
-def find_first_match(text: str, patterns: List[Pattern]) -> re.Match | None:
+def find_first_match(text: str, patterns: List[Pattern]) -> Optional[re.Match]:
     """
     使用多個模式查找第一個匹配
     

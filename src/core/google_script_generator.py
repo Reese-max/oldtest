@@ -41,7 +41,9 @@ class GoogleScriptGenerator:
             script_content = self._generate_script_content(df)
             
             # 儲存檔案
-            os.makedirs(os.path.dirname(output_path), exist_ok=True)
+            output_dir = os.path.dirname(output_path)
+            if output_dir:
+                os.makedirs(output_dir, exist_ok=True)
             with open(output_path, 'w', encoding='utf-8') as f:
                 f.write(script_content)
             
