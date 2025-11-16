@@ -9,19 +9,36 @@ from typing import List, Optional, Dict, Any
 from ..utils.logger import logger
 from ..utils.exceptions import PDFProcessingError
 from ..utils.constants import MIN_TEXT_LENGTH
+from ..utils.config import config_manager
 
 
 class EnhancedPDFProcessor:
-    """增強版PDF處理器，支援多種PDF提取方法"""
-    
+    """增強版PDF處理器，支援多種PDF提取方法（包含 OCR）"""
+
     def __init__(self):
         self.logger = logger
-        self.extraction_methods = [
-            self._extract_with_pdfplumber,
-            self._extract_with_pymupdf,
-            self._extract_with_pdfminer,
-            self._extract_with_pypdf,
-        ]
+        self.ocr_config = config_manager.get_ocr_config()
+        self._ocr_processor = None
+
+        # 根據配置決定提取方法順序
+        if self.ocr_config.enable_ocr:
+            # OCR 啟用時，優先使用 OCR
+            self.extraction_methods = [
+                self._extract_with_ocr,
+                self._extract_with_pdfplumber,
+                self._extract_with_pymupdf,
+                self._extract_with_pdfminer,
+                self._extract_with_pypdf,
+            ]
+            self.logger.info("✨ OCR 功能已啟用，將優先使用 PaddleOCR 提取文字")
+        else:
+            # OCR 未啟用時，使用傳統方法
+            self.extraction_methods = [
+                self._extract_with_pdfplumber,
+                self._extract_with_pymupdf,
+                self._extract_with_pdfminer,
+                self._extract_with_pypdf,
+            ]
     
     def extract_text(self, pdf_path: str) -> str:
         """
@@ -103,17 +120,68 @@ class EnhancedPDFProcessor:
     def _extract_with_pypdf(self, pdf_path: str) -> str:
         """使用pypdf提取文字"""
         from pypdf import PdfReader
-        
+
         text_parts = []
         reader = PdfReader(pdf_path)
-        
+
         for page in reader.pages:
             text = page.extract_text()
             if text:
                 text_parts.append(text)
-        
+
         return "\n".join(text_parts)
-    
+
+    def _extract_with_ocr(self, pdf_path: str) -> str:
+        """
+        使用 PaddleOCR 提取文字（高精度 OCR）
+
+        Args:
+            pdf_path: PDF 檔案路徑
+
+        Returns:
+            OCR 提取的文字內容
+        """
+        try:
+            # 延遲導入 OCR 處理器
+            if self._ocr_processor is None:
+                from .ocr_processor import OCRProcessor
+
+                self._ocr_processor = OCRProcessor(
+                    use_gpu=self.ocr_config.use_gpu,
+                    lang=self.ocr_config.lang
+                )
+                self.logger.info("OCR 處理器已初始化")
+
+            # 使用 OCR 提取文字
+            text = self._ocr_processor.extract_text_from_pdf(
+                pdf_path,
+                use_structure=self.ocr_config.use_structure,
+                confidence_threshold=self.ocr_config.confidence_threshold
+            )
+
+            # 評估 OCR 質量
+            if self._ocr_processor:
+                quality_score = self._ocr_processor.get_quality_score(text)
+                self.logger.info(f"OCR 品質分數: {quality_score:.2f}")
+
+                # 如果 OCR 品質太低且啟用降級，拋出異常以嘗試其他方法
+                if quality_score < self.ocr_config.min_quality_score and self.ocr_config.ocr_fallback:
+                    self.logger.warning(f"OCR 品質不足 ({quality_score:.2f} < {self.ocr_config.min_quality_score})，將嘗試其他方法")
+                    raise PDFProcessingError("OCR 品質不足")
+
+            return text
+
+        except ImportError:
+            self.logger.warning("PaddleOCR 未安裝，跳過 OCR 方法")
+            raise
+        except Exception as e:
+            self.logger.warning(f"OCR 提取失敗: {e}")
+            if self.ocr_config.ocr_fallback:
+                raise
+            else:
+                # 不允許降級時，直接返回錯誤
+                raise PDFProcessingError(f"OCR 提取失敗且未啟用降級: {e}") from e
+
     def extract_text_from_pages(self, pdf_path: str, page_numbers: List[int]) -> str:
         """
         從指定頁面提取文字

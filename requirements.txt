@@ -6,8 +6,14 @@ PyMuPDF>=1.23.0            # fitz - 備用方案1
 pdfminer.six>=20221105     # 備用方案2
 pypdf>=3.0.0               # 備用方案3
 
-# OCR文字識別
-pytesseract>=0.3.10        # OCR引擎
+# OCR文字識別 - PaddleOCR (推薦)
+paddlepaddle>=2.5.0        # PaddlePaddle 深度學習框架 (CPU版本)
+# paddlepaddle-gpu>=2.5.0  # GPU版本（需要CUDA，取消註解以使用）
+paddleocr>=2.7.0           # PaddleOCR - 工業級OCR引擎
+pdf2image>=1.16.3          # PDF轉圖片（OCR需要）
+
+# OCR文字識別 - Tesseract (備用)
+pytesseract>=0.3.10        # Tesseract OCR引擎（備用方案）
 Pillow>=10.0.0             # 圖像處理
 
 # 資料處理

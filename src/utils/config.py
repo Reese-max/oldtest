@@ -52,6 +52,27 @@ class ProcessingConfig:
 
 
 @dataclass
+class OCRConfig:
+    """OCR配置"""
+    # OCR啟用設定
+    enable_ocr: bool = False  # 是否啟用 OCR
+    ocr_fallback: bool = True  # OCR 失敗時是否降級到傳統方法
+
+    # OCR引擎設定
+    use_gpu: bool = False  # 是否使用 GPU 加速
+    lang: str = "ch"  # 語言設定 ('ch'=中英文, 'chinese_cht'=繁體中文, 'en'=英文)
+
+    # OCR處理設定
+    use_structure: bool = False  # 是否使用結構化分析（PP-Structure）
+    confidence_threshold: float = 0.5  # 信心度閾值（0-1）
+    min_quality_score: float = 0.6  # 最低品質分數（0-1）
+
+    # 圖片轉換設定
+    pdf_to_image_dpi: int = 300  # PDF 轉圖片的 DPI
+    pdf_to_image_zoom: float = 2.0  # PDF 轉圖片的放大倍數
+
+
+@dataclass
 class GoogleFormConfig:
     """Google表單配置"""
     # 表單設定
@@ -71,11 +92,12 @@ class GoogleFormConfig:
 
 class ConfigManager:
     """配置管理器"""
-    
+
     def __init__(self, config_file: str = "config.json"):
         self.config_file = config_file
         self.processing_config = ProcessingConfig()
         self.google_form_config = GoogleFormConfig()
+        self.ocr_config = OCRConfig()
         self._load_config()
     
     def _load_config(self):
@@ -98,7 +120,14 @@ class ConfigManager:
                     for key, value in google_form_data.items():
                         if hasattr(self.google_form_config, key):
                             setattr(self.google_form_config, key, value)
-                
+
+                # 更新OCR配置
+                if 'ocr' in config_data:
+                    ocr_data = config_data['ocr']
+                    for key, value in ocr_data.items():
+                        if hasattr(self.ocr_config, key):
+                            setattr(self.ocr_config, key, value)
+
                 logger.info(f"配置已載入: {self.config_file}")
             except Exception as e:
                 logger.warning(f"載入配置失敗: {e}")
@@ -110,7 +139,8 @@ class ConfigManager:
         try:
             config_data = {
                 'processing': asdict(self.processing_config),
-                'google_form': asdict(self.google_form_config)
+                'google_form': asdict(self.google_form_config),
+                'ocr': asdict(self.ocr_config)
             }
             
             with open(self.config_file, 'w', encoding='utf-8') as f:
@@ -127,7 +157,11 @@ class ConfigManager:
     def get_google_form_config(self) -> GoogleFormConfig:
         """取得Google表單配置"""
         return self.google_form_config
-    
+
+    def get_ocr_config(self) -> OCRConfig:
+        """取得OCR配置"""
+        return self.ocr_config
+
     def update_processing_config(self, **kwargs):
         """更新處理配置"""
         for key, value in kwargs.items():
@@ -140,6 +174,13 @@ class ConfigManager:
         for key, value in kwargs.items():
             if hasattr(self.google_form_config, key):
                 setattr(self.google_form_config, key, value)
+        self._save_config()
+
+    def update_ocr_config(self, **kwargs):
+        """更新OCR配置"""
+        for key, value in kwargs.items():
+            if hasattr(self.ocr_config, key):
+                setattr(self.ocr_config, key, value)
         self._save_config()
 
 
