@@ -1,0 +1,32 @@
+# 考古題處理系統依賴清單
+
+# PDF處理 - 多套件支援
+pdfplumber>=0.9.0          # 主要PDF處理工具
+PyMuPDF>=1.23.0            # fitz - 備用方案1
+pdfminer.six>=20221105     # 備用方案2
+pypdf>=3.0.0               # 備用方案3
+
+# OCR文字識別
+pytesseract>=0.3.10        # OCR引擎
+Pillow>=10.0.0             # 圖像處理
+
+# 資料處理
+pandas>=1.5.0
+numpy>=1.24.0
+
+# AI輔助
+google-generativeai>=0.3.0
+openai>=1.0.0              # 可選的AI輔助
+
+# 文字處理
+regex>=2023.10.0           # 增強正則表達式
+python-Levenshtein>=0.21.0 # 字串相似度比對
+
+# 測試框架
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# 開發工具
+black>=22.0.0
+flake8>=5.0.0
+mypy>=1.0.0

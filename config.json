@@ -1,0 +1,34 @@
+{
+  "processing": {
+    "max_text_length": 1000000,
+    "min_question_length": 10,
+    "max_question_length": 1000,
+    "ai_model": "gemini-1.5-flash",
+    "ai_temperature": 0.1,
+    "ai_max_tokens": 4000,
+    "answer_patterns": [
+      "(\\d+)\\.\\s*([ABCD])",
+      "(\\d+)\\s*([ABCD])",
+      "第(\\d+)題\\s*([ABCD])",
+      "(\\d+)\\s*：\\s*([ABCD])"
+    ],
+    "corrected_answer_patterns": [
+      "更正\\s*(\\d+)\\.\\s*([ABCD])",
+      "更正答案\\s*(\\d+)\\.\\s*([ABCD])",
+      "更正\\s*第(\\d+)題\\s*([ABCD])",
+      "更正\\s*(\\d+)\\s*：\\s*([ABCD])"
+    ],
+    "output_encoding": "utf-8-sig",
+    "csv_delimiter": ","
+  },
+  "google_form": {
+    "form_title": "考古題練習表單",
+    "form_description": "此表單包含 {total_questions} 題考古題，用於練習和自測",
+    "collect_email": true,
+    "require_login": false,
+    "enable_auto_scoring": true,
+    "show_answers_after_submit": true,
+    "default_question_type": "選擇題",
+    "enable_question_groups": true
+  }
+}
