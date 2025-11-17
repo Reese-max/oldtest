@@ -7,6 +7,7 @@
 
 import os
 from typing import List, Dict, Any, Optional, Tuple
+from dataclasses import dataclass
 from ..core.pdf_processor import PDFProcessor
 from ..core.enhanced_pdf_processor import EnhancedPDFProcessor
 from ..core.question_parser import QuestionParser
@@ -29,6 +30,27 @@ from ..utils.constants import (
     FILE_PATTERN_ANSWER, FILE_PATTERN_CORRECTED_ANSWER, FILE_PATTERN_GOOGLE_CSV,
     DEFAULT_OUTPUT_DIR, UNICODE_OPTION_SYMBOLS
 )
+
+
+@dataclass
+class ProcessingData:
+    """PDF 處理數據容器"""
+    questions: List[Dict[str, Any]]
+    answers: Dict[str, str]
+    corrected_answers: Dict[str, str]
+    pdf_path: str
+    output_dir: str
+
+
+@dataclass
+class ProcessingResult:
+    """處理結果數據容器"""
+    pdf_path: str
+    output_dir: str
+    csv_files: List[str]
+    questions: List[Dict[str, Any]]
+    answers: Dict[str, str]
+    corrected_answers: Dict[str, str]
 
 
 class ArchaeologyProcessor:
@@ -84,15 +106,25 @@ class ArchaeologyProcessor:
             )
 
             # 3. 生成輸出檔案
-            csv_files = self._generate_csv_files(
-                questions, answers, corrected_answers, pdf_path, output_dir
+            processing_data = ProcessingData(
+                questions=questions,
+                answers=answers,
+                corrected_answers=corrected_answers,
+                pdf_path=pdf_path,
+                output_dir=output_dir
             )
+            csv_files = self._generate_csv_files(processing_data)
 
             # 4. 構建結果
-            result = self._build_result(
-                pdf_path, output_dir, csv_files,
-                questions, answers, corrected_answers
+            result_data = ProcessingResult(
+                pdf_path=pdf_path,
+                output_dir=output_dir,
+                csv_files=csv_files,
+                questions=questions,
+                answers=answers,
+                corrected_answers=corrected_answers
             )
+            result = self._build_result(result_data)
 
             self.logger.success(f"PDF處理完成: {len(questions)} 題，{len(csv_files)} 個CSV檔案")
             return result
@@ -186,37 +218,30 @@ class ArchaeologyProcessor:
 
         return self.answer_processor.extract_corrected_answers(corrected_text)
 
-    def _build_result(self,
-                     pdf_path: str,
-                     output_dir: str,
-                     csv_files: List[str],
-                     questions: List[Dict[str, Any]],
-                     answers: Dict[str, str],
-                     corrected_answers: Dict[str, str]) -> Dict[str, Any]:
+    def _build_result(self, result_data: ProcessingResult) -> Dict[str, Any]:
         """
         構建處理結果字典
 
         Args:
-            pdf_path: PDF檔案路徑
-            output_dir: 輸出目錄
-            csv_files: CSV檔案列表
-            questions: 題目列表
-            answers: 答案字典
-            corrected_answers: 更正答案字典
+            result_data: 處理結果數據容器，包含所有處理結果數據
 
         Returns:
             處理結果字典
         """
-        stats = self._generate_statistics(questions, answers, corrected_answers)
+        stats = self._generate_statistics(
+            result_data.questions,
+            result_data.answers,
+            result_data.corrected_answers
+        )
 
         return {
             'success': True,
-            'pdf_path': pdf_path,
-            'output_dir': output_dir,
-            'csv_files': csv_files,
-            'questions_count': len(questions),
-            'answers_count': len(answers),
-            'corrected_answers_count': len(corrected_answers),
+            'pdf_path': result_data.pdf_path,
+            'output_dir': result_data.output_dir,
+            'csv_files': result_data.csv_files,
+            'questions_count': len(result_data.questions),
+            'answers_count': len(result_data.answers),
+            'corrected_answers_count': len(result_data.corrected_answers),
             'statistics': stats
         }
     
@@ -507,40 +532,32 @@ class ArchaeologyProcessor:
         else:
             return self.pdf_processor.extract_text(pdf_path)
     
-    def _generate_csv_files(self, questions: List[Dict[str, Any]], 
-                           answers: Dict[str, str],
-                           corrected_answers: Dict[str, str],
-                           pdf_path: str,
-                           output_dir: str) -> List[str]:
+    def _generate_csv_files(self, data: ProcessingData) -> List[str]:
         """
         生成所有CSV檔案
-        
+
         Args:
-            questions: 題目列表
-            answers: 答案字典
-            corrected_answers: 更正答案字典
-            pdf_path: PDF檔案路徑
-            output_dir: 輸出目錄
-            
+            data: 處理數據容器，包含 questions, answers, corrected_answers, pdf_path, output_dir
+
         Returns:
             CSV檔案路徑列表
         """
-        os.makedirs(output_dir, exist_ok=True)
-        base_name = os.path.splitext(os.path.basename(pdf_path))[0]
+        os.makedirs(data.output_dir, exist_ok=True)
+        base_name = os.path.splitext(os.path.basename(data.pdf_path))[0]
         csv_files = []
-        
+
         # 一般CSV
-        general_csv = os.path.join(output_dir, f"{base_name}.csv")
-        self.csv_generator.generate_questions_csv(questions, answers, general_csv)
+        general_csv = os.path.join(data.output_dir, f"{base_name}.csv")
+        self.csv_generator.generate_questions_csv(data.questions, data.answers, general_csv)
         csv_files.append(general_csv)
-        
+
         # Google表單CSV
-        google_csv = os.path.join(output_dir, f"{base_name}{FILE_PATTERN_GOOGLE_CSV}")
-        self.csv_generator.generate_google_form_csv(questions, answers, corrected_answers, google_csv)
+        google_csv = os.path.join(data.output_dir, f"{base_name}{FILE_PATTERN_GOOGLE_CSV}")
+        self.csv_generator.generate_google_form_csv(data.questions, data.answers, data.corrected_answers, google_csv)
         csv_files.append(google_csv)
-        
+
         # 題組分類CSV
-        group_csvs = self.csv_generator.generate_question_groups_csv(questions, answers, output_dir)
+        group_csvs = self.csv_generator.generate_question_groups_csv(data.questions, data.answers, data.output_dir)
         csv_files.extend(group_csvs)
         
         return csv_files
