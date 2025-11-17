@@ -132,7 +132,9 @@ class CSVGeneratorPerformanceTest(PerformanceTest):
 
         def generate_csv():
             csv_gen = CSVGenerator(self.config)
-            temp_path = tempfile.mktemp(suffix='.csv')
+            # 使用安全的臨時文件創建方法
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as tmp:
+                temp_path = tmp.name
             result = csv_gen.generate_questions_csv(questions, answers, temp_path)
             if os.path.exists(temp_path):
                 os.remove(temp_path)
@@ -147,7 +149,9 @@ class CSVGeneratorPerformanceTest(PerformanceTest):
 
         def generate_csv():
             csv_gen = CSVGenerator(self.config)
-            temp_path = tempfile.mktemp(suffix='.csv')
+            # 使用安全的臨時文件創建方法
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as tmp:
+                temp_path = tmp.name
             result = csv_gen.generate_questions_csv(questions, answers, temp_path)
             if os.path.exists(temp_path):
                 os.remove(temp_path)
@@ -162,7 +166,9 @@ class CSVGeneratorPerformanceTest(PerformanceTest):
 
         def generate_csv():
             csv_gen = CSVGenerator(self.config)
-            temp_path = tempfile.mktemp(suffix='.csv')
+            # 使用安全的臨時文件創建方法
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as tmp:
+                temp_path = tmp.name
             result = csv_gen.generate_questions_csv(questions, answers, temp_path)
             if os.path.exists(temp_path):
                 os.remove(temp_path)
@@ -202,7 +208,9 @@ class GoogleScriptPerformanceTest(PerformanceTest):
 
         def generate_script():
             script_gen = GoogleScriptGenerator(self.config)
-            temp_path = tempfile.mktemp(suffix='.gs')
+            # 使用安全的臨時文件創建方法
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.gs', delete=False) as tmp:
+                temp_path = tmp.name
             result = script_gen.generate_google_script(questions, answers, temp_path)
             if os.path.exists(temp_path):
                 os.remove(temp_path)
@@ -217,7 +225,9 @@ class GoogleScriptPerformanceTest(PerformanceTest):
 
         def generate_script():
             script_gen = GoogleScriptGenerator(self.config)
-            temp_path = tempfile.mktemp(suffix='.gs')
+            # 使用安全的臨時文件創建方法
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.gs', delete=False) as tmp:
+                temp_path = tmp.name
             result = script_gen.generate_google_script(questions, answers, temp_path)
             if os.path.exists(temp_path):
                 os.remove(temp_path)
@@ -232,7 +242,9 @@ class GoogleScriptPerformanceTest(PerformanceTest):
 
         def generate_script():
             script_gen = GoogleScriptGenerator(self.config)
-            temp_path = tempfile.mktemp(suffix='.gs')
+            # 使用安全的臨時文件創建方法
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.gs', delete=False) as tmp:
+                temp_path = tmp.name
             result = script_gen.generate_google_script(questions, answers, temp_path)
             if os.path.exists(temp_path):
                 os.remove(temp_path)

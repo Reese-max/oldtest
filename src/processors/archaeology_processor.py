@@ -54,78 +54,171 @@ class ArchaeologyProcessor:
         self.answer_processor = AnswerProcessor()
         self.csv_generator = CSVGenerator()
     
-    def process_pdf(self, pdf_path: str, 
+    def process_pdf(self, pdf_path: str,
                    answer_pdf_path: Optional[str] = None,
                    corrected_answer_pdf_path: Optional[str] = None,
                    output_dir: str = "output") -> Dict[str, Any]:
         """
-        處理PDF檔案，生成CSV
-        
+        處理PDF檔案，生成CSV（重構後的主流程）
+
         Args:
             pdf_path: PDF檔案路徑
             answer_pdf_path: 答案PDF檔案路徑（可選）
             corrected_answer_pdf_path: 更正答案PDF檔案路徑（可選）
             output_dir: 輸出目錄
-            
+
         Returns:
             處理結果字典
         """
         try:
             self.logger.info(f"開始處理PDF檔案: {pdf_path}")
-            
-            # 1. 提取PDF文字（使用增強方法）
-            text = self._extract_pdf_text(pdf_path)
-            
-            # 2. 智能格式檢測和解析
-            questions = self._smart_parse_questions(text, pdf_path)
-            
+
+            # 1. 提取問題文本並解析
+            questions = self._extract_and_parse_questions(pdf_path)
             if not questions:
-                self.logger.warning("未找到任何題目")
                 return {'success': False, 'message': '未找到任何題目'}
-            
-            # 3. 處理答案
-            answers = {}
-            corrected_answers = {}
 
-            if answer_pdf_path and os.path.exists(answer_pdf_path):
-                answer_text = self.pdf_processor.extract_text(answer_pdf_path)
-                if answer_text:  # 檢查 None 值
-                    answers = self.answer_processor.extract_answers(answer_text)
-                else:
-                    self.logger.warning(f"無法從答案PDF提取文字: {answer_pdf_path}")
+            # 2. 提取並合併答案
+            answers, corrected_answers = self._extract_and_merge_answers(
+                answer_pdf_path, corrected_answer_pdf_path
+            )
 
-            if corrected_answer_pdf_path and os.path.exists(corrected_answer_pdf_path):
-                corrected_text = self.pdf_processor.extract_text(corrected_answer_pdf_path)
-                if corrected_text:  # 檢查 None 值
-                    corrected_answers = self.answer_processor.extract_corrected_answers(corrected_text)
-                else:
-                    self.logger.warning(f"無法從更正答案PDF提取文字: {corrected_answer_pdf_path}")
-            
-            # 4. 生成CSV檔案
-            csv_files = self._generate_csv_files(questions, answers, corrected_answers, 
-                                                 pdf_path, output_dir)
-            
-            # 統計資訊
-            stats = self._generate_statistics(questions, answers, corrected_answers)
-            
-            result = {
-                'success': True,
-                'pdf_path': pdf_path,
-                'output_dir': output_dir,
-                'csv_files': csv_files,
-                'questions_count': len(questions),
-                'answers_count': len(answers),
-                'corrected_answers_count': len(corrected_answers),
-                'statistics': stats
-            }
-            
+            # 3. 生成輸出檔案
+            csv_files = self._generate_csv_files(
+                questions, answers, corrected_answers, pdf_path, output_dir
+            )
+
+            # 4. 構建結果
+            result = self._build_result(
+                pdf_path, output_dir, csv_files,
+                questions, answers, corrected_answers
+            )
+
             self.logger.success(f"PDF處理完成: {len(questions)} 題，{len(csv_files)} 個CSV檔案")
             return result
-            
+
         except Exception as e:
             error_msg = f"PDF處理失敗: {e}"
             self.logger.failure(error_msg)
             return {'success': False, 'message': error_msg}
+
+    def _extract_and_parse_questions(self, pdf_path: str) -> List[Dict[str, Any]]:
+        """
+        提取PDF文本並解析題目
+
+        Args:
+            pdf_path: PDF檔案路徑
+
+        Returns:
+            題目列表
+        """
+        # 提取PDF文字
+        text = self._extract_pdf_text(pdf_path)
+
+        # 智能格式檢測和解析
+        questions = self._smart_parse_questions(text, pdf_path)
+
+        if not questions:
+            self.logger.warning("未找到任何題目")
+
+        return questions
+
+    def _extract_and_merge_answers(self,
+                                   answer_pdf_path: Optional[str],
+                                   corrected_answer_pdf_path: Optional[str]) -> Tuple[Dict[str, str], Dict[str, str]]:
+        """
+        提取並合併答案
+
+        Args:
+            answer_pdf_path: 答案PDF檔案路徑
+            corrected_answer_pdf_path: 更正答案PDF檔案路徑
+
+        Returns:
+            (答案字典, 更正答案字典) 元組
+        """
+        # 提取原始答案
+        answers = self._extract_answers_from_pdf(answer_pdf_path)
+
+        # 提取更正答案
+        corrected_answers = self._extract_corrected_answers_from_pdf(
+            corrected_answer_pdf_path
+        )
+
+        return answers, corrected_answers
+
+    def _extract_answers_from_pdf(self, pdf_path: Optional[str]) -> Dict[str, str]:
+        """
+        從PDF提取答案
+
+        Args:
+            pdf_path: PDF檔案路徑
+
+        Returns:
+            答案字典
+        """
+        if not pdf_path or not os.path.exists(pdf_path):
+            return {}
+
+        answer_text = self.pdf_processor.extract_text(pdf_path)
+        if not answer_text:
+            self.logger.warning(f"無法從答案PDF提取文字: {pdf_path}")
+            return {}
+
+        return self.answer_processor.extract_answers(answer_text)
+
+    def _extract_corrected_answers_from_pdf(self, pdf_path: Optional[str]) -> Dict[str, str]:
+        """
+        從PDF提取更正答案
+
+        Args:
+            pdf_path: PDF檔案路徑
+
+        Returns:
+            更正答案字典
+        """
+        if not pdf_path or not os.path.exists(pdf_path):
+            return {}
+
+        corrected_text = self.pdf_processor.extract_text(pdf_path)
+        if not corrected_text:
+            self.logger.warning(f"無法從更正答案PDF提取文字: {pdf_path}")
+            return {}
+
+        return self.answer_processor.extract_corrected_answers(corrected_text)
+
+    def _build_result(self,
+                     pdf_path: str,
+                     output_dir: str,
+                     csv_files: List[str],
+                     questions: List[Dict[str, Any]],
+                     answers: Dict[str, str],
+                     corrected_answers: Dict[str, str]) -> Dict[str, Any]:
+        """
+        構建處理結果字典
+
+        Args:
+            pdf_path: PDF檔案路徑
+            output_dir: 輸出目錄
+            csv_files: CSV檔案列表
+            questions: 題目列表
+            answers: 答案字典
+            corrected_answers: 更正答案字典
+
+        Returns:
+            處理結果字典
+        """
+        stats = self._generate_statistics(questions, answers, corrected_answers)
+
+        return {
+            'success': True,
+            'pdf_path': pdf_path,
+            'output_dir': output_dir,
+            'csv_files': csv_files,
+            'questions_count': len(questions),
+            'answers_count': len(answers),
+            'corrected_answers_count': len(corrected_answers),
+            'statistics': stats
+        }
     
     def _smart_parse_questions(self, text: str, pdf_path: str) -> List[Dict[str, Any]]:
         """智能格式检测和解析"""
