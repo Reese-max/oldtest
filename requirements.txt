@@ -1,38 +1,82 @@
-# 考古題處理系統依賴清單
+# 考古題處理系統 - 完整依賴清單
+#
+# 這是完整安裝版本，包含所有可選功能
+# 如果您只需要基本功能，請使用：pip install -r requirements-minimal.txt
+#
+# 安裝選項：
+#   最小化安裝（基本功能）：    pip install -r requirements-minimal.txt
+#   OCR 功能：                pip install -r requirements-minimal.txt -r requirements-ocr.txt
+#   開發工具：                pip install -r requirements-dev.txt
+#   完整安裝（推薦）：         pip install -r requirements.txt
 
-# PDF處理 - 多套件支援
+# ============================================================
+# 核心依賴（必需）
+# ============================================================
+
+# PDF處理
 pdfplumber>=0.9.0          # 主要PDF處理工具
-PyMuPDF>=1.23.0            # fitz - 備用方案1
-pdfminer.six>=20221105     # 備用方案2
-pypdf>=3.0.0               # 備用方案3
-
-# OCR文字識別 - PaddleOCR (推薦)
-paddlepaddle>=2.5.0        # PaddlePaddle 深度學習框架 (CPU版本)
-# paddlepaddle-gpu>=2.5.0  # GPU版本（需要CUDA，取消註解以使用）
-paddleocr>=2.7.0           # PaddleOCR - 工業級OCR引擎
-pdf2image>=1.16.3          # PDF轉圖片（OCR需要）
-
-# OCR文字識別 - Tesseract (備用)
-pytesseract>=0.3.10        # Tesseract OCR引擎（備用方案）
-Pillow>=10.0.0             # 圖像處理
 
 # 資料處理
-pandas>=1.5.0
-numpy>=1.24.0
-
-# AI輔助
-google-generativeai>=0.3.0
-openai>=1.0.0              # 可選的AI輔助
+pandas>=1.5.0              # 資料處理和CSV生成
+numpy>=1.24.0              # 數值計算
 
 # 文字處理
 regex>=2023.10.0           # 增強正則表達式
 python-Levenshtein>=0.21.0 # 字串相似度比對
 
-# 測試框架
-pytest>=7.0.0
-pytest-cov>=4.0.0
+# 配置管理
+PyYAML>=6.0                # YAML配置文件支持
 
-# 開發工具
-black>=22.0.0
-flake8>=5.0.0
-mypy>=1.0.0
+# 系統監控
+psutil>=5.9.0              # 性能監控和記憶體管理
+
+# ============================================================
+# OCR 功能（可選）
+# ============================================================
+# 用於處理掃描版或圖片型PDF
+# 注意：PaddlePaddle 體積較大（約200MB），如不需要OCR功能可跳過
+
+paddlepaddle>=2.5.0        # PaddlePaddle 深度學習框架（CPU版本）
+# paddlepaddle-gpu>=2.5.0  # GPU版本（需要CUDA，取消註解以使用）
+paddleocr>=2.7.0           # PaddleOCR - 工業級OCR引擎
+pdf2image>=1.16.3          # PDF轉圖片（OCR需要）
+Pillow>=10.0.0             # 圖像處理
+
+# ============================================================
+# 備用 PDF 處理工具（可選）
+# ============================================================
+# 提供額外的PDF處理選項，通常不需要安裝
+# PyMuPDF>=1.23.0          # fitz - 高性能PDF處理（已註釋，按需啟用）
+# pdfminer.six>=20221105   # 詳細PDF分析（已註釋，按需啟用）
+# pypdf>=3.0.0             # 輕量級PDF處理（已註釋，按需啟用）
+
+# ============================================================
+# AI 功能（預留，目前未使用）
+# ============================================================
+# 這些依賴目前在代碼中未被使用，可以不安裝
+# google-generativeai>=0.3.0  # Google Gemini API（已註釋）
+# openai>=1.0.0                # OpenAI API（已註釋）
+
+# ============================================================
+# Web 管理界面（可選）
+# ============================================================
+# 提供Web界面進行PDF上傳、處理和監控
+# 詳細安裝說明：pip install -r requirements-web.txt
+
+Flask>=2.3.0               # 輕量級Web框架
+Werkzeug>=2.3.0            # WSGI工具集
+
+# ============================================================
+# 開發和測試工具（僅開發者需要）
+# ============================================================
+# 如果您是最終用戶，不需要安裝這些工具
+# 開發者請使用：pip install -r requirements-dev.txt
+
+# 測試框架
+pytest>=7.0.0              # 測試框架
+pytest-cov>=4.0.0          # 測試覆蓋率
+
+# 代碼質量工具
+black>=22.0.0              # 代碼格式化
+flake8>=5.0.0              # 代碼風格檢查
+mypy>=1.0.0                # 靜態類型檢查

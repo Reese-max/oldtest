@@ -1,0 +1,141 @@
+{
+  "app": {
+    "name": "試験問題処理システム",
+    "version": "バージョン {version}",
+    "description": "インテリジェントPDF試験問題パーサー"
+  },
+
+  "messages": {
+    "success": "✅ 成功",
+    "error": "❌ エラー",
+    "warning": "⚠️  警告",
+    "info": "ℹ️  情報",
+    "processing": "🔄 処理中...",
+    "completed": "✅ 完了",
+    "failed": "❌ 失敗"
+  },
+
+  "pdf": {
+    "extracting": "PDFテキストを抽出中...",
+    "extracting_page": "ページ {page}/{total} を抽出中...",
+    "extract_success": "PDFテキスト抽出成功",
+    "extract_failed": "PDFテキスト抽出失敗: {error}",
+    "file_not_found": "PDFファイルが見つかりません: {path}",
+    "invalid_file": "無効なPDFファイル: {path}",
+    "ocr_enabled": "OCR機能が有効",
+    "ocr_processing": "OCRでテキストを認識中...",
+    "ocr_success": "OCR認識成功",
+    "ocr_failed": "OCR認識失敗: {error}"
+  },
+
+  "parser": {
+    "parsing": "問題を解析中...",
+    "parsing_progress": "{current}/{total} 問題を解析済み",
+    "parse_success": "問題解析成功、合計 {count} 問題",
+    "parse_failed": "問題解析失敗: {error}",
+    "no_questions": "問題が見つかりません",
+    "detecting_format": "問題形式を検出中...",
+    "format_detected": "検出された形式: {format}",
+    "using_parser": "パーサーを使用: {parser}"
+  },
+
+  "processor": {
+    "processing_pdf": "PDFを処理中: {filename}",
+    "processing_batch": "{count} ファイルを一括処理中...",
+    "batch_progress": "一括処理の進行状況: {current}/{total}",
+    "batch_completed": "一括処理完了、{success} 成功、{failed} 失敗",
+    "generating_csv": "CSVファイルを生成中...",
+    "csv_generated": "CSVファイルが生成されました: {path}",
+    "generating_form": "Googleフォームスクリプトを生成中...",
+    "form_generated": "Googleフォームスクリプトが生成されました: {path}"
+  },
+
+  "performance": {
+    "monitoring": "パフォーマンス監視が有効",
+    "duration": "実行時間: {seconds} 秒",
+    "memory_usage": "メモリ使用量: {mb} MB",
+    "memory_delta": "メモリ変化: {delta} MB",
+    "cpu_usage": "CPU使用率: {percent}%",
+    "generating_report": "パフォーマンスレポートを生成中...",
+    "report_generated": "パフォーマンスレポートが生成されました: {path}"
+  },
+
+  "concurrent": {
+    "starting": "{workers} ワーカーで並行処理を開始",
+    "task_started": "タスク #{id} 開始",
+    "task_completed": "タスク #{id} 完了",
+    "task_failed": "タスク #{id} 失敗: {error}",
+    "all_completed": "すべてのタスクが完了"
+  },
+
+  "retry": {
+    "retrying": "再試行中... ({attempt}/{max} 回目)",
+    "retry_success": "再試行成功",
+    "retry_failed": "再試行失敗、最大試行回数に達しました",
+    "checkpoint_saved": "チェックポイントが保存されました",
+    "checkpoint_loaded": "チェックポイントが読み込まれました",
+    "resuming": "チェックポイントから再開..."
+  },
+
+  "streaming": {
+    "streaming_enabled": "ストリーミング処理が有効",
+    "chunk_size": "チャンクサイズ: {size} ページ",
+    "processing_chunk": "チャンク {current}/{total} を処理中",
+    "memory_optimized": "メモリ最適化モードが有効"
+  },
+
+  "config": {
+    "loading": "設定を読み込み中...",
+    "loaded": "設定が読み込まれました: {path}",
+    "load_failed": "設定の読み込みに失敗: {error}",
+    "saving": "設定を保存中...",
+    "saved": "設定が保存されました: {path}",
+    "invalid_config": "無効な設定: {error}"
+  },
+
+  "validation": {
+    "validating": "検証中...",
+    "validation_passed": "検証合格",
+    "validation_failed": "検証失敗: {error}",
+    "quality_check": "品質チェック: {score}%",
+    "quality_low": "品質が低すぎます、OCRをお勧めします"
+  },
+
+  "errors": {
+    "unknown_error": "不明なエラー: {error}",
+    "file_not_found": "ファイルが見つかりません: {path}",
+    "permission_denied": "アクセス権限がありません: {path}",
+    "invalid_format": "無効な形式: {format}",
+    "network_error": "ネットワークエラー: {error}",
+    "timeout": "操作タイムアウト",
+    "out_of_memory": "メモリ不足",
+    "not_implemented": "機能は実装されていません"
+  },
+
+  "cli": {
+    "usage": "使用方法",
+    "options": "オプション",
+    "examples": "例",
+    "help": "このヘルプメッセージを表示",
+    "version": "バージョン情報を表示",
+    "verbose": "詳細出力",
+    "quiet": "静かなモード",
+    "output": "出力パス",
+    "input": "入力ファイル",
+    "language": "言語設定"
+  },
+
+  "i18n": {
+    "language_changed": "言語が変更されました: {language}",
+    "language_not_supported": "サポートされていない言語: {language}",
+    "available_languages": "利用可能な言語",
+    "current_language": "現在の言語: {language}"
+  },
+
+  "test": {
+    "running": "テストを実行中...",
+    "test_passed": "テスト合格: {name}",
+    "test_failed": "テスト失敗: {name}",
+    "tests_summary": "テスト概要: {passed}/{total} 合格"
+  }
+}

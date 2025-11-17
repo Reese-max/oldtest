@@ -1,0 +1,20 @@
+# Web 管理界面依賴
+# 適合：需要使用Web界面進行PDF處理和監控的用戶
+#
+# 安裝方式：
+#   pip install -r requirements-minimal.txt -r requirements-web.txt
+#
+# 或者使用 setup.py：
+#   pip install -e ".[web]"
+
+# Web 框架
+Flask>=2.3.0               # 輕量級Web框架
+Werkzeug>=2.3.0            # WSGI工具集（Flask依賴）
+
+# 可選：生產環境部署
+# gunicorn>=21.0.0         # WSGI HTTP服務器（Linux/Mac）
+# waitress>=2.1.0          # WSGI服務器（Windows友好）
+
+# 可選：增強功能
+# Flask-CORS>=4.0.0        # 跨域資源共享支持
+# Flask-Limiter>=3.0.0     # API速率限制

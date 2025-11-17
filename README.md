@@ -70,14 +70,41 @@
 
 ### 1. 安裝依賴
 
+本系統提供多種安裝選項，請根據需求選擇：
+
+#### 選項一：最小化安裝（推薦新用戶）
+僅包含核心功能，適合處理文字型PDF：
+```bash
+pip install -r requirements-minimal.txt
+```
+
+#### 選項二：完整安裝（推薦）
+包含所有功能（核心+OCR+測試）：
 ```bash
 pip install -r requirements.txt
 ```
 
-**可選OCR支援**（如需處理掃描版PDF）:
+#### 選項三：按需安裝
+根據需求組合安裝：
 ```bash
-pip install paddlepaddle paddleocr pdf2image
+# 基本功能
+pip install -r requirements-minimal.txt
+
+# 需要OCR功能時（處理掃描版PDF）
+pip install -r requirements-ocr.txt
+
+# 開發者模式
+pip install -r requirements-dev.txt
 ```
+
+📚 **詳細安裝指南**: 請查看 [INSTALLATION.md](docs/INSTALLATION.md)
+
+**安裝對比**:
+| 安裝方式 | 大小 | 時間 | 功能 |
+|---------|------|------|------|
+| 最小化 | ~60MB | 1-2分鐘 | 基本PDF處理 |
+| 完整 | ~280MB | 5-8分鐘 | 所有功能 |
+| 開發 | ~330MB | 8-10分鐘 | 完整+開發工具 |
 
 ### 2. 配置系統
 

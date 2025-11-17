@@ -1,0 +1,141 @@
+{
+  "app": {
+    "name": "Exam Question Processor",
+    "version": "Version {version}",
+    "description": "Intelligent PDF Exam Question Parser"
+  },
+
+  "messages": {
+    "success": "✅ Success",
+    "error": "❌ Error",
+    "warning": "⚠️  Warning",
+    "info": "ℹ️  Info",
+    "processing": "🔄 Processing...",
+    "completed": "✅ Completed",
+    "failed": "❌ Failed"
+  },
+
+  "pdf": {
+    "extracting": "Extracting PDF text...",
+    "extracting_page": "Extracting page {page}/{total}...",
+    "extract_success": "PDF text extraction successful",
+    "extract_failed": "PDF text extraction failed: {error}",
+    "file_not_found": "PDF file not found: {path}",
+    "invalid_file": "Invalid PDF file: {path}",
+    "ocr_enabled": "OCR feature enabled",
+    "ocr_processing": "Recognizing text with OCR...",
+    "ocr_success": "OCR recognition successful",
+    "ocr_failed": "OCR recognition failed: {error}"
+  },
+
+  "parser": {
+    "parsing": "Parsing questions...",
+    "parsing_progress": "Parsed {current}/{total} questions",
+    "parse_success": "Question parsing successful, total {count} questions",
+    "parse_failed": "Question parsing failed: {error}",
+    "no_questions": "No questions found",
+    "detecting_format": "Detecting question format...",
+    "format_detected": "Format detected: {format}",
+    "using_parser": "Using parser: {parser}"
+  },
+
+  "processor": {
+    "processing_pdf": "Processing PDF: {filename}",
+    "processing_batch": "Batch processing {count} files...",
+    "batch_progress": "Batch progress: {current}/{total}",
+    "batch_completed": "Batch processing completed, {success} succeeded, {failed} failed",
+    "generating_csv": "Generating CSV file...",
+    "csv_generated": "CSV file generated: {path}",
+    "generating_form": "Generating Google Form script...",
+    "form_generated": "Google Form script generated: {path}"
+  },
+
+  "performance": {
+    "monitoring": "Performance monitoring enabled",
+    "duration": "Duration: {seconds} seconds",
+    "memory_usage": "Memory usage: {mb} MB",
+    "memory_delta": "Memory delta: {delta} MB",
+    "cpu_usage": "CPU usage: {percent}%",
+    "generating_report": "Generating performance report...",
+    "report_generated": "Performance report generated: {path}"
+  },
+
+  "concurrent": {
+    "starting": "Starting concurrent processing with {workers} workers",
+    "task_started": "Task #{id} started",
+    "task_completed": "Task #{id} completed",
+    "task_failed": "Task #{id} failed: {error}",
+    "all_completed": "All tasks completed"
+  },
+
+  "retry": {
+    "retrying": "Retrying... (attempt {attempt}/{max})",
+    "retry_success": "Retry successful",
+    "retry_failed": "Retry failed, max attempts reached",
+    "checkpoint_saved": "Checkpoint saved",
+    "checkpoint_loaded": "Checkpoint loaded",
+    "resuming": "Resuming from checkpoint..."
+  },
+
+  "streaming": {
+    "streaming_enabled": "Streaming processing enabled",
+    "chunk_size": "Chunk size: {size} pages",
+    "processing_chunk": "Processing chunk {current}/{total}",
+    "memory_optimized": "Memory optimization mode enabled"
+  },
+
+  "config": {
+    "loading": "Loading configuration...",
+    "loaded": "Configuration loaded: {path}",
+    "load_failed": "Configuration load failed: {error}",
+    "saving": "Saving configuration...",
+    "saved": "Configuration saved: {path}",
+    "invalid_config": "Invalid configuration: {error}"
+  },
+
+  "validation": {
+    "validating": "Validating...",
+    "validation_passed": "Validation passed",
+    "validation_failed": "Validation failed: {error}",
+    "quality_check": "Quality check: {score}%",
+    "quality_low": "Quality too low, OCR recommended"
+  },
+
+  "errors": {
+    "unknown_error": "Unknown error: {error}",
+    "file_not_found": "File not found: {path}",
+    "permission_denied": "Permission denied: {path}",
+    "invalid_format": "Invalid format: {format}",
+    "network_error": "Network error: {error}",
+    "timeout": "Operation timeout",
+    "out_of_memory": "Out of memory",
+    "not_implemented": "Feature not implemented"
+  },
+
+  "cli": {
+    "usage": "Usage",
+    "options": "Options",
+    "examples": "Examples",
+    "help": "Show this help message",
+    "version": "Show version information",
+    "verbose": "Verbose output",
+    "quiet": "Quiet mode",
+    "output": "Output path",
+    "input": "Input file",
+    "language": "Language setting"
+  },
+
+  "i18n": {
+    "language_changed": "Language changed to: {language}",
+    "language_not_supported": "Language not supported: {language}",
+    "available_languages": "Available languages",
+    "current_language": "Current language: {language}"
+  },
+
+  "test": {
+    "running": "Running tests...",
+    "test_passed": "Test passed: {name}",
+    "test_failed": "Test failed: {name}",
+    "tests_summary": "Test summary: {passed}/{total} passed"
+  }
+}

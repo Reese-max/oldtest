@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}首頁 - 考古題處理系統{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>🎯 歡迎使用考古題處理系統</h1>
+    <p class="subtitle">智能PDF解析 | 自動生成Google表單 | 多種題型支持</p>
+</div>
+
+<div class="features-grid">
+    <div class="feature-card">
+        <div class="feature-icon">📄</div>
+        <h3>PDF上傳處理</h3>
+        <p>支持上傳考古題PDF，自動解析題目和選項</p>
+        <a href="{{ url_for('upload_page') }}" class="btn btn-primary">開始處理</a>
+    </div>
+
+    <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>批量處理</h3>
+        <p>支持批量上傳多個PDF文件，並發處理提高效率</p>
+        <a href="{{ url_for('upload_page') }}" class="btn btn-secondary">批量上傳</a>
+    </div>
+
+    <div class="feature-card">
+        <div class="feature-icon">⏱️</div>
+        <h3>性能監控</h3>
+        <p>實時監控處理性能，查看記憶體和CPU使用情況</p>
+        <a href="{{ url_for('monitor_page') }}" class="btn btn-secondary">查看監控</a>
+    </div>
+
+    <div class="feature-card">
+        <div class="feature-icon">📥</div>
+        <h3>結果下載</h3>
+        <p>下載CSV格式的題目，或Google表單腳本</p>
+        <a href="{{ url_for('upload_page') }}" class="btn btn-secondary">查看結果</a>
+    </div>
+</div>
+
+<div class="stats-section">
+    <h2>系統統計</h2>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value" id="total-tasks">0</div>
+            <div class="stat-label">總處理任務</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="completed-tasks">0</div>
+            <div class="stat-label">已完成任務</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="total-questions">0</div>
+            <div class="stat-label">解析題目數</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">4</div>
+            <div class="stat-label">支持語言</div>
+        </div>
+    </div>
+</div>
+
+<div class="features-list">
+    <h2>主要功能</h2>
+    <ul>
+        <li>✅ 智能PDF文字提取</li>
+        <li>✅ 多種題型格式支持（選擇題、申論題、填空題等）</li>
+        <li>✅ OCR掃描版PDF支持</li>
+        <li>✅ 自動生成Google表單腳本</li>
+        <li>✅ 並發批量處理（3-4倍速度提升）</li>
+        <li>✅ 流式處理（10倍記憶體降低）</li>
+        <li>✅ 自動重試和錯誤恢復</li>
+        <li>✅ 完整的性能監控</li>
+        <li>✅ 多語言界面（繁中、簡中、英文、日文）</li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// 載入統計數據
+async function loadStats() {
+    try {
+        const response = await fetch('/api/tasks');
+        const tasks = await response.json();
+
+        const totalTasks = tasks.length;
+        const completedTasks = tasks.filter(t => t.status === 'completed').length;
+        const totalQuestions = tasks
+            .filter(t => t.status === 'completed')
+            .reduce((sum, t) => sum + (t.result?.question_count || 0), 0);
+
+        document.getElementById('total-tasks').textContent = totalTasks;
+        document.getElementById('completed-tasks').textContent = completedTasks;
+        document.getElementById('total-questions').textContent = totalQuestions;
+    } catch (error) {
+        console.error('載入統計失敗:', error);
+    }
+}
+
+// 頁面載入時執行
+loadStats();
+
+// 每30秒更新一次
+setInterval(loadStats, 30000);
+</script>
+{% endblock %}

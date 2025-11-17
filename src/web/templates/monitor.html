@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+
+{% block title %}性能監控 - 考古題處理系統{% endblock %}
+
+{% block content %}
+<h1>⏱️ 性能監控儀表板</h1>
+
+<div class="monitor-summary">
+    <div class="metric-card">
+        <div class="metric-label">總記錄數</div>
+        <div class="metric-value" id="total-metrics">0</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-label">總耗時</div>
+        <div class="metric-value" id="total-duration">0.00s</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-label">平均CPU</div>
+        <div class="metric-value" id="avg-cpu">0.00%</div>
+    </div>
+    <div class="metric-card">
+        <div class="metric-label">成功率</div>
+        <div class="metric-value" id="success-rate">0.00%</div>
+    </div>
+</div>
+
+<div class="monitor-sections">
+    <div class="monitor-section">
+        <h2>函數統計</h2>
+        <div class="functions-table-container">
+            <table class="functions-table" id="functionsTable">
+                <thead>
+                    <tr>
+                        <th>函數名稱</th>
+                        <th>調用次數</th>
+                        <th>總耗時</th>
+                        <th>平均耗時</th>
+                        <th>最小耗時</th>
+                        <th>最大耗時</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="6" class="no-data">暫無數據</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="monitor-section">
+        <h2>最近記錄</h2>
+        <div class="metrics-list" id="recentMetrics">
+            <p class="no-data">暫無記錄</p>
+        </div>
+    </div>
+</div>
+
+<div class="monitor-actions">
+    <button onclick="refreshMetrics()" class="btn btn-primary">
+        🔄 刷新數據
+    </button>
+    <button onclick="downloadReport()" class="btn btn-secondary">
+        📥 下載報告
+    </button>
+    <button onclick="clearMetrics()" class="btn btn-danger">
+        🗑️ 清除數據
+    </button>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// 刷新性能指標
+async function refreshMetrics() {
+    try {
+        const response = await fetch('/api/monitor/metrics');
+        const data = await response.json();
+
+        // 更新總體統計
+        const summary = data.summary;
+        document.getElementById('total-metrics').textContent = summary.total_metrics;
+        document.getElementById('total-duration').textContent = summary.total_duration.toFixed(2) + 's';
+        document.getElementById('avg-cpu').textContent = summary.avg_cpu.toFixed(2) + '%';
+        document.getElementById('success-rate').textContent = summary.success_rate.toFixed(2) + '%';
+
+        // 更新函數統計表
+        const statsTable = document.getElementById('functionsTable').querySelector('tbody');
+        const stats = data.stats;
+
+        if (Object.keys(stats).length === 0) {
+            statsTable.innerHTML = '<tr><td colspan="6" class="no-data">暫無數據</td></tr>';
+        } else {
+            statsTable.innerHTML = Object.entries(stats)
+                .sort((a, b) => b[1].total_time - a[1].total_time)
+                .map(([name, stat]) => `
+                    <tr>
+                        <td>${name}</td>
+                        <td>${stat.call_count}</td>
+                        <td>${stat.total_time.toFixed(4)}s</td>
+                        <td>${stat.avg_time.toFixed(4)}s</td>
+                        <td>${stat.min_time.toFixed(4)}s</td>
+                        <td>${stat.max_time.toFixed(4)}s</td>
+                    </tr>
+                `).join('');
+        }
+
+        // 更新最近記錄
+        const metricsDiv = document.getElementById('recentMetrics');
+        const metrics = data.metrics;
+
+        if (metrics.length === 0) {
+            metricsDiv.innerHTML = '<p class="no-data">暫無記錄</p>';
+        } else {
+            metricsDiv.innerHTML = metrics.reverse().map(m => `
+                <div class="metric-item ${m.success ? 'success' : 'failed'}">
+                    <div class="metric-header">
+                        <span class="metric-name">${m.function_name}</span>
+                        <span class="metric-status">${m.success ? '✅' : '❌'}</span>
+                    </div>
+                    <div class="metric-details">
+                        <span>⏱️ ${m.duration.toFixed(4)}s</span>
+                        <span>💾 ${m.memory_delta_mb >= 0 ? '+' : ''}${m.memory_delta_mb.toFixed(2)}MB</span>
+                        <span>🔥 ${m.cpu_percent.toFixed(2)}%</span>
+                    </div>
+                    ${m.error_message ? `<div class="metric-error">${m.error_message}</div>` : ''}
+                </div>
+            `).join('');
+        }
+
+    } catch (error) {
+        console.error('刷新指標失敗:', error);
+        showNotification('❌ 刷新失敗: ' + error.message, 'error');
+    }
+}
+
+// 下載報告
+async function downloadReport() {
+    try {
+        const response = await fetch('/api/monitor/report');
+        const data = await response.json();
+
+        const blob = new Blob([data.report], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `performance_report_${new Date().toISOString().split('T')[0]}.txt`;
+        a.click();
+        URL.revokeObjectURL(url);
+
+        showNotification('✅ 報告已下載', 'success');
+    } catch (error) {
+        showNotification('❌ 下載失敗: ' + error.message, 'error');
+    }
+}
+
+// 清除數據（需要後端支持）
+function clearMetrics() {
+    if (!confirm('確定要清除所有性能數據嗎？')) {
+        return;
+    }
+
+    showNotification('⚠️ 此功能需要後端API支持', 'warning');
+}
+
+// 顯示通知
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// 頁面載入時刷新
+refreshMetrics();
+
+// 每10秒自動刷新
+setInterval(refreshMetrics, 10000);
+</script>
+{% endblock %}
