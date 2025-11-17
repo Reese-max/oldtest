@@ -21,6 +21,7 @@ from ..core.answer_processor import AnswerProcessor
 from ..core.csv_generator import CSVGenerator
 from ..utils.logger import logger
 from ..utils.exceptions import ArchaeologyQuestionsError
+from ..utils.question_scan_tracker import QuestionScanTracker
 from ..utils.constants import (
     FORMAT_TYPE_COMPREHENSIVE, FORMAT_TYPE_MIXED, FORMAT_TYPE_EMBEDDED,
     FORMAT_TYPE_ESSAY, FORMAT_TYPE_STANDARD,
@@ -97,6 +98,7 @@ class ArchaeologyProcessor:
         self.ultimate_parser = UltimateQuestionParser()  # 終極解析器
         self.answer_processor = AnswerProcessor()
         self.csv_generator = CSVGenerator()
+        self.scan_tracker: Optional[QuestionScanTracker] = None
     
     def process_pdf(self, pdf_path: str,
                    answer_pdf_path: Optional[str] = None,
@@ -117,17 +119,30 @@ class ArchaeologyProcessor:
         try:
             self.logger.info(f"開始處理PDF檔案: {pdf_path}")
 
+            # 初始化掃描追蹤器
+            self.scan_tracker = QuestionScanTracker()
+            self.scan_tracker.start_scan()
+
             # 1. 提取問題文本並解析
             questions = self._extract_and_parse_questions(pdf_path)
             if not questions:
+                self.logger.error("❌ 未找到任何題目")
                 return {'success': False, 'message': '未找到任何題目'}
 
-            # 2. 提取並合併答案
+            # 2. 驗證題目完整性
+            is_complete, validation_msg = self.scan_tracker.validate_questions(questions)
+            if not is_complete:
+                self.logger.warning(f"⚠️  題目完整性問題: {validation_msg}")
+
+            # 3. 結束掃描並生成報告
+            scan_report = self.scan_tracker.end_scan()
+
+            # 4. 提取並合併答案
             answers, corrected_answers = self._extract_and_merge_answers(
                 answer_pdf_path, corrected_answer_pdf_path
             )
 
-            # 3. 生成輸出檔案
+            # 5. 生成輸出檔案
             processing_data = ProcessingData(
                 questions=questions,
                 answers=answers,
@@ -137,7 +152,7 @@ class ArchaeologyProcessor:
             )
             csv_files = self._generate_csv_files(processing_data)
 
-            # 4. 構建結果
+            # 6. 構建結果（包含掃描報告）
             result_data = ProcessingResult(
                 pdf_path=pdf_path,
                 output_dir=output_dir,
@@ -147,6 +162,16 @@ class ArchaeologyProcessor:
                 corrected_answers=corrected_answers
             )
             result = self._build_result(result_data)
+
+            # 添加掃描報告到結果中
+            result['scan_report'] = scan_report
+            result['scan_complete'] = is_complete
+            result['missing_questions'] = scan_report.get('missing_questions', [])
+
+            # 保存掃描報告
+            report_path = os.path.join(output_dir, f"{os.path.splitext(os.path.basename(pdf_path))[0]}_scan_report.json")
+            os.makedirs(output_dir, exist_ok=True)
+            self.scan_tracker.save_report(report_path)
 
             self.logger.success(f"PDF處理完成: {len(questions)} 題，{len(csv_files)} 個CSV檔案")
             return result
@@ -268,13 +293,13 @@ class ArchaeologyProcessor:
         }
     
     def _smart_parse_questions(self, text: str, pdf_path: str) -> List[Dict[str, Any]]:
-        """智能格式检测和解析"""
+        """智能格式检测和解析（含掃描追蹤）"""
         questions = []
-        
+
         # 检测格式类型
         format_type = self._detect_format_type(text, pdf_path)
         self.logger.info(f"检测到格式类型: {format_type}")
-        
+
         # 根據格式類型選擇對應的解析器
         format_parsers = {
             FORMAT_TYPE_COMPREHENSIVE: lambda: self._parse_comprehensive(text, pdf_path),
@@ -283,10 +308,30 @@ class ArchaeologyProcessor:
             FORMAT_TYPE_ESSAY: lambda: self._parse_essay(text),
             FORMAT_TYPE_STANDARD: lambda: self._parse_standard(text)
         }
-        
+
         parser_func = format_parsers.get(format_type, format_parsers[FORMAT_TYPE_STANDARD])
         questions = parser_func()
-        
+
+        # 追蹤掃描到的每一題
+        if self.scan_tracker and questions:
+            parser_name = {
+                FORMAT_TYPE_COMPREHENSIVE: 'UltimateParser',
+                FORMAT_TYPE_MIXED: 'MixedFormatParser',
+                FORMAT_TYPE_EMBEDDED: 'EmbeddedQuestionParser',
+                FORMAT_TYPE_ESSAY: 'EssayQuestionParser',
+                FORMAT_TYPE_STANDARD: 'StandardParser'
+            }.get(format_type, 'UnknownParser')
+
+            for q in questions:
+                question_num = q.get('題號', 0)
+                question_text = q.get('題目', '')
+                if question_num:
+                    self.scan_tracker.register_question(
+                        question_num,
+                        parser_name,
+                        question_text
+                    )
+
         return questions
     
     def _parse_comprehensive(self, text: str, pdf_path: str) -> List[Dict[str, Any]]:
