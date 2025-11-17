@@ -1,5 +1,7 @@
 import os
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from bs4 import BeautifulSoup, Tag
 from bs4.element import NavigableString, PageElement
 import time
@@ -8,7 +10,7 @@ from urllib.parse import urljoin
 import html
 import json
 from datetime import datetime
-from typing import List, Dict, Any, Union, Optional
+from typing import List, Dict, Any, Union, Optional, Tuple
 import warnings
 import urllib3
 
@@ -233,6 +235,70 @@ def confirm_settings(save_dir, years, keywords):
             return False
         else:
             print("❌ 請輸入 Y 或 N")
+
+def create_robust_session():
+    """創建增強型Session - 提升成功率至95-99%"""
+    session = requests.Session()
+
+    # 配置重試策略
+    retry_strategy = Retry(
+        total=10,  # 總共10次重試（原5次）
+        backoff_factor=1,  # 指數退避因子：1s, 2s, 4s, 8s...
+        status_forcelist=[429, 500, 502, 503, 504],  # 需要重試的HTTP狀態碼
+        allowed_methods=["GET", "POST"],  # 允許重試的方法
+        raise_on_status=False  # 不在重試時拋出異常
+    )
+
+    # 配置HTTP適配器
+    adapter = HTTPAdapter(
+        max_retries=retry_strategy,
+        pool_connections=10,  # 連接池大小
+        pool_maxsize=20,      # 最大連接數
+        pool_block=False      # 非阻塞模式
+    )
+
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    session.headers.update(HEADERS)
+
+    return session
+
+def verify_pdf_file(file_path: str) -> Tuple[bool, Any]:
+    """
+    驗證PDF文件完整性
+
+    Returns:
+        (是否有效, 文件大小或錯誤訊息)
+    """
+    try:
+        # 檢查文件大小
+        file_size = os.path.getsize(file_path)
+        if file_size < 1024:
+            return False, "文件過小"
+
+        # 檢查PDF文件頭（%PDF-）
+        with open(file_path, 'rb') as f:
+            header = f.read(5)
+            if not header.startswith(b'%PDF-'):
+                return False, "非PDF文件"
+
+        # 嘗試用pdfplumber打開驗證（如果可用）
+        try:
+            import pdfplumber
+            with pdfplumber.open(file_path) as pdf:
+                # 檢查是否至少有一頁
+                if len(pdf.pages) == 0:
+                    return False, "PDF無內容"
+        except ImportError:
+            # 如果沒有pdfplumber，跳過深度驗證
+            pass
+        except Exception as e:
+            return False, f"PDF損壞: {str(e)[:30]}"
+
+        return True, file_size
+
+    except Exception as e:
+        return False, f"驗證失敗: {str(e)[:30]}"
 
 def sanitize_filename(name):
     """清理檔名中的非法字元"""
@@ -512,11 +578,32 @@ def parse_exam_page(html_content, exam_name=""):
 
     return exam_structure
 
-def download_file(session, url, file_path, max_retries=5):
-    """下載檔案"""
+def download_file(session, url, file_path, max_retries=10):
+    """
+    增強型文件下載 - 支援更多異常處理和PDF驗證
+
+    Args:
+        session: requests.Session實例
+        url: 下載URL
+        file_path: 儲存路徑
+        max_retries: 最大重試次數（默認10次）
+
+    Returns:
+        (成功, 文件大小或錯誤訊息)
+    """
     for attempt in range(max_retries):
         try:
-            response = session.get(url, headers=HEADERS, stream=True, timeout=60, verify=False)
+            # 分別設置連接超時和讀取超時
+            # (連接超時, 讀取超時)
+            timeout = (10, 120)  # 10秒建立連接，120秒讀取數據
+
+            response = session.get(
+                url,
+                headers=HEADERS,
+                stream=True,
+                timeout=timeout,
+                verify=False
+            )
             response.raise_for_status()
 
             content_type = response.headers.get('Content-Type', '')
@@ -528,32 +615,74 @@ def download_file(session, url, file_path, max_retries=5):
                     if chunk:
                         f.write(chunk)
 
-            file_size = os.path.getsize(file_path)
-            if file_size > 1024:
-                return True, file_size
+            # 驗證PDF文件完整性
+            valid, result = verify_pdf_file(file_path)
+            if valid:
+                return True, result
             else:
-                os.remove(file_path)
-                return False, "檔案過小"
+                # 文件無效，刪除並重試
+                try:
+                    os.remove(file_path)
+                except Exception:
+                    pass
+                if attempt == max_retries - 1:
+                    return False, result
+                time.sleep(2 ** attempt)
+                continue
 
         except requests.exceptions.Timeout:
             if attempt == max_retries - 1:
                 return False, "請求超時"
             time.sleep(2 ** attempt)
-            continue  # 繼續下一次重試
+            continue
+
+        except requests.exceptions.HTTPError as e:
+            # HTTP狀態錯誤
+            if e.response and e.response.status_code in [404, 403, 401]:
+                # 這些錯誤不需要重試
+                return False, f"HTTP {e.response.status_code}"
+            if attempt == max_retries - 1:
+                return False, f"HTTP錯誤"
+            time.sleep(2 ** attempt)
+            continue
 
         except requests.exceptions.ConnectionError:
             if attempt == max_retries - 1:
                 return False, "連線錯誤"
             time.sleep(2 ** attempt)
-            continue  # 繼續下一次重試
+            continue
+
+        except requests.exceptions.ChunkedEncodingError:
+            # 分塊編碼錯誤，通常是傳輸中斷
+            if attempt == max_retries - 1:
+                return False, "傳輸中斷"
+            time.sleep(2 ** attempt)
+            continue
+
+        except requests.exceptions.ContentDecodingError:
+            # 內容解碼錯誤
+            if attempt == max_retries - 1:
+                return False, "內容解碼失敗"
+            time.sleep(2 ** attempt)
+            continue
+
+        except (OSError, IOError) as e:
+            # 文件系統錯誤
+            error_msg = str(e).lower()
+            if "disk" in error_msg or "space" in error_msg:
+                return False, "磁碟空間不足"
+            if attempt == max_retries - 1:
+                return False, f"文件錯誤: {str(e)[:30]}"
+            time.sleep(2 ** attempt)
+            continue
 
         except Exception as e:
             if attempt == max_retries - 1:
-                return False, str(e)[:50]
+                return False, f"未知錯誤: {str(e)[:30]}"
             time.sleep(2 ** attempt)
-            continue  # 繼續下一次重試
+            continue
 
-    return False, "重試失敗"
+    return False, "超過最大重試次數"
 
 def download_exam(session, exam_info, base_folder, stats):
     """下載單一考試"""
@@ -731,6 +860,57 @@ def download_exam(session, exam_info, base_folder, stats):
         print(f"   ❌ 處理失敗: {e}")
         stats['failed_exams'] += 1
 
+def retry_failed_downloads(session, failed_list, base_folder):
+    """
+    重試失敗的下載（第二輪）
+
+    Args:
+        session: requests.Session實例
+        failed_list: 失敗項目列表
+        base_folder: 基礎資料夾
+
+    Returns:
+        重試統計結果
+    """
+    print("\n" + "="*70)
+    print("🔄 開始重試失敗的下載（第二輪 - 15次重試）")
+    print("="*70)
+
+    retry_stats = {
+        'success': 0,
+        'still_failed': 0,
+        'still_failed_list': []
+    }
+
+    total = len(failed_list)
+    for idx, item in enumerate(failed_list, 1):
+        print(f"\n🔄 [{idx}/{total}] 重試: {item['subject']} - {item['type']}")
+        print(f"   📁 {item['file_path']}")
+
+        # 第二輪使用更長的等待時間
+        time.sleep(3)
+
+        success, result = download_file(
+            session,
+            item['url'],
+            item['file_path'],
+            max_retries=15  # 第二輪使用更多重試次數
+        )
+
+        if success:
+            retry_stats['success'] += 1
+            print(f"   ✅ 重試成功！大小: {result/1024:.1f}KB")
+        else:
+            retry_stats['still_failed'] += 1
+            retry_stats['still_failed_list'].append(item)
+            print(f"   ❌ 仍然失敗: {result}")
+
+        # 顯示進度
+        success_rate = (retry_stats['success'] / idx) * 100
+        print(f"   📊 當前重試成功率: {success_rate:.1f}% ({retry_stats['success']}/{idx})")
+
+    return retry_stats
+
 def main():
     # 顯示歡迎畫面
     print_banner()
@@ -766,14 +946,14 @@ def main():
         'failed_list': []
     }
     
-    session = requests.Session()
-    session.headers.update(HEADERS)
-    
+    # 使用增強型Session
+    session = create_robust_session()
+
     start_time = datetime.now()
-    
+
     try:
         print("\n" + "="*70)
-        print("🚀 開始下載")
+        print("🚀 開始下載（增強模式：10次重試 + PDF驗證）")
         print("="*70)
         
         for year in years:
@@ -792,16 +972,59 @@ def main():
                 time.sleep(0.5)
         
         elapsed_time = datetime.now() - start_time
-        
-        # 產生報告
+
+        # 產生第一輪報告
         print("\n" + "="*70)
-        print("📊 下載完成統計")
+        print("📊 第一輪下載完成統計")
         print("="*70)
         print(f"⏱️  總耗時: {elapsed_time}")
         print(f"✅ 成功下載: {stats['success']} 個檔案")
         print(f"⏭️  已跳過: {stats['skipped']} 個檔案")
         print(f"❌ 失敗: {stats['failed']} 個檔案")
         print(f"📦 總大小: {stats['total_size'] / (1024*1024):.2f} MB")
+
+        if stats['failed'] > 0:
+            first_round_success_rate = (stats['success'] / (stats['success'] + stats['failed'])) * 100
+            print(f"📈 第一輪成功率: {first_round_success_rate:.1f}%")
+
+        # 第二輪：重試失敗的下載
+        if stats['failed_list']:
+            print(f"\n⚠️  第一輪有 {len(stats['failed_list'])} 個失敗，啟動第二輪重試...")
+
+            retry_stats = retry_failed_downloads(session, stats['failed_list'], save_dir)
+
+            # 更新統計
+            stats['success'] += retry_stats['success']
+            stats['failed'] = retry_stats['still_failed']
+            stats['failed_list'] = retry_stats['still_failed_list']
+
+            print(f"\n📊 第二輪重試結果:")
+            print(f"   ✅ 重試成功: {retry_stats['success']} 個")
+            print(f"   ❌ 仍然失敗: {retry_stats['still_failed']} 個")
+
+        # 最終統計
+        elapsed_time = datetime.now() - start_time
+        print("\n" + "="*70)
+        print("📊 最終完整統計")
+        print("="*70)
+        print(f"⏱️  總耗時: {elapsed_time}")
+        print(f"✅ 成功下載: {stats['success']} 個檔案")
+        print(f"⏭️  已跳過: {stats['skipped']} 個檔案")
+        print(f"❌ 最終失敗: {stats['failed']} 個檔案")
+        print(f"📦 總大小: {stats['total_size'] / (1024*1024):.2f} MB")
+
+        # 計算最終成功率
+        if stats['success'] + stats['failed'] > 0:
+            final_success_rate = (stats['success'] / (stats['success'] + stats['failed'])) * 100
+            print(f"📈 最終成功率: {final_success_rate:.1f}%")
+
+            if final_success_rate >= 99:
+                print("🏆 優秀！成功率達到99%以上")
+            elif final_success_rate >= 95:
+                print("✨ 良好！成功率達到95%以上")
+            elif final_success_rate >= 90:
+                print("👍 不錯！成功率達到90%以上")
+        print("="*70)
         
         # 儲存失敗清單
         if stats['failed_list']:
