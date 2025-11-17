@@ -61,3 +61,35 @@ output:
   default_dir: output          # 默認輸出目錄
   create_subdirs: true         # 為每個文件創建子目錄
   overwrite_existing: false    # 覆蓋現有文件
+
+# 下載器配置 (優先級1增強功能)
+downloader:
+  # 並發下載設置
+  concurrent_downloads: 5      # 並發下載數量 (1-10，建議3-5)
+  enable_concurrent: true      # 啟用並發下載
+
+  # 進度顯示設置
+  show_progress_bar: true      # 顯示詳細進度條
+  progress_bar_style: bar      # 進度條樣式 (bar, smooth, simple)
+  show_download_speed: true    # 顯示下載速度
+  show_eta: true               # 顯示預計剩餘時間
+
+  # 斷點續傳設置
+  enable_resume: true          # 啟用斷點續傳
+  resume_chunk_size: 8192      # 下載區塊大小 (bytes)
+  resume_temp_suffix: .part    # 臨時文件後綴
+  verify_resume: true          # 驗證續傳文件完整性
+
+  # 連接設置
+  connection_timeout: 10       # 連接超時 (秒)
+  read_timeout: 120            # 讀取超時 (秒)
+  max_retries: 10              # 最大重試次數
+  retry_delay: 0.5             # 重試基礎延遲 (秒)
+
+  # 速率限制
+  rate_limit_enabled: false    # 啟用速率限制
+  max_speed_mbps: 10           # 最大下載速度 (MB/s)
+
+  # 其他
+  verify_ssl: false            # 驗證 SSL 證書
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
