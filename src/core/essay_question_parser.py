@@ -15,6 +15,7 @@ from ..utils.constants import (
     CSV_COLUMN_CORRECT_ANSWER, CSV_COLUMN_DIFFICULTY, CSV_COLUMN_CATEGORY,
     CSV_COLUMN_QUESTION_GROUP, CSV_COLUMN_NOTES
 )
+from .pdf_structure_analyzer import QuestionType
 
 
 class EssayQuestionParser:
@@ -40,8 +41,8 @@ class EssayQuestionParser:
         
         # 檢測題目類型
         question_type = self._detect_question_type(text)
-        
-        if question_type == "essay":
+
+        if question_type == QuestionType.ESSAY:
             questions = self._parse_chinese_numerals(text)
             if not questions:
                 questions = self._parse_arabic_numerals(text)
@@ -63,14 +64,14 @@ class EssayQuestionParser:
         
         return text.strip()
     
-    def _detect_question_type(self, text: str) -> str:
+    def _detect_question_type(self, text: str) -> QuestionType:
         """
         檢測題目類型
-        
+
         Returns:
-            "essay" - 申論題
-            "choice" - 選擇題
-            "unknown" - 未知
+            QuestionType.ESSAY - 申論題
+            QuestionType.CHOICE - 選擇題
+            QuestionType.UNKNOWN - 未知
         """
         # 申論題特徵
         essay_patterns = [
@@ -96,11 +97,11 @@ class EssayQuestionParser:
                           if re.search(pattern, text))
         
         if essay_count >= 2:
-            return "essay"
+            return QuestionType.ESSAY
         elif choice_count >= 2:
-            return "choice"
+            return QuestionType.CHOICE
         else:
-            return "unknown"
+            return QuestionType.UNKNOWN
     
     def _parse_chinese_numerals(self, text: str) -> List[Dict[str, Any]]:
         """
