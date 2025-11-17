@@ -1,0 +1,1238 @@
+2025-11-17 15:48:11 - archaeology_questions - INFO - 配置已載入: config.json
+================================================================================
+🧪 考選部官方格式批量測試
+================================================================================
+
+📁 掃描目錄: 考選部考古題完整庫/民國114年
+✅ 找到 35 個試題PDF
+
+📊 考試類型分布:
+  民國114年_司法特考: 8 個
+  民國114年_警察特考: 27 個
+
+================================================================================
+🚀 開始批量測試
+================================================================================
+
+[1/35] 測試: 民國114年_司法特考/監獄官/刑事政策
+  PDF: 考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/刑事政策/試題.pdf
+2025-11-17 15:48:12 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.95
+2025-11-17 15:48:12 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:12 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.95
+2025-11-17 15:48:12 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:12 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.95)
+2025-11-17 15:48:12 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:12 - archaeology_questions - INFO - 找到 0 個題號標記
+2025-11-17 15:48:12 - archaeology_questions - INFO - 去重後剩餘 0 個題號
+2025-11-17 15:48:12 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 0 題
+  ❌ 失敗: 未解析到任何題目
+  處理時間: 0.15秒
+
+[2/35] 測試: 民國114年_司法特考/監獄官/國文（作文與測驗）
+  PDF: 考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/國文（作文與測驗）/試題.pdf
+2025-11-17 15:48:12 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.95
+2025-11-17 15:48:12 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:13 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.95
+2025-11-17 15:48:13 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:13 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.95)
+2025-11-17 15:48:13 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:13 - archaeology_questions - INFO - 找到 1 個題號標記
+2025-11-17 15:48:13 - archaeology_questions - INFO - 去重後剩餘 1 個題號
+2025-11-17 15:48:13 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:13 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 1 題
+2025-11-17 15:48:13 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:13 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 1060 字元
+2025-11-17 15:48:13 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:13 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-11-17 15:48:13 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+  ✅ 成功: 1 題
+     答案: 10 個 (對應率: 100.0%)
+     ⚠️  題目數量較少: 1題
+  處理時間: 0.87秒
+
+[3/35] 測試: 民國114年_司法特考/監獄官/法學知識與英文（包括中華民國憲法、法學緒論、英文）
+  PDF: 考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/法學知識與英文（包括中華民國憲法、法學緒論、英文）/試題.pdf
+2025-11-17 15:48:13 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 1.00
+2025-11-17 15:48:13 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:14 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 1.00
+2025-11-17 15:48:14 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 1.00)
+2025-11-17 15:48:14 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:14 - archaeology_questions - INFO - 找到 51 個題號標記
+2025-11-17 15:48:14 - archaeology_questions - INFO - 去重後剩餘 50 個題號
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 21
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 22
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 23
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 24
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 25
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 26
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 27
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 28
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 29
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 30
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 31
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 32
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 33
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 34
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 35
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 36
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 37
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 38
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 39
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 40
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 41
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 42
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 43
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 44
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 45
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 46
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 47
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 48
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 49
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 50
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 50 題
+2025-11-17 15:48:14 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 999 字元
+2025-11-17 15:48:14 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:14 - archaeology_questions - INFO - 表格格式答案: 50 個
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 50 個答案
+  ✅ 成功: 50 題
+     答案: 50 個 (對應率: 100.0%)
+  處理時間: 1.17秒
+
+[4/35] 測試: 民國114年_司法特考/監獄官/監獄行刑法與羈押法
+  PDF: 考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/監獄行刑法與羈押法/試題.pdf
+2025-11-17 15:48:14 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.89
+2025-11-17 15:48:14 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:14 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.94
+2025-11-17 15:48:14 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfminer (分數: 0.94)
+2025-11-17 15:48:14 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:14 - archaeology_questions - INFO - 找到 1 個題號標記
+2025-11-17 15:48:14 - archaeology_questions - INFO - 去重後剩餘 1 個題號
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 1 題
+  ✅ 成功: 1 題
+     ⚠️  題目數量較少: 1題
+  處理時間: 0.09秒
+
+[5/35] 測試: 民國114年_司法特考/監獄官/監獄學
+  PDF: 考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/監獄學/試題.pdf
+2025-11-17 15:48:14 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.95
+2025-11-17 15:48:14 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:14 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.95
+2025-11-17 15:48:14 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.95)
+2025-11-17 15:48:14 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:14 - archaeology_questions - INFO - 找到 0 個題號標記
+2025-11-17 15:48:14 - archaeology_questions - INFO - 去重後剩餘 0 個題號
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 0 題
+  ❌ 失敗: 未解析到任何題目
+  處理時間: 0.14秒
+
+[6/35] 測試: 民國114年_司法特考/監獄官/刑法與少年事件處理法
+  PDF: 考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/刑法與少年事件處理法/試題.pdf
+2025-11-17 15:48:14 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.94
+2025-11-17 15:48:14 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:14 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.94
+2025-11-17 15:48:14 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.94)
+2025-11-17 15:48:14 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:14 - archaeology_questions - INFO - 找到 0 個題號標記
+2025-11-17 15:48:14 - archaeology_questions - INFO - 去重後剩餘 0 個題號
+2025-11-17 15:48:14 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 0 題
+  ❌ 失敗: 未解析到任何題目
+  處理時間: 0.12秒
+
+[7/35] 測試: 民國114年_司法特考/監獄官/諮商與矯正輔導
+  PDF: 考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/諮商與矯正輔導/試題.pdf
+2025-11-17 15:48:15 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.96
+2025-11-17 15:48:15 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:15 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.96
+2025-11-17 15:48:15 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.96)
+2025-11-17 15:48:15 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:15 - archaeology_questions - INFO - 找到 0 個題號標記
+2025-11-17 15:48:15 - archaeology_questions - INFO - 去重後剩餘 0 個題號
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 0 題
+  ❌ 失敗: 未解析到任何題目
+  處理時間: 0.11秒
+
+[8/35] 測試: 民國114年_司法特考/監獄官/犯罪學與再犯預測
+  PDF: 考選部考古題完整庫/民國114年/民國114年_司法特考/監獄官/犯罪學與再犯預測/試題.pdf
+2025-11-17 15:48:15 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.99
+2025-11-17 15:48:15 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:15 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.99
+2025-11-17 15:48:15 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.99)
+2025-11-17 15:48:15 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:15 - archaeology_questions - INFO - 找到 0 個題號標記
+2025-11-17 15:48:15 - archaeology_questions - INFO - 去重後剩餘 0 個題號
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 0 題
+  ❌ 失敗: 未解析到任何題目
+  處理時間: 0.14秒
+
+[9/35] 測試: 民國114年_警察特考/消防警察/國文(作文與測驗)
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/消防警察/國文(作文與測驗)/試題.pdf
+2025-11-17 15:48:15 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.95
+2025-11-17 15:48:15 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:15 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.95
+2025-11-17 15:48:15 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.95)
+2025-11-17 15:48:15 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:15 - archaeology_questions - INFO - 找到 10 個題號標記
+2025-11-17 15:48:15 - archaeology_questions - INFO - 去重後剩餘 10 個題號
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 10 題
+2025-11-17 15:48:15 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 1022 字元
+2025-11-17 15:48:15 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:15 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-11-17 15:48:15 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+  ✅ 成功: 10 題
+     答案: 10 個 (對應率: 100.0%)
+  處理時間: 0.73秒
+
+[10/35] 測試: 民國114年_警察特考/消防警察/中華民國憲法與消防警察專業英文
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/消防警察/中華民國憲法與消防警察專業英文/試題.pdf
+2025-11-17 15:48:16 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 1.00
+2025-11-17 15:48:16 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:17 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 1.00
+2025-11-17 15:48:17 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 1.00)
+2025-11-17 15:48:17 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:17 - archaeology_questions - INFO - 找到 50 個題號標記
+2025-11-17 15:48:17 - archaeology_questions - INFO - 去重後剩餘 50 個題號
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:17 - archaeology_questions - WARNING - 題目 9 選項不足（只有1個），跳過
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 21
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 22
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 23
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 24
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 25
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 26
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 27
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 28
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 29
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 30
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 31
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 32
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 33
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 34
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 35
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 36
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 37
+2025-11-17 15:48:17 - archaeology_questions - WARNING - 題目 38 選項不足（只有1個），跳過
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 39
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 40
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 41
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 42
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 43
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 44
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 45
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 46
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 47
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 48
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 49
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 50
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 48 題
+2025-11-17 15:48:17 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 849 字元
+2025-11-17 15:48:17 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:17 - archaeology_questions - INFO - 表格格式答案: 60 個
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 60 個答案
+  ✅ 成功: 48 題
+     答案: 60 個 (對應率: 100.0%)
+  處理時間: 1.30秒
+
+[11/35] 測試: 民國114年_警察特考/外事警察/國文(作文與測驗)
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/國文(作文與測驗)/試題.pdf
+2025-11-17 15:48:17 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.95
+2025-11-17 15:48:17 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:17 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.95
+2025-11-17 15:48:17 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.95)
+2025-11-17 15:48:17 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:17 - archaeology_questions - INFO - 找到 10 個題號標記
+2025-11-17 15:48:17 - archaeology_questions - INFO - 去重後剩餘 10 個題號
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 10 題
+2025-11-17 15:48:17 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 1022 字元
+2025-11-17 15:48:17 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:17 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-11-17 15:48:17 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+  ✅ 成功: 10 題
+     答案: 10 個 (對應率: 100.0%)
+  處理時間: 0.72秒
+
+[12/35] 測試: 民國114年_警察特考/外事警察/國際警察合作與跨國(境)犯罪防制
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/國際警察合作與跨國(境)犯罪防制/試題.pdf
+2025-11-17 15:48:18 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.96
+2025-11-17 15:48:18 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:18 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.96
+2025-11-17 15:48:18 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.96)
+2025-11-17 15:48:18 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:18 - archaeology_questions - INFO - 找到 0 個題號標記
+2025-11-17 15:48:18 - archaeology_questions - INFO - 去重後剩餘 0 個題號
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 0 題
+  ❌ 失敗: 未解析到任何題目
+  處理時間: 0.10秒
+
+[13/35] 測試: 民國114年_警察特考/外事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-11-17 15:48:18 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.94
+2025-11-17 15:48:18 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:18 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.94
+2025-11-17 15:48:18 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.94)
+2025-11-17 15:48:18 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:18 - archaeology_questions - INFO - 找到 25 個題號標記
+2025-11-17 15:48:18 - archaeology_questions - INFO - 去重後剩餘 25 個題號
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 21
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 22
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 23
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 24
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✓ 提取題目 25
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 25 題
+2025-11-17 15:48:18 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 900 字元
+2025-11-17 15:48:18 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:18 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-11-17 15:48:18 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+  ✅ 成功: 25 題
+     答案: 25 個 (對應率: 100.0%)
+  處理時間: 0.80秒
+
+[14/35] 測試: 民國114年_警察特考/外事警察/中華民國憲法與警察專業英文
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/中華民國憲法與警察專業英文/試題.pdf
+2025-11-17 15:48:19 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 1.00
+2025-11-17 15:48:19 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:20 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 1.00
+2025-11-17 15:48:20 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 1.00)
+2025-11-17 15:48:20 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:20 - archaeology_questions - INFO - 找到 50 個題號標記
+2025-11-17 15:48:20 - archaeology_questions - INFO - 去重後剩餘 50 個題號
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:20 - archaeology_questions - WARNING - 題目 9 選項不足（只有1個），跳過
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 21
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 22
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 23
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 24
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 25
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 26
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 27
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 28
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 29
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 30
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 31
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 32
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 33
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 34
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 35
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 36
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 37
+2025-11-17 15:48:20 - archaeology_questions - WARNING - 題目 38 選項不足（只有1個），跳過
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 39
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 40
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 41
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 42
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 43
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 44
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 45
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 46
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 47
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 48
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 49
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✓ 提取題目 50
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 48 題
+2025-11-17 15:48:20 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 933 字元
+2025-11-17 15:48:20 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:20 - archaeology_questions - INFO - 表格格式答案: 60 個
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 60 個答案
+  ✅ 成功: 48 題
+     答案: 60 個 (對應率: 100.0%)
+  處理時間: 1.49秒
+
+[15/35] 測試: 民國114年_警察特考/外事警察/外事警察學
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/外事警察學/試題.pdf
+2025-11-17 15:48:20 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.96
+2025-11-17 15:48:20 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:20 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.95
+2025-11-17 15:48:20 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.96)
+2025-11-17 15:48:20 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:20 - archaeology_questions - INFO - 找到 0 個題號標記
+2025-11-17 15:48:20 - archaeology_questions - INFO - 去重後剩餘 0 個題號
+2025-11-17 15:48:20 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 0 題
+  ❌ 失敗: 未解析到任何題目
+  處理時間: 0.10秒
+
+[16/35] 測試: 民國114年_警察特考/外事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/外事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-11-17 15:48:20 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.94
+2025-11-17 15:48:20 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:21 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.94
+2025-11-17 15:48:21 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.94)
+2025-11-17 15:48:21 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:21 - archaeology_questions - INFO - 找到 20 個題號標記
+2025-11-17 15:48:21 - archaeology_questions - INFO - 去重後剩餘 20 個題號
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 20 題
+2025-11-17 15:48:21 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 878 字元
+2025-11-17 15:48:21 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:21 - archaeology_questions - INFO - 表格格式答案: 20 個
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 20 個答案
+  ✅ 成功: 20 題
+     答案: 20 個 (對應率: 100.0%)
+  處理時間: 0.96秒
+
+[17/35] 測試: 民國114年_警察特考/刑事警察/國文(作文與測驗)
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/國文(作文與測驗)/試題.pdf
+2025-11-17 15:48:21 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.95
+2025-11-17 15:48:21 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:21 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.95
+2025-11-17 15:48:21 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.95)
+2025-11-17 15:48:21 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:21 - archaeology_questions - INFO - 找到 10 個題號標記
+2025-11-17 15:48:21 - archaeology_questions - INFO - 去重後剩餘 10 個題號
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:21 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 10 題
+2025-11-17 15:48:21 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 1022 字元
+2025-11-17 15:48:22 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:22 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+  ✅ 成功: 10 題
+     答案: 10 個 (對應率: 100.0%)
+  處理時間: 0.68秒
+
+[18/35] 測試: 民國114年_警察特考/刑事警察/刑案現場處理與刑事鑑識
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/刑案現場處理與刑事鑑識/試題.pdf
+2025-11-17 15:48:22 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 1.00
+2025-11-17 15:48:22 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:22 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 1.00
+2025-11-17 15:48:22 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 1.00)
+2025-11-17 15:48:22 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:22 - archaeology_questions - INFO - 找到 25 個題號標記
+2025-11-17 15:48:22 - archaeology_questions - INFO - 去重後剩餘 25 個題號
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:22 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 21
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 22
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 23
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 24
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 25
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 25 題
+2025-11-17 15:48:23 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 775 字元
+2025-11-17 15:48:23 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:23 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+  ✅ 成功: 25 題
+     答案: 25 個 (對應率: 100.0%)
+  處理時間: 1.04秒
+
+[19/35] 測試: 民國114年_警察特考/刑事警察/偵查法學
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/偵查法學/試題.pdf
+2025-11-17 15:48:23 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.95
+2025-11-17 15:48:23 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:23 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.95
+2025-11-17 15:48:23 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.95)
+2025-11-17 15:48:23 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:23 - archaeology_questions - INFO - 找到 0 個題號標記
+2025-11-17 15:48:23 - archaeology_questions - INFO - 去重後剩餘 0 個題號
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 0 題
+  ❌ 失敗: 未解析到任何題目
+  處理時間: 0.18秒
+
+[20/35] 測試: 民國114年_警察特考/刑事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-11-17 15:48:23 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.94
+2025-11-17 15:48:23 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:23 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.94
+2025-11-17 15:48:23 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.94)
+2025-11-17 15:48:23 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:23 - archaeology_questions - INFO - 找到 25 個題號標記
+2025-11-17 15:48:23 - archaeology_questions - INFO - 去重後剩餘 25 個題號
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 21
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 22
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 23
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 24
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✓ 提取題目 25
+2025-11-17 15:48:23 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 25 題
+2025-11-17 15:48:23 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 900 字元
+2025-11-17 15:48:24 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:24 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+  ✅ 成功: 25 題
+     答案: 25 個 (對應率: 100.0%)
+  處理時間: 0.78秒
+
+[21/35] 測試: 民國114年_警察特考/刑事警察/犯罪偵查學
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/犯罪偵查學/試題.pdf
+2025-11-17 15:48:24 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.95
+2025-11-17 15:48:24 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:24 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.95
+2025-11-17 15:48:24 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.95)
+2025-11-17 15:48:24 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:24 - archaeology_questions - INFO - 找到 25 個題號標記
+2025-11-17 15:48:24 - archaeology_questions - INFO - 去重後剩餘 25 個題號
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:24 - archaeology_questions - WARNING - 題目 8 選項不足（只有1個），跳過
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 21
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 22
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 23
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 24
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✓ 提取題目 25
+2025-11-17 15:48:24 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 24 題
+2025-11-17 15:48:24 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:25 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 769 字元
+2025-11-17 15:48:25 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:25 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-11-17 15:48:25 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+  ✅ 成功: 24 題
+     答案: 25 個 (對應率: 100.0%)
+  處理時間: 0.96秒
+
+[22/35] 測試: 民國114年_警察特考/刑事警察/中華民國憲法與警察專業英文
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/中華民國憲法與警察專業英文/試題.pdf
+2025-11-17 15:48:25 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 1.00
+2025-11-17 15:48:25 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:26 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 1.00
+2025-11-17 15:48:26 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 1.00)
+2025-11-17 15:48:26 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:26 - archaeology_questions - INFO - 找到 50 個題號標記
+2025-11-17 15:48:26 - archaeology_questions - INFO - 去重後剩餘 50 個題號
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:26 - archaeology_questions - WARNING - 題目 9 選項不足（只有1個），跳過
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 21
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 22
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 23
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 24
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 25
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 26
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 27
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 28
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 29
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 30
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 31
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 32
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 33
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 34
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 35
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 36
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 37
+2025-11-17 15:48:26 - archaeology_questions - WARNING - 題目 38 選項不足（只有1個），跳過
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 39
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 40
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 41
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 42
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 43
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 44
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 45
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 46
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 47
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 48
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 49
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✓ 提取題目 50
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 48 題
+2025-11-17 15:48:26 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 933 字元
+2025-11-17 15:48:26 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:26 - archaeology_questions - INFO - 表格格式答案: 60 個
+2025-11-17 15:48:26 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 60 個答案
+  ✅ 成功: 48 題
+     答案: 60 個 (對應率: 100.0%)
+  處理時間: 1.46秒
+
+[23/35] 測試: 民國114年_警察特考/刑事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/刑事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-11-17 15:48:26 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.94
+2025-11-17 15:48:26 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:27 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.94
+2025-11-17 15:48:27 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.94)
+2025-11-17 15:48:27 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:27 - archaeology_questions - INFO - 找到 20 個題號標記
+2025-11-17 15:48:27 - archaeology_questions - INFO - 去重後剩餘 20 個題號
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 20 題
+2025-11-17 15:48:27 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 878 字元
+2025-11-17 15:48:27 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:27 - archaeology_questions - INFO - 表格格式答案: 20 個
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 20 個答案
+  ✅ 成功: 20 題
+     答案: 20 個 (對應率: 100.0%)
+  處理時間: 0.95秒
+
+[24/35] 測試: 民國114年_警察特考/犯罪防治/國文(作文與測驗)
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/國文(作文與測驗)/試題.pdf
+2025-11-17 15:48:27 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.95
+2025-11-17 15:48:27 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:27 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.95
+2025-11-17 15:48:27 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.95)
+2025-11-17 15:48:27 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:27 - archaeology_questions - INFO - 找到 10 個題號標記
+2025-11-17 15:48:27 - archaeology_questions - INFO - 去重後剩餘 10 個題號
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:27 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 10 題
+2025-11-17 15:48:27 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:28 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 1022 字元
+2025-11-17 15:48:28 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:28 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-11-17 15:48:28 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+  ✅ 成功: 10 題
+     答案: 10 個 (對應率: 100.0%)
+  處理時間: 0.67秒
+
+[25/35] 測試: 民國114年_警察特考/犯罪防治/犯罪學與犯罪預防
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/犯罪學與犯罪預防/試題.pdf
+2025-11-17 15:48:28 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.96
+2025-11-17 15:48:28 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:28 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.96
+2025-11-17 15:48:28 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:28 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.96)
+2025-11-17 15:48:28 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:28 - archaeology_questions - INFO - 找到 0 個題號標記
+2025-11-17 15:48:28 - archaeology_questions - INFO - 去重後剩餘 0 個題號
+2025-11-17 15:48:28 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 0 題
+  ❌ 失敗: 未解析到任何題目
+  處理時間: 0.14秒
+
+[26/35] 測試: 民國114年_警察特考/犯罪防治/中華民國憲法與警察專業英文
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/中華民國憲法與警察專業英文/試題.pdf
+2025-11-17 15:48:28 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 1.00
+2025-11-17 15:48:28 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:29 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 1.00
+2025-11-17 15:48:29 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 1.00)
+2025-11-17 15:48:29 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:29 - archaeology_questions - INFO - 找到 50 個題號標記
+2025-11-17 15:48:29 - archaeology_questions - INFO - 去重後剩餘 50 個題號
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:29 - archaeology_questions - WARNING - 題目 9 選項不足（只有1個），跳過
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 21
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 22
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 23
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 24
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 25
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 26
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 27
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 28
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 29
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 30
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 31
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 32
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 33
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 34
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 35
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 36
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 37
+2025-11-17 15:48:29 - archaeology_questions - WARNING - 題目 38 選項不足（只有1個），跳過
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 39
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 40
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 41
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 42
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 43
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 44
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 45
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 46
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 47
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 48
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 49
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✓ 提取題目 50
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 48 題
+2025-11-17 15:48:29 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 933 字元
+2025-11-17 15:48:29 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:29 - archaeology_questions - INFO - 表格格式答案: 60 個
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 60 個答案
+  ✅ 成功: 48 題
+     答案: 60 個 (對應率: 100.0%)
+  處理時間: 1.40秒
+
+[27/35] 測試: 民國114年_警察特考/犯罪防治/諮商輔導與婦幼保護
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/諮商輔導與婦幼保護/試題.pdf
+2025-11-17 15:48:29 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.99
+2025-11-17 15:48:29 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:29 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.99
+2025-11-17 15:48:29 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.99)
+2025-11-17 15:48:29 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:29 - archaeology_questions - INFO - 找到 0 個題號標記
+2025-11-17 15:48:29 - archaeology_questions - INFO - 去重後剩餘 0 個題號
+2025-11-17 15:48:29 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 0 題
+  ❌ 失敗: 未解析到任何題目
+  處理時間: 0.11秒
+
+[28/35] 測試: 民國114年_警察特考/犯罪防治/犯罪分析
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/犯罪防治/犯罪分析/試題.pdf
+2025-11-17 15:48:29 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.97
+2025-11-17 15:48:29 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:30 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.97
+2025-11-17 15:48:30 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.97)
+2025-11-17 15:48:30 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:30 - archaeology_questions - INFO - 找到 0 個題號標記
+2025-11-17 15:48:30 - archaeology_questions - INFO - 去重後剩餘 0 個題號
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 0 題
+  ❌ 失敗: 未解析到任何題目
+  處理時間: 0.25秒
+
+[29/35] 測試: 民國114年_警察特考/公共安全/國文(作文與測驗)
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國文(作文與測驗)/試題.pdf
+2025-11-17 15:48:30 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.95
+2025-11-17 15:48:30 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:30 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.95
+2025-11-17 15:48:30 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.95)
+2025-11-17 15:48:30 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:30 - archaeology_questions - INFO - 找到 10 個題號標記
+2025-11-17 15:48:30 - archaeology_questions - INFO - 去重後剩餘 10 個題號
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 10 題
+2025-11-17 15:48:30 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 1022 字元
+2025-11-17 15:48:30 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:30 - archaeology_questions - INFO - 表格格式答案: 10 個
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 10 個答案
+  ✅ 成功: 10 題
+     答案: 10 個 (對應率: 100.0%)
+  處理時間: 0.68秒
+
+[30/35] 測試: 民國114年_警察特考/公共安全/國家安全情報法制
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國家安全情報法制/試題.pdf
+2025-11-17 15:48:30 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.94
+2025-11-17 15:48:30 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:30 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.94
+2025-11-17 15:48:30 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.94)
+2025-11-17 15:48:30 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:30 - archaeology_questions - INFO - 找到 1 個題號標記
+2025-11-17 15:48:30 - archaeology_questions - INFO - 去重後剩餘 1 個題號
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✓ 提取題目 31
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 1 題
+  ✅ 成功: 1 題
+     ⚠️  題目數量較少: 1題
+  處理時間: 0.17秒
+
+[31/35] 測試: 民國114年_警察特考/公共安全/國土安全與非傳統安全
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/國土安全與非傳統安全/試題.pdf
+2025-11-17 15:48:30 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.96
+2025-11-17 15:48:30 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:30 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.96
+2025-11-17 15:48:30 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.96)
+2025-11-17 15:48:30 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:30 - archaeology_questions - INFO - 找到 0 個題號標記
+2025-11-17 15:48:30 - archaeology_questions - INFO - 去重後剩餘 0 個題號
+2025-11-17 15:48:30 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 0 題
+  ❌ 失敗: 未解析到任何題目
+  處理時間: 0.11秒
+
+[32/35] 測試: 民國114年_警察特考/公共安全/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)/試題.pdf
+2025-11-17 15:48:31 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.94
+2025-11-17 15:48:31 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:31 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.94
+2025-11-17 15:48:31 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.94)
+2025-11-17 15:48:31 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:31 - archaeology_questions - INFO - 找到 25 個題號標記
+2025-11-17 15:48:31 - archaeology_questions - INFO - 去重後剩餘 25 個題號
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 21
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 22
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 23
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 24
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✓ 提取題目 25
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 25 題
+2025-11-17 15:48:31 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 900 字元
+2025-11-17 15:48:31 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:31 - archaeology_questions - INFO - 表格格式答案: 25 個
+2025-11-17 15:48:31 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 25 個答案
+  ✅ 成功: 25 題
+     答案: 25 個 (對應率: 100.0%)
+  處理時間: 0.79秒
+
+[33/35] 測試: 民國114年_警察特考/公共安全/中華民國憲法與警察專業英文
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/中華民國憲法與警察專業英文/試題.pdf
+2025-11-17 15:48:32 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 1.00
+2025-11-17 15:48:32 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:33 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 1.00
+2025-11-17 15:48:33 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 1.00)
+2025-11-17 15:48:33 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:33 - archaeology_questions - INFO - 找到 50 個題號標記
+2025-11-17 15:48:33 - archaeology_questions - INFO - 去重後剩餘 50 個題號
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:33 - archaeology_questions - WARNING - 題目 9 選項不足（只有1個），跳過
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 21
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 22
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 23
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 24
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 25
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 26
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 27
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 28
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 29
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 30
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 31
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 32
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 33
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 34
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 35
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 36
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 37
+2025-11-17 15:48:33 - archaeology_questions - WARNING - 題目 38 選項不足（只有1個），跳過
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 39
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 40
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 41
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 42
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 43
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 44
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 45
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 46
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 47
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 48
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 49
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✓ 提取題目 50
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 48 題
+2025-11-17 15:48:33 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 933 字元
+2025-11-17 15:48:33 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:33 - archaeology_questions - INFO - 表格格式答案: 60 個
+2025-11-17 15:48:33 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 60 個答案
+  ✅ 成功: 48 題
+     答案: 60 個 (對應率: 100.0%)
+  處理時間: 1.45秒
+
+[34/35] 測試: 民國114年_警察特考/公共安全/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)/試題.pdf
+2025-11-17 15:48:33 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.94
+2025-11-17 15:48:33 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:34 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.94
+2025-11-17 15:48:34 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.94)
+2025-11-17 15:48:34 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:34 - archaeology_questions - INFO - 找到 20 個題號標記
+2025-11-17 15:48:34 - archaeology_questions - INFO - 去重後剩餘 20 個題號
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 1
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 2
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 3
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 4
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 5
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 6
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 7
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 8
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 9
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 10
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 11
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 12
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 13
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 14
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 15
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 16
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 17
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 18
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 19
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✓ 提取題目 20
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 20 題
+2025-11-17 15:48:34 - archaeology_questions - INFO - 嘗試方法 1/4: _extract_with_pdfplumber
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✅ 成功使用 _extract_with_pdfplumber 提取文字: 878 字元
+2025-11-17 15:48:34 - archaeology_questions - INFO - 開始提取答案
+2025-11-17 15:48:34 - archaeology_questions - INFO - 表格格式答案: 20 個
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✅ 答案提取完成，共找到 20 個答案
+  ✅ 成功: 20 題
+     答案: 20 個 (對應率: 100.0%)
+  處理時間: 0.99秒
+
+[35/35] 測試: 民國114年_警察特考/公共安全/情報學
+  PDF: 考選部考古題完整庫/民國114年/民國114年_警察特考/公共安全/情報學/試題.pdf
+2025-11-17 15:48:34 - archaeology_questions - INFO - _extract_with_pdfplumber 質量分數: 0.96
+2025-11-17 15:48:34 - archaeology_questions - WARNING - _extract_with_pymupdf 失敗: No module named 'fitz'
+2025-11-17 15:48:34 - archaeology_questions - INFO - _extract_with_pdfminer 質量分數: 0.96
+2025-11-17 15:48:34 - archaeology_questions - WARNING - _extract_with_pypdf 失敗: No module named 'pypdf'
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✅ 最佳方法: _extract_with_pdfplumber (分數: 0.96)
+2025-11-17 15:48:34 - archaeology_questions - INFO - 開始解析無標記選項題目
+2025-11-17 15:48:34 - archaeology_questions - INFO - 找到 0 個題號標記
+2025-11-17 15:48:34 - archaeology_questions - INFO - 去重後剩餘 0 個題號
+2025-11-17 15:48:34 - archaeology_questions - INFO - ✅ 無標記選項題目解析完成，共 0 題
+  ❌ 失敗: 未解析到任何題目
+  處理時間: 0.09秒
+
+================================================================================
+📊 測試統計
+================================================================================
+
+總測試數: 35
+成功數: 22
+失敗數: 13
+成功率: 62.9%
+
+總題數: 527
+平均題數: 24.0 題/PDF
+總答案數: 595
+平均答案對應率: 100.0%
+
+按考試類型統計:
+  民國114年_司法特考:
+    測試數: 8
+    成功率: 37.5% (3/8)
+    總題數: 52
+  民國114年_警察特考:
+    測試數: 27
+    成功率: 70.4% (19/27)
+    總題數: 475
+
+❌ 失敗案例:
+  民國114年_司法特考/監獄官/刑事政策
+    錯誤: 未解析到任何題目
+  民國114年_司法特考/監獄官/監獄學
+    錯誤: 未解析到任何題目
+  民國114年_司法特考/監獄官/刑法與少年事件處理法
+    錯誤: 未解析到任何題目
+  民國114年_司法特考/監獄官/諮商與矯正輔導
+    錯誤: 未解析到任何題目
+  民國114年_司法特考/監獄官/犯罪學與再犯預測
+    錯誤: 未解析到任何題目
+  民國114年_警察特考/外事警察/國際警察合作與跨國(境)犯罪防制
+    錯誤: 未解析到任何題目
+  民國114年_警察特考/外事警察/外事警察學
+    錯誤: 未解析到任何題目
+  民國114年_警察特考/刑事警察/偵查法學
+    錯誤: 未解析到任何題目
+  民國114年_警察特考/犯罪防治/犯罪學與犯罪預防
+    錯誤: 未解析到任何題目
+  民國114年_警察特考/犯罪防治/諮商輔導與婦幼保護
+    錯誤: 未解析到任何題目
+  民國114年_警察特考/犯罪防治/犯罪分析
+    錯誤: 未解析到任何題目
+  民國114年_警察特考/公共安全/國土安全與非傳統安全
+    錯誤: 未解析到任何題目
+  民國114年_警察特考/公共安全/情報學
+    錯誤: 未解析到任何題目
+
+⚠️  警告案例:
+  民國114年_司法特考/監獄官/國文（作文與測驗）
+    題目數量較少: 1題
+  民國114年_司法特考/監獄官/監獄行刑法與羈押法
+    題目數量較少: 1題
+  民國114年_警察特考/公共安全/國家安全情報法制
+    題目數量較少: 1題
+
+📄 詳細結果已保存: batch_test_results.json
+
+================================================================================
+✅ 最終評估
+================================================================================
+
+⚠️  一般，仍有改進空間
+系統評級: ⭐⭐⭐☆☆
+成功率: 62.9%
+處理能力: 527 題
+
