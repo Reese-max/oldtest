@@ -93,12 +93,11 @@ class NoLabelQuestionParser:
             if not has_english_options and len(question_content) < 10:
                 self.logger.warning(f"題目 {question_num} 內容太短，跳過")
                 continue
-            
-            # 至少要有2個選項
+
+            # 檢查選項數量，但不跳過（保留所有題目）
             if len(options) < 2:
-                self.logger.warning(f"題目 {question_num} 選項不足（只有{len(options)}個），跳過")
-                continue
-            
+                self.logger.warning(f"題目 {question_num} 選項不足（只有{len(options)}個），但仍保留")
+
             # 確保有4個選項（補空白）
             while len(options) < 4:
                 options.append('')

@@ -339,11 +339,10 @@ class QuestionParser:
                 self.logger.warning(f"題目 {question.get('題號', '?')} 長度過長，截斷")
                 question['題目'] = question['題目'][:self.config.max_question_length]
             
-            # 檢查選項
+            # 檢查選項數量，但不跳過（保留所有題目）
             option_count = sum(1 for opt in ['A', 'B', 'C', 'D'] if question.get(f'選項{opt}', '').strip())
             if option_count < 2:
-                self.logger.warning(f"題目 {question.get('題號', '?')} 選項不足，跳過")
-                continue
+                self.logger.warning(f"題目 {question.get('題號', '?')} 選項不足（只有{option_count}個），但仍保留")
             
             validated_questions.append(question)
         
