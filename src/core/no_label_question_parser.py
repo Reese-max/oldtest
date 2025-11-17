@@ -54,7 +54,18 @@ class NoLabelQuestionParser:
         question_markers.sort(key=lambda x: x['start'])
         
         self.logger.info(f"找到 {len(question_markers)} 個題號標記")
-        
+
+        # 去重：如果同一題號出現多次，只保留最後一個（最完整的）
+        unique_markers = {}
+        for marker in question_markers:
+            num = marker['num']
+            # 如果這個題號已經存在，用後面的覆蓋前面的
+            unique_markers[num] = marker
+
+        # 轉回列表並按題號排序
+        question_markers = [unique_markers[num] for num in sorted(unique_markers.keys())]
+        self.logger.info(f"去重後剩餘 {len(question_markers)} 個題號")
+
         # 步驟2: 提取每個題目的完整內容
         for i, marker in enumerate(question_markers):
             question_num = marker['num']
@@ -98,7 +109,7 @@ class NoLabelQuestionParser:
                 return lst[idx] if 0 <= idx < len(lst) else default
 
             question = {
-                CSV_COLUMN_QUESTION_NUM: question_num,
+                CSV_COLUMN_QUESTION_NUM: question_num,  # 保持為整數
                 CSV_COLUMN_QUESTION_TEXT: question_text,
                 CSV_COLUMN_QUESTION_TYPE: DEFAULT_QUESTION_TYPE,
                 CSV_COLUMN_OPTION_A: safe_get(options, 0),
