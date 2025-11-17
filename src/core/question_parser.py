@@ -20,6 +20,13 @@ from ..utils.regex_patterns import (
     NON_QUESTION_KEYWORDS,
     match_patterns,
 )
+from ..utils.constants import (
+    CSV_COLUMN_QUESTION_NUM, CSV_COLUMN_QUESTION_TEXT, CSV_COLUMN_QUESTION_TYPE,
+    CSV_COLUMN_OPTION_A, CSV_COLUMN_OPTION_B, CSV_COLUMN_OPTION_C, CSV_COLUMN_OPTION_D,
+    CSV_COLUMN_CORRECT_ANSWER, CSV_COLUMN_DIFFICULTY, CSV_COLUMN_CATEGORY,
+    CSV_COLUMN_QUESTION_GROUP, CSV_COLUMN_GROUP_ID, CSV_COLUMN_NOTES,
+    DEFAULT_QUESTION_TYPE
+)
 
 
 class QuestionParser:
@@ -126,15 +133,15 @@ class QuestionParser:
         
         for question_num in range(start_num, end_num + 1):
             question_data = {
-                '題號': str(question_num),
-                '題目': '',
-                '選項A': '',
-                '選項B': '',
-                '選項C': '',
-                '選項D': '',
-                '題型': '選擇題',
-                '題組': True,
-                '題組編號': f"{start_num}-{end_num}"
+                CSV_COLUMN_QUESTION_NUM: str(question_num),
+                CSV_COLUMN_QUESTION_TEXT: '',
+                CSV_COLUMN_OPTION_A: '',
+                CSV_COLUMN_OPTION_B: '',
+                CSV_COLUMN_OPTION_C: '',
+                CSV_COLUMN_OPTION_D: '',
+                CSV_COLUMN_QUESTION_TYPE: DEFAULT_QUESTION_TYPE,
+                CSV_COLUMN_QUESTION_GROUP: True,
+                CSV_COLUMN_GROUP_ID: f"{start_num}-{end_num}"
             }
             
             # 尋找題號行（必須是獨立的題號行，例如"第1題："）
@@ -193,22 +200,25 @@ class QuestionParser:
                 if len(question_text) < self.config.min_question_length:
                     continue
                 
+                # Create option column mapping
+                option_columns = [CSV_COLUMN_OPTION_A, CSV_COLUMN_OPTION_B,
+                                CSV_COLUMN_OPTION_C, CSV_COLUMN_OPTION_D]
+
                 question_data = {
-                    '題號': question_num,
-                    '題目': question_text,
-                    '選項A': '',
-                    '選項B': '',
-                    '選項C': '',
-                    '選項D': '',
-                    '題型': '選擇題',
-                    '題組': False
+                    CSV_COLUMN_QUESTION_NUM: question_num,
+                    CSV_COLUMN_QUESTION_TEXT: question_text,
+                    CSV_COLUMN_OPTION_A: '',
+                    CSV_COLUMN_OPTION_B: '',
+                    CSV_COLUMN_OPTION_C: '',
+                    CSV_COLUMN_OPTION_D: '',
+                    CSV_COLUMN_QUESTION_TYPE: DEFAULT_QUESTION_TYPE,
+                    CSV_COLUMN_QUESTION_GROUP: False
                 }
-                
+
                 # 提取選項
                 options = self._extract_options(question_text)
-                for i, option in enumerate(['A', 'B', 'C', 'D']):
-                    if i < len(options):
-                        question_data[f'選項{option}'] = options[i]
+                for i in range(min(len(options), 4)):
+                    question_data[option_columns[i]] = options[i]
                 
                 questions.append(question_data)
         

@@ -12,6 +12,7 @@ from typing import Optional, List, Dict, Any, Tuple
 from pathlib import Path
 from ..utils.logger import logger
 from ..utils.exceptions import PDFProcessingError
+from ..utils.config import config_manager
 
 
 class OCRProcessor:
@@ -153,7 +154,8 @@ class OCRProcessor:
                     page = pdf_document[page_num]
 
                     # 設定較高的解析度以提升 OCR 準確度
-                    zoom = 2.0  # 放大倍數
+                    ocr_config = config_manager.get_ocr_config()
+                    zoom = ocr_config.pdf_to_image_zoom  # 使用配置的放大倍數
                     mat = fitz.Matrix(zoom, zoom)
                     pix = page.get_pixmap(matrix=mat, alpha=False)
 
@@ -178,9 +180,11 @@ class OCRProcessor:
                 temp_dir = tempfile.mkdtemp(prefix='ocr_')
                 self._temp_dirs.append(temp_dir)  # 追蹤臨時目錄
 
+                # 使用配置的 DPI 值
+                ocr_config = config_manager.get_ocr_config()
                 images_pil = convert_from_path(
                     pdf_path,
-                    dpi=300,  # 高解析度
+                    dpi=ocr_config.pdf_to_image_dpi,  # 使用配置的 DPI
                     fmt='png'
                 )
 
