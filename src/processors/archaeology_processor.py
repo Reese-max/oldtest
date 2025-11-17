@@ -384,6 +384,18 @@ class ArchaeologyProcessor:
 
         # ✅ 確認不是申論題後，才開始選擇題解析
 
+        # 🔍 第二步：檢測是否為無標籤格式（考選部官方格式）
+        # 如果文本中沒有(A)(B)(C)(D)標記，直接使用無標籤解析器
+        import re
+        has_option_labels = bool(re.search(r'[（(][ABCD][）)]', text))
+
+        if not has_option_labels:
+            self.logger.info("未檢測到選項標記(A)(B)(C)(D)，使用無標籤格式解析器")
+            questions = self.no_label_parser.parse_no_label_questions(text)
+            if questions:
+                self.logger.success(f"✓ 無標籤解析器成功: {len(questions)} 題")
+                return questions
+
         # 優先使用增強解析器
         if self.use_enhanced:
             questions = self.question_parser_enhanced.parse_questions_intelligent(text)

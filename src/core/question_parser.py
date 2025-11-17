@@ -229,16 +229,24 @@ class QuestionParser:
         # 過濾掉代號（如2501）
         if len(question_num) > 3:
             return True
-            
+
+        # 過濾不合理的題號範圍（1-100是合理範圍，過濾法條編號如666、689等）
+        try:
+            num = int(question_num)
+            if num < 1 or num > 100:
+                return True
+        except ValueError:
+            return True
+
         # 使用統一的關鍵詞列表過濾
         for keyword in NON_QUESTION_KEYWORDS:
             if keyword in question_text:
                 return True
-        
+
         # 過濾掉太短的內容
         if len(question_text) < 10:
             return True
-            
+
         return False
     
     def _extract_options(self, question_text: str) -> List[str]:
