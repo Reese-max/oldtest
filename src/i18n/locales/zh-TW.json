@@ -1,0 +1,141 @@
+{
+  "app": {
+    "name": "考古題處理系統",
+    "version": "版本 {version}",
+    "description": "智能考古題PDF解析工具"
+  },
+
+  "messages": {
+    "success": "✅ 成功",
+    "error": "❌ 錯誤",
+    "warning": "⚠️  警告",
+    "info": "ℹ️  資訊",
+    "processing": "🔄 處理中...",
+    "completed": "✅ 已完成",
+    "failed": "❌ 失敗"
+  },
+
+  "pdf": {
+    "extracting": "正在提取PDF文字...",
+    "extracting_page": "正在提取第 {page}/{total} 頁...",
+    "extract_success": "PDF文字提取成功",
+    "extract_failed": "PDF文字提取失敗: {error}",
+    "file_not_found": "找不到PDF檔案: {path}",
+    "invalid_file": "無效的PDF檔案: {path}",
+    "ocr_enabled": "OCR功能已啟用",
+    "ocr_processing": "正在使用OCR識別文字...",
+    "ocr_success": "OCR識別成功",
+    "ocr_failed": "OCR識別失敗: {error}"
+  },
+
+  "parser": {
+    "parsing": "正在解析題目...",
+    "parsing_progress": "已解析 {current}/{total} 題",
+    "parse_success": "題目解析成功，共 {count} 題",
+    "parse_failed": "題目解析失敗: {error}",
+    "no_questions": "未找到任何題目",
+    "detecting_format": "正在檢測題目格式...",
+    "format_detected": "檢測到格式: {format}",
+    "using_parser": "使用解析器: {parser}"
+  },
+
+  "processor": {
+    "processing_pdf": "正在處理PDF: {filename}",
+    "processing_batch": "正在批量處理 {count} 個檔案...",
+    "batch_progress": "批量處理進度: {current}/{total}",
+    "batch_completed": "批量處理完成，成功 {success} 個，失敗 {failed} 個",
+    "generating_csv": "正在生成CSV檔案...",
+    "csv_generated": "CSV檔案已生成: {path}",
+    "generating_form": "正在生成Google表單腳本...",
+    "form_generated": "Google表單腳本已生成: {path}"
+  },
+
+  "performance": {
+    "monitoring": "性能監控已啟用",
+    "duration": "執行時間: {seconds} 秒",
+    "memory_usage": "記憶體使用: {mb} MB",
+    "memory_delta": "記憶體變化: {delta} MB",
+    "cpu_usage": "CPU使用率: {percent}%",
+    "generating_report": "正在生成性能報告...",
+    "report_generated": "性能報告已生成: {path}"
+  },
+
+  "concurrent": {
+    "starting": "啟動並發處理，工作線程數: {workers}",
+    "task_started": "任務 #{id} 開始",
+    "task_completed": "任務 #{id} 完成",
+    "task_failed": "任務 #{id} 失敗: {error}",
+    "all_completed": "所有任務已完成"
+  },
+
+  "retry": {
+    "retrying": "重試中... (第 {attempt}/{max} 次)",
+    "retry_success": "重試成功",
+    "retry_failed": "重試失敗，已達最大重試次數",
+    "checkpoint_saved": "檢查點已保存",
+    "checkpoint_loaded": "檢查點已載入",
+    "resuming": "從檢查點恢復處理..."
+  },
+
+  "streaming": {
+    "streaming_enabled": "流式處理已啟用",
+    "chunk_size": "分塊大小: {size} 頁",
+    "processing_chunk": "正在處理分塊 {current}/{total}",
+    "memory_optimized": "記憶體優化模式已啟用"
+  },
+
+  "config": {
+    "loading": "正在載入配置...",
+    "loaded": "配置已載入: {path}",
+    "load_failed": "配置載入失敗: {error}",
+    "saving": "正在保存配置...",
+    "saved": "配置已保存: {path}",
+    "invalid_config": "無效的配置: {error}"
+  },
+
+  "validation": {
+    "validating": "正在驗證...",
+    "validation_passed": "驗證通過",
+    "validation_failed": "驗證失敗: {error}",
+    "quality_check": "質量檢查: {score}%",
+    "quality_low": "質量過低，建議使用OCR"
+  },
+
+  "errors": {
+    "unknown_error": "未知錯誤: {error}",
+    "file_not_found": "檔案不存在: {path}",
+    "permission_denied": "權限不足: {path}",
+    "invalid_format": "無效的格式: {format}",
+    "network_error": "網路錯誤: {error}",
+    "timeout": "操作超時",
+    "out_of_memory": "記憶體不足",
+    "not_implemented": "功能尚未實現"
+  },
+
+  "cli": {
+    "usage": "使用方式",
+    "options": "選項",
+    "examples": "範例",
+    "help": "顯示此幫助訊息",
+    "version": "顯示版本資訊",
+    "verbose": "詳細輸出",
+    "quiet": "靜默模式",
+    "output": "輸出路徑",
+    "input": "輸入檔案",
+    "language": "語言設置"
+  },
+
+  "i18n": {
+    "language_changed": "語言已切換為: {language}",
+    "language_not_supported": "不支持的語言: {language}",
+    "available_languages": "可用語言",
+    "current_language": "當前語言: {language}"
+  },
+
+  "test": {
+    "running": "正在執行測試...",
+    "test_passed": "測試通過: {name}",
+    "test_failed": "測試失敗: {name}",
+    "tests_summary": "測試總結: {passed}/{total} 通過"
+  }
+}

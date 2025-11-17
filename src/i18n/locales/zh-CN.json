@@ -1,0 +1,141 @@
+{
+  "app": {
+    "name": "考古题处理系统",
+    "version": "版本 {version}",
+    "description": "智能考古题PDF解析工具"
+  },
+
+  "messages": {
+    "success": "✅ 成功",
+    "error": "❌ 错误",
+    "warning": "⚠️  警告",
+    "info": "ℹ️  信息",
+    "processing": "🔄 处理中...",
+    "completed": "✅ 已完成",
+    "failed": "❌ 失败"
+  },
+
+  "pdf": {
+    "extracting": "正在提取PDF文字...",
+    "extracting_page": "正在提取第 {page}/{total} 页...",
+    "extract_success": "PDF文字提取成功",
+    "extract_failed": "PDF文字提取失败: {error}",
+    "file_not_found": "找不到PDF文件: {path}",
+    "invalid_file": "无效的PDF文件: {path}",
+    "ocr_enabled": "OCR功能已启用",
+    "ocr_processing": "正在使用OCR识别文字...",
+    "ocr_success": "OCR识别成功",
+    "ocr_failed": "OCR识别失败: {error}"
+  },
+
+  "parser": {
+    "parsing": "正在解析题目...",
+    "parsing_progress": "已解析 {current}/{total} 题",
+    "parse_success": "题目解析成功，共 {count} 题",
+    "parse_failed": "题目解析失败: {error}",
+    "no_questions": "未找到任何题目",
+    "detecting_format": "正在检测题目格式...",
+    "format_detected": "检测到格式: {format}",
+    "using_parser": "使用解析器: {parser}"
+  },
+
+  "processor": {
+    "processing_pdf": "正在处理PDF: {filename}",
+    "processing_batch": "正在批量处理 {count} 个文件...",
+    "batch_progress": "批量处理进度: {current}/{total}",
+    "batch_completed": "批量处理完成，成功 {success} 个，失败 {failed} 个",
+    "generating_csv": "正在生成CSV文件...",
+    "csv_generated": "CSV文件已生成: {path}",
+    "generating_form": "正在生成Google表单脚本...",
+    "form_generated": "Google表单脚本已生成: {path}"
+  },
+
+  "performance": {
+    "monitoring": "性能监控已启用",
+    "duration": "执行时间: {seconds} 秒",
+    "memory_usage": "内存使用: {mb} MB",
+    "memory_delta": "内存变化: {delta} MB",
+    "cpu_usage": "CPU使用率: {percent}%",
+    "generating_report": "正在生成性能报告...",
+    "report_generated": "性能报告已生成: {path}"
+  },
+
+  "concurrent": {
+    "starting": "启动并发处理，工作线程数: {workers}",
+    "task_started": "任务 #{id} 开始",
+    "task_completed": "任务 #{id} 完成",
+    "task_failed": "任务 #{id} 失败: {error}",
+    "all_completed": "所有任务已完成"
+  },
+
+  "retry": {
+    "retrying": "重试中... (第 {attempt}/{max} 次)",
+    "retry_success": "重试成功",
+    "retry_failed": "重试失败，已达最大重试次数",
+    "checkpoint_saved": "检查点已保存",
+    "checkpoint_loaded": "检查点已加载",
+    "resuming": "从检查点恢复处理..."
+  },
+
+  "streaming": {
+    "streaming_enabled": "流式处理已启用",
+    "chunk_size": "分块大小: {size} 页",
+    "processing_chunk": "正在处理分块 {current}/{total}",
+    "memory_optimized": "内存优化模式已启用"
+  },
+
+  "config": {
+    "loading": "正在加载配置...",
+    "loaded": "配置已加载: {path}",
+    "load_failed": "配置加载失败: {error}",
+    "saving": "正在保存配置...",
+    "saved": "配置已保存: {path}",
+    "invalid_config": "无效的配置: {error}"
+  },
+
+  "validation": {
+    "validating": "正在验证...",
+    "validation_passed": "验证通过",
+    "validation_failed": "验证失败: {error}",
+    "quality_check": "质量检查: {score}%",
+    "quality_low": "质量过低，建议使用OCR"
+  },
+
+  "errors": {
+    "unknown_error": "未知错误: {error}",
+    "file_not_found": "文件不存在: {path}",
+    "permission_denied": "权限不足: {path}",
+    "invalid_format": "无效的格式: {format}",
+    "network_error": "网络错误: {error}",
+    "timeout": "操作超时",
+    "out_of_memory": "内存不足",
+    "not_implemented": "功能尚未实现"
+  },
+
+  "cli": {
+    "usage": "使用方式",
+    "options": "选项",
+    "examples": "示例",
+    "help": "显示此帮助信息",
+    "version": "显示版本信息",
+    "verbose": "详细输出",
+    "quiet": "静默模式",
+    "output": "输出路径",
+    "input": "输入文件",
+    "language": "语言设置"
+  },
+
+  "i18n": {
+    "language_changed": "语言已切换为: {language}",
+    "language_not_supported": "不支持的语言: {language}",
+    "available_languages": "可用语言",
+    "current_language": "当前语言: {language}"
+  },
+
+  "test": {
+    "running": "正在执行测试...",
+    "test_passed": "测试通过: {name}",
+    "test_failed": "测试失败: {name}",
+    "tests_summary": "测试总结: {passed}/{total} 通过"
+  }
+}
