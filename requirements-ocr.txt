@@ -1,0 +1,23 @@
+# OCR 功能依賴 - 圖片型PDF文字識別
+# 適合：需要處理掃描版或圖片型PDF的用戶
+#
+# 安裝方式：
+#   pip install -r requirements-minimal.txt
+#   pip install -r requirements-ocr.txt
+
+# OCR引擎 - PaddleOCR（推薦）
+paddlepaddle>=2.5.0        # PaddlePaddle 深度學習框架（CPU版本）
+# 注意：如果有GPU，可以改用 paddlepaddle-gpu>=2.5.0
+# 需要CUDA支持，安裝前請確認GPU驅動
+paddleocr>=2.7.0           # PaddleOCR - 工業級OCR引擎
+
+# PDF轉圖片
+pdf2image>=1.16.3          # PDF轉圖片（OCR需要）
+
+# 圖像處理
+Pillow>=10.0.0             # 圖像處理庫
+
+# 系統要求：
+# - Python 3.8+
+# - 至少 4GB RAM（推薦 8GB+）
+# - PaddleOCR 首次運行會下載模型文件（約 10-20MB）
