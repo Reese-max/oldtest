@@ -138,15 +138,15 @@ class AnswerProcessor:
             self.logger.failure(error_msg)
             raise AnswerProcessingError(error_msg) from e
     
-    def merge_answers(self, answers: Dict[str, str], 
+    def merge_answers(self, answers: Dict[str, str],
                      corrected_answers: Dict[str, str]) -> Dict[str, str]:
         """
         合併答案和更正答案
-        
+
         Args:
             answers: 原始答案
             corrected_answers: 更正答案
-            
+
         Returns:
             最終答案字典（優先使用更正答案）
         """

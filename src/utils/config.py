@@ -99,6 +99,23 @@ class ConfigManager:
     _file_lock = threading.Lock()  # 文件I/O操作鎖
 
     def __init__(self, config_file: str = "config.json"):
+        """
+        初始化配置管理器
+
+        Args:
+            config_file: 配置文件路徑（默認: "config.json"）
+
+        Attributes:
+            config_file: 配置文件路徑
+            processing_config: 處理配置實例（ProcessingConfig）
+            google_form_config: Google表單配置實例（GoogleFormConfig）
+            ocr_config: OCR配置實例（OCRConfig）
+
+        Note:
+            - 如果配置文件存在，會自動載入配置
+            - 如果配置文件不存在，會使用默認值並創建新配置文件
+            - 此類使用單例模式，請通過 get_instance() 獲取實例
+        """
         self.config_file = config_file
         self.processing_config = ProcessingConfig()
         self.google_form_config = GoogleFormConfig()
@@ -191,21 +208,21 @@ class ConfigManager:
         """取得OCR配置"""
         return self.ocr_config
 
-    def update_processing_config(self, **kwargs):
+    def update_processing_config(self, **kwargs) -> None:
         """更新處理配置"""
         for key, value in kwargs.items():
             if hasattr(self.processing_config, key):
                 setattr(self.processing_config, key, value)
         self._save_config()
-    
-    def update_google_form_config(self, **kwargs):
+
+    def update_google_form_config(self, **kwargs) -> None:
         """更新Google表單配置"""
         for key, value in kwargs.items():
             if hasattr(self.google_form_config, key):
                 setattr(self.google_form_config, key, value)
         self._save_config()
 
-    def update_ocr_config(self, **kwargs):
+    def update_ocr_config(self, **kwargs) -> None:
         """更新OCR配置"""
         for key, value in kwargs.items():
             if hasattr(self.ocr_config, key):

@@ -154,18 +154,11 @@ class TestQualityValidator(unittest.TestCase):
         with tempfile.TemporaryDirectory() as test_output_dir:
             os.makedirs(test_output_dir, exist_ok=True)
 
-            try:
-                report = self.validator.generate_quality_report(result)
-            
+            report = self.validator.generate_quality_report(result)
+
             # 應該返回報告字串
             self.assertIsInstance(report, str)
             self.assertGreater(len(report), 0)
-        except FileNotFoundError:
-            # 如果目錄不存在，使用臨時目錄
-            with tempfile.TemporaryDirectory() as temp_dir:
-                report_path = os.path.join(temp_dir, 'quality_report.json')
-                report = self.validator.generate_quality_report(result, report_path)
-                self.assertIsInstance(report, str)
 
 
 if __name__ == '__main__':

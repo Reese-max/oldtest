@@ -154,8 +154,15 @@ class QualityValidator:
         """生成品質報告"""
         if not output_path:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            output_path = f"/workspace/test_output/資料品質報告_{timestamp}.md"
-        
+            reports_dir = "reports"
+            os.makedirs(reports_dir, exist_ok=True)
+            output_path = os.path.join(reports_dir, f"資料品質報告_{timestamp}.md")
+
+        # 確保輸出目錄存在
+        output_dir = os.path.dirname(output_path)
+        if output_dir:
+            os.makedirs(output_dir, exist_ok=True)
+
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write("# 資料品質驗證報告\n\n")
             f.write(f"**生成時間**: {datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')}\n\n")

@@ -19,11 +19,25 @@ class Logger:
     _logger: Optional[logging.Logger] = None
     
     def __new__(cls) -> 'Logger':
+        """
+        實現單例模式的 __new__ 方法
+
+        確保整個應用程式只有一個 Logger 實例，避免重複初始化和日誌混亂
+
+        Returns:
+            Logger: 單例 Logger 實例
+        """
         if cls._instance is None:
             cls._instance = super().__new__(cls)
         return cls._instance
-    
+
     def __init__(self):
+        """
+        初始化 Logger 實例
+
+        只在第一次創建實例時設置日誌器，後續調用不會重新初始化
+        設置控制台和文件兩個日誌處理器，分別輸出到 stdout 和日誌文件
+        """
         if self._logger is None:
             self._setup_logger()
     
@@ -59,27 +73,27 @@ class Logger:
         self._logger.addHandler(console_handler)
         self._logger.addHandler(file_handler)
     
-    def info(self, message: str, **kwargs):
+    def info(self, message: str, **kwargs) -> None:
         """記錄信息日誌"""
         self._logger.info(message, **kwargs)
-    
-    def debug(self, message: str, **kwargs):
+
+    def debug(self, message: str, **kwargs) -> None:
         """記錄調試日誌"""
         self._logger.debug(message, **kwargs)
-    
-    def warning(self, message: str, **kwargs):
+
+    def warning(self, message: str, **kwargs) -> None:
         """記錄警告日誌"""
         self._logger.warning(message, **kwargs)
-    
-    def error(self, message: str, **kwargs):
+
+    def error(self, message: str, **kwargs) -> None:
         """記錄錯誤日誌"""
         self._logger.error(message, **kwargs)
-    
-    def success(self, message: str, **kwargs):
+
+    def success(self, message: str, **kwargs) -> None:
         """記錄成功日誌（自定義級別）"""
         self._logger.info(f"✅ {message}", **kwargs)
-    
-    def failure(self, message: str, **kwargs):
+
+    def failure(self, message: str, **kwargs) -> None:
         """記錄失敗日誌（自定義級別）"""
         self._logger.error(f"❌ {message}", **kwargs)
 
