@@ -219,7 +219,8 @@ def confirm_settings(save_dir, years, keywords):
             import shutil
             total, used, free = shutil.disk_usage(save_dir)
             print(f"💿 可用空間: {free / (1024**3):.2f} GB")
-    except:
+    except (ImportError, OSError, AttributeError):
+        # 忽略磁碟空間檢查失敗（非關鍵功能）
         pass
     
     print("="*70)
@@ -538,16 +539,19 @@ def download_file(session, url, file_path, max_retries=5):
             if attempt == max_retries - 1:
                 return False, "請求超時"
             time.sleep(2 ** attempt)
+            continue  # 繼續下一次重試
 
         except requests.exceptions.ConnectionError:
             if attempt == max_retries - 1:
                 return False, "連線錯誤"
             time.sleep(2 ** attempt)
+            continue  # 繼續下一次重試
 
         except Exception as e:
             if attempt == max_retries - 1:
                 return False, str(e)[:50]
             time.sleep(2 ** attempt)
+            continue  # 繼續下一次重試
 
     return False, "重試失敗"
 
