@@ -149,12 +149,13 @@ class TestQualityValidator(unittest.TestCase):
         import os
         
         result = self.validator.validate_questions(self.sample_questions)
-        
-        # 確保目錄存在
-        os.makedirs('/workspace/test_output', exist_ok=True)
-        
-        try:
-            report = self.validator.generate_quality_report(result)
+
+        # 使用臨時目錄進行測試
+        with tempfile.TemporaryDirectory() as test_output_dir:
+            os.makedirs(test_output_dir, exist_ok=True)
+
+            try:
+                report = self.validator.generate_quality_report(result)
             
             # 應該返回報告字串
             self.assertIsInstance(report, str)
