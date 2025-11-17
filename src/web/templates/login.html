@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入 - 考古題處理系統</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-box h1 {
+            margin: 0 0 30px 0;
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-login:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .toggle-form {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .toggle-form a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .toggle-form a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>🔐 登入</h1>
+
+            <div id="errorMessage" class="error-message"></div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">用戶名</label>
+                    <input type="text" id="username" name="username" required autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">密碼</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                </div>
+
+                <button type="submit" class="btn-login" id="loginBtn">登入</button>
+            </form>
+
+            <div class="toggle-form">
+                還沒有帳號？<a href="#" id="showRegister">註冊</a>
+            </div>
+        </div>
+
+        <div class="login-box" id="registerBox" style="display: none;">
+            <h1>📝 註冊</h1>
+
+            <div id="registerError" class="error-message"></div>
+
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="regUsername">用戶名</label>
+                    <input type="text" id="regUsername" name="username" required autocomplete="username" minlength="3">
+                    <small style="color: #999;">至少3個字符</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="regEmail">電子郵件（可選）</label>
+                    <input type="email" id="regEmail" name="email" autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="regPassword">密碼</label>
+                    <input type="password" id="regPassword" name="password" required autocomplete="new-password" minlength="6">
+                    <small style="color: #999;">至少6個字符</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="regPasswordConfirm">確認密碼</label>
+                    <input type="password" id="regPasswordConfirm" name="passwordConfirm" required autocomplete="new-password">
+                </div>
+
+                <button type="submit" class="btn-login" id="registerBtn">註冊</button>
+            </form>
+
+            <div class="toggle-form">
+                已有帳號？<a href="#" id="showLogin">登入</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 獲取 CSRF token
+        let csrfToken = '';
+
+        async function fetchCsrfToken() {
+            try {
+                const response = await fetch('/api/auth/csrf-token');
+                const data = await response.json();
+                csrfToken = data.csrf_token;
+            } catch (error) {
+                console.error('無法獲取 CSRF token:', error);
+            }
+        }
+
+        fetchCsrfToken();
+
+        // 切換登入/註冊表單
+        const loginBox = document.querySelector('.login-box:first-child');
+        const registerBox = document.getElementById('registerBox');
+        const showRegisterBtn = document.getElementById('showRegister');
+        const showLoginBtn = document.getElementById('showLogin');
+
+        showRegisterBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginBox.style.display = 'none';
+            registerBox.style.display = 'block';
+        });
+
+        showLoginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            registerBox.style.display = 'none';
+            loginBox.style.display = 'block';
+        });
+
+        // 登入表單處理
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('errorMessage');
+            const loginBtn = document.getElementById('loginBtn');
+
+            errorDiv.style.display = 'none';
+            loginBtn.disabled = true;
+            loginBtn.textContent = '登入中...';
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': csrfToken
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // 更新 CSRF token
+                    csrfToken = data.csrf_token;
+                    // 登入成功，跳轉到首頁
+                    window.location.href = '/';
+                } else {
+                    errorDiv.textContent = data.error || '登入失敗';
+                    errorDiv.style.display = 'block';
+                }
+            } catch (error) {
+                errorDiv.textContent = '網絡錯誤，請稍後重試';
+                errorDiv.style.display = 'block';
+            } finally {
+                loginBtn.disabled = false;
+                loginBtn.textContent = '登入';
+            }
+        });
+
+        // 註冊表單處理
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById('regUsername').value;
+            const email = document.getElementById('regEmail').value;
+            const password = document.getElementById('regPassword').value;
+            const passwordConfirm = document.getElementById('regPasswordConfirm').value;
+            const errorDiv = document.getElementById('registerError');
+            const registerBtn = document.getElementById('registerBtn');
+
+            errorDiv.style.display = 'none';
+
+            // 驗證密碼
+            if (password !== passwordConfirm) {
+                errorDiv.textContent = '兩次輸入的密碼不一致';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            registerBtn.disabled = true;
+            registerBtn.textContent = '註冊中...';
+
+            try {
+                const response = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': csrfToken
+                    },
+                    body: JSON.stringify({ username, email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert('註冊成功！請登入');
+                    // 切換到登入表單
+                    registerBox.style.display = 'none';
+                    loginBox.style.display = 'block';
+                    // 自動填入用戶名
+                    document.getElementById('username').value = username;
+                } else {
+                    errorDiv.textContent = data.error || '註冊失敗';
+                    errorDiv.style.display = 'block';
+                }
+            } catch (error) {
+                errorDiv.textContent = '網絡錯誤，請稍後重試';
+                errorDiv.style.display = 'block';
+            } finally {
+                registerBtn.disabled = false;
+                registerBtn.textContent = '註冊';
+            }
+        });
+    </script>
+</body>
+</html>
