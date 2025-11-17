@@ -196,13 +196,17 @@ class EnhancedPDFProcessor:
         # 先嘗試用最好的方法
         try:
             return self._extract_pages_with_pdfplumber(pdf_path, page_numbers)
-        except Exception:
-            pass
-        
+        except (ImportError, OSError, IOError) as e:
+            self.logger.debug(f"pdfplumber 提取頁面失敗，嘗試備用方法: {e}")
+        except Exception as e:
+            self.logger.warning(f"pdfplumber 提取頁面時發生未預期錯誤: {e}")
+
         try:
             return self._extract_pages_with_pymupdf(pdf_path, page_numbers)
-        except Exception:
-            pass
+        except (ImportError, OSError, IOError) as e:
+            self.logger.debug(f"PyMuPDF 提取頁面失敗，使用全文提取: {e}")
+        except Exception as e:
+            self.logger.warning(f"PyMuPDF 提取頁面時發生未預期錯誤: {e}")
         
         # 如果指定頁面失敗，就提取全部再篩選
         full_text = self.extract_text(pdf_path)
@@ -256,18 +260,26 @@ class EnhancedPDFProcessor:
             import pdfplumber
             with pdfplumber.open(pdf_path) as pdf:
                 return len(pdf.pages)
-        except Exception:
-            pass
-        
+        except ImportError:
+            self.logger.debug("pdfplumber 未安裝，嘗試使用 PyMuPDF")
+        except (OSError, IOError) as e:
+            self.logger.debug(f"pdfplumber 無法打開文件，嘗試備用方法: {e}")
+        except Exception as e:
+            self.logger.warning(f"pdfplumber 獲取頁數時發生未預期錯誤: {e}")
+
         try:
             import fitz
             doc = fitz.open(pdf_path)
             count = len(doc)
             doc.close()
             return count
-        except Exception:
-            pass
-        
+        except ImportError:
+            self.logger.error("PyMuPDF 和 pdfplumber 都未安裝，無法獲取頁數")
+        except (OSError, IOError) as e:
+            self.logger.error(f"無法打開 PDF 文件獲取頁數: {e}")
+        except Exception as e:
+            self.logger.error(f"PyMuPDF 獲取頁數時發生未預期錯誤: {e}")
+
         return 0
     
     def get_text_quality_score(self, text: str) -> float:
