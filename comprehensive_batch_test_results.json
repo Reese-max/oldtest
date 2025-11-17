@@ -1,12 +1,12 @@
 {
-  "test_time": "2025-11-17T16:23:22.533737",
+  "test_time": "2025-11-17T16:37:15.331811",
   "total": 27,
   "success": 25,
   "essay_detected": 10,
   "unknown_failed": 0,
   "success_with_answer": 20,
   "success_with_corrected": 8,
-  "avg_match_rate": 96.61764705882352,
+  "avg_match_rate": 95.875,
   "results": [
     {
       "name": "民國114年_警察特考/公共安全/國文(作文與測驗)",
@@ -14,7 +14,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "公共安全",
       "success": true,
-      "questions_count": 6,
+      "questions_count": 13,
       "has_answer": true,
       "has_corrected_answer": false,
       "answers_count": 10,
@@ -23,7 +23,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.48342442512512207
+      "processing_time": 0.4596385955810547
     },
     {
       "name": "民國114年_警察特考/公共安全/國土安全與非傳統安全",
@@ -90,7 +90,7 @@
         },
         "reason": "✓ 判定為申論題試卷（信心度: 0.62）- 發現 7 個申論題關鍵詞（如：請說明, 論述, 說明）; 發現 16 個分數標記（如：（25 分）, （25 分））; 發現 4 個中文數字題號"
       },
-      "processing_time": 0.06306838989257812
+      "processing_time": 0.06033730506896973
     },
     {
       "name": "民國114年_警察特考/公共安全/國家安全情報法制",
@@ -98,7 +98,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "公共安全",
       "success": true,
-      "questions_count": 7,
+      "questions_count": 10,
       "has_answer": false,
       "has_corrected_answer": false,
       "answers_count": 0,
@@ -107,7 +107,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.13308119773864746
+      "processing_time": 0.12766146659851074
     },
     {
       "name": "民國114年_警察特考/公共安全/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)",
@@ -115,7 +115,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "公共安全",
       "success": true,
-      "questions_count": 25,
+      "questions_count": 32,
       "has_answer": true,
       "has_corrected_answer": true,
       "answers_count": 20,
@@ -124,7 +124,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.7601833343505859
+      "processing_time": 0.7254788875579834
     },
     {
       "name": "民國114年_警察特考/公共安全/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)",
@@ -132,16 +132,16 @@
       "exam_type": "民國114年_警察特考",
       "position": "公共安全",
       "success": true,
-      "questions_count": 17,
+      "questions_count": 40,
       "has_answer": true,
       "has_corrected_answer": true,
       "answers_count": 25,
       "corrected_answers_count": 0,
-      "match_rate": 94.11764705882352,
+      "match_rate": 92.5,
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.6164970397949219
+      "processing_time": 0.5923309326171875
     },
     {
       "name": "民國114年_警察特考/公共安全/情報學",
@@ -207,7 +207,7 @@
         },
         "reason": "✓ 判定為申論題試卷（信心度: 0.71）- 發現 11 個申論題關鍵詞（如：請說明, 說明, 何謂）; 發現 12 個分數標記（如：（25 分）, （25 分））; 發現 4 個中文數字題號"
       },
-      "processing_time": 0.09134817123413086
+      "processing_time": 0.08009886741638184
     },
     {
       "name": "民國114年_警察特考/公共安全/中華民國憲法與警察專業英文",
@@ -215,7 +215,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "公共安全",
       "success": true,
-      "questions_count": 48,
+      "questions_count": 50,
       "has_answer": true,
       "has_corrected_answer": false,
       "answers_count": 60,
@@ -224,7 +224,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.921292781829834
+      "processing_time": 0.8783457279205322
     },
     {
       "name": "民國114年_警察特考/刑事警察/國文(作文與測驗)",
@@ -232,7 +232,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "刑事警察",
       "success": true,
-      "questions_count": 6,
+      "questions_count": 13,
       "has_answer": true,
       "has_corrected_answer": false,
       "answers_count": 10,
@@ -241,7 +241,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.554772138595581
+      "processing_time": 0.49387168884277344
     },
     {
       "name": "民國114年_警察特考/刑事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)",
@@ -249,7 +249,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "刑事警察",
       "success": true,
-      "questions_count": 25,
+      "questions_count": 32,
       "has_answer": true,
       "has_corrected_answer": true,
       "answers_count": 20,
@@ -258,7 +258,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.7689163684844971
+      "processing_time": 0.7206518650054932
     },
     {
       "name": "民國114年_警察特考/刑事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)",
@@ -266,16 +266,16 @@
       "exam_type": "民國114年_警察特考",
       "position": "刑事警察",
       "success": true,
-      "questions_count": 17,
+      "questions_count": 40,
       "has_answer": true,
       "has_corrected_answer": true,
       "answers_count": 25,
       "corrected_answers_count": 0,
-      "match_rate": 94.11764705882352,
+      "match_rate": 92.5,
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.6611125469207764
+      "processing_time": 0.6302688121795654
     },
     {
       "name": "民國114年_警察特考/刑事警察/中華民國憲法與警察專業英文",
@@ -283,7 +283,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "刑事警察",
       "success": true,
-      "questions_count": 48,
+      "questions_count": 50,
       "has_answer": true,
       "has_corrected_answer": false,
       "answers_count": 60,
@@ -292,7 +292,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.8817791938781738
+      "processing_time": 0.8402924537658691
     },
     {
       "name": "民國114年_警察特考/刑事警察/偵查法學",
@@ -300,7 +300,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "刑事警察",
       "success": true,
-      "questions_count": 3,
+      "questions_count": 4,
       "has_answer": false,
       "has_corrected_answer": false,
       "answers_count": 0,
@@ -309,7 +309,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.1034085750579834
+      "processing_time": 0.10024356842041016
     },
     {
       "name": "民國114年_警察特考/刑事警察/刑案現場處理與刑事鑑識",
@@ -317,7 +317,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "刑事警察",
       "success": true,
-      "questions_count": 11,
+      "questions_count": 16,
       "has_answer": true,
       "has_corrected_answer": true,
       "answers_count": 25,
@@ -326,7 +326,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.8047733306884766
+      "processing_time": 0.8065404891967773
     },
     {
       "name": "民國114年_警察特考/刑事警察/犯罪偵查學",
@@ -334,7 +334,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "刑事警察",
       "success": true,
-      "questions_count": 20,
+      "questions_count": 29,
       "has_answer": true,
       "has_corrected_answer": true,
       "answers_count": 25,
@@ -343,7 +343,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.7129666805267334
+      "processing_time": 0.708057165145874
     },
     {
       "name": "民國114年_警察特考/消防警察/國文(作文與測驗)",
@@ -351,7 +351,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "消防警察",
       "success": true,
-      "questions_count": 6,
+      "questions_count": 13,
       "has_answer": true,
       "has_corrected_answer": false,
       "answers_count": 10,
@@ -360,7 +360,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.4799773693084717
+      "processing_time": 0.461808443069458
     },
     {
       "name": "民國114年_警察特考/消防警察/中華民國憲法與消防警察專業英文",
@@ -368,7 +368,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "消防警察",
       "success": true,
-      "questions_count": 48,
+      "questions_count": 50,
       "has_answer": true,
       "has_corrected_answer": false,
       "answers_count": 60,
@@ -377,7 +377,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.8252100944519043
+      "processing_time": 0.7922039031982422
     },
     {
       "name": "民國114年_警察特考/犯罪防治/國文(作文與測驗)",
@@ -385,7 +385,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "犯罪防治",
       "success": true,
-      "questions_count": 6,
+      "questions_count": 13,
       "has_answer": true,
       "has_corrected_answer": false,
       "answers_count": 10,
@@ -394,7 +394,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.48435235023498535
+      "processing_time": 0.473285436630249
     },
     {
       "name": "民國114年_警察特考/犯罪防治/犯罪分析",
@@ -461,7 +461,7 @@
         },
         "reason": "✓ 判定為申論題試卷（信心度: 0.71）- 發現 18 個申論題關鍵詞（如：說明, 分析, 為何）; 發現 19 個分數標記（如：（5 分）, （5 分））; 發現 4 個中文數字題號"
       },
-      "processing_time": 0.11609673500061035
+      "processing_time": 0.11024904251098633
     },
     {
       "name": "民國114年_警察特考/犯罪防治/諮商輔導與婦幼保護",
@@ -469,7 +469,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "犯罪防治",
       "success": true,
-      "questions_count": 2,
+      "questions_count": 3,
       "has_answer": false,
       "has_corrected_answer": false,
       "answers_count": 0,
@@ -478,7 +478,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.06125283241271973
+      "processing_time": 0.05700969696044922
     },
     {
       "name": "民國114年_警察特考/犯罪防治/中華民國憲法與警察專業英文",
@@ -486,7 +486,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "犯罪防治",
       "success": true,
-      "questions_count": 48,
+      "questions_count": 50,
       "has_answer": true,
       "has_corrected_answer": false,
       "answers_count": 60,
@@ -495,7 +495,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.9497354030609131
+      "processing_time": 0.8920919895172119
     },
     {
       "name": "民國114年_警察特考/犯罪防治/犯罪學與犯罪預防",
@@ -561,7 +561,7 @@
         },
         "reason": "✓ 判定為申論題試卷（信心度: 0.68）- 發現 9 個申論題關鍵詞（如：請說明, 說明, 為何）; 發現 12 個分數標記（如：（25 分）, （25 分））; 發現 4 個中文數字題號"
       },
-      "processing_time": 0.058200836181640625
+      "processing_time": 0.06091928482055664
     },
     {
       "name": "民國114年_警察特考/外事警察/國文(作文與測驗)",
@@ -569,7 +569,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "外事警察",
       "success": true,
-      "questions_count": 6,
+      "questions_count": 13,
       "has_answer": true,
       "has_corrected_answer": false,
       "answers_count": 10,
@@ -578,7 +578,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.4347419738769531
+      "processing_time": 0.4280414581298828
     },
     {
       "name": "民國114年_警察特考/外事警察/警察情境實務(包括警察法規、實務操作標準作業程序、人權保障與正當法律程序)",
@@ -586,7 +586,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "外事警察",
       "success": true,
-      "questions_count": 25,
+      "questions_count": 32,
       "has_answer": true,
       "has_corrected_answer": true,
       "answers_count": 20,
@@ -595,7 +595,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.7470443248748779
+      "processing_time": 0.7274112701416016
     },
     {
       "name": "民國114年_警察特考/外事警察/國際警察合作與跨國(境)犯罪防制",
@@ -663,7 +663,7 @@
         },
         "reason": "✓ 判定為申論題試卷（信心度: 0.71）- 發現 10 個申論題關鍵詞（如：請說明, 說明, 分析）; 發現 12 個分數標記（如：（25 分）, （25 分））; 發現 4 個中文數字題號"
       },
-      "processing_time": 0.050324440002441406
+      "processing_time": 0.0535430908203125
     },
     {
       "name": "民國114年_警察特考/外事警察/警察法規(包括警察法、行政執行法、社會秩序維護法、警械使用條例、集會遊行法、警察職權行使法、公務人員行政中立法)",
@@ -671,16 +671,16 @@
       "exam_type": "民國114年_警察特考",
       "position": "外事警察",
       "success": true,
-      "questions_count": 17,
+      "questions_count": 40,
       "has_answer": true,
       "has_corrected_answer": true,
       "answers_count": 25,
       "corrected_answers_count": 0,
-      "match_rate": 94.11764705882352,
+      "match_rate": 92.5,
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.6411137580871582
+      "processing_time": 0.6245870590209961
     },
     {
       "name": "民國114年_警察特考/外事警察/中華民國憲法與警察專業英文",
@@ -688,7 +688,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "外事警察",
       "success": true,
-      "questions_count": 48,
+      "questions_count": 50,
       "has_answer": true,
       "has_corrected_answer": false,
       "answers_count": 60,
@@ -697,7 +697,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.9050924777984619
+      "processing_time": 0.8793308734893799
     },
     {
       "name": "民國114年_警察特考/外事警察/外事警察學",
@@ -705,7 +705,7 @@
       "exam_type": "民國114年_警察特考",
       "position": "外事警察",
       "success": true,
-      "questions_count": 3,
+      "questions_count": 7,
       "has_answer": false,
       "has_corrected_answer": false,
       "answers_count": 0,
@@ -714,7 +714,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.054201364517211914
+      "processing_time": 0.05354428291320801
     },
     {
       "name": "民國114年_司法特考/監獄官/監獄行刑法與羈押法",
@@ -782,7 +782,7 @@
         },
         "reason": "✓ 判定為申論題試卷（信心度: 0.64）- 發現 8 個申論題關鍵詞（如：說明, 為何, 如何）; 發現 12 個分數標記（如：（25 分）, （25 分））; 發現 4 個中文數字題號; 發現 1 個選擇題標記（減分）"
       },
-      "processing_time": 0.04644155502319336
+      "processing_time": 0.048686981201171875
     },
     {
       "name": "民國114年_司法特考/監獄官/刑事政策",
@@ -852,7 +852,7 @@
         },
         "reason": "✓ 判定為申論題試卷（信心度: 0.60）- 發現 7 個申論題關鍵詞（如：試說明, 說明, 分析）; 發現 12 個分數標記（如：（25 分）, （25 分））; 發現 4 個中文數字題號; 發現 1 個選擇題標記（減分）"
       },
-      "processing_time": 0.07630443572998047
+      "processing_time": 0.07488799095153809
     },
     {
       "name": "民國114年_司法特考/監獄官/法學知識與英文（包括中華民國憲法、法學緒論、英文）",
@@ -869,7 +869,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.760378360748291
+      "processing_time": 0.7531437873840332
     },
     {
       "name": "民國114年_司法特考/監獄官/監獄學",
@@ -938,7 +938,7 @@
         },
         "reason": "✓ 判定為申論題試卷（信心度: 0.70）- 發現 12 個申論題關鍵詞（如：請說明, 說明, 何謂）; 發現 12 個分數標記（如：（25 分）, （25 分））; 發現 4 個中文數字題號; 發現 1 個選擇題標記（減分）"
       },
-      "processing_time": 0.05504131317138672
+      "processing_time": 0.053690433502197266
     },
     {
       "name": "民國114年_司法特考/監獄官/國文（作文與測驗）",
@@ -946,16 +946,16 @@
       "exam_type": "民國114年_司法特考",
       "position": "監獄官",
       "success": true,
-      "questions_count": 4,
+      "questions_count": 5,
       "has_answer": true,
       "has_corrected_answer": false,
       "answers_count": 10,
       "corrected_answers_count": 0,
-      "match_rate": 50.0,
+      "match_rate": 40.0,
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.5321552753448486
+      "processing_time": 0.5419340133666992
     },
     {
       "name": "民國114年_司法特考/監獄官/犯罪學與再犯預測",
@@ -1024,7 +1024,7 @@
         },
         "reason": "✓ 判定為申論題試卷（信心度: 0.70）- 發現 10 個申論題關鍵詞（如：請說明, 說明, 分析）; 發現 12 個分數標記（如：（25 分）, （25 分））; 發現 4 個中文數字題號; 發現 1 個選擇題標記（減分）"
       },
-      "processing_time": 0.07336306571960449
+      "processing_time": 0.07942509651184082
     },
     {
       "name": "民國114年_司法特考/監獄官/諮商與矯正輔導",
@@ -1094,7 +1094,7 @@
         },
         "reason": "✓ 判定為申論題試卷（信心度: 0.67）- 發現 9 個申論題關鍵詞（如：請說明, 說明, 分析）; 發現 12 個分數標記（如：（25 分）, （25 分））; 發現 4 個中文數字題號; 發現 1 個選擇題標記（減分）"
       },
-      "processing_time": 0.056664466857910156
+      "processing_time": 0.06435847282409668
     },
     {
       "name": "民國114年_司法特考/監獄官/刑法與少年事件處理法",
@@ -1102,7 +1102,7 @@
       "exam_type": "民國114年_司法特考",
       "position": "監獄官",
       "success": true,
-      "questions_count": 3,
+      "questions_count": 4,
       "has_answer": false,
       "has_corrected_answer": false,
       "answers_count": 0,
@@ -1111,7 +1111,7 @@
       "errors": [],
       "warnings": [],
       "essay_detection": null,
-      "processing_time": 0.06571841239929199
+      "processing_time": 0.06543302536010742
     }
   ]
 }
