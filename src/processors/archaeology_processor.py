@@ -26,8 +26,8 @@ from ..utils.constants import (
     KEYWORDS_TEST_SECTION, KEYWORDS_ESSAY_SECTION, KEYWORDS_ENGLISH_ESSAY,
     KEYWORDS_QUESTION_GROUP_START, KEYWORDS_QUESTION_GROUP_END,
     KEYWORDS_ESSAY_PART, KEYWORDS_TEST_PART,
-    FILE_PATTERN_ANSWER, FILE_PATTERN_CORRECTED_ANSWER,
-    DEFAULT_OUTPUT_DIR
+    FILE_PATTERN_ANSWER, FILE_PATTERN_CORRECTED_ANSWER, FILE_PATTERN_GOOGLE_CSV,
+    DEFAULT_OUTPUT_DIR, UNICODE_OPTION_SYMBOLS
 )
 
 
@@ -356,9 +356,7 @@ class ArchaeologyProcessor:
     
     def _is_embedded_format(self, text: str) -> bool:
         """檢測是否為嵌入式填空題"""
-        from ..utils.constants import UNICODE_OPTION_SYMBOLS
-        
-        has_question_groups = (KEYWORDS_QUESTION_GROUP_START in text and 
+        has_question_groups = (KEYWORDS_QUESTION_GROUP_START in text and
                              KEYWORDS_QUESTION_GROUP_END in text)
         has_special_symbols = any(symbol in text for symbol in UNICODE_OPTION_SYMBOLS)
         
@@ -527,8 +525,6 @@ class ArchaeologyProcessor:
         Returns:
             CSV檔案路徑列表
         """
-        from ..utils.constants import FILE_PATTERN_GOOGLE_CSV
-        
         os.makedirs(output_dir, exist_ok=True)
         base_name = os.path.splitext(os.path.basename(pdf_path))[0]
         csv_files = []

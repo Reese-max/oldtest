@@ -11,6 +11,11 @@ from typing import Optional, List
 from ..utils.logger import logger
 from ..utils.exceptions import PDFProcessingError
 
+# PDF processing constants
+DEFAULT_MAX_PAGES = 200  # Default maximum pages to process (防止大文件記憶體溢出)
+MEMORY_CLEANUP_INTERVAL = 50  # Trigger garbage collection every N pages
+MAX_PAGES_WARNING_THRESHOLD = 10000  # Warn if max_pages exceeds this value
+
 
 class PDFProcessor:
     """PDF處理器"""
@@ -18,13 +23,13 @@ class PDFProcessor:
     def __init__(self):
         self.logger = logger
     
-    def extract_text(self, pdf_path: str, max_pages: int = 200) -> str:
+    def extract_text(self, pdf_path: str, max_pages: int = DEFAULT_MAX_PAGES) -> str:
         """
         從PDF檔案中提取文字內容
 
         Args:
             pdf_path: PDF檔案路徑
-            max_pages: 最大處理頁數，預設200頁（防止大文件記憶體溢出）
+            max_pages: 最大處理頁數，預設為 DEFAULT_MAX_PAGES（防止大文件記憶體溢出）
 
         Returns:
             提取的文字內容
@@ -68,8 +73,8 @@ class PDFProcessor:
                                 self.logger.warning(f"第 {page_num} 頁 Unicode 清理失敗: {ue}")
                             text += page_text + "\n"
 
-                        # 每處理50頁釋放一次記憶體
-                        if page_num % 50 == 0:
+                        # 每處理 MEMORY_CLEANUP_INTERVAL 頁釋放一次記憶體
+                        if page_num % MEMORY_CLEANUP_INTERVAL == 0:
                             import gc
                             gc.collect()
                             self.logger.debug(f"已處理 {page_num} 頁，觸發記憶體清理")
@@ -211,7 +216,7 @@ class PDFProcessor:
         if max_pages < 1:
             raise PDFProcessingError(f"max_pages 必須大於 0，收到: {max_pages}")
 
-        if max_pages > 10000:
+        if max_pages > MAX_PAGES_WARNING_THRESHOLD:
             self.logger.warning(f"max_pages 設定過大（{max_pages}），可能導致記憶體不足")
 
     def _validate_page_numbers(self, page_numbers: List[int]) -> None:

@@ -9,6 +9,12 @@
 import re
 from typing import List, Dict, Any, Tuple
 from ..utils.logger import logger
+from ..utils.constants import (
+    CSV_COLUMN_QUESTION_NUM, CSV_COLUMN_QUESTION_TEXT, CSV_COLUMN_QUESTION_TYPE,
+    CSV_COLUMN_OPTION_A, CSV_COLUMN_OPTION_B, CSV_COLUMN_OPTION_C, CSV_COLUMN_OPTION_D,
+    CSV_COLUMN_CORRECT_ANSWER, CSV_COLUMN_DIFFICULTY, CSV_COLUMN_CATEGORY,
+    CSV_COLUMN_QUESTION_GROUP, CSV_COLUMN_NOTES
+)
 
 
 class EssayQuestionParser:
@@ -143,18 +149,18 @@ class EssayQuestionParser:
                 continue
             
             question = {
-                '題號': question_num,
-                '題目': content,
-                '題型': '申論題',
-                '選項A': '',
-                '選項B': '',
-                '選項C': '',
-                '選項D': '',
-                '正確答案': '',
-                '難度': '困難',  # 申論題通常較難
-                '分類': '申論',
-                '題組': False,
-                '備註': f'配分: {score}分' if score else ''
+                CSV_COLUMN_QUESTION_NUM: question_num,
+                CSV_COLUMN_QUESTION_TEXT: content,
+                CSV_COLUMN_QUESTION_TYPE: '申論題',
+                CSV_COLUMN_OPTION_A: '',
+                CSV_COLUMN_OPTION_B: '',
+                CSV_COLUMN_OPTION_C: '',
+                CSV_COLUMN_OPTION_D: '',
+                CSV_COLUMN_CORRECT_ANSWER: '',
+                CSV_COLUMN_DIFFICULTY: '困難',  # 申論題通常較難
+                CSV_COLUMN_CATEGORY: '申論',
+                CSV_COLUMN_QUESTION_GROUP: False,
+                CSV_COLUMN_NOTES: f'配分: {score}分' if score else ''
             }
             
             questions.append(question)

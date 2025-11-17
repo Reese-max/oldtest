@@ -8,6 +8,13 @@
 import re
 from typing import List, Dict, Any
 from ..utils.logger import logger
+from ..utils.constants import (
+    CSV_COLUMN_QUESTION_NUM, CSV_COLUMN_QUESTION_TEXT, CSV_COLUMN_QUESTION_TYPE,
+    CSV_COLUMN_OPTION_A, CSV_COLUMN_OPTION_B, CSV_COLUMN_OPTION_C, CSV_COLUMN_OPTION_D,
+    CSV_COLUMN_CORRECT_ANSWER, CSV_COLUMN_DIFFICULTY, CSV_COLUMN_CATEGORY,
+    CSV_COLUMN_QUESTION_GROUP, CSV_COLUMN_NOTES,
+    DEFAULT_QUESTION_TYPE
+)
 
 
 class NoLabelQuestionParser:
@@ -91,18 +98,18 @@ class NoLabelQuestionParser:
                 return lst[idx] if 0 <= idx < len(lst) else default
 
             question = {
-                '題號': question_num,
-                '題目': question_text,
-                '題型': '選擇題',
-                '選項A': safe_get(options, 0),
-                '選項B': safe_get(options, 1),
-                '選項C': safe_get(options, 2),
-                '選項D': safe_get(options, 3),
-                '正確答案': '',
-                '難度': '中等',
-                '分類': '法律/英文',
-                '題組': has_english_options,  # 英文單詞選項標記為題組
-                '備註': '英文完形填空' if has_english_options else ''
+                CSV_COLUMN_QUESTION_NUM: question_num,
+                CSV_COLUMN_QUESTION_TEXT: question_text,
+                CSV_COLUMN_QUESTION_TYPE: DEFAULT_QUESTION_TYPE,
+                CSV_COLUMN_OPTION_A: safe_get(options, 0),
+                CSV_COLUMN_OPTION_B: safe_get(options, 1),
+                CSV_COLUMN_OPTION_C: safe_get(options, 2),
+                CSV_COLUMN_OPTION_D: safe_get(options, 3),
+                CSV_COLUMN_CORRECT_ANSWER: '',
+                CSV_COLUMN_DIFFICULTY: '中等',
+                CSV_COLUMN_CATEGORY: '法律/英文',
+                CSV_COLUMN_QUESTION_GROUP: has_english_options,  # 英文單詞選項標記為題組
+                CSV_COLUMN_NOTES: '英文完形填空' if has_english_options else ''
             }
             
             questions.append(question)

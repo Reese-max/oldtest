@@ -9,6 +9,12 @@ import re
 from typing import List, Dict, Any, Optional
 from ..utils.logger import logger
 from ..utils.config import config_manager
+from ..utils.constants import (
+    CSV_COLUMN_QUESTION_NUM, CSV_COLUMN_QUESTION_TEXT, CSV_COLUMN_QUESTION_TYPE,
+    CSV_COLUMN_OPTION_A, CSV_COLUMN_OPTION_B, CSV_COLUMN_OPTION_C, CSV_COLUMN_OPTION_D,
+    CSV_COLUMN_QUESTION_GROUP, CSV_COLUMN_GROUP_ID,
+    DEFAULT_QUESTION_TYPE
+)
 
 
 class AIQuestionParser:
@@ -104,30 +110,33 @@ class AIQuestionParser:
         # 使用上下文文字
         search_text = context if context else text
         
+        # Create option column mapping
+        option_columns = [CSV_COLUMN_OPTION_A, CSV_COLUMN_OPTION_B,
+                        CSV_COLUMN_OPTION_C, CSV_COLUMN_OPTION_D]
+
         for question_num in range(start_num, end_num + 1):
             question_data = {
-                '題號': str(question_num),
-                '題目': '',
-                '選項A': '',
-                '選項B': '',
-                '選項C': '',
-                '選項D': '',
-                '題型': '選擇題',
-                '題組': True,
-                '題組編號': f"{start_num}-{end_num}"
+                CSV_COLUMN_QUESTION_NUM: str(question_num),
+                CSV_COLUMN_QUESTION_TEXT: '',
+                CSV_COLUMN_OPTION_A: '',
+                CSV_COLUMN_OPTION_B: '',
+                CSV_COLUMN_OPTION_C: '',
+                CSV_COLUMN_OPTION_D: '',
+                CSV_COLUMN_QUESTION_TYPE: DEFAULT_QUESTION_TYPE,
+                CSV_COLUMN_QUESTION_GROUP: True,
+                CSV_COLUMN_GROUP_ID: f"{start_num}-{end_num}"
             }
-            
+
             # 多種題號格式匹配
             question_text = self._extract_question_text(search_text, question_num)
-            
+
             if question_text:
-                question_data['題目'] = question_text[:500]  # 限制長度
-                
+                question_data[CSV_COLUMN_QUESTION_TEXT] = question_text[:500]  # 限制長度
+
                 # 提取選項
                 options = self._extract_options_enhanced(question_text)
-                for i, option in enumerate(['A', 'B', 'C', 'D']):
-                    if i < len(options):
-                        question_data[f'選項{option}'] = options[i]
+                for i in range(min(len(options), 4)):
+                    question_data[option_columns[i]] = options[i]
                 
                 # 驗證題目有效性
                 if self._validate_question(question_data):
@@ -250,22 +259,25 @@ class AIQuestionParser:
             question_text = self._extract_question_text(text, num)
             
             if question_text and len(question_text) > 10:
+                # Create option column mapping
+                option_columns = [CSV_COLUMN_OPTION_A, CSV_COLUMN_OPTION_B,
+                                CSV_COLUMN_OPTION_C, CSV_COLUMN_OPTION_D]
+
                 question_data = {
-                    '題號': str(num),
-                    '題目': question_text[:500],
-                    '選項A': '',
-                    '選項B': '',
-                    '選項C': '',
-                    '選項D': '',
-                    '題型': '選擇題',
-                    '題組': False,
+                    CSV_COLUMN_QUESTION_NUM: str(num),
+                    CSV_COLUMN_QUESTION_TEXT: question_text[:500],
+                    CSV_COLUMN_OPTION_A: '',
+                    CSV_COLUMN_OPTION_B: '',
+                    CSV_COLUMN_OPTION_C: '',
+                    CSV_COLUMN_OPTION_D: '',
+                    CSV_COLUMN_QUESTION_TYPE: DEFAULT_QUESTION_TYPE,
+                    CSV_COLUMN_QUESTION_GROUP: False,
                 }
-                
+
                 # 提取選項
                 options = self._extract_options_enhanced(question_text)
-                for i, option in enumerate(['A', 'B', 'C', 'D']):
-                    if i < len(options):
-                        question_data[f'選項{option}'] = options[i]
+                for i in range(min(len(options), 4)):
+                    question_data[option_columns[i]] = options[i]
                 
                 # 驗證
                 if self._validate_question(question_data):
