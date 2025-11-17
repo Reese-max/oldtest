@@ -8,6 +8,7 @@
 import re
 from typing import List, Dict, Any, Tuple
 from ..utils.logger import logger
+from ..utils.regex_patterns import EMBEDDED_SYMBOLS
 
 
 class MixedFormatParser:
@@ -186,8 +187,9 @@ class MixedFormatParser:
         text = re.sub(r'\s+', ' ', text)
         
         # 移除特殊标记
-        text = re.sub(r'[]', '', text)
-        
+        # 移除特殊标记（選項符號）
+        for symbol in EMBEDDED_SYMBOLS:
+            text = text.replace(symbol, '')
         # 移除页次信息
         text = re.sub(r'頁次：\d+－\d+', '', text)
         text = re.sub(r'代號：[\d\-]+', '', text)
