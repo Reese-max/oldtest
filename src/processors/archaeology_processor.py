@@ -17,6 +17,7 @@ from ..core.mixed_format_parser import MixedFormatParser
 from ..core.embedded_question_parser import EmbeddedQuestionParser
 from ..core.comprehensive_question_parser import ComprehensiveQuestionParser
 from ..core.ultimate_question_parser import UltimateQuestionParser
+from ..core.no_label_question_parser import NoLabelQuestionParser
 from ..core.answer_processor import AnswerProcessor
 from ..core.csv_generator import CSVGenerator
 from ..utils.logger import logger
@@ -96,6 +97,7 @@ class ArchaeologyProcessor:
         self.embedded_parser = EmbeddedQuestionParser()  # 嵌入式填空題解析器
         self.comprehensive_parser = ComprehensiveQuestionParser()  # 綜合解析器
         self.ultimate_parser = UltimateQuestionParser()  # 終極解析器
+        self.no_label_parser = NoLabelQuestionParser()  # 無標籤解析器
         self.answer_processor = AnswerProcessor()
         self.csv_generator = CSVGenerator()
         self.scan_tracker: Optional[QuestionScanTracker] = None
@@ -365,19 +367,26 @@ class ArchaeologyProcessor:
     def _parse_standard(self, text: str) -> List[Dict[str, Any]]:
         """解析標準選擇題"""
         questions = []
-        
+
         # 優先使用增強解析器
         if self.use_enhanced:
             questions = self.question_parser_enhanced.parse_questions_intelligent(text)
             if len(questions) >= 2:
                 self.logger.success(f"✓ 增強解析器成功: {len(questions)} 題")
-        
+
         # 如果增強解析器結果不足，使用標準解析器
         if len(questions) < 2:
             questions = self.question_parser.parse_questions(text)
             if questions:
                 self.logger.success(f"✓ 標準解析器成功: {len(questions)} 題")
-        
+
+        # 如果標準解析器也失敗，嘗試無標籤解析器（考選部官方格式）
+        if len(questions) < 2:
+            self.logger.info("標準解析器未找到足夠題目，嘗試無標籤格式解析器")
+            questions = self.no_label_parser.parse_no_label_questions(text)
+            if questions:
+                self.logger.success(f"✓ 無標籤解析器成功: {len(questions)} 題")
+
         return questions
     
     def _detect_format_type(self, text: str, pdf_path: str) -> str:

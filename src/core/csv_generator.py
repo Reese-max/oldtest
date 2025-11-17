@@ -201,7 +201,9 @@ class CSVGenerator:
             CSV行數據字典
         """
         question_num = question.get(CSV_COLUMN_QUESTION_NUM, '')
-        
+        # 轉換題號為字符串以匹配答案字典的鍵類型
+        question_num_str = str(question_num) if question_num else ''
+
         row = {
             CSV_COLUMN_QUESTION_NUM: question_num,
             CSV_COLUMN_QUESTION_TEXT: question.get(CSV_COLUMN_QUESTION_TEXT, ''),
@@ -210,17 +212,17 @@ class CSVGenerator:
             CSV_COLUMN_OPTION_B: question.get(CSV_COLUMN_OPTION_B, ''),
             CSV_COLUMN_OPTION_C: question.get(CSV_COLUMN_OPTION_C, ''),
             CSV_COLUMN_OPTION_D: question.get(CSV_COLUMN_OPTION_D, ''),
-            CSV_COLUMN_CORRECT_ANSWER: answers.get(question_num, ''),
+            CSV_COLUMN_CORRECT_ANSWER: answers.get(question_num_str, ''),
             CSV_COLUMN_DIFFICULTY: self._calculate_difficulty(question),
             CSV_COLUMN_CATEGORY: self._categorize_question(question),
             CSV_COLUMN_QUESTION_GROUP: question.get(CSV_COLUMN_QUESTION_GROUP, False),
             CSV_COLUMN_NOTES: ''
         }
-        
+
         if include_corrected:
             corrected_answers = corrected_answers or {}
-            final_answer = corrected_answers.get(question_num, answers.get(question_num, ''))
-            row[CSV_COLUMN_CORRECTED_ANSWER] = corrected_answers.get(question_num, '')
+            final_answer = corrected_answers.get(question_num_str, answers.get(question_num_str, ''))
+            row[CSV_COLUMN_CORRECTED_ANSWER] = corrected_answers.get(question_num_str, '')
             row[CSV_COLUMN_FINAL_ANSWER] = final_answer
             row[CSV_COLUMN_GROUP_ID] = question.get(CSV_COLUMN_GROUP_ID, '')
         
