@@ -29,35 +29,56 @@ class CSVGenerator:
         self.config = config_manager.get_processing_config()
         self.google_form_config = config_manager.get_google_form_config()
     
-    def generate_questions_csv(self, questions: List[Dict[str, Any]], 
+    def generate_questions_csv(self, questions: List[Dict[str, Any]],
                              answers: Dict[str, str],
                              output_path: str) -> str:
         """
         生成題目CSV檔案
-        
+
         Args:
             questions: 題目列表
             answers: 答案字典
             output_path: 輸出檔案路徑
-            
+
         Returns:
             生成的CSV檔案路徑
         """
         try:
             self.logger.info(f"開始生成題目CSV: {output_path}")
-            
+
+            # 驗證必要欄位
+            if questions:
+                required_fields = [CSV_COLUMN_QUESTION_NUM, CSV_COLUMN_QUESTION_TEXT, CSV_COLUMN_QUESTION_TYPE]
+                first_question = questions[0]
+                missing_fields = [field for field in required_fields if field not in first_question]
+                if missing_fields:
+                    raise CSVGenerationError(f"題目缺少必要欄位: {missing_fields}")
+
             # 準備CSV資料
-            csv_data = [
-                self._build_question_row(question, answers, include_corrected=False)
-                for question in questions
-            ]
-            
+            if not questions:
+                self.logger.warning("題目列表為空，生成空CSV檔案")
+                csv_data = []
+            else:
+                csv_data = [
+                    self._build_question_row(question, answers, include_corrected=False)
+                    for question in questions
+                ]
+
             # 建立DataFrame並儲存
             self._save_csv_data(csv_data, output_path)
-            
-            self.logger.success(f"題目CSV生成完成: {output_path}")
+
+            self.logger.success(f"✅ 題目CSV生成完成: {output_path}")
             return output_path
-            
+
+        except (IOError, OSError) as e:
+            error_msg = f"CSV檔案寫入失敗: {e}"
+            self.logger.failure(error_msg)
+            raise CSVGenerationError(error_msg) from e
+        except pd.errors.EmptyDataError:
+            self.logger.warning("生成空CSV檔案")
+            # 創建空DataFrame with columns
+            self._save_empty_csv(output_path)
+            return output_path
         except Exception as e:
             error_msg = f"題目CSV生成失敗: {e}"
             self.logger.failure(error_msg)
@@ -192,14 +213,63 @@ class CSVGenerator:
     def _save_csv_data(self, csv_data: List[Dict[str, Any]], output_path: str) -> None:
         """
         保存CSV數據到文件
-        
+
         Args:
             csv_data: CSV數據列表
             output_path: 輸出文件路徑
         """
-        df = pd.DataFrame(csv_data)
+        try:
+            # 處理空數據情況
+            if not csv_data:
+                self._save_empty_csv(output_path)
+                return
+
+            df = pd.DataFrame(csv_data)
+            output_dir = os.path.dirname(output_path) or DEFAULT_OUTPUT_DIR
+
+            # 確保輸出目錄存在
+            if output_dir:
+                os.makedirs(output_dir, exist_ok=True)
+
+            # 保存CSV
+            df.to_csv(output_path, index=False, encoding=self.config.output_encoding,
+                     sep=self.config.csv_delimiter)
+
+        except (IOError, OSError) as e:
+            raise CSVGenerationError(f"CSV文件寫入失敗: {e}") from e
+        except Exception as e:
+            raise CSVGenerationError(f"CSV保存錯誤: {e}") from e
+
+    def _save_empty_csv(self, output_path: str) -> None:
+        """
+        保存空CSV文件（僅包含欄位標題）
+
+        Args:
+            output_path: 輸出文件路徑
+        """
+        # 定義標準欄位
+        columns = [
+            CSV_COLUMN_QUESTION_NUM,
+            CSV_COLUMN_QUESTION_TEXT,
+            CSV_COLUMN_QUESTION_TYPE,
+            CSV_COLUMN_OPTION_A,
+            CSV_COLUMN_OPTION_B,
+            CSV_COLUMN_OPTION_C,
+            CSV_COLUMN_OPTION_D,
+            CSV_COLUMN_CORRECT_ANSWER,
+            CSV_COLUMN_DIFFICULTY,
+            CSV_COLUMN_CATEGORY,
+            CSV_COLUMN_QUESTION_GROUP,
+            CSV_COLUMN_NOTES
+        ]
+
+        # 創建空DataFrame
+        df = pd.DataFrame(columns=columns)
         output_dir = os.path.dirname(output_path) or DEFAULT_OUTPUT_DIR
-        os.makedirs(output_dir, exist_ok=True)
+
+        if output_dir:
+            os.makedirs(output_dir, exist_ok=True)
+
         df.to_csv(output_path, index=False, encoding=self.config.output_encoding,
                  sep=self.config.csv_delimiter)
     
