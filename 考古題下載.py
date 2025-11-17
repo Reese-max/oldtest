@@ -13,6 +13,17 @@ from datetime import datetime
 from typing import List, Dict, Any, Union, Optional, Tuple
 import warnings
 import urllib3
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from threading import Lock
+import yaml
+
+# 嘗試導入 tqdm，如果失敗則使用簡單進度顯示
+try:
+    from tqdm import tqdm
+    TQDM_AVAILABLE = True
+except ImportError:
+    TQDM_AVAILABLE = False
+    print("⚠️  未安裝 tqdm，將使用簡單進度顯示。建議執行: pip install tqdm")
 
 # 隱藏 urllib3 的 SSL 警告
 warnings.filterwarnings('ignore', category=urllib3.exceptions.InsecureRequestWarning)
@@ -41,6 +52,27 @@ def get_available_years():
     return list(range(81, current_minguo_year + 2))
 
 AVAILABLE_YEARS = get_available_years()
+
+# --- 配置加載 ---
+def load_config():
+    """載入配置文件"""
+    config_path = os.path.join(os.path.dirname(__file__), 'config.yaml')
+    try:
+        with open(config_path, 'r', encoding='utf-8') as f:
+            config = yaml.safe_load(f)
+        return config.get('downloader', {})
+    except FileNotFoundError:
+        print("⚠️  未找到 config.yaml，使用默認配置")
+        return {}
+    except Exception as e:
+        print(f"⚠️  配置文件載入失敗: {e}，使用默認配置")
+        return {}
+
+# 載入配置
+DOWNLOADER_CONFIG = load_config()
+
+# 全局統計鎖（用於多線程安全）
+stats_lock = Lock()
 # --- ---
 
 def print_banner():
@@ -578,6 +610,126 @@ def parse_exam_page(html_content, exam_name=""):
 
     return exam_structure
 
+def download_file_with_resume(session, url, file_path, max_retries=10, pbar=None):
+    """
+    支援斷點續傳的增強型文件下載（優先級1增強功能）
+
+    Args:
+        session: requests.Session實例
+        url: 下載URL
+        file_path: 儲存路徑
+        max_retries: 最大重試次數
+        pbar: tqdm 進度條實例（可選）
+
+    Returns:
+        (成功, 文件大小或錯誤訊息)
+    """
+    config = DOWNLOADER_CONFIG
+    enable_resume = config.get('enable_resume', True)
+    chunk_size = config.get('resume_chunk_size', 8192)
+    temp_suffix = config.get('resume_temp_suffix', '.part')
+    timeout = (config.get('connection_timeout', 10), config.get('read_timeout', 120))
+
+    temp_file_path = file_path + temp_suffix
+    downloaded_size = 0
+
+    # 檢查是否有未完成的下載
+    if enable_resume and os.path.exists(temp_file_path):
+        downloaded_size = os.path.getsize(temp_file_path)
+        if pbar:
+            pbar.update(downloaded_size)
+
+    for attempt in range(max_retries):
+        try:
+            # 設置 Range 頭支持斷點續傳
+            headers = HEADERS.copy()
+            if enable_resume and downloaded_size > 0:
+                headers['Range'] = f'bytes={downloaded_size}-'
+
+            response = session.get(
+                url,
+                headers=headers,
+                stream=True,
+                timeout=timeout,
+                verify=config.get('verify_ssl', False)
+            )
+
+            # 檢查是否支持斷點續傳
+            if downloaded_size > 0 and response.status_code not in [206, 200]:
+                # 服務器不支持斷點續傳，重新下載
+                downloaded_size = 0
+                if os.path.exists(temp_file_path):
+                    os.remove(temp_file_path)
+                continue
+
+            response.raise_for_status()
+
+            # 檢查內容類型
+            content_type = response.headers.get('Content-Type', '')
+            if 'pdf' not in content_type.lower() and 'application/octet-stream' not in content_type.lower():
+                return False, "非PDF檔案"
+
+            # 獲取文件總大小
+            total_size = int(response.headers.get('Content-Length', 0))
+            if response.status_code == 206:
+                # 部分內容響應，計算實際總大小
+                content_range = response.headers.get('Content-Range', '')
+                if content_range:
+                    total_size = int(content_range.split('/')[-1])
+
+            # 下載文件
+            mode = 'ab' if downloaded_size > 0 else 'wb'
+            with open(temp_file_path, mode) as f:
+                for chunk in response.iter_content(chunk_size=chunk_size):
+                    if chunk:
+                        f.write(chunk)
+                        downloaded_size += len(chunk)
+                        if pbar:
+                            pbar.update(len(chunk))
+
+            # 下載完成，重命名文件
+            if os.path.exists(file_path):
+                os.remove(file_path)
+            os.rename(temp_file_path, file_path)
+
+            # 驗證PDF文件
+            valid, result = verify_pdf_file(file_path)
+            if valid:
+                return True, result
+            else:
+                # 文件無效，刪除並重試
+                try:
+                    os.remove(file_path)
+                except Exception:
+                    pass
+                downloaded_size = 0
+                if attempt == max_retries - 1:
+                    return False, result
+                time.sleep(config.get('retry_delay', 0.5) * (2 ** attempt))
+                continue
+
+        except requests.exceptions.Timeout:
+            if attempt == max_retries - 1:
+                return False, "請求超時"
+            time.sleep(config.get('retry_delay', 0.5) * (2 ** attempt))
+            continue
+
+        except requests.exceptions.HTTPError as e:
+            if e.response and e.response.status_code in [404, 403, 401]:
+                return False, f"HTTP {e.response.status_code}"
+            if attempt == max_retries - 1:
+                return False, "HTTP錯誤"
+            time.sleep(config.get('retry_delay', 0.5) * (2 ** attempt))
+            continue
+
+        except Exception as e:
+            if attempt == max_retries - 1:
+                return False, f"未知錯誤: {str(e)[:30]}"
+            time.sleep(config.get('retry_delay', 0.5) * (2 ** attempt))
+            continue
+
+    return False, "超過最大重試次數"
+
 def download_file(session, url, file_path, max_retries=10):
     """
     增強型文件下載 - 支援更多異常處理和PDF驗證
@@ -860,6 +1012,216 @@ def download_exam(session, exam_info, base_folder, stats):
         print(f"   ❌ 處理失敗: {e}")
         stats['failed_exams'] += 1
 
+def download_exam_concurrent(session, exam_info, base_folder, stats):
+    """
+    並發下載單一考試（優先級1增強功能）
+
+    Args:
+        session: requests.Session實例
+        exam_info: 考試信息字典
+        base_folder: 基礎資料夾
+        stats: 統計字典
+    """
+    config = DOWNLOADER_CONFIG
+    enable_concurrent = config.get('enable_concurrent', True)
+    max_workers = config.get('concurrent_downloads', 5)
+    show_progress = config.get('show_progress_bar', True) and TQDM_AVAILABLE
+
+    year = exam_info['year']
+    exam_code = exam_info['code']
+    exam_name = exam_info['name']
+
+    print(f"\n{'='*70}")
+    print(f"📋 民國 {year} 年 - {exam_name}")
+    if enable_concurrent:
+        print(f"🚀 並發下載模式 (並發數: {max_workers})")
+    print(f"{'='*70}")
+
+    try:
+        url = f"{BASE_URL}wFrmExamQandASearch.aspx?y={year + 1911}&e={exam_code}"
+        response = session.get(url, timeout=30, verify=False)
+        response.raise_for_status()
+
+        exam_structure = parse_exam_page(response.text, exam_name)
+
+        if not exam_structure:
+            print("   ⚠️ 此考試沒有可下載的試題")
+            with stats_lock:
+                stats['empty_exams'] += 1
+            return
+
+        # 縮短考試資料夾名稱
+        if "警察人員考試、一般警察人員考試" in exam_name:
+            short_exam_name = f"民國{year}年_警察特考"
+        elif "司法人員考試" in exam_name:
+            short_exam_name = f"民國{year}年_司法特考"
+        else:
+            short_exam_name = sanitize_filename(f"民國{year}年_{exam_name[:50]}")
+
+        exam_folder = os.path.join(base_folder, f"民國{year}年", short_exam_name)
+        os.makedirs(exam_folder, exist_ok=True)
+
+        # 準備下載任務列表
+        download_tasks = []
+        for category_name, subjects in exam_structure.items():
+            # 縮短類科名稱（與原函數相同的邏輯）
+            short_category_name = category_name
+            if '行政警察人員' in category_name:
+                short_category_name = '行政警察'
+            elif '外事警察人員' in category_name:
+                short_category_name = '外事警察'
+            elif '刑事警察人員' in category_name:
+                short_category_name = '刑事警察'
+            elif '公共安全人員' in category_name:
+                short_category_name = '公共安全'
+            elif '犯罪防治人員' in category_name:
+                short_category_name = '犯罪防治'
+            elif '消防警察人員' in category_name:
+                short_category_name = '消防警察'
+            elif '交通警察人員交通組' in category_name:
+                short_category_name = '交通警察_交通'
+            elif '交通警察人員電訊組' in category_name:
+                short_category_name = '交通警察_電訊'
+            elif '警察資訊管理人員' in category_name:
+                short_category_name = '資訊管理'
+            elif '刑事鑑識人員' in category_name:
+                short_category_name = '刑事鑑識'
+            elif '國境警察人員' in category_name:
+                short_category_name = '國境警察'
+            elif '水上警察人員' in category_name:
+                short_category_name = '水上警察'
+            elif '警察法制人員' in category_name:
+                short_category_name = '警察法制'
+            elif '行政管理人員' in category_name:
+                short_category_name = '行政管理'
+            elif '監獄官' in category_name:
+                short_category_name = '監獄官'
+            else:
+                short_category_name = category_name.split('_')[-1] if '_' in category_name else category_name[:20]
+
+            category_folder = os.path.join(exam_folder, short_category_name)
+            os.makedirs(category_folder, exist_ok=True)
+
+            for subject_info in subjects:
+                subject_name = subject_info['subject']
+                subject_folder = os.path.join(category_folder, subject_name)
+                os.makedirs(subject_folder, exist_ok=True)
+
+                for download_info in subject_info['downloads']:
+                    file_type = download_info['type']
+                    url = download_info['url']
+
+                    # 檔案類型映射
+                    file_type_mapping = {
+                        "試題": "試題", "答案": "答案", "更正答案": "更正答案",
+                        "題目": "試題", "解答": "答案", "勘誤": "更正答案"
+                    }
+                    normalized_type = file_type_mapping.get(file_type, file_type)
+                    file_name = f"民國{year}年_{subject_name}_{normalized_type}.pdf"
+                    file_path = os.path.join(subject_folder, file_name)
+                    pdf_url = urljoin(BASE_URL, url)
+
+                    download_tasks.append({
+                        'url': pdf_url,
+                        'file_path': file_path,
+                        'year': year,
+                        'exam_name': exam_name,
+                        'category_name': category_name,
+                        'subject_name': subject_info['original_name'],
+                        'file_type': file_type
+                    })
+
+        total_files = len(download_tasks)
+        print(f"   📊 總計: {total_files} 個檔案")
+
+        # 並發下載
+        if enable_concurrent and total_files > 0:
+            pbar = None
+            if show_progress:
+                pbar = tqdm(
+                    total=total_files,
+                    desc="   ⬇️  下載進度",
+                    unit="file",
+                    ncols=80,
+                    bar_format='{desc}: {percentage:3.0f}%|{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}]'
+                )
+
+            def download_task(task):
+                """單個下載任務"""
+                success, result = download_file_with_resume(
+                    session, task['url'], task['file_path']
+                )
+
+                with stats_lock:
+                    if success:
+                        stats['success'] += 1
+                        stats['total_size'] += result
+                    else:
+                        stats['failed'] += 1
+                        stats['failed_list'].append({
+                            'year': task['year'],
+                            'exam': task['exam_name'],
+                            'category': task['category_name'],
+                            'subject': task['subject_name'],
+                            'type': task['file_type'],
+                            'reason': result,
+                            'url': task['url'],
+                            'file_path': task['file_path'],
+                            'timestamp': datetime.now().isoformat()
+                        })
+
+                if pbar:
+                    pbar.update(1)
+
+                return success, result
+
+            # 使用線程池執行下載
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                futures = [executor.submit(download_task, task) for task in download_tasks]
+                for future in as_completed(futures):
+                    try:
+                        future.result()
+                    except Exception as e:
+                        print(f"   ⚠️  下載任務異常: {e}")
+
+            if pbar:
+                pbar.close()
+
+        else:
+            # 順序下載（備用方案）
+            for idx, task in enumerate(download_tasks, 1):
+                success, result = download_file(session, task['url'], task['file_path'])
+
+                with stats_lock:
+                    if success:
+                        stats['success'] += 1
+                        stats['total_size'] += result
+                    else:
+                        stats['failed'] += 1
+                        stats['failed_list'].append({
+                            'year': task['year'],
+                            'exam': task['exam_name'],
+                            'category': task['category_name'],
+                            'subject': task['subject_name'],
+                            'type': task['file_type'],
+                            'reason': result,
+                            'url': task['url'],
+                            'file_path': task['file_path'],
+                            'timestamp': datetime.now().isoformat()
+                        })
+
+                if idx % 10 == 0:
+                    print(f"   ⬇️  進度: {idx}/{total_files}", end='\r')
+
+        print(f"   ✅ 完成: {total_files} 個檔案")
+        with stats_lock:
+            stats['completed_exams'] += 1
+
+    except Exception as e:
+        print(f"   ❌ 處理失敗: {e}")
+        with stats_lock:
+            stats['failed_exams'] += 1
+
 def retry_failed_downloads(session, failed_list, base_folder):
     """
     重試失敗的下載（第二輪）
@@ -952,23 +1314,34 @@ def main():
     start_time = datetime.now()
 
     try:
+        # 檢查是否啟用並發下載
+        use_concurrent = DOWNLOADER_CONFIG.get('enable_concurrent', True)
+
         print("\n" + "="*70)
-        print("🚀 開始下載（增強模式：10次重試 + PDF驗證）")
+        if use_concurrent:
+            print("🚀 開始下載（增強模式：並發下載 + 斷點續傳 + PDF驗證）")
+            print(f"   並發數: {DOWNLOADER_CONFIG.get('concurrent_downloads', 5)}")
+        else:
+            print("🚀 開始下載（標準模式：10次重試 + PDF驗證）")
         print("="*70)
-        
+
         for year in years:
             print(f"\n🔍 正在掃描民國 {year} 年的考試...")
-            
+
             exams = get_exam_list_by_year(session, year, keywords)
-            
+
             if not exams:
                 print(f"   ⚠️ 民國 {year} 年沒有找到符合條件的考試")
                 continue
-            
+
             print(f"   ✅ 找到 {len(exams)} 個考試")
-            
+
             for exam in exams:
-                download_exam(session, exam, save_dir, stats)
+                # 使用並發版本或標準版本
+                if use_concurrent:
+                    download_exam_concurrent(session, exam, save_dir, stats)
+                else:
+                    download_exam(session, exam, save_dir, stats)
                 time.sleep(0.5)
         
         elapsed_time = datetime.now() - start_time

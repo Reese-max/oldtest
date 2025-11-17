@@ -27,6 +27,12 @@ python-Levenshtein>=0.21.0 # 字串相似度比對
 # 配置管理
 PyYAML>=6.0                # YAML配置文件支持
 
+# 網絡請求和下載
+requests>=2.31.0           # HTTP請求庫（爬蟲下載）
+urllib3>=1.26.0            # HTTP客戶端
+beautifulsoup4>=4.12.0     # HTML解析（爬蟲）
+tqdm>=4.66.0               # 進度條顯示（增強功能）
+
 # 系統監控
 psutil>=5.9.0              # 性能監控和記憶體管理
 
