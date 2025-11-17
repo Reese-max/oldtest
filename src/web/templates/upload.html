@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+
+{% block title %}上傳處理 - 考古題處理系統{% endblock %}
+
+{% block content %}
+<h1>📤 PDF上傳與處理</h1>
+
+<div class="upload-section">
+    <div class="upload-box">
+        <input type="file" id="fileInput" accept=".pdf" style="display: none;" multiple>
+        <button onclick="document.getElementById('fileInput').click()" class="btn btn-primary btn-lg">
+            📄 選擇PDF文件
+        </button>
+        <p class="upload-hint">支持PDF格式，最大50MB，可批量上傳</p>
+    </div>
+
+    <div id="uploadProgress" class="upload-progress" style="display: none;">
+        <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+        </div>
+        <p id="progressText">上傳中...</p>
+    </div>
+</div>
+
+<div class="tasks-section">
+    <h2>處理任務列表</h2>
+    <div class="tasks-toolbar">
+        <button onclick="refreshTasks()" class="btn btn-secondary">
+            🔄 刷新列表
+        </button>
+        <button onclick="clearCompleted()" class="btn btn-secondary">
+            🗑️ 清除已完成
+        </button>
+    </div>
+
+    <div id="tasksList" class="tasks-list">
+        <p class="no-tasks">暫無任務</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let selectedFiles = [];
+
+// 文件選擇處理
+document.getElementById('fileInput').addEventListener('change', function(e) {
+    selectedFiles = Array.from(e.target.files);
+    if (selectedFiles.length > 0) {
+        uploadFiles(selectedFiles);
+    }
+});
+
+// 上傳文件
+async function uploadFiles(files) {
+    const progressDiv = document.getElementById('uploadProgress');
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+
+    progressDiv.style.display = 'block';
+
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const formData = new FormData();
+        formData.append('file', file);
+
+        progressText.textContent = `上傳 ${i + 1}/${files.length}: ${file.name}`;
+        progressFill.style.width = `${(i / files.length) * 100}%`;
+
+        try {
+            const response = await fetch('/api/upload', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                showNotification(`✅ ${result.filename} 上傳成功`, 'success');
+            } else {
+                showNotification(`❌ ${file.name} 上傳失敗: ${result.error}`, 'error');
+            }
+        } catch (error) {
+            showNotification(`❌ ${file.name} 上傳失敗: ${error.message}`, 'error');
+        }
+    }
+
+    progressFill.style.width = '100%';
+    progressText.textContent = `完成上傳 ${files.length} 個文件`;
+
+    setTimeout(() => {
+        progressDiv.style.display = 'none';
+        refreshTasks();
+    }, 2000);
+}
+
+// 處理任務
+async function processTask(taskId) {
+    try {
+        const response = await fetch(`/api/process/${taskId}`, {
+            method: 'POST'
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            showNotification(`✅ ${result.message}`, 'success');
+            refreshTasks();
+        } else {
+            showNotification(`❌ 處理失敗: ${result.error}`, 'error');
+        }
+    } catch (error) {
+        showNotification(`❌ 處理失敗: ${error.message}`, 'error');
+    }
+}
+
+// 下載文件
+function downloadFile(taskId, fileType) {
+    window.location.href = `/api/download/${taskId}/${fileType}`;
+}
+
+// 刪除任務
+async function deleteTask(taskId) {
+    if (!confirm('確定要刪除此任務嗎？')) {
+        return;
+    }
+
+    try {
+        const response = await fetch(`/api/delete/${taskId}`, {
+            method: 'DELETE'
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            showNotification('✅ 任務已刪除', 'success');
+            refreshTasks();
+        } else {
+            showNotification(`❌ 刪除失敗: ${result.error}`, 'error');
+        }
+    } catch (error) {
+        showNotification(`❌ 刪除失敗: ${error.message}`, 'error');
+    }
+}
+
+// 刷新任務列表
+async function refreshTasks() {
+    try {
+        const response = await fetch('/api/tasks');
+        const tasks = await response.json();
+
+        const tasksList = document.getElementById('tasksList');
+
+        if (tasks.length === 0) {
+            tasksList.innerHTML = '<p class="no-tasks">暫無任務</p>';
+            return;
+        }
+
+        tasksList.innerHTML = tasks.map(task => `
+            <div class="task-card ${task.status}">
+                <div class="task-header">
+                    <h3>${task.filename}</h3>
+                    <span class="task-status status-${task.status}">${getStatusText(task.status)}</span>
+                </div>
+                <div class="task-info">
+                    <span>📅 ${new Date(task.created_at).toLocaleString()}</span>
+                    ${task.result ? `<span>📝 ${task.result.question_count} 題</span>` : ''}
+                </div>
+                <div class="task-actions">
+                    ${task.status === 'uploaded' ? `
+                        <button onclick="processTask('${task.id}')" class="btn btn-primary btn-sm">
+                            ▶️ 開始處理
+                        </button>
+                    ` : ''}
+                    ${task.status === 'completed' ? `
+                        <button onclick="downloadFile('${task.id}', 'csv')" class="btn btn-success btn-sm">
+                            📥 下載CSV
+                        </button>
+                        ${task.result.script_path ? `
+                            <button onclick="downloadFile('${task.id}', 'script')" class="btn btn-success btn-sm">
+                                📥 下載腳本
+                            </button>
+                        ` : ''}
+                    ` : ''}
+                    <button onclick="deleteTask('${task.id}')" class="btn btn-danger btn-sm">
+                        🗑️ 刪除
+                    </button>
+                </div>
+                ${task.status === 'processing' ? `
+                    <div class="task-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${task.progress}%"></div>
+                        </div>
+                    </div>
+                ` : ''}
+                ${task.error ? `
+                    <div class="task-error">❌ ${task.error}</div>
+                ` : ''}
+            </div>
+        `).join('');
+    } catch (error) {
+        console.error('刷新任務失敗:', error);
+    }
+}
+
+// 清除已完成任務
+async function clearCompleted() {
+    if (!confirm('確定要清除所有已完成的任務嗎？')) {
+        return;
+    }
+
+    try {
+        const response = await fetch('/api/tasks');
+        const tasks = await response.json();
+
+        const completedTasks = tasks.filter(t => t.status === 'completed');
+
+        for (const task of completedTasks) {
+            await fetch(`/api/delete/${task.id}`, { method: 'DELETE' });
+        }
+
+        showNotification(`✅ 已清除 ${completedTasks.length} 個任務`, 'success');
+        refreshTasks();
+    } catch (error) {
+        showNotification(`❌ 清除失敗: ${error.message}`, 'error');
+    }
+}
+
+// 獲取狀態文本
+function getStatusText(status) {
+    const statusMap = {
+        'uploaded': '已上傳',
+        'processing': '處理中',
+        'completed': '已完成',
+        'failed': '失敗'
+    };
+    return statusMap[status] || status;
+}
+
+// 顯示通知
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// 頁面載入時刷新任務
+refreshTasks();
+
+// 每5秒自動刷新
+setInterval(refreshTasks, 5000);
+</script>
+{% endblock %}

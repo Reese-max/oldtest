@@ -60,6 +60,12 @@ AI_REQUIREMENTS = [
     "openai>=1.0.0",                # OpenAI API
 ]
 
+# Web 管理界面（可選）
+WEB_REQUIREMENTS = [
+    "Flask>=2.3.0",              # 輕量級Web框架
+    "Werkzeug>=2.3.0",           # WSGI工具集
+]
+
 # 開發工具依賴
 DEV_REQUIREMENTS = [
     "pytest>=7.0.0",             # 測試框架
@@ -115,6 +121,9 @@ setup(
         # 備用 PDF 處理工具
         "pdf-extra": PDF_EXTRA_REQUIREMENTS,
 
+        # Web 管理界面
+        "web": WEB_REQUIREMENTS,
+
         # AI 功能（預留，目前未使用）
         "ai": AI_REQUIREMENTS,
 
@@ -125,7 +134,7 @@ setup(
         "full": FULL_REQUIREMENTS,
 
         # 完整安裝（包含所有功能）
-        "all": FULL_REQUIREMENTS + AI_REQUIREMENTS + DEV_REQUIREMENTS,
+        "all": FULL_REQUIREMENTS + WEB_REQUIREMENTS + AI_REQUIREMENTS + DEV_REQUIREMENTS,
     },
 
     # 入口點
