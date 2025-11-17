@@ -374,7 +374,8 @@ class ArchaeologyProcessor:
         essay_result = self.essay_detector.detect_essay_exam(text)
 
         # 如果高信心度判定為申論題，直接返回空列表
-        if essay_result['is_essay'] and essay_result['confidence'] >= 0.6:
+        # 將閾值從0.6降低到0.35，以更準確地識別申論題試卷
+        if essay_result['is_essay'] and essay_result['confidence'] >= 0.35:
             self.logger.warning(
                 f"⚠️  偵測到申論題試卷（信心度: {essay_result['confidence']:.2%}）\n"
                 f"   {essay_result['reason']}\n"
