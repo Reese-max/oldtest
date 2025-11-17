@@ -70,16 +70,19 @@ class IntegratedWorkflowTest:
         all_passed &= passed
 
         # 測試 2: 必要模組
-        required_modules = [
-            'pdfplumber', 'pandas', 'requests', 'beautifulsoup4'
-        ]
+        required_modules = {
+            'pdfplumber': 'pdfplumber',
+            'pandas': 'pandas',
+            'requests': 'requests',
+            'beautifulsoup4': 'bs4'  # 包名是beautifulsoup4，但導入時用bs4
+        }
 
-        for module_name in required_modules:
+        for display_name, import_name in required_modules.items():
             try:
-                __import__(module_name.replace('-', '_').split('.')[0])
-                self.log_test(f"模組檢查: {module_name}", True, "已安裝")
+                __import__(import_name)
+                self.log_test(f"模組檢查: {display_name}", True, "已安裝")
             except ImportError:
-                self.log_test(f"模組檢查: {module_name}", False, "未安裝")
+                self.log_test(f"模組檢查: {display_name}", False, "未安裝")
                 all_passed = False
 
         # 測試 3: 專案結構

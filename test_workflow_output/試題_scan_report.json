@@ -1,0 +1,325 @@
+{
+  "scan_summary": {
+    "total_scanned": 20,
+    "expected_count": null,
+    "question_range": "1 ~ 20",
+    "is_complete": true,
+    "missing_count": 0,
+    "duplicate_count": 0,
+    "scan_duration": 0.880114
+  },
+  "missing_questions": [],
+  "duplicate_questions": [],
+  "parser_statistics": {
+    "UltimateParser": 20
+  },
+  "parsers_used": [
+    "UltimateParser"
+  ],
+  "question_details": {
+    "1": {
+      "question_num": 1,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562554",
+      "content_preview": "社會秩序維護法第38條規定：「違反本法之行為，涉嫌違反刑事法律……者，應移送檢察官……",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562554",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "2": {
+      "question_num": 2,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562575",
+      "content_preview": "甲不慎遺失護照，親自前往派出所報案，派出所受理報案的警察乙其處理程序，下列何者最為適當？",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562575",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "3": {
+      "question_num": 3,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562580",
+      "content_preview": "你是派出所所長，會同分局偵查隊，執行查緝通緝犯甲，甲曾犯有毒品、加重竊盜、殺人、槍砲、",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562580",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "4": {
+      "question_num": 4,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562585",
+      "content_preview": "你為派出所所長，某日轄區居民甲至派出所報案稱不慎遺失手機，因內有機密資料十分擔心外流，",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562585",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "5": {
+      "question_num": 5,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562589",
+      "content_preview": "警勤區員警對勤區內某集合式住宅因環境複雜且暫住人口多，經陳請所長同意實施聯合查察時，",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562589",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "6": {
+      "question_num": 6,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562593",
+      "content_preview": "警員甲擔服勤區查察，前往勤區家戶訪查在家看電視之治安顧慮人口乙時，經警員甲按門鈴多次，",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562593",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "7": {
+      "question_num": 7,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562597",
+      "content_preview": "內政部為保障警察人員執法安全，爰對警械使用條例不合時宜部分全面進行檢討，本條例修正案",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562597",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "8": {
+      "question_num": 8,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562608",
+      "content_preview": "值班員警受理民眾甲女報案遭受跟蹤騷擾案，如果你是值班員警，甲女報案之下列敘述內容，何",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562608",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "9": {
+      "question_num": 9,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562614",
+      "content_preview": "你是派出所所長，在你的轄區治安要點有設置錄影監視系統，民眾甲（案件關係人）陳情，需要",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562614",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "10": {
+      "question_num": 10,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562618",
+      "content_preview": "槍砲彈藥刀械管制條例相關原住民「自製獵槍或彈藥」之規定與解釋，下列何者錯誤？",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562618",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "11": {
+      "question_num": 11,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562621",
+      "content_preview": "你是派出所所長，獲悉轄內某檳榔店發生槍擊案，依警察偵查犯罪手冊規定，下列敘述何者錯誤？",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562621",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "12": {
+      "question_num": 12,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562624",
+      "content_preview": "鑒於現今社會詐欺案件居高不下，嚴重影響民眾財產安全，究其原因係犯罪集團透過政府相關部",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562624",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "13": {
+      "question_num": 13,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562627",
+      "content_preview": "依警察偵查犯罪手冊規定，有關製作犯罪嫌疑人詢問筆錄之敘述，下列何者正確？",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562627",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "14": {
+      "question_num": 14,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562630",
+      "content_preview": "派出所接獲某醫院報案稱，有1位酒醉男子甲自摔受傷，經救護車送抵急診室，因不耐久候，大",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562630",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "15": {
+      "question_num": 15,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562632",
+      "content_preview": "現今資通訊匯流時代，犯嫌手機內的相關資料是極重要的數位證物，你是偵查隊分隊長，帶隊執",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562632",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "16": {
+      "question_num": 16,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562635",
+      "content_preview": "派出所所長甲帶班擔服巡邏勤務時，發現民眾乙有騎乘機車蛇行之情形，遂依法將其攔停並進行",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562635",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "17": {
+      "question_num": 17,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562638",
+      "content_preview": "你處理一起汽車駕駛人甲因拒絕接受酒精濃度測試經強制抽血檢測之案件，同車乘客乙與丙分別",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562638",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "18": {
+      "question_num": 18,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562640",
+      "content_preview": "如果你是一位派出所所長，參加社區治安會議，轄內居民反映其所住社區前方交岔路口 10 公尺",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562640",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "19": {
+      "question_num": 19,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562643",
+      "content_preview": "派出所所長甲於主持勤前教育時，向所屬宣達駕駛警備車於開啟警示燈及警鳴器執行「緊急任務」",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562643",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "20": {
+      "question_num": 20,
+      "scanned": true,
+      "parser_used": "UltimateParser",
+      "scan_time": "2025-11-17T18:14:57.562646",
+      "content_preview": "派出所所長甲於凌晨三點，帶班執行巡邏勤務時，接獲分局勤務指揮中心通報：「民眾報稱，其",
+      "scan_attempts": [
+        {
+          "parser": "UltimateParser",
+          "time": "2025-11-17T18:14:57.562646",
+          "success": true
+        }
+      ],
+      "warnings": []
+    }
+  },
+  "scan_times": {
+    "start": "2025-11-17T18:14:56.682556",
+    "end": "2025-11-17T18:14:57.562670"
+  }
+}
