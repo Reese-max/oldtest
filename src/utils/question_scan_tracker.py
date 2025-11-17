@@ -92,15 +92,25 @@ class QuestionScanTracker:
 
         self.logger.info(f"📊 開始題目掃描追蹤（預期題數: {self.expected_count or '未知'}）")
 
-    def register_question(self, question_num: int, parser_name: str, content: str = ""):
+    def register_question(self, question_num, parser_name: str, content: str = ""):
         """
         註冊已掃描的題目
 
         Args:
-            question_num: 題號
+            question_num: 題號（可以是整數或字符串）
             parser_name: 使用的解析器名稱
             content: 題目內容預覽
         """
+        # 轉換題號為整數（如果可能）
+        try:
+            if isinstance(question_num, str) and question_num.isdigit():
+                question_num = int(question_num)
+            elif not isinstance(question_num, int):
+                # 非數字題號（如"申論題"），直接忽略追蹤
+                return
+        except (ValueError, AttributeError):
+            return
+
         # 檢查是否重複
         if question_num in self.scan_status:
             if self.scan_status[question_num].scanned:
@@ -118,16 +128,25 @@ class QuestionScanTracker:
 
         self.logger.debug(f"✓ 掃描: 第{question_num}題 [{parser_name}] {content[:30]}...")
 
-    def record_attempt(self, question_num: int, parser_name: str, success: bool, error: str = ""):
+    def record_attempt(self, question_num, parser_name: str, success: bool, error: str = ""):
         """
         記錄掃描嘗試（包括失敗的嘗試）
 
         Args:
-            question_num: 題號
+            question_num: 題號（可以是整數或字符串）
             parser_name: 解析器名稱
             success: 是否成功
             error: 錯誤訊息（如果失敗）
         """
+        # 轉換題號為整數（如果可能）
+        try:
+            if isinstance(question_num, str) and question_num.isdigit():
+                question_num = int(question_num)
+            elif not isinstance(question_num, int):
+                return
+        except (ValueError, AttributeError):
+            return
+
         if question_num not in self.scan_status:
             self.scan_status[question_num] = QuestionScanStatus(question_num)
 
@@ -136,8 +155,17 @@ class QuestionScanTracker:
         if not success:
             self.logger.debug(f"✗ 嘗試失敗: 第{question_num}題 [{parser_name}] {error}")
 
-    def add_warning(self, question_num: int, message: str):
+    def add_warning(self, question_num, message: str):
         """添加題目警告"""
+        # 轉換題號為整數（如果可能）
+        try:
+            if isinstance(question_num, str) and question_num.isdigit():
+                question_num = int(question_num)
+            elif not isinstance(question_num, int):
+                return
+        except (ValueError, AttributeError):
+            return
+
         if question_num not in self.scan_status:
             self.scan_status[question_num] = QuestionScanStatus(question_num)
 
@@ -316,7 +344,26 @@ class QuestionScanTracker:
         if not questions:
             return False, "題目列表為空"
 
-        question_nums = [q.get('題號', 0) for q in questions]
+        # 提取題號並轉換為整數（跳過非數字題號如"申論題"）
+        question_nums = []
+        for q in questions:
+            q_num = q.get('題號', 0)
+            # 嘗試轉換為整數
+            try:
+                if isinstance(q_num, str):
+                    # 只處理純數字字符串
+                    if q_num.isdigit():
+                        question_nums.append(int(q_num))
+                elif isinstance(q_num, int):
+                    question_nums.append(q_num)
+            except (ValueError, AttributeError):
+                # 忽略無法轉換的題號（如"申論題"）
+                pass
+
+        if not question_nums:
+            # 如果沒有數字題號，只檢查是否有題目
+            return True, f"包含 {len(questions)} 題（無數字題號）"
+
         question_nums.sort()
 
         # 檢查題號連續性
