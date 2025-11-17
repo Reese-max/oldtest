@@ -31,6 +31,9 @@ class GoogleScriptGenerator:
         Returns:
             生成的JavaScript檔案路徑
         """
+        # 輸入驗證
+        self._validate_input_parameters(csv_path, output_path)
+
         try:
             self.logger.info(f"開始生成Google Apps Script: {csv_path}")
 
@@ -339,3 +342,43 @@ function testFormStructure() {{
         text = text.replace("'", "\\'")    # 單引號（增加）
 
         return text
+
+    def _validate_input_parameters(self, csv_path: str, output_path: str) -> None:
+        """
+        驗證輸入參數的類型和有效性
+
+        Args:
+            csv_path: CSV檔案路徑
+            output_path: 輸出檔案路徑
+
+        Raises:
+            GoogleFormError: 參數無效時拋出
+        """
+        # 驗證 csv_path 類型和值
+        if not isinstance(csv_path, str):
+            raise GoogleFormError(f"csv_path 必須是字串，收到類型: {type(csv_path).__name__}")
+        if not csv_path or not csv_path.strip():
+            raise GoogleFormError("csv_path 不能為空字串")
+
+        # 驗證 CSV 文件擴展名
+        if not csv_path.lower().endswith('.csv'):
+            raise GoogleFormError(f"csv_path 必須是 CSV 檔案（.csv），收到: {csv_path}")
+
+        # 驗證 output_path 類型和值
+        if not isinstance(output_path, str):
+            raise GoogleFormError(f"output_path 必須是字串，收到類型: {type(output_path).__name__}")
+        if not output_path or not output_path.strip():
+            raise GoogleFormError("output_path 不能為空字串")
+
+        # 驗證輸出路徑不是目錄
+        if os.path.exists(output_path) and os.path.isdir(output_path):
+            raise GoogleFormError(f"output_path 不能是目錄: {output_path}")
+
+        # 自動創建輸出目錄
+        output_dir = os.path.dirname(output_path)
+        if output_dir and not os.path.exists(output_dir):
+            try:
+                os.makedirs(output_dir, exist_ok=True)
+                self.logger.info(f"自動創建輸出目錄: {output_dir}")
+            except OSError as e:
+                raise GoogleFormError(f"無法創建輸出目錄 {output_dir}: {e}") from e
