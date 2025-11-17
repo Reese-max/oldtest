@@ -33,7 +33,7 @@ class OCRProcessor:
         self._structure_engine = None
         self._temp_dirs = []  # 追蹤臨時目錄以便清理
 
-    def _init_ocr_engine(self):
+    def _init_ocr_engine(self) -> None:
         """延遲初始化 OCR 引擎（節省記憶體）"""
         if self._ocr_engine is None:
             try:
@@ -61,7 +61,7 @@ class OCRProcessor:
                 self.logger.failure(error_msg)
                 raise PDFProcessingError(error_msg) from e
 
-    def _init_structure_engine(self):
+    def _init_structure_engine(self) -> None:
         """初始化結構化分析引擎"""
         if self._structure_engine is None:
             try:
@@ -433,7 +433,7 @@ class OCRProcessor:
 
         return min(1.0, score)
 
-    def cleanup(self):
+    def cleanup(self) -> None:
         """清理資源"""
         # 清理 OCR 引擎
         self._ocr_engine = None

@@ -59,27 +59,27 @@ class Logger:
         self._logger.addHandler(console_handler)
         self._logger.addHandler(file_handler)
     
-    def info(self, message: str, **kwargs):
+    def info(self, message: str, **kwargs) -> None:
         """記錄信息日誌"""
         self._logger.info(message, **kwargs)
-    
-    def debug(self, message: str, **kwargs):
+
+    def debug(self, message: str, **kwargs) -> None:
         """記錄調試日誌"""
         self._logger.debug(message, **kwargs)
-    
-    def warning(self, message: str, **kwargs):
+
+    def warning(self, message: str, **kwargs) -> None:
         """記錄警告日誌"""
         self._logger.warning(message, **kwargs)
-    
-    def error(self, message: str, **kwargs):
+
+    def error(self, message: str, **kwargs) -> None:
         """記錄錯誤日誌"""
         self._logger.error(message, **kwargs)
-    
-    def success(self, message: str, **kwargs):
+
+    def success(self, message: str, **kwargs) -> None:
         """記錄成功日誌（自定義級別）"""
         self._logger.info(f"✅ {message}", **kwargs)
-    
-    def failure(self, message: str, **kwargs):
+
+    def failure(self, message: str, **kwargs) -> None:
         """記錄失敗日誌（自定義級別）"""
         self._logger.error(f"❌ {message}", **kwargs)
 

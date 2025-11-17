@@ -49,3 +49,4 @@ tmp/
 .coverage
 htmlcov/
 .pytest_cache/
+reports/

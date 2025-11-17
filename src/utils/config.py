@@ -191,21 +191,21 @@ class ConfigManager:
         """取得OCR配置"""
         return self.ocr_config
 
-    def update_processing_config(self, **kwargs):
+    def update_processing_config(self, **kwargs) -> None:
         """更新處理配置"""
         for key, value in kwargs.items():
             if hasattr(self.processing_config, key):
                 setattr(self.processing_config, key, value)
         self._save_config()
-    
-    def update_google_form_config(self, **kwargs):
+
+    def update_google_form_config(self, **kwargs) -> None:
         """更新Google表單配置"""
         for key, value in kwargs.items():
             if hasattr(self.google_form_config, key):
                 setattr(self.google_form_config, key, value)
         self._save_config()
 
-    def update_ocr_config(self, **kwargs):
+    def update_ocr_config(self, **kwargs) -> None:
         """更新OCR配置"""
         for key, value in kwargs.items():
             if hasattr(self.ocr_config, key):
