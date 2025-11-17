@@ -18,6 +18,7 @@ from ..core.embedded_question_parser import EmbeddedQuestionParser
 from ..core.comprehensive_question_parser import ComprehensiveQuestionParser
 from ..core.ultimate_question_parser import UltimateQuestionParser
 from ..core.no_label_question_parser import NoLabelQuestionParser
+from ..core.essay_detector import EssayDetector
 from ..core.answer_processor import AnswerProcessor
 from ..core.csv_generator import CSVGenerator
 from ..utils.logger import logger
@@ -98,6 +99,7 @@ class ArchaeologyProcessor:
         self.comprehensive_parser = ComprehensiveQuestionParser()  # 綜合解析器
         self.ultimate_parser = UltimateQuestionParser()  # 終極解析器
         self.no_label_parser = NoLabelQuestionParser()  # 無標籤解析器
+        self.essay_detector = EssayDetector()  # 申論題偵測器
         self.answer_processor = AnswerProcessor()
         self.csv_generator = CSVGenerator()
         self.scan_tracker: Optional[QuestionScanTracker] = None
@@ -368,6 +370,20 @@ class ArchaeologyProcessor:
         """解析標準選擇題"""
         questions = []
 
+        # 🔍 第一步：先檢測是否為申論題試卷（避免誤判）
+        essay_result = self.essay_detector.detect_essay_exam(text)
+
+        # 如果高信心度判定為申論題，直接返回空列表
+        if essay_result['is_essay'] and essay_result['confidence'] >= 0.6:
+            self.logger.warning(
+                f"⚠️  偵測到申論題試卷（信心度: {essay_result['confidence']:.2%}）\n"
+                f"   {essay_result['reason']}\n"
+                f"   本系統僅處理選擇題格式，申論題請使用其他工具處理"
+            )
+            return questions  # 返回空列表
+
+        # ✅ 確認不是申論題後，才開始選擇題解析
+
         # 優先使用增強解析器
         if self.use_enhanced:
             questions = self.question_parser_enhanced.parse_questions_intelligent(text)
@@ -386,6 +402,19 @@ class ArchaeologyProcessor:
             questions = self.no_label_parser.parse_no_label_questions(text)
             if questions:
                 self.logger.success(f"✓ 無標籤解析器成功: {len(questions)} 題")
+
+        # 如果所有解析器都失敗，再次提示可能原因
+        if len(questions) < 2:
+            if essay_result['is_essay']:  # 中低信心度的申論題
+                self.logger.warning(
+                    f"⚠️  可能為申論題試卷（信心度: {essay_result['confidence']:.2%}）\n"
+                    f"   {essay_result['reason']}"
+                )
+            else:
+                self.logger.warning(
+                    f"⚠️  未識別為申論題，可能是特殊格式或掃描品質不佳\n"
+                    f"   {essay_result['reason']}"
+                )
 
         return questions
     
