@@ -17,11 +17,43 @@ google_form:
 
 # OCR 配置
 ocr:
+  # 基礎設置
   pdf_to_image_dpi: 300        # PDF 轉圖片 DPI
   pdf_to_image_zoom: 2.0       # PDF 轉圖片縮放
   confidence_threshold: 0.5    # 信心度閾值
   use_gpu: false               # 使用 GPU 加速
   lang: ch                     # 語言設置
+
+  # 增強功能 (優先級2: OCR深度整合)
+  enable_enhanced_ocr: true    # 啟用增強型 OCR
+
+  # 自動掃描版檢測
+  auto_detect_scan: true       # 自動檢測掃描版 PDF
+  text_ratio_threshold: 0.1    # 文字覆蓋率閾值
+  min_words_per_page: 50       # 最少字數判定
+  image_ratio_threshold: 0.5   # 圖片覆蓋率閾值
+
+  # 智能參數調優
+  auto_tune_parameters: true   # 自動調整 OCR 參數
+  auto_tune_dpi: true          # 自動調整 DPI
+  auto_tune_threshold: true    # 自動調整閾值
+  max_dpi: 400                 # 最大 DPI 限制
+  min_dpi: 150                 # 最小 DPI 限制
+
+  # OCR 質量驗證
+  enable_quality_check: true   # 啟用質量驗證
+  excellent_threshold: 0.9     # 優秀閾值 (>90%)
+  good_threshold: 0.7          # 良好閾值 (70-90%)
+  fair_threshold: 0.5          # 一般閾值 (50-70%)
+  retry_on_poor: true          # 質量差時重試
+
+  # 混合模式處理
+  enable_hybrid_mode: true     # 啟用混合模式處理
+  hybrid_min_words: 50         # 混合模式文字閾值
+
+  # 性能優化
+  ocr_cache_enabled: true      # 啟用 OCR 緩存
+  ocr_batch_size: 6            # OCR 批次大小
 
 # 並發處理配置
 concurrent:
