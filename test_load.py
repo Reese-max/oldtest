@@ -162,7 +162,9 @@ class CSVLoadTest(LoadTest):
             questions = self._generate_questions(50)
             answers = self._generate_answers(50)
             csv_gen = CSVGenerator(self.config)
-            temp_path = tempfile.mktemp(suffix=f'_thread_{thread_id}.csv')
+            # 使用安全的臨時文件創建方法
+            with tempfile.NamedTemporaryFile(mode='w', suffix=f'_thread_{thread_id}.csv', delete=False) as tmp:
+                temp_path = tmp.name
             try:
                 result = csv_gen.generate_questions_csv(questions, answers, temp_path)
                 return result
@@ -178,7 +180,9 @@ class CSVLoadTest(LoadTest):
             questions = self._generate_questions(100)
             answers = self._generate_answers(100)
             csv_gen = CSVGenerator(self.config)
-            temp_path = tempfile.mktemp(suffix=f'_thread_{thread_id}.csv')
+            # 使用安全的臨時文件創建方法
+            with tempfile.NamedTemporaryFile(mode='w', suffix=f'_thread_{thread_id}.csv', delete=False) as tmp:
+                temp_path = tmp.name
             try:
                 result = csv_gen.generate_questions_csv(questions, answers, temp_path)
                 return result
@@ -194,7 +198,9 @@ class CSVLoadTest(LoadTest):
             questions = self._generate_questions(20)
             answers = self._generate_answers(20)
             csv_gen = CSVGenerator(self.config)
-            temp_path = tempfile.mktemp(suffix=f'_iter_{iteration}.csv')
+            # 使用安全的臨時文件創建方法
+            with tempfile.NamedTemporaryFile(mode='w', suffix=f'_iter_{iteration}.csv', delete=False) as tmp:
+                temp_path = tmp.name
             try:
                 csv_gen.generate_questions_csv(questions, answers, temp_path)
             finally:
@@ -234,7 +240,9 @@ class GoogleScriptLoadTest(LoadTest):
             questions = self._generate_questions(50)
             answers = self._generate_answers(50)
             script_gen = GoogleScriptGenerator(self.config)
-            temp_path = tempfile.mktemp(suffix=f'_thread_{thread_id}.gs')
+            # 使用安全的臨時文件創建方法
+            with tempfile.NamedTemporaryFile(mode='w', suffix=f'_thread_{thread_id}.gs', delete=False) as tmp:
+                temp_path = tmp.name
             try:
                 result = script_gen.generate_google_script(questions, answers, temp_path)
                 return result
@@ -250,7 +258,9 @@ class GoogleScriptLoadTest(LoadTest):
             questions = self._generate_questions(20)
             answers = self._generate_answers(20)
             script_gen = GoogleScriptGenerator(self.config)
-            temp_path = tempfile.mktemp(suffix=f'_iter_{iteration}.gs')
+            # 使用安全的臨時文件創建方法
+            with tempfile.NamedTemporaryFile(mode='w', suffix=f'_iter_{iteration}.gs', delete=False) as tmp:
+                temp_path = tmp.name
             try:
                 script_gen.generate_google_script(questions, answers, temp_path)
             finally:
