@@ -1,0 +1,775 @@
+{
+  "scan_summary": {
+    "total_scanned": 50,
+    "expected_count": null,
+    "question_range": "1 ~ 50",
+    "is_complete": true,
+    "missing_count": 0,
+    "duplicate_count": 0,
+    "scan_duration": 1.083801
+  },
+  "missing_questions": [],
+  "duplicate_questions": [],
+  "parser_statistics": {
+    "StandardParser": 50
+  },
+  "parsers_used": [
+    "StandardParser"
+  ],
+  "question_details": {
+    "1": {
+      "question_num": 1,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327504",
+      "content_preview": "關於修憲程序，下列敘述何者正確？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327504",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "2": {
+      "question_num": 2,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327528",
+      "content_preview": "依憲法規定，已逾學齡未受基本教育之國民，如何受補習教育？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327528",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "3": {
+      "question_num": 3,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327533",
+      "content_preview": "憲法第16條保障人民之訴訟權，依司法院大法官解釋與憲法法庭判決之意旨，下列敘述何者錯誤？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327533",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "4": {
+      "question_num": 4,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327537",
+      "content_preview": "國家基於犯罪偵查之目的，對被告或犯罪嫌疑人進行通訊監察，並未直接影響受監察人下列何種權利？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327537",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "5": {
+      "question_num": 5,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327541",
+      "content_preview": "依司法院大法官解釋，關於原住民文化權及身分認同權，下列敘述何者錯誤？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327541",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "6": {
+      "question_num": 6,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327545",
+      "content_preview": "依司法院大法官解釋意旨，有關人身自由之保障，下列敘述何者錯誤？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327545",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "7": {
+      "question_num": 7,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327549",
+      "content_preview": "依憲法及相關法律規定、司法院大法官解釋意旨，有關立法院審查預算案，下列敘述何者正確？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327549",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "8": {
+      "question_num": 8,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327559",
+      "content_preview": "下列何種事項，行政院院長無須提交行政院會議議決？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327559",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "9": {
+      "question_num": 9,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327564",
+      "content_preview": "依憲法訴訟法規定，下列案件之判決，何者應本於言詞辯論為之？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327564",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "10": {
+      "question_num": 10,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327569",
+      "content_preview": "憲法增修條文第4條規定單一選區兩票制、政黨比例代表席次及政黨門檻。下列敘述何者錯誤？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327569",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "11": {
+      "question_num": 11,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327573",
+      "content_preview": "依司法院大法官解釋及憲法法庭裁判，關於土地徵收制度，下列敘述何者正確？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327573",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "12": {
+      "question_num": 12,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327576",
+      "content_preview": "憲法第19條規定：「人民有依法律納稅之義務。」下列關於租稅之敘述，何者正確？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327576",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "13": {
+      "question_num": 13,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327579",
+      "content_preview": "下列何者並非現行憲法規定之立法院職權？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327579",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "14": {
+      "question_num": 14,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327582",
+      "content_preview": "有關我國法律違憲審查制度，下列敘述何者錯誤？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327582",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "15": {
+      "question_num": 15,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327585",
+      "content_preview": "有關地方制度之立法，下列何者為憲法所不許？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327585",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "16": {
+      "question_num": 16,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327587",
+      "content_preview": "乙受僱於甲公司，關於各項請求權消滅時效，下列敘述何者正確？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327587",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "17": {
+      "question_num": 17,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327590",
+      "content_preview": "下列關於性傾向在憲法上之評價，何者錯誤？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327590",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "18": {
+      "question_num": 18,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327593",
+      "content_preview": "依憲法本文規定，若院與院間發生爭執，何者得召集有關各院院長會商解決之？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327593",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "19": {
+      "question_num": 19,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327596",
+      "content_preview": "有關刑法第131條公務員圖利罪，下列敘述何者錯誤？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327596",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "20": {
+      "question_num": 20,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327598",
+      "content_preview": "有關未遂犯，下列敘述何者錯誤？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327598",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "21": {
+      "question_num": 21,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327601",
+      "content_preview": "有關「原因自由行為」，下列敘述何者錯誤？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327601",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "22": {
+      "question_num": 22,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327604",
+      "content_preview": "A公司擬和B公司合併，A公司想了解公司法中有關公司合併之限制，下列敘述何者錯誤？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327604",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "23": {
+      "question_num": 23,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327607",
+      "content_preview": "下列何種行為屬於處分行為？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327607",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "24": {
+      "question_num": 24,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327610",
+      "content_preview": "甲將所有之A屋出租於乙，雙方口頭約定租期自下個月初起2年，租金每月新臺幣3萬元。下列敘述何者正確？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327610",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "25": {
+      "question_num": 25,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327613",
+      "content_preview": "關於我國民法規定之習慣法，下列敘述何者正確？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327613",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "26": {
+      "question_num": 26,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327616",
+      "content_preview": "臺灣街頭常見「二胎借款」的廣告，「二胎」的意思是「第二順位抵押權」，其乃源自於傳統漢人的「胎借」\n習",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327616",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "27": {
+      "question_num": 27,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327619",
+      "content_preview": "關於行政命令，下列敘述何者正確？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327619",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "28": {
+      "question_num": 28,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327622",
+      "content_preview": "行政機關藉由立法制定當時的相關立法文件，探究行政法規之規範意旨，此係運用何種解釋方法？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327622",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "29": {
+      "question_num": 29,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327625",
+      "content_preview": "依我國著作權法規定，有關著作權的敘述，下列何者正確？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327625",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "30": {
+      "question_num": 30,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327628",
+      "content_preview": "A公司職員甲於開車送貨途中因過失與乙發生車禍，下列敘述何者正確？",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327628",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "31": {
+      "question_num": 31,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327630",
+      "content_preview": "Herartexhibitwasa ofimaginativesculpturesandpainti",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327630",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "32": {
+      "question_num": 32,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327633",
+      "content_preview": "Thegeneroushostprovideda/an amountoffoodanddrinksf",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327633",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "33": {
+      "question_num": 33,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327636",
+      "content_preview": "AfterIsubmittedthereceipt,thecompanyagreedto mefor",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327636",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "34": {
+      "question_num": 34,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327639",
+      "content_preview": "Evenwithpropertrainingandcare,somewildanimalscanno",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327639",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "35": {
+      "question_num": 35,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327641",
+      "content_preview": "Workingin oftenleadstomistakesthatcouldhavebeenavo",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327641",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "36": {
+      "question_num": 36,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327644",
+      "content_preview": "Theteammembers workedtogether to their efforts, ea",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327644",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "37": {
+      "question_num": 37,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327647",
+      "content_preview": "Theoldmanisas asamule;heneverlistenstoothers’opini",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327647",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "38": {
+      "question_num": 38,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327649",
+      "content_preview": "Mythree-yearoldniece showedoffthebirthdaypresentth",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327649",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "39": {
+      "question_num": 39,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327652",
+      "content_preview": "Allstudentswere bythepuzzlegivenbytheinstructorasn",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327652",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "40": {
+      "question_num": 40,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327654",
+      "content_preview": "Theimminentthreatofathunderstorm ustoquicklygather",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327654",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "41": {
+      "question_num": 41,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327657",
+      "content_preview": "請從以下選項中選出最適當的答案（英文完形填空題41）",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327657",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "42": {
+      "question_num": 42,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327659",
+      "content_preview": "請從以下選項中選出最適當的答案（英文完形填空題42）",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327659",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "43": {
+      "question_num": 43,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327662",
+      "content_preview": "請從以下選項中選出最適當的答案（英文完形填空題43）",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327662",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "44": {
+      "question_num": 44,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327665",
+      "content_preview": "請從以下選項中選出最適當的答案（英文完形填空題44）",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327665",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "45": {
+      "question_num": 45,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327667",
+      "content_preview": "nurtured impaired intact sound",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327667",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "46": {
+      "question_num": 46,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327670",
+      "content_preview": "Whichofthefollowingtitlesbestdescribesthispassage?",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327670",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "47": {
+      "question_num": 47,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327672",
+      "content_preview": "Whatisthemainideaofthethirdparagraph?",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327672",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "48": {
+      "question_num": 48,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327675",
+      "content_preview": "Accordingtothepassage,whichofthefollowingstatement",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327675",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "49": {
+      "question_num": 49,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327683",
+      "content_preview": "Whichofthefollowingbestreplaces“disturbances”inthe",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327683",
+          "success": true
+        }
+      ],
+      "warnings": []
+    },
+    "50": {
+      "question_num": 50,
+      "scanned": true,
+      "parser_used": "StandardParser",
+      "scan_time": "2025-11-17T15:37:16.327685",
+      "content_preview": "Whichofthefollowingstatementscanbeinferredfromthep",
+      "scan_attempts": [
+        {
+          "parser": "StandardParser",
+          "time": "2025-11-17T15:37:16.327685",
+          "success": true
+        }
+      ],
+      "warnings": []
+    }
+  },
+  "scan_times": {
+    "start": "2025-11-17T15:37:15.243909",
+    "end": "2025-11-17T15:37:16.327710"
+  }
+}
