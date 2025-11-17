@@ -32,6 +32,10 @@ class PDFProcessor:
         Raises:
             PDFProcessingError: PDF處理失敗時拋出
         """
+        # 輸入驗證
+        self._validate_pdf_path(pdf_path)
+        self._validate_max_pages(max_pages)
+
         if not os.path.exists(pdf_path):
             raise PDFProcessingError(f"PDF檔案不存在: {pdf_path}")
 
@@ -88,14 +92,18 @@ class PDFProcessor:
     def extract_text_from_pages(self, pdf_path: str, page_numbers: List[int]) -> str:
         """
         從指定頁面提取文字內容
-        
+
         Args:
             pdf_path: PDF檔案路徑
             page_numbers: 要提取的頁面編號列表
-            
+
         Returns:
             提取的文字內容
         """
+        # 輸入驗證
+        self._validate_pdf_path(pdf_path)
+        self._validate_page_numbers(page_numbers)
+
         if not os.path.exists(pdf_path):
             raise PDFProcessingError(f"PDF檔案不存在: {pdf_path}")
         
@@ -136,13 +144,16 @@ class PDFProcessor:
     def get_page_count(self, pdf_path: str) -> int:
         """
         取得PDF頁數
-        
+
         Args:
             pdf_path: PDF檔案路徑
-            
+
         Returns:
             PDF頁數
         """
+        # 輸入驗證
+        self._validate_pdf_path(pdf_path)
+
         if not os.path.exists(pdf_path):
             raise PDFProcessingError(f"PDF檔案不存在: {pdf_path}")
         
@@ -155,3 +166,77 @@ class PDFProcessor:
             error_msg = f"取得PDF頁數失敗: {e}"
             self.logger.failure(error_msg)
             raise PDFProcessingError(error_msg) from e
+
+    def _validate_pdf_path(self, pdf_path: str) -> None:
+        """
+        驗證 PDF 檔案路徑
+
+        Args:
+            pdf_path: PDF 檔案路徑
+
+        Raises:
+            PDFProcessingError: 參數無效時拋出
+        """
+        # 驗證類型
+        if not isinstance(pdf_path, str):
+            raise PDFProcessingError(f"pdf_path 必須是字串，收到類型: {type(pdf_path).__name__}")
+
+        # 驗證非空
+        if not pdf_path or not pdf_path.strip():
+            raise PDFProcessingError("pdf_path 不能為空字串")
+
+        # 驗證副檔名
+        if not pdf_path.lower().endswith('.pdf'):
+            raise PDFProcessingError(f"pdf_path 必須是 PDF 檔案（.pdf），收到: {pdf_path}")
+
+        # 驗證不是目錄
+        if os.path.exists(pdf_path) and os.path.isdir(pdf_path):
+            raise PDFProcessingError(f"pdf_path 不能是目錄: {pdf_path}")
+
+    def _validate_max_pages(self, max_pages: int) -> None:
+        """
+        驗證最大頁數參數
+
+        Args:
+            max_pages: 最大頁數
+
+        Raises:
+            PDFProcessingError: 參數無效時拋出
+        """
+        # 驗證類型
+        if not isinstance(max_pages, int):
+            raise PDFProcessingError(f"max_pages 必須是整數，收到類型: {type(max_pages).__name__}")
+
+        # 驗證範圍
+        if max_pages < 1:
+            raise PDFProcessingError(f"max_pages 必須大於 0，收到: {max_pages}")
+
+        if max_pages > 10000:
+            self.logger.warning(f"max_pages 設定過大（{max_pages}），可能導致記憶體不足")
+
+    def _validate_page_numbers(self, page_numbers: List[int]) -> None:
+        """
+        驗證頁碼列表
+
+        Args:
+            page_numbers: 頁碼列表
+
+        Raises:
+            PDFProcessingError: 參數無效時拋出
+        """
+        # 驗證類型
+        if not isinstance(page_numbers, list):
+            raise PDFProcessingError(f"page_numbers 必須是列表，收到類型: {type(page_numbers).__name__}")
+
+        # 驗證非空
+        if not page_numbers:
+            raise PDFProcessingError("page_numbers 不能為空列表")
+
+        # 驗證列表內容
+        for i, page_num in enumerate(page_numbers):
+            if not isinstance(page_num, int):
+                raise PDFProcessingError(
+                    f"page_numbers[{i}] 必須是整數，收到類型: {type(page_num).__name__}"
+                )
+            if page_num < 1:
+                raise PDFProcessingError(f"page_numbers[{i}] 必須大於 0，收到: {page_num}")

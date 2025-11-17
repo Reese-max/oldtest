@@ -43,6 +43,9 @@ class CSVGenerator:
         Returns:
             生成的CSV檔案路徑
         """
+        # 輸入驗證
+        self._validate_input_parameters(questions, answers, output_path)
+
         try:
             self.logger.info(f"開始生成題目CSV: {output_path}")
 
@@ -84,22 +87,27 @@ class CSVGenerator:
             self.logger.failure(error_msg)
             raise CSVGenerationError(error_msg) from e
     
-    def generate_google_form_csv(self, questions: List[Dict[str, Any]], 
+    def generate_google_form_csv(self, questions: List[Dict[str, Any]],
                                 answers: Dict[str, str],
                                 corrected_answers: Dict[str, str],
                                 output_path: str) -> str:
         """
         生成Google表單CSV檔案
-        
+
         Args:
             questions: 題目列表
             answers: 答案字典
             corrected_answers: 更正答案字典
             output_path: 輸出檔案路徑
-            
+
         Returns:
             生成的CSV檔案路徑
         """
+        # 輸入驗證
+        self._validate_input_parameters(questions, answers, output_path)
+        if not isinstance(corrected_answers, dict):
+            raise CSVGenerationError(f"corrected_answers 必須是字典，收到類型: {type(corrected_answers).__name__}")
+
         try:
             self.logger.info(f"開始生成Google表單CSV: {output_path}")
             
@@ -120,20 +128,28 @@ class CSVGenerator:
             self.logger.failure(error_msg)
             raise CSVGenerationError(error_msg) from e
     
-    def generate_question_groups_csv(self, questions: List[Dict[str, Any]], 
+    def generate_question_groups_csv(self, questions: List[Dict[str, Any]],
                                    answers: Dict[str, str],
                                    output_dir: str) -> List[str]:
         """
         生成題組分類CSV檔案
-        
+
         Args:
             questions: 題目列表
             answers: 答案字典
             output_dir: 輸出目錄
-            
+
         Returns:
             生成的CSV檔案路徑列表
         """
+        # 輸入驗證
+        if not isinstance(questions, list):
+            raise CSVGenerationError(f"questions 必須是列表，收到類型: {type(questions).__name__}")
+        if not isinstance(answers, dict):
+            raise CSVGenerationError(f"answers 必須是字典，收到類型: {type(answers).__name__}")
+        if not isinstance(output_dir, str) or not output_dir:
+            raise CSVGenerationError(f"output_dir 必須是非空字串，收到: {output_dir}")
+
         try:
             self.logger.info(f"開始生成題組分類CSV: {output_dir}")
             
@@ -272,7 +288,54 @@ class CSVGenerator:
 
         df.to_csv(output_path, index=False, encoding=self.config.output_encoding,
                  sep=self.config.csv_delimiter)
-    
+
+    def _validate_input_parameters(self, questions: Any, answers: Any, output_path: Any) -> None:
+        """
+        驗證輸入參數的類型和有效性
+
+        Args:
+            questions: 題目列表
+            answers: 答案字典
+            output_path: 輸出檔案路徑
+
+        Raises:
+            CSVGenerationError: 參數無效時拋出
+        """
+        # 驗證 questions 類型
+        if not isinstance(questions, list):
+            raise CSVGenerationError(f"questions 必須是列表，收到類型: {type(questions).__name__}")
+
+        # 驗證 questions 內容（如果非空）
+        if questions:
+            for i, q in enumerate(questions):
+                if not isinstance(q, dict):
+                    raise CSVGenerationError(
+                        f"questions[{i}] 必須是字典，收到類型: {type(q).__name__}"
+                    )
+
+        # 驗證 answers 類型
+        if not isinstance(answers, dict):
+            raise CSVGenerationError(f"answers 必須是字典，收到類型: {type(answers).__name__}")
+
+        # 驗證 output_path 類型和值
+        if not isinstance(output_path, str):
+            raise CSVGenerationError(f"output_path 必須是字串，收到類型: {type(output_path).__name__}")
+        if not output_path or not output_path.strip():
+            raise CSVGenerationError("output_path 不能為空字串")
+
+        # 驗證輸出路徑不是目錄
+        if os.path.exists(output_path) and os.path.isdir(output_path):
+            raise CSVGenerationError(f"output_path 不能是目錄: {output_path}")
+
+        # 自動創建輸出目錄
+        output_dir = os.path.dirname(output_path)
+        if output_dir and not os.path.exists(output_dir):
+            try:
+                os.makedirs(output_dir, exist_ok=True)
+                self.logger.info(f"自動創建輸出目錄: {output_dir}")
+            except OSError as e:
+                raise CSVGenerationError(f"無法創建輸出目錄 {output_dir}: {e}") from e
+
     def _calculate_difficulty(self, question: Dict[str, Any]) -> str:
         """
         計算題目難度
