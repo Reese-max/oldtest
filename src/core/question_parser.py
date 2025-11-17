@@ -32,6 +32,14 @@ from ..utils.constants import (
 class QuestionParser:
     """題目解析器"""
     
+
+    # 選項起始詞常數（提取為類常數避免重複）
+    OPTION_STARTERS = [
+        '經', '各', '行', '私', '於', '依', '關', '當', '偶', '下',
+        '應', '若', '原', '該', '法', '警', '義', '褫', '受', '無',
+        '須', '向', '得', '限'
+    ]
+
     def __init__(self):
         self.logger = logger
         self.config = config_manager.get_processing_config()
@@ -294,7 +302,7 @@ class QuestionParser:
                 
             # 使用正則表達式分割選項
             # 尋找選項分割點：選項開始詞後面的空格
-            option_starters = ['經', '各', '行', '私', '於', '依', '關', '當', '偶', '下', '應', '若', '原', '該', '法', '警', '義', '褫', '受', '無', '須', '向', '得', '限']
+            option_starters = self.OPTION_STARTERS
             
             # 構建正則表達式模式
             pattern_parts = []
@@ -316,7 +324,7 @@ class QuestionParser:
             current_option = ""
 
             for word in words:
-                option_starters = ['經', '各', '行', '私', '於', '依', '關', '當', '偶', '下', '應', '若', '原', '該', '法', '警', '義', '褫', '受', '無', '須', '向', '得', '限']
+                option_starters = self.OPTION_STARTERS
                 
                 if word in option_starters and current_option:
                     if len(current_option.strip()) > 5:

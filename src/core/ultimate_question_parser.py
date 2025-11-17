@@ -8,6 +8,7 @@ import re
 import os
 from typing import List, Dict, Any, Tuple
 from ..utils.logger import logger
+from ..utils.regex_patterns import EMBEDDED_SYMBOLS
 
 class UltimateQuestionParser:
     """終極題目解析器 - 處理所有格式"""
@@ -182,9 +183,8 @@ class UltimateQuestionParser:
                     # 檢查是否為填空題（題目文本本身沒有選項符號）
                     # 只檢查題目文本的前100字元，避免檢查到後面的選項
                     question_part = question_text[:100]
-                    # 使用正確的Unicode字符，過濾空字符串
-                    option_symbols = [c for c in ['', '', '', ''] if c]  # Unicode: 57740, 57741, 57742, 57743
-                    if not any(c in question_part for c in option_symbols):
+                    # 使用從 regex_patterns 引入的 Unicode 字符
+                    if not any(c in question_part for c in EMBEDDED_SYMBOLS):
                         # 填空題：創建標準選項
                         questions.append({
                             'question_number': str(question_num),

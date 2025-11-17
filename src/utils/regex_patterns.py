@@ -89,12 +89,12 @@ MIXED_FORMAT_PATTERNS: List[Pattern] = [
 
 # ==================== 嵌入式填空題模式 ====================
 
-# Unicode符號選項
-EMBEDDED_SYMBOLS = ['\uE08E', '\uE08F', '\uE090', '\uE091']
+# Unicode符號選項（修正為正確的碼點 U+E18C-U+E18F）
+EMBEDDED_SYMBOLS = ['\ue18c', '\ue18d', '\ue18e', '\ue18f']
 
-# 嵌入式填空題檢測
+# 嵌入式填空題檢測（修正為正確的碼點）
 EMBEDDED_PATTERNS: List[Pattern] = [
-    re.compile(r'[\uE08E\uE08F\uE090\uE091]', re.UNICODE),
+    re.compile(r'[\ue18c\ue18d\ue18e\ue18f]', re.UNICODE),
 ]
 
 # ==================== 題組相關模式 ====================
