@@ -57,16 +57,38 @@ class ArchaeologyProcessor:
     """考古題處理器"""
     
     def __init__(self, use_enhanced: bool = True):
+        """
+        初始化考古題處理器
+
+        Args:
+            use_enhanced: 是否使用增強型處理器（默認: True）
+                         - True: 使用 EnhancedPDFProcessor 和 AIQuestionParser
+                         - False: 使用基礎 PDFProcessor
+
+        Attributes:
+            logger: 日誌記錄器
+            use_enhanced: 增強模式標誌
+            pdf_processor: PDF 文字提取處理器
+            question_parser_enhanced: AI 增強題目解析器（僅增強模式）
+            question_parser: 標準題目解析器
+            essay_parser: 申論題解析器
+            mixed_parser: 混合格式解析器
+            embedded_parser: 嵌入式填空題解析器
+            comprehensive_parser: 綜合格式解析器
+            ultimate_parser: 終極解析器
+            answer_processor: 答案處理器
+            csv_generator: CSV 生成器
+        """
         self.logger = logger
         self.use_enhanced = use_enhanced
-        
+
         # 根據設定選擇處理器
         if use_enhanced:
             self.pdf_processor = EnhancedPDFProcessor()
             self.question_parser_enhanced = AIQuestionParser()
         else:
             self.pdf_processor = PDFProcessor()
-        
+
         self.question_parser = QuestionParser()
         self.essay_parser = EssayQuestionParser()  # 申論題解析器
         self.mixed_parser = MixedFormatParser()  # 混合格式解析器

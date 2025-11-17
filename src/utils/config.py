@@ -99,6 +99,23 @@ class ConfigManager:
     _file_lock = threading.Lock()  # 文件I/O操作鎖
 
     def __init__(self, config_file: str = "config.json"):
+        """
+        初始化配置管理器
+
+        Args:
+            config_file: 配置文件路徑（默認: "config.json"）
+
+        Attributes:
+            config_file: 配置文件路徑
+            processing_config: 處理配置實例（ProcessingConfig）
+            google_form_config: Google表單配置實例（GoogleFormConfig）
+            ocr_config: OCR配置實例（OCRConfig）
+
+        Note:
+            - 如果配置文件存在，會自動載入配置
+            - 如果配置文件不存在，會使用默認值並創建新配置文件
+            - 此類使用單例模式，請通過 get_instance() 獲取實例
+        """
         self.config_file = config_file
         self.processing_config = ProcessingConfig()
         self.google_form_config = GoogleFormConfig()
