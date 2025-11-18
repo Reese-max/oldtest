@@ -37,6 +37,58 @@
         </div>
     </footer>
 
+    <script>
+        // CSRF 保護工具
+        let csrfToken = null;
+
+        // 獲取 CSRF Token
+        async function getCsrfToken() {
+            if (csrfToken) return csrfToken;
+
+            try {
+                const response = await fetch('/api/csrf-token');
+                const data = await response.json();
+                csrfToken = data.csrf_token;
+                return csrfToken;
+            } catch (error) {
+                console.error('獲取 CSRF Token 失敗:', error);
+                return null;
+            }
+        }
+
+        // 帶 CSRF 保護的 fetch 封裝
+        async function secureFetch(url, options = {}) {
+            const token = await getCsrfToken();
+
+            // 合併選項
+            const mergedOptions = { ...options };
+
+            // 初始化 headers（如果不存在）
+            if (!mergedOptions.headers) {
+                mergedOptions.headers = {};
+            }
+
+            // 如果沒有 body 是 FormData，設置默認 Content-Type
+            // FormData 會自動設置正確的 Content-Type（包含 boundary）
+            if (!(options.body instanceof FormData)) {
+                if (!mergedOptions.headers['Content-Type'] && !mergedOptions.headers['content-type']) {
+                    mergedOptions.headers['Content-Type'] = 'application/json';
+                }
+            }
+
+            // 為 POST/PUT/DELETE 請求添加 CSRF Token
+            if (token && ['POST', 'PUT', 'DELETE', 'PATCH'].includes((options.method || 'GET').toUpperCase())) {
+                mergedOptions.headers['X-CSRFToken'] = token;
+            }
+
+            return fetch(url, mergedOptions);
+        }
+
+        // 頁面加載時預先獲取 CSRF Token
+        document.addEventListener('DOMContentLoaded', () => {
+            getCsrfToken();
+        });
+    </script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
     {% block extra_js %}{% endblock %}
 </body>

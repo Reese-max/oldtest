@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 from datetime import datetime
 from flask import Flask, render_template, request, jsonify, send_file, session
+from flask_wtf.csrf import CSRFProtect, generate_csrf
 from werkzeug.utils import secure_filename
 import uuid
 
@@ -20,6 +21,7 @@ from src.processors.archaeology_processor import ArchaeologyProcessor
 from src.utils.performance_monitor import PerformanceMonitor, global_monitor
 from src.i18n import set_language, get_text
 from src.services import crawler_service, ocr_service
+from src.web.validators import InputValidator, validate_request_data
 
 
 def create_app(config=None):
@@ -40,6 +42,10 @@ def create_app(config=None):
     app.config['OUTPUT_FOLDER'] = config.get('OUTPUT_FOLDER', '/tmp/exam_outputs')
     app.config['MAX_CONTENT_LENGTH'] = config.get('MAX_CONTENT_LENGTH', 50 * 1024 * 1024)  # 50MB
     app.config['ALLOWED_EXTENSIONS'] = {'pdf'}
+    app.config['WTF_CSRF_TIME_LIMIT'] = None  # CSRF token 不過期
+
+    # 初始化 CSRF 保護
+    csrf = CSRFProtect(app)
 
     # 確保目錄存在
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
@@ -81,11 +87,22 @@ def create_app(config=None):
             if file.filename == '':
                 return jsonify({'error': get_text('errors.invalid_format', format='filename')}), 400
 
-            if not allowed_file(file.filename):
-                return jsonify({'error': '只允許上傳PDF文件'}), 400
+            # 驗證文件名
+            is_valid, error, cleaned_filename = InputValidator.validate_filename(file.filename)
+            if not is_valid:
+                return jsonify({'error': error}), 400
+
+            # 驗證文件大小
+            file.seek(0, os.SEEK_END)
+            file_size = file.tell()
+            file.seek(0)
+
+            is_valid, error = InputValidator.validate_file_size(file_size)
+            if not is_valid:
+                return jsonify({'error': error}), 400
 
             # 保存文件
-            filename = secure_filename(file.filename)
+            filename = cleaned_filename
             task_id = str(uuid.uuid4())
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
             saved_filename = f"{task_id}_{timestamp}_{filename}"
@@ -116,6 +133,11 @@ def create_app(config=None):
     def process_task(task_id):
         """處理PDF文件"""
         try:
+            # 驗證任務 ID
+            is_valid, error = InputValidator.validate_task_id(task_id)
+            if not is_valid:
+                return jsonify({'error': error}), 400
+
             if task_id not in tasks:
                 return jsonify({'error': '任務不存在'}), 404
 
@@ -188,6 +210,11 @@ def create_app(config=None):
     @app.route('/api/task/<task_id>')
     def get_task(task_id):
         """獲取任務狀態"""
+        # 驗證任務 ID
+        is_valid, error = InputValidator.validate_task_id(task_id)
+        if not is_valid:
+            return jsonify({'error': error}), 400
+
         if task_id not in tasks:
             return jsonify({'error': '任務不存在'}), 404
 
@@ -205,6 +232,15 @@ def create_app(config=None):
     def download_file(task_id, file_type):
         """下載結果文件"""
         try:
+            # 驗證任務 ID
+            is_valid, error = InputValidator.validate_task_id(task_id)
+            if not is_valid:
+                return jsonify({'error': error}), 400
+
+            # 驗證文件類型
+            if file_type not in ['csv', 'script']:
+                return jsonify({'error': '無效的文件類型'}), 400
+
             if task_id not in tasks:
                 return jsonify({'error': '任務不存在'}), 404
 
@@ -233,6 +269,11 @@ def create_app(config=None):
     def delete_task(task_id):
         """刪除任務"""
         try:
+            # 驗證任務 ID
+            is_valid, error = InputValidator.validate_task_id(task_id)
+            if not is_valid:
+                return jsonify({'error': error}), 400
+
             if task_id not in tasks:
                 return jsonify({'error': '任務不存在'}), 404
 
@@ -328,12 +369,30 @@ def create_app(config=None):
         """啟動爬蟲任務"""
         try:
             data = request.get_json()
-            years = data.get('years', [])
-            keywords = data.get('keywords', [])
-            save_dir = data.get('save_dir', os.path.join(app.config['OUTPUT_FOLDER'], '考古題'))
 
-            if not years:
-                return jsonify({'error': '請選擇年份'}), 400
+            # 驗證請求數據
+            is_valid, error = validate_request_data(data, ['years', 'keywords'])
+            if not is_valid:
+                return jsonify({'error': error}), 400
+
+            # 驗證年份
+            is_valid, error, years = InputValidator.validate_years(data['years'])
+            if not is_valid:
+                return jsonify({'error': error}), 400
+
+            # 驗證關鍵字
+            is_valid, error, keywords = InputValidator.validate_keywords(data['keywords'])
+            if not is_valid:
+                return jsonify({'error': error}), 400
+
+            # 驗證保存目錄（可選）
+            save_dir = data.get('save_dir')
+            if save_dir:
+                is_valid, error, save_dir = InputValidator.validate_path(save_dir)
+                if not is_valid:
+                    return jsonify({'error': error}), 400
+            else:
+                save_dir = os.path.join(app.config['OUTPUT_FOLDER'], '考古題')
 
             # 創建任務
             task_id = crawler_service.create_task(years, keywords, save_dir)
@@ -354,6 +413,11 @@ def create_app(config=None):
     @app.route('/api/crawler/status/<task_id>')
     def get_crawler_status(task_id):
         """獲取爬蟲任務狀態"""
+        # 驗證任務 ID
+        is_valid, error = InputValidator.validate_task_id(task_id)
+        if not is_valid:
+            return jsonify({'error': error}), 400
+
         task = crawler_service.get_task(task_id)
         if not task:
             return jsonify({'error': '任務不存在'}), 404
@@ -363,6 +427,11 @@ def create_app(config=None):
     @app.route('/api/crawler/stop/<task_id>', methods=['POST'])
     def stop_crawler(task_id):
         """停止爬蟲任務"""
+        # 驗證任務 ID
+        is_valid, error = InputValidator.validate_task_id(task_id)
+        if not is_valid:
+            return jsonify({'error': error}), 400
+
         if crawler_service.stop_task(task_id):
             return jsonify({
                 'success': True,
@@ -380,6 +449,11 @@ def create_app(config=None):
     @app.route('/api/crawler/delete/<task_id>', methods=['DELETE'])
     def delete_crawler_task(task_id):
         """刪除爬蟲任務"""
+        # 驗證任務 ID
+        is_valid, error = InputValidator.validate_task_id(task_id)
+        if not is_valid:
+            return jsonify({'error': error}), 400
+
         if crawler_service.delete_task(task_id):
             return jsonify({
                 'success': True,
@@ -418,11 +492,22 @@ def create_app(config=None):
             if file.filename == '':
                 return jsonify({'error': '文件名為空'}), 400
 
-            if not allowed_file(file.filename):
-                return jsonify({'error': '只允許上傳 PDF 文件'}), 400
+            # 驗證文件名
+            is_valid, error, cleaned_filename = InputValidator.validate_filename(file.filename)
+            if not is_valid:
+                return jsonify({'error': error}), 400
+
+            # 驗證文件大小
+            file.seek(0, os.SEEK_END)
+            file_size = file.tell()
+            file.seek(0)
+
+            is_valid, error = InputValidator.validate_file_size(file_size)
+            if not is_valid:
+                return jsonify({'error': error}), 400
 
             # 保存文件
-            filename = secure_filename(file.filename)
+            filename = cleaned_filename
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
 
@@ -445,11 +530,22 @@ def create_app(config=None):
             if file.filename == '':
                 return jsonify({'error': '文件名為空'}), 400
 
-            if not allowed_file(file.filename):
-                return jsonify({'error': '只允許上傳 PDF 文件'}), 400
+            # 驗證文件名
+            is_valid, error, cleaned_filename = InputValidator.validate_filename(file.filename)
+            if not is_valid:
+                return jsonify({'error': error}), 400
+
+            # 驗證文件大小
+            file.seek(0, os.SEEK_END)
+            file_size = file.tell()
+            file.seek(0)
+
+            is_valid, error = InputValidator.validate_file_size(file_size)
+            if not is_valid:
+                return jsonify({'error': error}), 400
 
             # 保存文件
-            filename = secure_filename(file.filename)
+            filename = cleaned_filename
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
 
@@ -462,6 +558,7 @@ def create_app(config=None):
             return jsonify({'error': str(e)}), 500
 
     @app.route('/health')
+    @csrf.exempt  # 健康檢查不需要 CSRF 保護
     def health_check():
         """健康檢查"""
         return jsonify({
@@ -470,6 +567,83 @@ def create_app(config=None):
             'tasks_count': len(tasks),
             'version': '2.0.0'  # 更新版本號
         })
+
+    @app.route('/api/csrf-token')
+    def get_csrf_token():
+        """獲取 CSRF Token"""
+        token = generate_csrf()
+        return jsonify({'csrf_token': token})
+
+    # ==================== 錯誤處理器 ====================
+
+    @app.errorhandler(400)
+    def bad_request(error):
+        """處理 400 錯誤請求"""
+        return jsonify({
+            'error': '請求格式錯誤',
+            'message': str(error.description) if hasattr(error, 'description') else '無效的請求參數',
+            'code': 400
+        }), 400
+
+    @app.errorhandler(404)
+    def not_found(error):
+        """處理 404 未找到錯誤"""
+        return jsonify({
+            'error': '資源不存在',
+            'message': '請求的資源未找到',
+            'code': 404
+        }), 404
+
+    @app.errorhandler(405)
+    def method_not_allowed(error):
+        """處理 405 方法不允許錯誤"""
+        return jsonify({
+            'error': '方法不允許',
+            'message': '不支持的 HTTP 方法',
+            'code': 405
+        }), 405
+
+    @app.errorhandler(413)
+    def request_entity_too_large(error):
+        """處理 413 請求實體過大錯誤"""
+        max_mb = app.config.get('MAX_CONTENT_LENGTH', 50 * 1024 * 1024) / (1024 * 1024)
+        return jsonify({
+            'error': '文件過大',
+            'message': f'文件大小超過限制（最大 {max_mb:.0f}MB）',
+            'code': 413
+        }), 413
+
+    @app.errorhandler(500)
+    def internal_server_error(error):
+        """處理 500 內部服務器錯誤"""
+        # 記錄錯誤到日誌
+        app.logger.error(f'Internal Server Error: {str(error)}')
+        return jsonify({
+            'error': '服務器內部錯誤',
+            'message': '服務器處理請求時發生錯誤，請稍後再試',
+            'code': 500
+        }), 500
+
+    @app.errorhandler(Exception)
+    def handle_exception(error):
+        """處理所有未捕獲的異常"""
+        # 記錄錯誤到日誌
+        app.logger.error(f'Unhandled Exception: {str(error)}', exc_info=True)
+
+        # 如果是 HTTP 異常，返回對應的狀態碼
+        if hasattr(error, 'code'):
+            return jsonify({
+                'error': '請求錯誤',
+                'message': str(error),
+                'code': error.code
+            }), error.code
+
+        # 其他異常返回 500
+        return jsonify({
+            'error': '服務器錯誤',
+            'message': '處理請求時發生意外錯誤',
+            'code': 500
+        }), 500
 
     return app
 

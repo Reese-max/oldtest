@@ -74,7 +74,7 @@
 // 刷新性能指標
 async function refreshMetrics() {
     try {
-        const response = await fetch('/api/monitor/metrics');
+        const response = await secureFetch('/api/monitor/metrics');
         const data = await response.json();
 
         // 更新總體統計
@@ -137,7 +137,7 @@ async function refreshMetrics() {
 // 下載報告
 async function downloadReport() {
     try {
-        const response = await fetch('/api/monitor/report');
+        const response = await secureFetch('/api/monitor/report');
         const data = await response.json();
 
         const blob = new Blob([data.report], { type: 'text/plain' });

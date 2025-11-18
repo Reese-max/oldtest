@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // 載入配置
 async function loadConfig() {
     try {
-        const response = await fetch('/api/ocr/config');
+        const response = await secureFetch('/api/ocr/config');
         const data = await response.json();
 
         if (data.success) {
@@ -493,7 +493,7 @@ async function detectPDFType() {
         const formData = new FormData();
         formData.append('file', selectedFile);
 
-        const response = await fetch('/api/ocr/detect', {
+        const response = await secureFetch('/api/ocr/detect', {
             method: 'POST',
             body: formData
         });
@@ -578,7 +578,7 @@ async function optimizeParameters() {
         const formData = new FormData();
         formData.append('file', selectedFile);
 
-        const response = await fetch('/api/ocr/optimize', {
+        const response = await secureFetch('/api/ocr/optimize', {
             method: 'POST',
             body: formData
         });

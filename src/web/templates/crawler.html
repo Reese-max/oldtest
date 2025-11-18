@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // 載入配置
 async function loadConfig() {
     try {
-        const response = await fetch('/api/crawler/config');
+        const response = await secureFetch('/api/crawler/config');
         const data = await response.json();
 
         if (data.success) {
@@ -442,9 +442,8 @@ async function startCrawler() {
     btn.textContent = '⏳ 啟動中...';
 
     try {
-        const response = await fetch('/api/crawler/start', {
+        const response = await secureFetch('/api/crawler/start', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ years, keywords, save_dir: saveDir || undefined })
         });
 
@@ -467,7 +466,7 @@ async function startCrawler() {
 // 刷新任務列表
 async function refreshTasks() {
     try {
-        const response = await fetch('/api/crawler/tasks');
+        const response = await secureFetch('/api/crawler/tasks');
         const tasks = await response.json();
 
         currentTasks = {};
@@ -572,7 +571,7 @@ async function stopTask(taskId) {
     if (!confirm('確定要停止此任務嗎？')) return;
 
     try {
-        const response = await fetch(`/api/crawler/stop/${taskId}`, {
+        const response = await secureFetch(`/api/crawler/stop/${taskId}`, {
             method: 'POST'
         });
 
@@ -594,7 +593,7 @@ async function deleteTask(taskId) {
     if (!confirm('確定要刪除此任務嗎？')) return;
 
     try {
-        const response = await fetch(`/api/crawler/delete/${taskId}`, {
+        const response = await secureFetch(`/api/crawler/delete/${taskId}`, {
             method: 'DELETE'
         });
 
