@@ -6,10 +6,13 @@ Flask Web 應用主文件
 
 import os
 import json
+import logging
+import time
 from pathlib import Path
 from datetime import datetime
-from flask import Flask, render_template, request, jsonify, send_file, session
+from flask import Flask, render_template, request, jsonify, send_file, session, g
 from flask_wtf.csrf import CSRFProtect, generate_csrf
+from flask_compress import Compress
 from werkzeug.utils import secure_filename
 import uuid
 
@@ -47,6 +50,47 @@ def create_app(config=None):
     # 初始化 CSRF 保護
     csrf = CSRFProtect(app)
 
+    # 初始化響應壓縮（P3-12）
+    compress = Compress()
+    compress.init_app(app)
+    app.config['COMPRESS_MIMETYPES'] = [
+        'text/html',
+        'text/css',
+        'text/javascript',
+        'application/json',
+        'application/javascript',
+        'text/plain'
+    ]
+    app.config['COMPRESS_LEVEL'] = 6  # 壓縮級別 1-9
+    app.config['COMPRESS_MIN_SIZE'] = 500  # 最小壓縮大小（字節）
+
+    # 配置靜態資源緩存（P3-13）
+    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 31536000  # 1 年（靜態資源）
+
+    # 配置日誌系統
+    log_dir = config.get('LOG_FOLDER', '/tmp/exam_logs') if config else '/tmp/exam_logs'
+    os.makedirs(log_dir, exist_ok=True)
+
+    # 配置日誌格式
+    log_format = logging.Formatter(
+        '[%(asctime)s] %(levelname)s in %(module)s: %(message)s'
+    )
+
+    # 文件日誌處理器
+    file_handler = logging.FileHandler(os.path.join(log_dir, 'app.log'), encoding='utf-8')
+    file_handler.setLevel(logging.INFO)
+    file_handler.setFormatter(log_format)
+
+    # 錯誤日誌處理器
+    error_handler = logging.FileHandler(os.path.join(log_dir, 'error.log'), encoding='utf-8')
+    error_handler.setLevel(logging.ERROR)
+    error_handler.setFormatter(log_format)
+
+    # 添加處理器到 app.logger
+    app.logger.addHandler(file_handler)
+    app.logger.addHandler(error_handler)
+    app.logger.setLevel(logging.INFO)
+
     # 確保目錄存在
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
     os.makedirs(app.config['OUTPUT_FOLDER'], exist_ok=True)
@@ -62,6 +106,63 @@ def create_app(config=None):
         """檢查文件是否允許"""
         return '.' in filename and \
                filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+
+    # ==================== 請求日誌中間件 ====================
+
+    @app.before_request
+    def before_request_logging():
+        """請求前記錄"""
+        g.start_time = time.time()
+        g.request_id = str(uuid.uuid4())[:8]  # 短 ID 用於追蹤
+
+        # 記錄請求信息（排除靜態文件和健康檢查）
+        if not request.path.startswith('/static') and request.path != '/health':
+            app.logger.info(
+                f"[{g.request_id}] {request.method} {request.path} - "
+                f"IP: {request.remote_addr} - "
+                f"User-Agent: {request.headers.get('User-Agent', 'Unknown')[:100]}"
+            )
+
+    @app.after_request
+    def after_request_logging(response):
+        """請求後記錄和緩存設置"""
+        # 排除靜態文件和健康檢查
+        if not request.path.startswith('/static') and request.path != '/health':
+            duration = time.time() - g.get('start_time', time.time())
+            request_id = g.get('request_id', 'unknown')
+
+            # 記錄響應信息
+            app.logger.info(
+                f"[{request_id}] {request.method} {request.path} - "
+                f"Status: {response.status_code} - "
+                f"Duration: {duration:.3f}s"
+            )
+
+            # 如果是錯誤響應，記錄詳細信息
+            if response.status_code >= 400:
+                app.logger.warning(
+                    f"[{request_id}] Error Response - "
+                    f"Status: {response.status_code} - "
+                    f"Path: {request.path} - "
+                    f"IP: {request.remote_addr}"
+                )
+
+        # 設置緩存頭（P3-13）
+        # 靜態資源：長時間緩存
+        if request.path.startswith('/static'):
+            response.cache_control.public = True
+            response.cache_control.max_age = 31536000  # 1 年
+        # API 響應：不緩存
+        elif request.path.startswith('/api'):
+            response.cache_control.no_store = True
+            response.cache_control.no_cache = True
+            response.cache_control.must_revalidate = True
+        # HTML 頁面：短時間緩存
+        elif response.content_type and 'text/html' in response.content_type:
+            response.cache_control.public = True
+            response.cache_control.max_age = 300  # 5 分鐘
+
+        return response
 
     # ==================== 路由 ====================
 
@@ -118,6 +219,13 @@ def create_app(config=None):
                 'created_at': datetime.now().isoformat(),
                 'progress': 0
             }
+
+            # 記錄文件上傳日誌
+            app.logger.info(
+                f"[{g.get('request_id', 'unknown')}] File uploaded - "
+                f"TaskID: {task_id}, Filename: {filename}, "
+                f"Size: {file_size / 1024:.2f}KB, IP: {request.remote_addr}"
+            )
 
             return jsonify({
                 'success': True,
@@ -190,6 +298,13 @@ def create_app(config=None):
                 # 性能統計
                 task['performance'] = performance_monitor.get_metrics_summary()
 
+                # 記錄處理完成日誌
+                app.logger.info(
+                    f"[{g.get('request_id', 'unknown')}] Task completed - "
+                    f"TaskID: {task_id}, Questions: {result['question_count']}, "
+                    f"Duration: {time.time() - g.get('start_time', time.time()):.2f}s"
+                )
+
                 return jsonify({
                     'success': True,
                     'task_id': task_id,
@@ -199,6 +314,13 @@ def create_app(config=None):
             else:
                 task['status'] = 'failed'
                 task['error'] = result.get('error', '處理失敗')
+
+                # 記錄處理失敗日誌
+                app.logger.error(
+                    f"[{g.get('request_id', 'unknown')}] Task failed - "
+                    f"TaskID: {task_id}, Error: {task['error']}"
+                )
+
                 return jsonify({'error': task['error']}), 500
 
         except Exception as e:
@@ -399,12 +521,23 @@ def create_app(config=None):
 
             # 啟動任務
             if crawler_service.start_task(task_id):
+                # 記錄爬蟲任務啟動日誌
+                app.logger.info(
+                    f"[{g.get('request_id', 'unknown')}] Crawler task started - "
+                    f"TaskID: {task_id}, Years: {len(years)}, "
+                    f"Keywords: {len(keywords)}, IP: {request.remote_addr}"
+                )
+
                 return jsonify({
                     'success': True,
                     'task_id': task_id,
                     'message': '爬蟲任務已啟動'
                 })
             else:
+                app.logger.error(
+                    f"[{g.get('request_id', 'unknown')}] Crawler task start failed - "
+                    f"TaskID: {task_id}"
+                )
                 return jsonify({'error': '啟動任務失敗'}), 500
 
         except Exception as e:

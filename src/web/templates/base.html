@@ -6,8 +6,319 @@
     <title>{% block title %}考古題處理系統{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% block extra_css %}{% endblock %}
+
+    <style>
+        /* Toast 通知系統樣式 */
+        #toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            pointer-events: none;
+        }
+
+        .toast {
+            min-width: 300px;
+            max-width: 400px;
+            padding: 16px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            pointer-events: auto;
+            animation: slideInRight 0.3s ease-out;
+            background: white;
+            border-left: 4px solid;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .toast:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            transform: translateX(-4px);
+        }
+
+        .toast.toast-success {
+            border-left-color: #4CAF50;
+        }
+
+        .toast.toast-error {
+            border-left-color: #f44336;
+        }
+
+        .toast.toast-warning {
+            border-left-color: #ff9800;
+        }
+
+        .toast.toast-info {
+            border-left-color: #2196F3;
+        }
+
+        .toast-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .toast-success .toast-icon { color: #4CAF50; }
+        .toast-error .toast-icon { color: #f44336; }
+        .toast-warning .toast-icon { color: #ff9800; }
+        .toast-info .toast-icon { color: #2196F3; }
+
+        .toast-content {
+            flex: 1;
+        }
+
+        .toast-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #333;
+        }
+
+        .toast-message {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .toast-close {
+            font-size: 20px;
+            color: #999;
+            cursor: pointer;
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+        }
+
+        .toast-close:hover {
+            color: #333;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        .toast.toast-exit {
+            animation: slideOutRight 0.3s ease-out forwards;
+        }
+
+        /* 進度條 */
+        .toast-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: currentColor;
+            opacity: 0.3;
+            width: 100%;
+            transform-origin: left;
+        }
+
+        .toast-success .toast-progress { background: #4CAF50; }
+        .toast-error .toast-progress { background: #f44336; }
+        .toast-warning .toast-progress { background: #ff9800; }
+        .toast-info .toast-progress { background: #2196F3; }
+
+        /* 全局加載指示器 */
+        #global-loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #global-loading.active {
+            display: flex;
+        }
+
+        .loading-content {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* 確認對話框 */
+        #confirm-dialog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9998;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #confirm-dialog.active {
+            display: flex;
+        }
+
+        .confirm-content {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            min-width: 400px;
+            max-width: 500px;
+            animation: fadeInScale 0.2s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .confirm-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .confirm-icon {
+            font-size: 24px;
+        }
+
+        .confirm-message {
+            color: #666;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .confirm-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .confirm-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .confirm-btn-cancel {
+            background: #f5f5f5;
+            color: #666;
+        }
+
+        .confirm-btn-cancel:hover {
+            background: #e0e0e0;
+        }
+
+        .confirm-btn-confirm {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .confirm-btn-confirm:hover {
+            background: #45a049;
+        }
+
+        .confirm-btn-confirm.danger {
+            background: #f44336;
+        }
+
+        .confirm-btn-confirm.danger:hover {
+            background: #da190b;
+        }
+    </style>
 </head>
 <body>
+    <!-- Toast 通知容器 -->
+    <div id="toast-container"></div>
+
+    <!-- 全局加載指示器 -->
+    <div id="global-loading">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">處理中，請稍候...</div>
+        </div>
+    </div>
+
+    <!-- 確認對話框 -->
+    <div id="confirm-dialog">
+        <div class="confirm-content">
+            <div class="confirm-title">
+                <span class="confirm-icon">⚠</span>
+                <span id="confirm-title-text">確認操作</span>
+            </div>
+            <div class="confirm-message" id="confirm-message-text"></div>
+            <div class="confirm-buttons">
+                <button class="confirm-btn confirm-btn-cancel" id="confirm-cancel-btn">取消</button>
+                <button class="confirm-btn confirm-btn-confirm" id="confirm-confirm-btn">確認</button>
+            </div>
+        </div>
+    </div>
     <nav class="navbar">
         <div class="container">
             <div class="navbar-brand">
@@ -38,6 +349,336 @@
     </footer>
 
     <script>
+        // ==================== Toast 通知系統 ====================
+
+        const toastIcons = {
+            success: '✓',
+            error: '✗',
+            warning: '⚠',
+            info: 'ℹ'
+        };
+
+        const toastTitles = {
+            success: '成功',
+            error: '錯誤',
+            warning: '警告',
+            info: '提示'
+        };
+
+        /**
+         * 顯示 Toast 通知
+         * @param {string} message - 通知訊息
+         * @param {string} type - 通知類型: success, error, warning, info
+         * @param {number} duration - 顯示時長（毫秒），0 表示不自動關閉
+         * @param {string} title - 自定義標題（可選）
+         */
+        function showToast(message, type = 'info', duration = 4000, title = null) {
+            const container = document.getElementById('toast-container');
+            if (!container) {
+                console.error('Toast container not found');
+                return;
+            }
+
+            // 創建 toast 元素
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.style.position = 'relative';
+
+            // 使用提供的標題或默認標題
+            const toastTitle = title || toastTitles[type] || '通知';
+
+            toast.innerHTML = `
+                <div class="toast-icon">${toastIcons[type] || 'ℹ'}</div>
+                <div class="toast-content">
+                    <div class="toast-title">${toastTitle}</div>
+                    <div class="toast-message">${message}</div>
+                </div>
+                <div class="toast-close">×</div>
+                ${duration > 0 ? '<div class="toast-progress"></div>' : ''}
+            `;
+
+            // 添加到容器
+            container.appendChild(toast);
+
+            // 關閉按鈕事件
+            const closeBtn = toast.querySelector('.toast-close');
+            closeBtn.addEventListener('click', () => closeToast(toast));
+
+            // 點擊 toast 也可以關閉
+            toast.addEventListener('click', (e) => {
+                if (e.target !== closeBtn && !e.target.closest('.toast-close')) {
+                    closeToast(toast);
+                }
+            });
+
+            // 自動關閉
+            if (duration > 0) {
+                const progressBar = toast.querySelector('.toast-progress');
+                if (progressBar) {
+                    // 設置進度條動畫
+                    progressBar.style.transition = `transform ${duration}ms linear`;
+                    setTimeout(() => {
+                        progressBar.style.transform = 'scaleX(0)';
+                    }, 10);
+                }
+
+                setTimeout(() => {
+                    closeToast(toast);
+                }, duration);
+            }
+
+            // 限制 toast 數量（最多 5 個）
+            const toasts = container.querySelectorAll('.toast');
+            if (toasts.length > 5) {
+                closeToast(toasts[0]);
+            }
+
+            return toast;
+        }
+
+        /**
+         * 關閉 Toast
+         */
+        function closeToast(toast) {
+            if (!toast || toast.classList.contains('toast-exit')) return;
+
+            toast.classList.add('toast-exit');
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 300);
+        }
+
+        /**
+         * 便捷方法
+         */
+        window.toast = {
+            success: (message, duration) => showToast(message, 'success', duration),
+            error: (message, duration) => showToast(message, 'error', duration),
+            warning: (message, duration) => showToast(message, 'warning', duration),
+            info: (message, duration) => showToast(message, 'info', duration)
+        };
+
+        // ==================== 全局加載指示器 ====================
+
+        let loadingElement = null;
+        let loadingText = null;
+
+        /**
+         * 顯示全局加載指示器
+         * @param {string} message - 加載提示訊息
+         */
+        function showLoading(message = '處理中，請稍候...') {
+            if (!loadingElement) {
+                loadingElement = document.getElementById('global-loading');
+                loadingText = loadingElement?.querySelector('.loading-text');
+            }
+
+            if (loadingElement) {
+                if (loadingText) {
+                    loadingText.textContent = message;
+                }
+                loadingElement.classList.add('active');
+            }
+        }
+
+        /**
+         * 隱藏全局加載指示器
+         */
+        function hideLoading() {
+            if (loadingElement) {
+                loadingElement.classList.remove('active');
+            }
+        }
+
+        /**
+         * 帶加載指示器的異步操作
+         * @param {Function} asyncFn - 異步函數
+         * @param {string} message - 加載提示訊息
+         */
+        async function withLoading(asyncFn, message) {
+            showLoading(message);
+            try {
+                return await asyncFn();
+            } finally {
+                hideLoading();
+            }
+        }
+
+        // ==================== 確認對話框 ====================
+
+        let confirmDialog = null;
+        let confirmResolve = null;
+
+        /**
+         * 顯示確認對話框（Promise 版本，替代 window.confirm）
+         * @param {string} message - 確認訊息
+         * @param {object} options - 選項
+         * @returns {Promise<boolean>} - 用戶選擇結果
+         */
+        function confirmDialog(message, options = {}) {
+            return new Promise((resolve) => {
+                const dialog = document.getElementById('confirm-dialog');
+                if (!dialog) {
+                    // 降級到原生 confirm
+                    resolve(window.confirm(message));
+                    return;
+                }
+
+                const titleText = dialog.querySelector('#confirm-title-text');
+                const messageText = dialog.querySelector('#confirm-message-text');
+                const confirmBtn = dialog.querySelector('#confirm-confirm-btn');
+                const cancelBtn = dialog.querySelector('#confirm-cancel-btn');
+
+                // 設置內容
+                titleText.textContent = options.title || '確認操作';
+                messageText.textContent = message;
+
+                // 設置按鈕樣式
+                confirmBtn.textContent = options.confirmText || '確認';
+                cancelBtn.textContent = options.cancelText || '取消';
+
+                if (options.danger) {
+                    confirmBtn.classList.add('danger');
+                } else {
+                    confirmBtn.classList.remove('danger');
+                }
+
+                // 顯示對話框
+                dialog.classList.add('active');
+
+                // 確認按鈕
+                const onConfirm = () => {
+                    cleanup();
+                    resolve(true);
+                };
+
+                // 取消按鈕
+                const onCancel = () => {
+                    cleanup();
+                    resolve(false);
+                };
+
+                // 清理函數
+                const cleanup = () => {
+                    dialog.classList.remove('active');
+                    confirmBtn.removeEventListener('click', onConfirm);
+                    cancelBtn.removeEventListener('click', onCancel);
+                    dialog.removeEventListener('click', onBackdropClick);
+                };
+
+                // 背景點擊關閉
+                const onBackdropClick = (e) => {
+                    if (e.target === dialog) {
+                        onCancel();
+                    }
+                };
+
+                // 綁定事件
+                confirmBtn.addEventListener('click', onConfirm);
+                cancelBtn.addEventListener('click', onCancel);
+                dialog.addEventListener('click', onBackdropClick);
+
+                // ESC 鍵關閉
+                const onEscape = (e) => {
+                    if (e.key === 'Escape') {
+                        onCancel();
+                        document.removeEventListener('keydown', onEscape);
+                    }
+                };
+                document.addEventListener('keydown', onEscape);
+            });
+        }
+
+        /**
+         * 便捷方法：危險操作確認
+         */
+        async function confirmDelete(itemName) {
+            return await confirmDialog(
+                `確定要刪除「${itemName}」嗎？此操作無法撤銷。`,
+                {
+                    title: '確認刪除',
+                    confirmText: '刪除',
+                    cancelText: '取消',
+                    danger: true
+                }
+            );
+        }
+
+        // ==================== 前端錯誤邊界 ====================
+
+        // 全局錯誤處理器
+        window.addEventListener('error', function(event) {
+            console.error('Global error caught:', event.error);
+
+            // 顯示友好的錯誤訊息給用戶
+            showErrorNotification(
+                '發生未預期的錯誤',
+                '抱歉，頁面運行時發生錯誤。請刷新頁面後重試。'
+            );
+
+            // 可選：發送錯誤報告到服務器
+            reportErrorToServer({
+                message: event.error?.message || '未知錯誤',
+                stack: event.error?.stack || '',
+                url: event.filename || window.location.href,
+                line: event.lineno,
+                column: event.colno,
+                timestamp: new Date().toISOString()
+            });
+
+            // 阻止默認的錯誤處理
+            event.preventDefault();
+        });
+
+        // 捕獲未處理的 Promise 拒絕
+        window.addEventListener('unhandledrejection', function(event) {
+            console.error('Unhandled promise rejection:', event.reason);
+
+            // 顯示友好的錯誤訊息
+            showErrorNotification(
+                'Promise 錯誤',
+                '異步操作失敗，請稍後重試。'
+            );
+
+            // 報告錯誤
+            reportErrorToServer({
+                message: event.reason?.message || String(event.reason),
+                stack: event.reason?.stack || '',
+                type: 'unhandledrejection',
+                timestamp: new Date().toISOString()
+            });
+
+            // 阻止默認處理
+            event.preventDefault();
+        });
+
+        // 顯示錯誤通知（使用 Toast 系統）
+        function showErrorNotification(title, message) {
+            // 使用 Toast 系統顯示錯誤
+            showToast(message, 'error', 6000, title);
+        }
+
+        // 向服務器報告錯誤（可選）
+        function reportErrorToServer(errorInfo) {
+            // 僅在生產環境或配置啟用時發送
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                // 開發環境只記錄到控制台
+                console.log('Error report (dev):', errorInfo);
+                return;
+            }
+
+            // 可以實現發送錯誤到服務器的邏輯
+            // fetch('/api/error-report', {
+            //     method: 'POST',
+            //     headers: {'Content-Type': 'application/json'},
+            //     body: JSON.stringify(errorInfo)
+            // }).catch(err => console.error('Failed to report error:', err));
+        }
+
+        // ==================== CSRF 保護工具 ====================
+
         // CSRF 保護工具
         let csrfToken = null;
 
