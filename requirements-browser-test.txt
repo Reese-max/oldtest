@@ -1,0 +1,14 @@
+# 瀏覽器自動化測試依賴
+# 用於自動化測試前端瀏覽器功能
+
+# Playwright - 現代瀏覽器自動化工具
+# 支持 Chromium, Firefox, WebKit
+playwright>=1.40.0
+
+# 安裝說明:
+# 1. 安裝依賴: pip install -r requirements-browser-test.txt
+# 2. 安裝瀏覽器: playwright install chromium
+# 3. 運行測試: python tests/browser/test_browser_automation.py
+#
+# 可選：安裝所有瀏覽器
+# playwright install
