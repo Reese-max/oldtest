@@ -12,6 +12,7 @@ from pathlib import Path
 from datetime import datetime
 from flask import Flask, render_template, request, jsonify, send_file, session, g
 from flask_wtf.csrf import CSRFProtect, generate_csrf
+from flask_compress import Compress
 from werkzeug.utils import secure_filename
 import uuid
 
@@ -48,6 +49,23 @@ def create_app(config=None):
 
     # 初始化 CSRF 保護
     csrf = CSRFProtect(app)
+
+    # 初始化響應壓縮（P3-12）
+    compress = Compress()
+    compress.init_app(app)
+    app.config['COMPRESS_MIMETYPES'] = [
+        'text/html',
+        'text/css',
+        'text/javascript',
+        'application/json',
+        'application/javascript',
+        'text/plain'
+    ]
+    app.config['COMPRESS_LEVEL'] = 6  # 壓縮級別 1-9
+    app.config['COMPRESS_MIN_SIZE'] = 500  # 最小壓縮大小（字節）
+
+    # 配置靜態資源緩存（P3-13）
+    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 31536000  # 1 年（靜態資源）
 
     # 配置日誌系統
     log_dir = config.get('LOG_FOLDER', '/tmp/exam_logs') if config else '/tmp/exam_logs'
@@ -107,7 +125,7 @@ def create_app(config=None):
 
     @app.after_request
     def after_request_logging(response):
-        """請求後記錄"""
+        """請求後記錄和緩存設置"""
         # 排除靜態文件和健康檢查
         if not request.path.startswith('/static') and request.path != '/health':
             duration = time.time() - g.get('start_time', time.time())
@@ -128,6 +146,21 @@ def create_app(config=None):
                     f"Path: {request.path} - "
                     f"IP: {request.remote_addr}"
                 )
+
+        # 設置緩存頭（P3-13）
+        # 靜態資源：長時間緩存
+        if request.path.startswith('/static'):
+            response.cache_control.public = True
+            response.cache_control.max_age = 31536000  # 1 年
+        # API 響應：不緩存
+        elif request.path.startswith('/api'):
+            response.cache_control.no_store = True
+            response.cache_control.no_cache = True
+            response.cache_control.must_revalidate = True
+        # HTML 頁面：短時間緩存
+        elif response.content_type and 'text/html' in response.content_type:
+            response.cache_control.public = True
+            response.cache_control.max_age = 300  # 5 分鐘
 
         return response
 
