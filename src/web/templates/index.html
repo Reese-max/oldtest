@@ -116,7 +116,7 @@
 // 載入統計數據
 async function loadStats() {
     try {
-        const response = await fetch('/api/tasks');
+        const response = await secureFetch('/api/tasks');
         const tasks = await response.json();
 
         const totalTasks = tasks.length;

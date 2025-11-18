@@ -68,7 +68,7 @@ async function uploadFiles(files) {
         progressFill.style.width = `${(i / files.length) * 100}%`;
 
         try {
-            const response = await fetch('/api/upload', {
+            const response = await secureFetch('/api/upload', {
                 method: 'POST',
                 body: formData
             });
@@ -97,7 +97,7 @@ async function uploadFiles(files) {
 // 處理任務
 async function processTask(taskId) {
     try {
-        const response = await fetch(`/api/process/${taskId}`, {
+        const response = await secureFetch(`/api/process/${taskId}`, {
             method: 'POST'
         });
 
@@ -126,7 +126,7 @@ async function deleteTask(taskId) {
     }
 
     try {
-        const response = await fetch(`/api/delete/${taskId}`, {
+        const response = await secureFetch(`/api/delete/${taskId}`, {
             method: 'DELETE'
         });
 
@@ -146,7 +146,7 @@ async function deleteTask(taskId) {
 // 刷新任務列表
 async function refreshTasks() {
     try {
-        const response = await fetch('/api/tasks');
+        const response = await secureFetch('/api/tasks');
         const tasks = await response.json();
 
         const tasksList = document.getElementById('tasksList');
@@ -210,13 +210,13 @@ async function clearCompleted() {
     }
 
     try {
-        const response = await fetch('/api/tasks');
+        const response = await secureFetch('/api/tasks');
         const tasks = await response.json();
 
         const completedTasks = tasks.filter(t => t.status === 'completed');
 
         for (const task of completedTasks) {
-            await fetch(`/api/delete/${task.id}`, { method: 'DELETE' });
+            await secureFetch(`/api/delete/${task.id}`, { method: 'DELETE' });
         }
 
         showNotification(`✅ 已清除 ${completedTasks.length} 個任務`, 'success');
