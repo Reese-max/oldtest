@@ -15,7 +15,9 @@
             </div>
             <ul class="navbar-menu">
                 <li><a href="{{ url_for('index') }}">首頁</a></li>
-                <li><a href="{{ url_for('upload_page') }}">上傳處理</a></li>
+                <li><a href="{{ url_for('crawler_page') }}">爬蟲下載</a></li>
+                <li><a href="{{ url_for('ocr_page') }}">OCR處理</a></li>
+                <li><a href="{{ url_for('upload_page') }}">PDF處理</a></li>
                 <li><a href="{{ url_for('monitor_page') }}">性能監控</a></li>
             </ul>
         </div>
@@ -29,7 +31,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 考古題處理系統 v1.9.0 |
+            <p>&copy; 2025 考古題處理系統 v2.0.0 |
             <a href="https://github.com/yourusername/exam-processor" target="_blank">GitHub</a>
             </p>
         </div>

@@ -19,6 +19,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 from src.processors.archaeology_processor import ArchaeologyProcessor
 from src.utils.performance_monitor import PerformanceMonitor, global_monitor
 from src.i18n import set_language, get_text
+from src.services import crawler_service, ocr_service
 
 
 def create_app(config=None):
@@ -303,6 +304,163 @@ def create_app(config=None):
         except Exception as e:
             return jsonify({'error': str(e)}), 500
 
+    # ==================== 爬蟲 API ====================
+
+    @app.route('/crawler')
+    def crawler_page():
+        """爬蟲控制台頁面"""
+        return render_template('crawler.html')
+
+    @app.route('/api/crawler/config')
+    def get_crawler_config():
+        """獲取爬蟲配置"""
+        try:
+            return jsonify({
+                'success': True,
+                'available_years': crawler_service.get_available_years(),
+                'default_keywords': crawler_service.get_default_keywords()
+            })
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+
+    @app.route('/api/crawler/start', methods=['POST'])
+    def start_crawler():
+        """啟動爬蟲任務"""
+        try:
+            data = request.get_json()
+            years = data.get('years', [])
+            keywords = data.get('keywords', [])
+            save_dir = data.get('save_dir', os.path.join(app.config['OUTPUT_FOLDER'], '考古題'))
+
+            if not years:
+                return jsonify({'error': '請選擇年份'}), 400
+
+            # 創建任務
+            task_id = crawler_service.create_task(years, keywords, save_dir)
+
+            # 啟動任務
+            if crawler_service.start_task(task_id):
+                return jsonify({
+                    'success': True,
+                    'task_id': task_id,
+                    'message': '爬蟲任務已啟動'
+                })
+            else:
+                return jsonify({'error': '啟動任務失敗'}), 500
+
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+
+    @app.route('/api/crawler/status/<task_id>')
+    def get_crawler_status(task_id):
+        """獲取爬蟲任務狀態"""
+        task = crawler_service.get_task(task_id)
+        if not task:
+            return jsonify({'error': '任務不存在'}), 404
+
+        return jsonify(task)
+
+    @app.route('/api/crawler/stop/<task_id>', methods=['POST'])
+    def stop_crawler(task_id):
+        """停止爬蟲任務"""
+        if crawler_service.stop_task(task_id):
+            return jsonify({
+                'success': True,
+                'message': '任務已停止'
+            })
+        else:
+            return jsonify({'error': '停止任務失敗'}), 400
+
+    @app.route('/api/crawler/tasks')
+    def get_crawler_tasks():
+        """獲取所有爬蟲任務"""
+        tasks = crawler_service.get_all_tasks()
+        return jsonify(tasks)
+
+    @app.route('/api/crawler/delete/<task_id>', methods=['DELETE'])
+    def delete_crawler_task(task_id):
+        """刪除爬蟲任務"""
+        if crawler_service.delete_task(task_id):
+            return jsonify({
+                'success': True,
+                'message': '任務已刪除'
+            })
+        else:
+            return jsonify({'error': '刪除任務失敗'}), 404
+
+    # ==================== OCR API ====================
+
+    @app.route('/ocr')
+    def ocr_page():
+        """OCR 控制台頁面"""
+        return render_template('ocr.html')
+
+    @app.route('/api/ocr/config')
+    def get_ocr_config():
+        """獲取 OCR 配置"""
+        try:
+            config = ocr_service.get_config()
+            return jsonify({
+                'success': True,
+                'config': config
+            })
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+
+    @app.route('/api/ocr/detect', methods=['POST'])
+    def detect_pdf_type():
+        """檢測 PDF 類型"""
+        try:
+            if 'file' not in request.files:
+                return jsonify({'error': '未找到文件'}), 400
+
+            file = request.files['file']
+            if file.filename == '':
+                return jsonify({'error': '文件名為空'}), 400
+
+            if not allowed_file(file.filename):
+                return jsonify({'error': '只允許上傳 PDF 文件'}), 400
+
+            # 保存文件
+            filename = secure_filename(file.filename)
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(filepath)
+
+            # 檢測類型
+            result = ocr_service.detect_pdf_type(filepath)
+
+            return jsonify(result)
+
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+
+    @app.route('/api/ocr/optimize', methods=['POST'])
+    def optimize_ocr_parameters():
+        """優化 OCR 參數"""
+        try:
+            if 'file' not in request.files:
+                return jsonify({'error': '未找到文件'}), 400
+
+            file = request.files['file']
+            if file.filename == '':
+                return jsonify({'error': '文件名為空'}), 400
+
+            if not allowed_file(file.filename):
+                return jsonify({'error': '只允許上傳 PDF 文件'}), 400
+
+            # 保存文件
+            filename = secure_filename(file.filename)
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(filepath)
+
+            # 優化參數
+            result = ocr_service.optimize_parameters(filepath)
+
+            return jsonify(result)
+
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+
     @app.route('/health')
     def health_check():
         """健康檢查"""
@@ -310,7 +468,7 @@ def create_app(config=None):
             'status': 'healthy',
             'timestamp': datetime.now().isoformat(),
             'tasks_count': len(tasks),
-            'version': '1.9.0'
+            'version': '2.0.0'  # 更新版本號
         })
 
     return app

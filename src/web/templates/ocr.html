@@ -1,0 +1,663 @@
+{% extends "base.html" %}
+
+{% block title %}OCR 處理 - 考古題處理系統{% endblock %}
+
+{% block extra_css %}
+<style>
+.ocr-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.upload-area {
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.upload-area:hover {
+    border-color: #4CAF50;
+    background: #f9f9f9;
+}
+
+.upload-area.dragover {
+    border-color: #4CAF50;
+    background: #e8f5e9;
+}
+
+.button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.button-primary {
+    background: #4CAF50;
+    color: white;
+}
+
+.button-primary:hover {
+    background: #45a049;
+}
+
+.button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.result-card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.pdf-type-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.pdf-type-text { background: #4CAF50; color: white; }
+.pdf-type-scanned { background: #ff9800; color: white; }
+.pdf-type-hybrid { background: #2196F3; color: white; }
+
+.param-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.param-item {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.param-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.param-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.analysis-section {
+    margin-top: 20px;
+}
+
+.analysis-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background: white;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.quality-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.quality-excellent { background: #4CAF50; }
+.quality-good { background: #8BC34A; }
+.quality-fair { background: #FFC107; }
+.quality-poor { background: #f44336; }
+
+.config-section {
+    background: #f5f5f5;
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+}
+
+.config-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: white;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 24px;
+    background: #ccc;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-switch.active {
+    background: #4CAF50;
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    top: 2px;
+    left: 2px;
+    transition: left 0.3s;
+}
+
+.toggle-switch.active::after {
+    left: 28px;
+}
+
+.alert {
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.progress-section {
+    margin-top: 16px;
+}
+
+.progress-bar {
+    height: 24px;
+    background: #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    transition: width 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="ocr-container">
+    <h1 style="margin-bottom: 24px;">🔍 OCR 深度整合控制台</h1>
+
+    <div id="alert-container"></div>
+
+    <!-- 上傳卡片 -->
+    <div class="card">
+        <div class="card-title">📤 上傳 PDF 文件</div>
+
+        <div class="upload-area" id="upload-area" onclick="document.getElementById('file-input').click()">
+            <input type="file" id="file-input" accept=".pdf" style="display: none;" onchange="handleFileSelect(event)">
+            <p style="font-size: 48px; margin: 0;">📄</p>
+            <p style="font-size: 16px; color: #666; margin: 8px 0;">點擊或拖放 PDF 文件到此處</p>
+            <p style="font-size: 12px; color: #999;">支持文字型、掃描型和混合型 PDF</p>
+        </div>
+
+        <div id="file-info" style="margin-top: 16px; display: none;">
+            <p><strong>已選擇文件:</strong> <span id="file-name"></span></p>
+            <p><strong>文件大小:</strong> <span id="file-size"></span></p>
+        </div>
+
+        <div style="margin-top: 20px; display: flex; gap: 12px;">
+            <button class="button button-primary" onclick="detectPDFType()" id="detect-btn" disabled>
+                🔍 檢測 PDF 類型
+            </button>
+            <button class="button button-primary" onclick="optimizeParameters()" id="optimize-btn" disabled>
+                ⚙️ 優化 OCR 參數
+            </button>
+        </div>
+    </div>
+
+    <!-- 檢測結果卡片 -->
+    <div class="card" id="detect-result" style="display: none;">
+        <div class="card-title">📊 PDF 類型檢測結果</div>
+
+        <div style="margin-bottom: 20px;">
+            <strong>PDF 類型:</strong>
+            <span id="pdf-type-badge" class="pdf-type-badge"></span>
+        </div>
+
+        <div class="analysis-section">
+            <h3 style="margin-bottom: 12px;">分析結果</h3>
+            <div id="analysis-details"></div>
+        </div>
+    </div>
+
+    <!-- 參數優化結果卡片 -->
+    <div class="card" id="optimize-result" style="display: none;">
+        <div class="card-title">⚙️ OCR 參數優化結果</div>
+
+        <div class="param-grid" id="param-grid"></div>
+
+        <div style="margin-top: 20px;">
+            <h3 style="margin-bottom: 12px;">推薦說明</h3>
+            <div id="param-description" style="background: #f5f5f5; padding: 16px; border-radius: 8px;"></div>
+        </div>
+    </div>
+
+    <!-- OCR 配置卡片 -->
+    <div class="card">
+        <div class="card-title">⚙️ OCR 增強功能配置</div>
+
+        <div class="config-section">
+            <div class="config-item">
+                <span>啟用增強型 OCR</span>
+                <div class="toggle-switch active" id="toggle-enhanced"></div>
+            </div>
+            <div class="config-item">
+                <span>自動檢測掃描版</span>
+                <div class="toggle-switch active" id="toggle-auto-detect"></div>
+            </div>
+            <div class="config-item">
+                <span>智能參數調優</span>
+                <div class="toggle-switch active" id="toggle-auto-tune"></div>
+            </div>
+            <div class="config-item">
+                <span>OCR 質量驗證</span>
+                <div class="toggle-switch active" id="toggle-quality-check"></div>
+            </div>
+            <div class="config-item">
+                <span>混合模式處理</span>
+                <div class="toggle-switch active" id="toggle-hybrid-mode"></div>
+            </div>
+        </div>
+
+        <div style="margin-top: 16px;">
+            <h3 style="margin-bottom: 12px;">DPI 範圍設置</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div>
+                    <label style="display: block; margin-bottom: 4px; font-size: 14px; color: #666;">最小 DPI</label>
+                    <input type="number" id="min-dpi" value="150" min="50" max="600" class="form-input" style="padding: 8px; width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 4px; font-size: 14px; color: #666;">最大 DPI</label>
+                    <input type="number" id="max-dpi" value="400" min="50" max="600" class="form-input" style="padding: 8px; width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 16px;">
+            <h3 style="margin-bottom: 12px;">質量閾值設置</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                <div>
+                    <label style="display: block; margin-bottom: 4px; font-size: 14px; color: #666;">優秀 (> 90%)</label>
+                    <input type="number" id="excellent-threshold" value="0.9" min="0" max="1" step="0.1" class="form-input" style="padding: 8px; width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 4px; font-size: 14px; color: #666;">良好 (70-90%)</label>
+                    <input type="number" id="good-threshold" value="0.7" min="0" max="1" step="0.1" class="form-input" style="padding: 8px; width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 4px; font-size: 14px; color: #666;">一般 (50-70%)</label>
+                    <input type="number" id="fair-threshold" value="0.5" min="0" max="1" step="0.1" class="form-input" style="padding: 8px; width: 100%; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let selectedFile = null;
+let currentConfig = null;
+
+// 頁面載入時初始化
+document.addEventListener('DOMContentLoaded', () => {
+    loadConfig();
+    setupDragAndDrop();
+    setupToggles();
+});
+
+// 載入配置
+async function loadConfig() {
+    try {
+        const response = await fetch('/api/ocr/config');
+        const data = await response.json();
+
+        if (data.success) {
+            currentConfig = data.config;
+            applyConfig(currentConfig);
+        }
+    } catch (error) {
+        showAlert('載入配置失敗: ' + error.message, 'error');
+    }
+}
+
+// 應用配置到界面
+function applyConfig(config) {
+    // 設置切換開關狀態
+    setToggleState('toggle-enhanced', config.enabled);
+    setToggleState('toggle-auto-detect', config.auto_detect);
+    setToggleState('toggle-auto-tune', config.auto_tune);
+    setToggleState('toggle-quality-check', config.quality_check);
+    setToggleState('toggle-hybrid-mode', config.hybrid_mode);
+
+    // 設置範圍值
+    document.getElementById('min-dpi').value = config.dpi_range.min;
+    document.getElementById('max-dpi').value = config.dpi_range.max;
+
+    // 設置閾值
+    document.getElementById('excellent-threshold').value = config.thresholds.excellent;
+    document.getElementById('good-threshold').value = config.thresholds.good;
+    document.getElementById('fair-threshold').value = config.thresholds.fair;
+}
+
+// 設置切換開關狀態
+function setToggleState(id, active) {
+    const toggle = document.getElementById(id);
+    if (active) {
+        toggle.classList.add('active');
+    } else {
+        toggle.classList.remove('active');
+    }
+}
+
+// 設置拖放功能
+function setupDragAndDrop() {
+    const uploadArea = document.getElementById('upload-area');
+
+    uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.classList.add('dragover');
+    });
+
+    uploadArea.addEventListener('dragleave', () => {
+        uploadArea.classList.remove('dragover');
+    });
+
+    uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            handleFile(files[0]);
+        }
+    });
+}
+
+// 設置切換開關點擊事件
+function setupToggles() {
+    const toggles = document.querySelectorAll('.toggle-switch');
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+        });
+    });
+}
+
+// 處理文件選擇
+function handleFileSelect(event) {
+    const files = event.target.files;
+    if (files.length > 0) {
+        handleFile(files[0]);
+    }
+}
+
+// 處理文件
+function handleFile(file) {
+    if (!file.name.toLowerCase().endsWith('.pdf')) {
+        showAlert('請選擇 PDF 文件', 'error');
+        return;
+    }
+
+    selectedFile = file;
+
+    // 顯示文件信息
+    document.getElementById('file-name').textContent = file.name;
+    document.getElementById('file-size').textContent = formatFileSize(file.size);
+    document.getElementById('file-info').style.display = 'block';
+
+    // 啟用按鈕
+    document.getElementById('detect-btn').disabled = false;
+    document.getElementById('optimize-btn').disabled = false;
+
+    // 隱藏之前的結果
+    document.getElementById('detect-result').style.display = 'none';
+    document.getElementById('optimize-result').style.display = 'none';
+}
+
+// 格式化文件大小
+function formatFileSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(2) + ' KB';
+    return (bytes / 1024 / 1024).toFixed(2) + ' MB';
+}
+
+// 檢測 PDF 類型
+async function detectPDFType() {
+    if (!selectedFile) {
+        showAlert('請先選擇文件', 'error');
+        return;
+    }
+
+    const btn = document.getElementById('detect-btn');
+    btn.disabled = true;
+    btn.textContent = '🔍 檢測中...';
+
+    try {
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+
+        const response = await fetch('/api/ocr/detect', {
+            method: 'POST',
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            displayDetectionResult(data);
+        } else {
+            showAlert(data.error || '檢測失敗', 'error');
+        }
+    } catch (error) {
+        showAlert('檢測失敗: ' + error.message, 'error');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = '🔍 檢測 PDF 類型';
+    }
+}
+
+// 顯示檢測結果
+function displayDetectionResult(data) {
+    const resultCard = document.getElementById('detect-result');
+    const badge = document.getElementById('pdf-type-badge');
+    const analysisDetails = document.getElementById('analysis-details');
+
+    // 設置類型徽章
+    const typeMap = {
+        'text': { text: '文字型 PDF', class: 'pdf-type-text' },
+        'scanned': { text: '掃描型 PDF', class: 'pdf-type-scanned' },
+        'hybrid': { text: '混合型 PDF', class: 'pdf-type-hybrid' }
+    };
+
+    const typeInfo = typeMap[data.pdf_type] || { text: data.pdf_type, class: 'pdf-type-badge' };
+    badge.textContent = typeInfo.text;
+    badge.className = 'pdf-type-badge ' + typeInfo.class;
+
+    // 顯示分析詳情
+    const analysis = data.analysis;
+    analysisDetails.innerHTML = `
+        <div class="analysis-item">
+            <span>總頁數</span>
+            <strong>${analysis.total_pages}</strong>
+        </div>
+        <div class="analysis-item">
+            <span>文字頁數</span>
+            <strong>${analysis.text_pages}</strong>
+        </div>
+        <div class="analysis-item">
+            <span>掃描頁數</span>
+            <strong>${analysis.scanned_pages}</strong>
+        </div>
+        <div class="analysis-item">
+            <span>文字覆蓋率</span>
+            <strong>${(analysis.text_ratio * 100).toFixed(1)}%</strong>
+        </div>
+        <div class="analysis-item">
+            <span>平均字數/頁</span>
+            <strong>${Math.round(analysis.avg_chars_per_page)}</strong>
+        </div>
+        <div class="analysis-item">
+            <span>總圖片數</span>
+            <strong>${analysis.total_images}</strong>
+        </div>
+    `;
+
+    resultCard.style.display = 'block';
+    showAlert('PDF 類型檢測完成！', 'success');
+}
+
+// 優化參數
+async function optimizeParameters() {
+    if (!selectedFile) {
+        showAlert('請先選擇文件', 'error');
+        return;
+    }
+
+    const btn = document.getElementById('optimize-btn');
+    btn.disabled = true;
+    btn.textContent = '⚙️ 優化中...';
+
+    try {
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+
+        const response = await fetch('/api/ocr/optimize', {
+            method: 'POST',
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            displayOptimizationResult(data);
+        } else {
+            showAlert(data.error || '優化失敗', 'error');
+        }
+    } catch (error) {
+        showAlert('優化失敗: ' + error.message, 'error');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = '⚙️ 優化 OCR 參數';
+    }
+}
+
+// 顯示優化結果
+function displayOptimizationResult(data) {
+    const resultCard = document.getElementById('optimize-result');
+    const paramGrid = document.getElementById('param-grid');
+    const description = document.getElementById('param-description');
+
+    const params = data.parameters;
+
+    // 顯示參數網格
+    paramGrid.innerHTML = `
+        <div class="param-item">
+            <div class="param-label">推薦 DPI</div>
+            <div class="param-value">${params.dpi}</div>
+        </div>
+        <div class="param-item">
+            <div class="param-label">縮放倍數</div>
+            <div class="param-value">${params.zoom}x</div>
+        </div>
+        <div class="param-item">
+            <div class="param-label">二值化閾值</div>
+            <div class="param-value">${params.threshold || 'auto'}</div>
+        </div>
+        <div class="param-item">
+            <div class="param-label">處理策略</div>
+            <div class="param-value">${params.strategy}</div>
+        </div>
+    `;
+
+    // 顯示說明
+    const typeDescriptions = {
+        'text': '✅ 這是文字型 PDF，建議使用標準文本提取，無需 OCR 處理，速度最快。',
+        'scanned': '📸 這是掃描型 PDF，建議使用高 DPI OCR 處理以獲得最佳識別效果。',
+        'hybrid': '🔀 這是混合型 PDF，建議使用智能混合模式，對掃描頁面進行 OCR 處理。'
+    };
+
+    description.innerHTML = `
+        <p style="margin: 0;">${typeDescriptions[data.pdf_type]}</p>
+        <p style="margin-top: 12px; color: #666;">
+            <strong>性能預估:</strong> ${params.performance_note || '正常處理速度'}
+        </p>
+    `;
+
+    resultCard.style.display = 'block';
+    showAlert('OCR 參數優化完成！', 'success');
+}
+
+// 顯示提示
+function showAlert(message, type = 'success') {
+    const container = document.getElementById('alert-container');
+    const alertClass = `alert-${type}`;
+
+    const alert = document.createElement('div');
+    alert.className = `alert ${alertClass}`;
+    alert.textContent = message;
+
+    container.appendChild(alert);
+
+    setTimeout(() => {
+        alert.remove();
+    }, 5000);
+}
+</script>
+{% endblock %}
