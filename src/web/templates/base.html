@@ -38,6 +38,112 @@
     </footer>
 
     <script>
+        // ==================== 前端錯誤邊界 ====================
+
+        // 全局錯誤處理器
+        window.addEventListener('error', function(event) {
+            console.error('Global error caught:', event.error);
+
+            // 顯示友好的錯誤訊息給用戶
+            showErrorNotification(
+                '發生未預期的錯誤',
+                '抱歉，頁面運行時發生錯誤。請刷新頁面後重試。'
+            );
+
+            // 可選：發送錯誤報告到服務器
+            reportErrorToServer({
+                message: event.error?.message || '未知錯誤',
+                stack: event.error?.stack || '',
+                url: event.filename || window.location.href,
+                line: event.lineno,
+                column: event.colno,
+                timestamp: new Date().toISOString()
+            });
+
+            // 阻止默認的錯誤處理
+            event.preventDefault();
+        });
+
+        // 捕獲未處理的 Promise 拒絕
+        window.addEventListener('unhandledrejection', function(event) {
+            console.error('Unhandled promise rejection:', event.reason);
+
+            // 顯示友好的錯誤訊息
+            showErrorNotification(
+                'Promise 錯誤',
+                '異步操作失敗，請稍後重試。'
+            );
+
+            // 報告錯誤
+            reportErrorToServer({
+                message: event.reason?.message || String(event.reason),
+                stack: event.reason?.stack || '',
+                type: 'unhandledrejection',
+                timestamp: new Date().toISOString()
+            });
+
+            // 阻止默認處理
+            event.preventDefault();
+        });
+
+        // 顯示錯誤通知
+        function showErrorNotification(title, message) {
+            // 如果頁面有 Toast 通知系統，使用它
+            if (typeof showToast === 'function') {
+                showToast(title + ': ' + message, 'error');
+                return;
+            }
+
+            // 否則使用簡單的 alert（後續會被 Toast 系統替換）
+            console.warn('Error notification:', title, message);
+
+            // 創建簡單的錯誤提示
+            const errorDiv = document.createElement('div');
+            errorDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #f44336;
+                color: white;
+                padding: 16px 20px;
+                border-radius: 4px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+                z-index: 10000;
+                max-width: 400px;
+                animation: slideIn 0.3s ease-out;
+            `;
+            errorDiv.innerHTML = `
+                <strong>${title}</strong><br>
+                <span style="font-size: 0.9em;">${message}</span>
+            `;
+            document.body.appendChild(errorDiv);
+
+            // 3秒後自動移除
+            setTimeout(() => {
+                errorDiv.style.animation = 'slideOut 0.3s ease-out';
+                setTimeout(() => errorDiv.remove(), 300);
+            }, 5000);
+        }
+
+        // 向服務器報告錯誤（可選）
+        function reportErrorToServer(errorInfo) {
+            // 僅在生產環境或配置啟用時發送
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                // 開發環境只記錄到控制台
+                console.log('Error report (dev):', errorInfo);
+                return;
+            }
+
+            // 可以實現發送錯誤到服務器的邏輯
+            // fetch('/api/error-report', {
+            //     method: 'POST',
+            //     headers: {'Content-Type': 'application/json'},
+            //     body: JSON.stringify(errorInfo)
+            // }).catch(err => console.error('Failed to report error:', err));
+        }
+
+        // ==================== CSRF 保護工具 ====================
+
         // CSRF 保護工具
         let csrfToken = null;
 
