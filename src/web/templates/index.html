@@ -4,37 +4,37 @@
 
 {% block content %}
 <div class="hero">
-    <h1>🎯 歡迎使用考古題處理系統</h1>
-    <p class="subtitle">智能PDF解析 | 自動生成Google表單 | 多種題型支持</p>
+    <h1>🎯 歡迎使用考古題處理系統 v2.0</h1>
+    <p class="subtitle">智能爬蟲下載 | OCR深度整合 | 自動題目解析 | Google表單生成</p>
 </div>
 
 <div class="features-grid">
-    <div class="feature-card">
+    <div class="feature-card" style="border-left: 4px solid #4CAF50;">
+        <div class="feature-icon">🕷️</div>
+        <h3>爬蟲下載</h3>
+        <p>自動下載考選部考古題，支持並發下載、斷點續傳、進度顯示</p>
+        <a href="{{ url_for('crawler_page') }}" class="btn btn-primary">開始下載</a>
+    </div>
+
+    <div class="feature-card" style="border-left: 4px solid #2196F3;">
+        <div class="feature-icon">🔍</div>
+        <h3>OCR 深度整合</h3>
+        <p>智能檢測PDF類型，自動優化OCR參數，質量驗證，混合模式處理</p>
+        <a href="{{ url_for('ocr_page') }}" class="btn btn-primary">OCR 處理</a>
+    </div>
+
+    <div class="feature-card" style="border-left: 4px solid #FF9800;">
         <div class="feature-icon">📄</div>
-        <h3>PDF上傳處理</h3>
-        <p>支持上傳考古題PDF，自動解析題目和選項</p>
+        <h3>PDF 題目解析</h3>
+        <p>上傳考古題PDF，自動解析題目和選項，生成CSV和Google表單</p>
         <a href="{{ url_for('upload_page') }}" class="btn btn-primary">開始處理</a>
     </div>
 
-    <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <h3>批量處理</h3>
-        <p>支持批量上傳多個PDF文件，並發處理提高效率</p>
-        <a href="{{ url_for('upload_page') }}" class="btn btn-secondary">批量上傳</a>
-    </div>
-
-    <div class="feature-card">
+    <div class="feature-card" style="border-left: 4px solid #9C27B0;">
         <div class="feature-icon">⏱️</div>
         <h3>性能監控</h3>
         <p>實時監控處理性能，查看記憶體和CPU使用情況</p>
         <a href="{{ url_for('monitor_page') }}" class="btn btn-secondary">查看監控</a>
-    </div>
-
-    <div class="feature-card">
-        <div class="feature-icon">📥</div>
-        <h3>結果下載</h3>
-        <p>下載CSV格式的題目，或Google表單腳本</p>
-        <a href="{{ url_for('upload_page') }}" class="btn btn-secondary">查看結果</a>
     </div>
 </div>
 
@@ -62,17 +62,52 @@
 
 <div class="features-list">
     <h2>主要功能</h2>
-    <ul>
-        <li>✅ 智能PDF文字提取</li>
-        <li>✅ 多種題型格式支持（選擇題、申論題、填空題等）</li>
-        <li>✅ OCR掃描版PDF支持</li>
-        <li>✅ 自動生成Google表單腳本</li>
-        <li>✅ 並發批量處理（3-4倍速度提升）</li>
-        <li>✅ 流式處理（10倍記憶體降低）</li>
-        <li>✅ 自動重試和錯誤恢復</li>
-        <li>✅ 完整的性能監控</li>
-        <li>✅ 多語言界面（繁中、簡中、英文、日文）</li>
-    </ul>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+            <h3 style="color: #4CAF50; margin-bottom: 12px;">🕷️ 爬蟲下載功能</h3>
+            <ul>
+                <li>✅ 自動下載考選部考古題（民國81-114年）</li>
+                <li>✅ 並發下載（3-5倍速度提升）</li>
+                <li>✅ 進度實時顯示（tqdm支持）</li>
+                <li>✅ 斷點續傳（HTTP Range支持）</li>
+                <li>✅ 智能重試機制（10次重試）</li>
+                <li>✅ PDF文件完整性驗證</li>
+            </ul>
+        </div>
+        <div>
+            <h3 style="color: #2196F3; margin-bottom: 12px;">🔍 OCR 深度整合</h3>
+            <ul>
+                <li>✅ 自動PDF類型檢測（文字/掃描/混合）</li>
+                <li>✅ 智能參數調優（DPI 150-400自適應）</li>
+                <li>✅ OCR質量驗證（多維度評分）</li>
+                <li>✅ 混合模式處理（逐頁智能判斷）</li>
+                <li>✅ 性能優化（文字型10倍速）</li>
+                <li>✅ 質量閾值配置（優秀/良好/一般）</li>
+            </ul>
+        </div>
+        <div>
+            <h3 style="color: #FF9800; margin-bottom: 12px;">📄 PDF 題目解析</h3>
+            <ul>
+                <li>✅ 智能PDF文字提取</li>
+                <li>✅ 多種題型支持（選擇題、申論題、填空題等）</li>
+                <li>✅ 自動生成Google表單腳本</li>
+                <li>✅ 並發批量處理</li>
+                <li>✅ 流式處理（10倍記憶體降低）</li>
+                <li>✅ 自動重試和錯誤恢復</li>
+            </ul>
+        </div>
+        <div>
+            <h3 style="color: #9C27B0; margin-bottom: 12px;">⚡ 系統增強</h3>
+            <ul>
+                <li>✅ Web UI 控制台</li>
+                <li>✅ 實時進度和日誌顯示</li>
+                <li>✅ 完整的性能監控</li>
+                <li>✅ 多語言界面支持</li>
+                <li>✅ RESTful API 接口</li>
+                <li>✅ 任務管理和追蹤</li>
+            </ul>
+        </div>
+    </div>
 </div>
 {% endblock %}
 

@@ -1,0 +1,637 @@
+{% extends "base.html" %}
+
+{% block title %}爬蟲下載 - 考古題處理系統{% endblock %}
+
+{% block extra_css %}
+<style>
+.crawler-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.checkbox-label:hover {
+    background: #e8e8e8;
+}
+
+.checkbox-label input {
+    margin-right: 8px;
+}
+
+.button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.button-primary {
+    background: #4CAF50;
+    color: white;
+}
+
+.button-primary:hover {
+    background: #45a049;
+}
+
+.button-danger {
+    background: #f44336;
+    color: white;
+}
+
+.button-danger:hover {
+    background: #da190b;
+}
+
+.button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.task-list {
+    margin-top: 20px;
+}
+
+.task-item {
+    background: #f9f9f9;
+    border-left: 4px solid #4CAF50;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+}
+
+.task-item.running {
+    border-color: #2196F3;
+    background: #e3f2fd;
+}
+
+.task-item.failed {
+    border-color: #f44336;
+    background: #ffebee;
+}
+
+.task-item.cancelled {
+    border-color: #ff9800;
+    background: #fff3e0;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.task-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.task-status.pending { background: #e0e0e0; color: #666; }
+.task-status.running { background: #2196F3; color: white; }
+.task-status.completed { background: #4CAF50; color: white; }
+.task-status.failed { background: #f44336; color: white; }
+.task-status.cancelled { background: #ff9800; color: white; }
+
+.task-progress {
+    margin-top: 12px;
+}
+
+.progress-bar {
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #4CAF50;
+    transition: width 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.task-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.stat-item {
+    background: white;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #666;
+}
+
+.task-logs {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #f5f5f5;
+    padding: 12px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.log-entry {
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.quick-select {
+    margin-top: 8px;
+}
+
+.quick-select button {
+    padding: 6px 12px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.quick-select button:hover {
+    background: #1976D2;
+}
+
+.alert {
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="crawler-container">
+    <h1 style="margin-bottom: 24px;">🕷️ 爬蟲下載控制台</h1>
+
+    <div id="alert-container"></div>
+
+    <!-- 配置卡片 -->
+    <div class="card">
+        <div class="card-title">📋 配置爬蟲任務</div>
+
+        <div class="form-group">
+            <label class="form-label">年份選擇</label>
+            <input type="text" id="year-input" class="form-input" placeholder="例如: 113, 110-113, 110,112,113, all">
+            <div class="quick-select">
+                <button onclick="selectYears('latest')">最近一年</button>
+                <button onclick="selectYears('recent3')">最近三年</button>
+                <button onclick="selectYears('recent5')">最近五年</button>
+                <button onclick="selectYears('all')">全部年份</button>
+            </div>
+            <small style="color: #666; margin-top: 8px; display: block;">
+                可用年份: <span id="available-years-text">載入中...</span>
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">考試類型 <button onclick="selectAllKeywords()" style="font-size: 12px; margin-left: 8px;">全選</button></label>
+            <div class="checkbox-group" id="keywords-container">
+                <!-- 動態填充 -->
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">保存目錄</label>
+            <input type="text" id="save-dir" class="form-input" placeholder="留空使用默認目錄">
+        </div>
+
+        <div style="display: flex; gap: 12px;">
+            <button id="start-btn" class="button button-primary" onclick="startCrawler()">
+                🚀 開始下載
+            </button>
+            <button id="refresh-btn" class="button" style="background: #2196F3; color: white;" onclick="refreshTasks()">
+                🔄 刷新任務列表
+            </button>
+        </div>
+    </div>
+
+    <!-- 任務列表 -->
+    <div class="card">
+        <div class="card-title">📊 任務列表</div>
+        <div id="task-list" class="task-list">
+            <p style="color: #666; text-align: center;">暫無任務</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let availableYears = [];
+let defaultKeywords = [];
+let currentTasks = {};
+let refreshInterval = null;
+
+// 頁面載入時初始化
+document.addEventListener('DOMContentLoaded', () => {
+    loadConfig();
+    refreshTasks();
+
+    // 每3秒自動刷新任務列表
+    refreshInterval = setInterval(refreshTasks, 3000);
+});
+
+// 載入配置
+async function loadConfig() {
+    try {
+        const response = await fetch('/api/crawler/config');
+        const data = await response.json();
+
+        if (data.success) {
+            availableYears = data.available_years;
+            defaultKeywords = data.default_keywords;
+
+            // 更新可用年份顯示
+            document.getElementById('available-years-text').textContent =
+                `民國 ${availableYears[0]} - ${availableYears[availableYears.length - 1]} 年`;
+
+            // 渲染關鍵字選項
+            renderKeywords();
+        }
+    } catch (error) {
+        showAlert('載入配置失敗: ' + error.message, 'error');
+    }
+}
+
+// 渲染關鍵字選項
+function renderKeywords() {
+    const container = document.getElementById('keywords-container');
+    container.innerHTML = defaultKeywords.map(keyword => `
+        <label class="checkbox-label">
+            <input type="checkbox" class="keyword-checkbox" value="${keyword}" checked>
+            <span>${keyword}</span>
+        </label>
+    `).join('');
+}
+
+// 快速選擇年份
+function selectYears(type) {
+    const input = document.getElementById('year-input');
+    const latest = availableYears[availableYears.length - 1];
+
+    switch(type) {
+        case 'latest':
+            input.value = latest.toString();
+            break;
+        case 'recent3':
+            input.value = `${latest - 2}-${latest}`;
+            break;
+        case 'recent5':
+            input.value = `${latest - 4}-${latest}`;
+            break;
+        case 'all':
+            input.value = 'all';
+            break;
+    }
+}
+
+// 全選關鍵字
+function selectAllKeywords() {
+    const checkboxes = document.querySelectorAll('.keyword-checkbox');
+    const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+    checkboxes.forEach(cb => cb.checked = !allChecked);
+}
+
+// 解析年份輸入
+function parseYears(input) {
+    const trimmed = input.trim();
+
+    if (!trimmed || trimmed.toLowerCase() === 'all' || trimmed === '*') {
+        return availableYears;
+    }
+
+    if (trimmed.includes('-')) {
+        const [start, end] = trimmed.split('-').map(s => parseInt(s.trim()));
+        const years = [];
+        for (let y = start; y <= end; y++) {
+            if (availableYears.includes(y)) years.push(y);
+        }
+        return years;
+    }
+
+    if (trimmed.includes(',')) {
+        return trimmed.split(',')
+            .map(s => parseInt(s.trim()))
+            .filter(y => availableYears.includes(y));
+    }
+
+    const year = parseInt(trimmed);
+    return availableYears.includes(year) ? [year] : [];
+}
+
+// 啟動爬蟲
+async function startCrawler() {
+    const yearInput = document.getElementById('year-input').value;
+    const saveDir = document.getElementById('save-dir').value;
+    const checkboxes = document.querySelectorAll('.keyword-checkbox:checked');
+
+    const years = parseYears(yearInput);
+    const keywords = Array.from(checkboxes).map(cb => cb.value);
+
+    if (years.length === 0) {
+        showAlert('請選擇有效的年份', 'error');
+        return;
+    }
+
+    if (keywords.length === 0) {
+        showAlert('請至少選擇一個考試類型', 'error');
+        return;
+    }
+
+    const btn = document.getElementById('start-btn');
+    btn.disabled = true;
+    btn.textContent = '⏳ 啟動中...';
+
+    try {
+        const response = await fetch('/api/crawler/start', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ years, keywords, save_dir: saveDir || undefined })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            showAlert(`任務已啟動！任務ID: ${data.task_id}`, 'success');
+            refreshTasks();
+        } else {
+            showAlert(data.error || '啟動失敗', 'error');
+        }
+    } catch (error) {
+        showAlert('啟動失敗: ' + error.message, 'error');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = '🚀 開始下載';
+    }
+}
+
+// 刷新任務列表
+async function refreshTasks() {
+    try {
+        const response = await fetch('/api/crawler/tasks');
+        const tasks = await response.json();
+
+        currentTasks = {};
+        tasks.forEach(task => {
+            currentTasks[task.id] = task;
+        });
+
+        renderTasks(tasks);
+    } catch (error) {
+        console.error('刷新任務失敗:', error);
+    }
+}
+
+// 渲染任務列表
+function renderTasks(tasks) {
+    const container = document.getElementById('task-list');
+
+    if (tasks.length === 0) {
+        container.innerHTML = '<p style="color: #666; text-align: center;">暫無任務</p>';
+        return;
+    }
+
+    container.innerHTML = tasks.map(task => `
+        <div class="task-item ${task.status}">
+            <div class="task-header">
+                <div>
+                    <strong>任務 ID:</strong> ${task.id.substring(0, 8)}...
+                    <span class="task-status ${task.status}">${getStatusText(task.status)}</span>
+                </div>
+                <div>
+                    ${task.status === 'running' ?
+                        `<button class="button button-danger" style="padding: 6px 12px; font-size: 12px;" onclick="stopTask('${task.id}')">⏹️ 停止</button>` :
+                        `<button class="button" style="padding: 6px 12px; font-size: 12px; background: #666; color: white;" onclick="deleteTask('${task.id}')">🗑️ 刪除</button>`
+                    }
+                </div>
+            </div>
+
+            <div>
+                <strong>年份:</strong> ${task.years.join(', ')}
+                <br>
+                <strong>關鍵字:</strong> ${task.keywords.join(', ')}
+                <br>
+                <strong>保存目錄:</strong> ${task.save_dir}
+                <br>
+                ${task.current_year ? `<strong>當前處理:</strong> 民國 ${task.current_year} 年 - ${task.current_exam || ''}` : ''}
+            </div>
+
+            ${task.status === 'running' || task.status === 'completed' ? `
+                <div class="task-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${task.progress}%">
+                            ${task.progress}%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">${task.stats.success}</div>
+                        <div class="stat-label">成功</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">${task.stats.failed}</div>
+                        <div class="stat-label">失敗</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">${task.stats.completed_exams}</div>
+                        <div class="stat-label">完成考試</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">${(task.stats.total_size / 1024 / 1024).toFixed(2)} MB</div>
+                        <div class="stat-label">總大小</div>
+                    </div>
+                </div>
+            ` : ''}
+
+            ${task.logs && task.logs.length > 0 ? `
+                <div class="task-logs">
+                    ${task.logs.slice(-10).map(log =>
+                        `<div class="log-entry">[${new Date(log.timestamp).toLocaleTimeString()}] ${log.message}</div>`
+                    ).join('')}
+                </div>
+            ` : ''}
+        </div>
+    `).join('');
+}
+
+// 獲取狀態文本
+function getStatusText(status) {
+    const statusMap = {
+        'pending': '等待中',
+        'running': '運行中',
+        'completed': '已完成',
+        'failed': '失敗',
+        'cancelled': '已取消'
+    };
+    return statusMap[status] || status;
+}
+
+// 停止任務
+async function stopTask(taskId) {
+    if (!confirm('確定要停止此任務嗎？')) return;
+
+    try {
+        const response = await fetch(`/api/crawler/stop/${taskId}`, {
+            method: 'POST'
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            showAlert('任務已停止', 'success');
+            refreshTasks();
+        } else {
+            showAlert(data.error || '停止失敗', 'error');
+        }
+    } catch (error) {
+        showAlert('停止失敗: ' + error.message, 'error');
+    }
+}
+
+// 刪除任務
+async function deleteTask(taskId) {
+    if (!confirm('確定要刪除此任務嗎？')) return;
+
+    try {
+        const response = await fetch(`/api/crawler/delete/${taskId}`, {
+            method: 'DELETE'
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            showAlert('任務已刪除', 'success');
+            refreshTasks();
+        } else {
+            showAlert(data.error || '刪除失敗', 'error');
+        }
+    } catch (error) {
+        showAlert('刪除失敗: ' + error.message, 'error');
+    }
+}
+
+// 顯示提示
+function showAlert(message, type = 'info') {
+    const container = document.getElementById('alert-container');
+    const alertClass = `alert-${type}`;
+
+    const alert = document.createElement('div');
+    alert.className = `alert ${alertClass}`;
+    alert.textContent = message;
+
+    container.appendChild(alert);
+
+    setTimeout(() => {
+        alert.remove();
+    }, 5000);
+}
+
+// 頁面卸載時清除定時器
+window.addEventListener('beforeunload', () => {
+    if (refreshInterval) {
+        clearInterval(refreshInterval);
+    }
+});
+</script>
+{% endblock %}
