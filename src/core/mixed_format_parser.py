@@ -47,9 +47,9 @@ class MixedFormatParser:
         """解析作文部分"""
         self.logger.info("解析作文部分")
 
-        # 找到作文部分
-        essay_start = text.find("甲、作文部分")
-        test_start = text.find("乙、測驗部分")
+        # 找到作文部分 (支持简体和繁体)
+        essay_start = max(text.find("甲、作文部分"), text.find("甲、作文部分"))
+        test_start = max(text.find("乙、測驗部分"), text.find("乙、测验部分"))
 
         if essay_start == -1 or test_start == -1:
             self.logger.warning("未找到作文或测验部分标记")
@@ -99,8 +99,8 @@ class MixedFormatParser:
         """解析测验部分"""
         self.logger.info("解析测验部分")
 
-        # 找到测验部分
-        test_start = text.find("乙、測驗部分")
+        # 找到测验部分 (支持简体和繁体)
+        test_start = max(text.find("乙、測驗部分"), text.find("乙、测验部分"))
         if test_start == -1:
             self.logger.warning("未找到测验部分")
             return []
@@ -149,8 +149,8 @@ class MixedFormatParser:
                 }
                 current_options = []
 
-            # 检查是否是选项行（包含特殊字符）
-            elif re.search(r"[]", line):
+            # 检查是否是选项行（标准格式如 (A) 或特殊字符）
+            elif re.search(r"[（(][ABCD][）)]|[]", line):
                 options = self._extract_test_options(line)
                 current_options.extend(options)
 
@@ -171,14 +171,22 @@ class MixedFormatParser:
         """提取测验题选项"""
         options = []
 
-        # 查找选项模式：特殊字符 + 选项内容
-        option_pattern = r"[](\s*[^]+?)(?=[]|$)"
-        matches = re.finditer(option_pattern, question_text)
-
-        for match in matches:
-            option_text = match.group(1).strip()
+        # 查找标准选项模式：(A) 选项内容 或 （A） 选项内容
+        standard_pattern = r'[（(]([ABCD])[）)]\s*([^（(]+?)(?=[（(][ABCD][）)]|$)'
+        standard_matches = re.finditer(standard_pattern, question_text)
+        for match in standard_matches:
+            option_text = match.group(2).strip()
             if option_text:
                 options.append(option_text)
+
+        # 如果没有标准选项，查找特殊字符选项
+        if not options:
+            option_pattern = r"[](\s*[^]+?)(?=[]|$)"
+            matches = re.finditer(option_pattern, question_text)
+            for match in matches:
+                option_text = match.group(1).strip()
+                if option_text:
+                    options.append(option_text)
 
         return options
 
