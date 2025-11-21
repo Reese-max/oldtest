@@ -17,7 +17,7 @@ def read_file(filename):
     return ""
 
 # 版本信息
-VERSION = "1.7.0"
+VERSION = "3.0.0"
 DESCRIPTION = "考古題處理系統 - 自動化解析考試題目並生成Google表單"
 LONG_DESCRIPTION = read_file("README.md")
 
@@ -86,12 +86,12 @@ FULL_REQUIREMENTS = (
 setup(
     name="exam-question-processor",
     version=VERSION,
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Reese",
+    author_email="reese@example.com",
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/exam-question-processor",
+    url="https://github.com/Reese-max/oldtest",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -152,8 +152,8 @@ setup(
 
     # 項目URLs
     project_urls={
-        "Bug Reports": "https://github.com/yourusername/exam-question-processor/issues",
-        "Source": "https://github.com/yourusername/exam-question-processor",
-        "Documentation": "https://github.com/yourusername/exam-question-processor/blob/main/docs/API_DOCUMENTATION.md",
+        "Bug Reports": "https://github.com/Reese-max/oldtest/issues",
+        "Source": "https://github.com/Reese-max/oldtest",
+        "Documentation": "https://github.com/Reese-max/oldtest/blob/main/docs/API_DOCUMENTATION.md",
     },
 )

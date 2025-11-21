@@ -15,10 +15,35 @@
   - 測試覆蓋率報告
   - OCR 功能獨立測試
   - Web 界面測試
+  - 自動發布流程（release.yml）
 - 新增 CHANGELOG.md 結構化變更日誌
+- 🐳 **Docker 支援**
+  - 多階段構建 Dockerfile
+  - 4 種預配置環境（minimal, full, web, dev）
+  - docker-compose.yml 完整配置
+  - 支援開發、生產、測試環境
+  - .dockerignore 優化構建
+- 📊 **性能基準測試**
+  - tests/test_performance_benchmarks.py
+  - PDF 處理速度測試
+  - 解析器性能對比
+  - 並發處理測試
+  - 記憶體使用分析
+  - 性能回歸檢測
+  - 吞吐量測試
 
 ### 改進 (Changed)
 - 改善專案管理和版本控制流程
+- 📦 **更新 setup.py 配置**
+  - 版本號更新至 3.0.0
+  - 更新作者信息（Reese）
+  - 更新 GitHub URL (Reese-max/oldtest)
+  - 更新所有 project_urls
+- 📚 **更新 README.md**
+  - 新增 Docker 使用說明（選項四）
+  - 完整的 Docker 命令範例
+  - Docker 環境對比表
+  - 快速啟動指南
 
 ---
 

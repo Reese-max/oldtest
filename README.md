@@ -97,6 +97,51 @@ pip install -r requirements-ocr.txt
 pip install -r requirements-dev.txt
 ```
 
+#### 選項四：使用 Docker（推薦✨）
+最簡單的部署方式，無需手動安裝依賴：
+
+**快速啟動 Web 界面**：
+```bash
+# 啟動 Web 服務（含 OCR 功能）
+docker-compose up web
+
+# 瀏覽器訪問
+open http://localhost:5000
+```
+
+**其他 Docker 命令**：
+```bash
+# 開發模式（支持熱重載）
+docker-compose up dev
+
+# 僅核心功能（最小鏡像）
+docker-compose up minimal
+
+# 批量處理考古題
+docker-compose up batch
+
+# 運行測試
+docker-compose up test
+```
+
+**自定義構建**：
+```bash
+# 構建特定版本
+docker build --target web -t oldtest:web .
+docker build --target dev -t oldtest:dev .
+
+# 運行容器
+docker run -p 5000:5000 -v $(pwd)/output:/app/output oldtest:web
+```
+
+**Docker 環境說明**：
+| 環境 | 鏡像大小 | 包含功能 | 用途 |
+|------|---------|---------|------|
+| minimal | ~500MB | 僅核心功能 | CLI 處理 |
+| full | ~1.2GB | 核心+OCR | 完整功能 |
+| web | ~1.3GB | 核心+OCR+Web | Web 界面 |
+| dev | ~1.5GB | 所有+開發工具 | 開發調試 |
+
 📚 **詳細安裝指南**: 請查看 [INSTALLATION.md](docs/INSTALLATION.md)
 
 **安裝對比**:
