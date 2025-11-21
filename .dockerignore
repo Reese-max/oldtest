@@ -1,0 +1,112 @@
+# Git 相關
+.git
+.gitignore
+.gitattributes
+.github
+
+# Python 編譯文件
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 虛擬環境
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv
+
+# 測試和覆蓋率
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 日誌文件
+*.log
+logs/
+*.log.*
+
+# 輸出目錄（由 volume 掛載）
+output/
+uploads/
+temp/
+
+# 文檔（不需要在容器中）
+docs/
+*.md
+!README.md
+*.rst
+*.txt
+!requirements*.txt
+
+# 考古題數據（由 volume 掛載）
+考選部考古題完整庫/
+情境實務/
+
+# 歸檔文件
+archive/
+*.zip
+*.tar.gz
+*.rar
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# 環境變數文件
+.env
+.env.*
+
+# 資料庫文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 備份文件
+*.bak
+*.backup
+*.old
+
+# 系統文件
+Thumbs.db
+desktop.ini
+
+# Node modules（如果有前端開發）
+node_modules/
+npm-debug.log
+
+# 大型數據文件
+*.csv
+*.xlsx
+*.pdf
+
+# Docker 相關（避免遞迴）
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# CI/CD 輸出
+.github/
+
+# 其他
+*.pyc
+*.pyo
+*.pyd
+.cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json

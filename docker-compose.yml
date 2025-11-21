@@ -1,0 +1,178 @@
+version: '3.8'
+
+# 考古題 PDF 解析系統 - Docker Compose 配置
+# 提供多種環境配置：開發、生產、測試
+
+services:
+  # =====================================
+  # Web 服務（預設）- 生產環境
+  # =====================================
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: web
+    container_name: oldtest-web
+    image: oldtest:web
+    ports:
+      - "5000:5000"
+    volumes:
+      # 掛載輸出目錄（持久化處理結果）
+      - ./output:/app/output
+      - ./logs:/app/logs
+      # 掛載上傳目錄
+      - ./uploads:/app/uploads
+      # 掛載配置文件（可動態修改）
+      - ./config.yaml:/app/config.yaml:ro
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=INFO
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - oldtest-network
+
+  # =====================================
+  # 開發服務 - 開發環境
+  # =====================================
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    container_name: oldtest-dev
+    image: oldtest:dev
+    ports:
+      - "5000:5000"
+      - "8888:8888"  # Jupyter Notebook
+    volumes:
+      # 掛載整個專案（支持熱重載）
+      - .:/app
+      # 使用命名卷存儲 Python 包（加快啟動）
+      - dev-venv:/usr/local/lib/python3.11/site-packages
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=DEBUG
+    command: python run_web.py --debug --host 0.0.0.0
+    stdin_open: true
+    tty: true
+    networks:
+      - oldtest-network
+
+  # =====================================
+  # 最小化服務 - 僅核心功能
+  # =====================================
+  minimal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: minimal
+    container_name: oldtest-minimal
+    image: oldtest:minimal
+    volumes:
+      - ./output:/app/output
+      - ./logs:/app/logs
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=INFO
+    command: ["python", "main.py", "--help"]
+    networks:
+      - oldtest-network
+
+  # =====================================
+  # 完整服務 - 包含 OCR
+  # =====================================
+  full:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: full
+    container_name: oldtest-full
+    image: oldtest:full
+    volumes:
+      - ./output:/app/output
+      - ./logs:/app/logs
+      - ./temp:/app/temp
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=INFO
+      - ENABLE_OCR=true
+    command: ["python", "main.py", "--help"]
+    networks:
+      - oldtest-network
+
+  # =====================================
+  # 測試服務 - 運行測試
+  # =====================================
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    container_name: oldtest-test
+    image: oldtest:test
+    volumes:
+      - .:/app
+      - test-coverage:/app/htmlcov
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=DEBUG
+    command: >
+      sh -c "
+        pytest tests/
+        --cov=src
+        --cov-report=html
+        --cov-report=term-missing
+        --ignore=tests/browser/
+        -v
+      "
+    networks:
+      - oldtest-network
+
+  # =====================================
+  # 批量處理服務 - 批量處理 PDF
+  # =====================================
+  batch:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: full
+    container_name: oldtest-batch
+    image: oldtest:batch
+    volumes:
+      - ./考選部考古題完整庫:/app/input:ro
+      - ./output:/app/output
+      - ./logs:/app/logs
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=INFO
+      - ENABLE_CONCURRENT=true
+      - MAX_WORKERS=4
+    command: ["python", "comprehensive_batch_test.py"]
+    networks:
+      - oldtest-network
+
+# =====================================
+# 命名卷定義
+# =====================================
+volumes:
+  dev-venv:
+    driver: local
+  test-coverage:
+    driver: local
+
+# =====================================
+# 網路定義
+# =====================================
+networks:
+  oldtest-network:
+    driver: bridge
+    name: oldtest-network
