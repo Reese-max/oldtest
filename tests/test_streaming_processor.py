@@ -6,22 +6,22 @@
 
 import os
 import sys
-import unittest
-from unittest.mock import Mock, patch, MagicMock
 import tempfile
+import unittest
+from unittest.mock import MagicMock, Mock, patch
 
 # 添加專案根目錄到路徑
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
+from src.utils.exceptions import PDFProcessingError
 from src.utils.streaming_processor import (
-    StreamingPDFProcessor,
-    StreamConfig,
     MemoryMonitor,
     PageChunk,
+    StreamConfig,
+    StreamingPDFProcessor,
     create_streaming_processor,
-    memory_efficient_processing
+    memory_efficient_processing,
 )
-from src.utils.exceptions import PDFProcessingError
 
 
 class TestMemoryMonitor(unittest.TestCase):
@@ -80,16 +80,16 @@ class TestMemoryMonitor(unittest.TestCase):
         stats = monitor.get_stats()
 
         # 驗證統計欄位
-        self.assertIn('current_mb', stats)
-        self.assertIn('peak_mb', stats)
-        self.assertIn('limit_mb', stats)
-        self.assertIn('usage_percent', stats)
+        self.assertIn("current_mb", stats)
+        self.assertIn("peak_mb", stats)
+        self.assertIn("limit_mb", stats)
+        self.assertIn("usage_percent", stats)
 
         # 驗證數值合理性
-        self.assertGreater(stats['current_mb'], 0)
-        self.assertGreater(stats['peak_mb'], 0)
-        self.assertEqual(stats['limit_mb'], 512)
-        self.assertGreater(stats['usage_percent'], 0)
+        self.assertGreater(stats["current_mb"], 0)
+        self.assertGreater(stats["peak_mb"], 0)
+        self.assertEqual(stats["limit_mb"], 512)
+        self.assertGreater(stats["usage_percent"], 0)
 
 
 class TestStreamConfig(unittest.TestCase):
@@ -108,11 +108,7 @@ class TestStreamConfig(unittest.TestCase):
     def test_custom_config(self):
         """測試自定義配置"""
         config = StreamConfig(
-            chunk_size=20,
-            memory_limit_mb=1024,
-            enable_monitoring=False,
-            auto_gc=False,
-            gc_interval=5
+            chunk_size=20, memory_limit_mb=1024, enable_monitoring=False, auto_gc=False, gc_interval=5
         )
 
         self.assertEqual(config.chunk_size, 20)
@@ -127,15 +123,11 @@ class TestPageChunk(unittest.TestCase):
 
     def test_page_chunk(self):
         """測試頁面區塊創建"""
-        chunk = PageChunk(
-            pages=[1, 2, 3],
-            text="test text",
-            metadata={'total_pages': 100}
-        )
+        chunk = PageChunk(pages=[1, 2, 3], text="test text", metadata={"total_pages": 100})
 
         self.assertEqual(chunk.pages, [1, 2, 3])
         self.assertEqual(chunk.text, "test text")
-        self.assertEqual(chunk.metadata['total_pages'], 100)
+        self.assertEqual(chunk.metadata["total_pages"], 100)
 
 
 class TestStreamingPDFProcessor(unittest.TestCase):
@@ -164,10 +156,10 @@ class TestStreamingPDFProcessor(unittest.TestCase):
         clean = self.processor._clean_text(dirty_text)
 
         # 應該移除特殊字符
-        self.assertNotIn('\x00', clean)
-        self.assertNotIn('\ufeff', clean)
-        self.assertIn('Hello', clean)
-        self.assertIn('World', clean)
+        self.assertNotIn("\x00", clean)
+        self.assertNotIn("\ufeff", clean)
+        self.assertIn("Hello", clean)
+        self.assertIn("World", clean)
 
     def test_clean_text_unicode_error(self):
         """測試 Unicode 錯誤處理"""
@@ -176,7 +168,7 @@ class TestStreamingPDFProcessor(unittest.TestCase):
         clean = self.processor._clean_text(text)
         self.assertEqual(clean, text)
 
-    @patch('pdfplumber.open')
+    @patch("pdfplumber.open")
     def test_stream_pages_basic(self, mock_pdf_open):
         """測試基本流式處理"""
         # 模擬 PDF
@@ -191,7 +183,7 @@ class TestStreamingPDFProcessor(unittest.TestCase):
         mock_pdf_open.return_value = mock_pdf
 
         # 創建臨時 PDF 文件路徑
-        with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
             tmp_path = tmp.name
 
         try:
@@ -212,7 +204,7 @@ class TestStreamingPDFProcessor(unittest.TestCase):
         with self.assertRaises(PDFProcessingError):
             list(self.processor.stream_pages("nonexistent.pdf"))
 
-    @patch('pdfplumber.open')
+    @patch("pdfplumber.open")
     def test_stream_pages_with_page_range(self, mock_pdf_open):
         """測試指定頁面範圍"""
         # 模擬 10 頁的 PDF
@@ -227,16 +219,12 @@ class TestStreamingPDFProcessor(unittest.TestCase):
         mock_pdf.__enter__.return_value = mock_pdf
         mock_pdf_open.return_value = mock_pdf
 
-        with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
             tmp_path = tmp.name
 
         try:
             # 只處理第 3-7 頁
-            chunks = list(self.processor.stream_pages(
-                tmp_path,
-                start_page=3,
-                end_page=7
-            ))
+            chunks = list(self.processor.stream_pages(tmp_path, start_page=3, end_page=7))
 
             # chunk_size=5, 5 pages (3-7) -> 1 chunk
             self.assertEqual(len(chunks), 1)
@@ -245,7 +233,7 @@ class TestStreamingPDFProcessor(unittest.TestCase):
         finally:
             os.unlink(tmp_path)
 
-    @patch('pdfplumber.open')
+    @patch("pdfplumber.open")
     def test_process_with_callback(self, mock_pdf_open):
         """測試回調處理"""
         # 模擬 PDF
@@ -256,25 +244,25 @@ class TestStreamingPDFProcessor(unittest.TestCase):
         mock_pdf.__enter__.return_value = mock_pdf
         mock_pdf_open.return_value = mock_pdf
 
-        with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
             tmp_path = tmp.name
 
         try:
             # 定義回調
-            callback = Mock(return_value={'result': 'processed'})
+            callback = Mock(return_value={"result": "processed"})
 
             # 處理
             results = self.processor.process_with_callback(tmp_path, callback)
 
             # 驗證
             self.assertEqual(len(results), 1)
-            self.assertEqual(results[0]['result'], 'processed')
+            self.assertEqual(results[0]["result"], "processed")
             callback.assert_called_once()
 
         finally:
             os.unlink(tmp_path)
 
-    @patch('pdfplumber.open')
+    @patch("pdfplumber.open")
     def test_process_with_callback_error(self, mock_pdf_open):
         """測試回調處理錯誤"""
         # 模擬 PDF
@@ -285,7 +273,7 @@ class TestStreamingPDFProcessor(unittest.TestCase):
         mock_pdf.__enter__.return_value = mock_pdf
         mock_pdf_open.return_value = mock_pdf
 
-        with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
             tmp_path = tmp.name
 
         try:
@@ -301,7 +289,7 @@ class TestStreamingPDFProcessor(unittest.TestCase):
         finally:
             os.unlink(tmp_path)
 
-    @patch('pdfplumber.open')
+    @patch("pdfplumber.open")
     def test_extract_text_streaming(self, mock_pdf_open):
         """測試流式文字提取"""
         # 模擬 PDF
@@ -314,7 +302,7 @@ class TestStreamingPDFProcessor(unittest.TestCase):
         mock_pdf.__enter__.return_value = mock_pdf
         mock_pdf_open.return_value = mock_pdf
 
-        with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
             tmp_path = tmp.name
 
         try:
@@ -328,7 +316,7 @@ class TestStreamingPDFProcessor(unittest.TestCase):
         finally:
             os.unlink(tmp_path)
 
-    @patch('pdfplumber.open')
+    @patch("pdfplumber.open")
     def test_extract_text_streaming_with_callback(self, mock_pdf_open):
         """測試帶回調的流式文字提取"""
         # 模擬 PDF
@@ -339,7 +327,7 @@ class TestStreamingPDFProcessor(unittest.TestCase):
         mock_pdf.__enter__.return_value = mock_pdf
         mock_pdf_open.return_value = mock_pdf
 
-        with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
             tmp_path = tmp.name
 
         try:
@@ -363,11 +351,7 @@ class TestHelperFunctions(unittest.TestCase):
 
     def test_create_streaming_processor(self):
         """測試創建流式處理器"""
-        processor = create_streaming_processor(
-            chunk_size=20,
-            memory_limit_mb=1024,
-            enable_monitoring=False
-        )
+        processor = create_streaming_processor(chunk_size=20, memory_limit_mb=1024, enable_monitoring=False)
 
         self.assertIsInstance(processor, StreamingPDFProcessor)
         self.assertEqual(processor.config.chunk_size, 20)
@@ -383,8 +367,8 @@ class TestHelperFunctions(unittest.TestCase):
 
             # 可以獲取記憶體統計
             stats = monitor.get_stats()
-            self.assertIn('current_mb', stats)
+            self.assertIn("current_mb", stats)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

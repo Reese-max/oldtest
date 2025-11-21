@@ -5,18 +5,21 @@ YAML 配置管理器
 支持 YAML/JSON 雙格式，環境變量覆蓋，配置驗證
 """
 
-import os
-import yaml
 import json
-from typing import Any, Dict, Optional
-from pathlib import Path
+import os
 from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Any, Dict, Optional
+
+import yaml
+
 from .logger import logger
 
 
 @dataclass
 class ProcessingConfig:
     """處理配置"""
+
     max_pages: int = 200
     memory_cleanup_interval: int = 50
     output_encoding: str = "utf-8-sig"
@@ -26,6 +29,7 @@ class ProcessingConfig:
 @dataclass
 class GoogleFormConfig:
     """Google 表單配置"""
+
     enable_auto_score: bool = True
     shuffle_options: bool = False
     required: bool = True
@@ -35,6 +39,7 @@ class GoogleFormConfig:
 @dataclass
 class OCRConfig:
     """OCR 配置"""
+
     pdf_to_image_dpi: int = 300
     pdf_to_image_zoom: float = 2.0
     confidence_threshold: float = 0.5
@@ -45,6 +50,7 @@ class OCRConfig:
 @dataclass
 class ConcurrentConfig:
     """並發處理配置"""
+
     max_workers: int = 4
     use_processes: bool = False
     batch_size: int = 50
@@ -54,6 +60,7 @@ class ConcurrentConfig:
 @dataclass
 class LoggingConfig:
     """日誌配置"""
+
     level: str = "INFO"
     file: str = "logs/app.log"
     max_size: int = 10485760  # 10MB
@@ -64,6 +71,7 @@ class LoggingConfig:
 @dataclass
 class ScanTrackingConfig:
     """掃描追蹤配置"""
+
     enabled: bool = True
     save_report: bool = True
     report_format: str = "json"
@@ -72,6 +80,7 @@ class ScanTrackingConfig:
 @dataclass
 class PerformanceConfig:
     """性能監控配置"""
+
     enabled: bool = False
     metrics_interval: int = 60
     save_metrics: bool = False
@@ -80,6 +89,7 @@ class PerformanceConfig:
 @dataclass
 class ErrorRecoveryConfig:
     """錯誤恢復配置"""
+
     max_retries: int = 3
     retry_delay: int = 2
     exponential_backoff: bool = True
@@ -88,6 +98,7 @@ class ErrorRecoveryConfig:
 @dataclass
 class OutputConfig:
     """輸出配置"""
+
     default_dir: str = "output"
     create_subdirs: bool = True
     overwrite_existing: bool = False
@@ -96,6 +107,7 @@ class OutputConfig:
 @dataclass
 class AppConfig:
     """應用程式配置（頂層）"""
+
     processing: ProcessingConfig = field(default_factory=ProcessingConfig)
     google_form: GoogleFormConfig = field(default_factory=GoogleFormConfig)
     ocr: OCRConfig = field(default_factory=OCRConfig)
@@ -118,7 +130,7 @@ class YAMLConfigManager:
         return cls._instance
 
     def __init__(self):
-        if not hasattr(self, '_initialized'):
+        if not hasattr(self, "_initialized"):
             self.logger = logger
             self.config: Optional[AppConfig] = None
             self.config_file: Optional[str] = None
@@ -150,10 +162,10 @@ class YAMLConfigManager:
         file_ext = Path(config_file).suffix.lower()
 
         try:
-            with open(config_file, 'r', encoding='utf-8') as f:
-                if file_ext in ['.yaml', '.yml']:
+            with open(config_file, "r", encoding="utf-8") as f:
+                if file_ext in [".yaml", ".yml"]:
                     config_data = yaml.safe_load(f) or {}
-                elif file_ext == '.json':
+                elif file_ext == ".json":
                     config_data = json.load(f)
                 else:
                     raise ValueError(f"不支持的配置文件格式: {file_ext}")
@@ -177,15 +189,15 @@ class YAMLConfigManager:
     def _parse_config(self, data: Dict[str, Any]) -> AppConfig:
         """解析配置數據為 AppConfig 對象"""
         return AppConfig(
-            processing=self._parse_section(data.get('processing', {}), ProcessingConfig),
-            google_form=self._parse_section(data.get('google_form', {}), GoogleFormConfig),
-            ocr=self._parse_section(data.get('ocr', {}), OCRConfig),
-            concurrent=self._parse_section(data.get('concurrent', {}), ConcurrentConfig),
-            logging=self._parse_section(data.get('logging', {}), LoggingConfig),
-            scan_tracking=self._parse_section(data.get('scan_tracking', {}), ScanTrackingConfig),
-            performance=self._parse_section(data.get('performance', {}), PerformanceConfig),
-            error_recovery=self._parse_section(data.get('error_recovery', {}), ErrorRecoveryConfig),
-            output=self._parse_section(data.get('output', {}), OutputConfig)
+            processing=self._parse_section(data.get("processing", {}), ProcessingConfig),
+            google_form=self._parse_section(data.get("google_form", {}), GoogleFormConfig),
+            ocr=self._parse_section(data.get("ocr", {}), OCRConfig),
+            concurrent=self._parse_section(data.get("concurrent", {}), ConcurrentConfig),
+            logging=self._parse_section(data.get("logging", {}), LoggingConfig),
+            scan_tracking=self._parse_section(data.get("scan_tracking", {}), ScanTrackingConfig),
+            performance=self._parse_section(data.get("performance", {}), PerformanceConfig),
+            error_recovery=self._parse_section(data.get("error_recovery", {}), ErrorRecoveryConfig),
+            output=self._parse_section(data.get("output", {}), OutputConfig),
         )
 
     def _parse_section(self, data: Dict[str, Any], config_class):
@@ -209,13 +221,13 @@ class YAMLConfigManager:
                 continue
 
             # 解析環境變量名稱
-            parts = env_key[len(env_prefix):].lower().split('_')
+            parts = env_key[len(env_prefix) :].lower().split("_")
 
             if len(parts) < 2:
                 continue
 
             section_name = parts[0]
-            field_name = '_'.join(parts[1:])
+            field_name = "_".join(parts[1:])
 
             # 獲取對應的配置section
             if not hasattr(self.config, section_name):
@@ -230,7 +242,7 @@ class YAMLConfigManager:
             field_type = type(getattr(section, field_name))
             try:
                 if field_type == bool:
-                    value = env_value.lower() in ('true', '1', 'yes')
+                    value = env_value.lower() in ("true", "1", "yes")
                 elif field_type == int:
                     value = int(env_value)
                 elif field_type == float:
@@ -262,10 +274,10 @@ class YAMLConfigManager:
         config_dict = self._config_to_dict()
 
         try:
-            with open(output_file, 'w', encoding='utf-8') as f:
-                if file_ext in ['.yaml', '.yml']:
+            with open(output_file, "w", encoding="utf-8") as f:
+                if file_ext in [".yaml", ".yml"]:
                     yaml.dump(config_dict, f, allow_unicode=True, default_flow_style=False)
-                elif file_ext == '.json':
+                elif file_ext == ".json":
                     json.dump(config_dict, f, ensure_ascii=False, indent=2)
                 else:
                     raise ValueError(f"不支持的輸出格式: {file_ext}")
@@ -279,6 +291,7 @@ class YAMLConfigManager:
     def _config_to_dict(self) -> Dict[str, Any]:
         """將配置對象轉換為字典"""
         from dataclasses import asdict
+
         return asdict(self.config)
 
     def get_config(self) -> AppConfig:

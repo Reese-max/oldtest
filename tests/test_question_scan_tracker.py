@@ -5,11 +5,12 @@
 測試題目掃描記錄和完整性驗證
 """
 
-import unittest
-import tempfile
 import json
 import os
-from src.utils.question_scan_tracker import QuestionScanTracker, QuestionScanStatus
+import tempfile
+import unittest
+
+from src.utils.question_scan_tracker import QuestionScanStatus, QuestionScanTracker
 
 
 class TestQuestionScanStatus(unittest.TestCase):
@@ -37,8 +38,8 @@ class TestQuestionScanStatus(unittest.TestCase):
         self.assertIsNotNone(status.scan_time)
         self.assertEqual(status.content_preview, "這是一道測試題目")
         self.assertEqual(len(status.scan_attempts), 1)
-        self.assertEqual(status.scan_attempts[0]['parser'], "TestParser")
-        self.assertTrue(status.scan_attempts[0]['success'])
+        self.assertEqual(status.scan_attempts[0]["parser"], "TestParser")
+        self.assertTrue(status.scan_attempts[0]["success"])
 
     def test_add_attempt(self):
         """測試添加掃描嘗試"""
@@ -47,9 +48,9 @@ class TestQuestionScanStatus(unittest.TestCase):
         status.add_attempt("Parser2", True)
 
         self.assertEqual(len(status.scan_attempts), 2)
-        self.assertFalse(status.scan_attempts[0]['success'])
-        self.assertEqual(status.scan_attempts[0]['error'], "解析失敗")
-        self.assertTrue(status.scan_attempts[1]['success'])
+        self.assertFalse(status.scan_attempts[0]["success"])
+        self.assertEqual(status.scan_attempts[0]["error"], "解析失敗")
+        self.assertTrue(status.scan_attempts[1]["success"])
 
     def test_add_warning(self):
         """測試添加警告"""
@@ -57,8 +58,8 @@ class TestQuestionScanStatus(unittest.TestCase):
         status.add_warning("題目內容過短")
 
         self.assertEqual(len(status.warnings), 1)
-        self.assertEqual(status.warnings[0]['message'], "題目內容過短")
-        self.assertIn('time', status.warnings[0])
+        self.assertEqual(status.warnings[0]["message"], "題目內容過短")
+        self.assertIn("time", status.warnings[0])
 
     def test_to_dict(self):
         """測試轉換為字典"""
@@ -67,11 +68,11 @@ class TestQuestionScanStatus(unittest.TestCase):
 
         data = status.to_dict()
 
-        self.assertEqual(data['question_num'], 1)
-        self.assertTrue(data['scanned'])
-        self.assertEqual(data['parser_used'], "TestParser")
-        self.assertIn('scan_time', data)
-        self.assertIn('scan_attempts', data)
+        self.assertEqual(data["question_num"], 1)
+        self.assertTrue(data["scanned"])
+        self.assertEqual(data["parser_used"], "TestParser")
+        self.assertIn("scan_time", data)
+        self.assertIn("scan_attempts", data)
 
 
 class TestQuestionScanTracker(unittest.TestCase):
@@ -128,7 +129,7 @@ class TestQuestionScanTracker(unittest.TestCase):
 
         status = self.tracker.scan_status[1]
         self.assertEqual(len(status.scan_attempts), 2)
-        self.assertFalse(status.scan_attempts[0]['success'])
+        self.assertFalse(status.scan_attempts[0]["success"])
 
     def test_add_warning(self):
         """測試添加警告"""
@@ -136,7 +137,7 @@ class TestQuestionScanTracker(unittest.TestCase):
 
         status = self.tracker.scan_status[1]
         self.assertEqual(len(status.warnings), 1)
-        self.assertEqual(status.warnings[0]['message'], "題目內容可能有誤")
+        self.assertEqual(status.warnings[0]["message"], "題目內容可能有誤")
 
     def test_completeness_check_continuous(self):
         """測試連續題號的完整性檢查"""
@@ -203,43 +204,39 @@ class TestQuestionScanTracker(unittest.TestCase):
 
     def test_validate_questions_complete(self):
         """測試驗證完整的題目列表"""
-        questions = [
-            {'題號': 1, '題目': '問題一'},
-            {'題號': 2, '題目': '問題二'},
-            {'題號': 3, '題目': '問題三'}
-        ]
+        questions = [{"題號": 1, "題目": "問題一"}, {"題號": 2, "題目": "問題二"}, {"題號": 3, "題目": "問題三"}]
 
         is_complete, message = self.tracker.validate_questions(questions)
 
         self.assertTrue(is_complete)
-        self.assertIn('完整', message)
+        self.assertIn("完整", message)
 
     def test_validate_questions_incomplete(self):
         """測試驗證不完整的題目列表"""
         questions = [
-            {'題號': 1, '題目': '問題一'},
-            {'題號': 3, '題目': '問題三'},  # 缺少題號 2
-            {'題號': 4, '題目': '問題四'}
+            {"題號": 1, "題目": "問題一"},
+            {"題號": 3, "題目": "問題三"},  # 缺少題號 2
+            {"題號": 4, "題目": "問題四"},
         ]
 
         is_complete, message = self.tracker.validate_questions(questions)
 
         self.assertFalse(is_complete)
-        self.assertIn('遺漏', message)
-        self.assertIn('2', message)
+        self.assertIn("遺漏", message)
+        self.assertIn("2", message)
 
     def test_validate_questions_duplicate(self):
         """測試驗證有重複題號的題目列表"""
         questions = [
-            {'題號': 1, '題目': '問題一'},
-            {'題號': 2, '題目': '問題二'},
-            {'題號': 2, '題目': '問題二（重複）'}
+            {"題號": 1, "題目": "問題一"},
+            {"題號": 2, "題目": "問題二"},
+            {"題號": 2, "題目": "問題二（重複）"},
         ]
 
         is_complete, message = self.tracker.validate_questions(questions)
 
         self.assertFalse(is_complete)
-        self.assertIn('重複', message)
+        self.assertIn("重複", message)
 
     def test_validate_questions_empty(self):
         """測試驗證空題目列表"""
@@ -248,7 +245,7 @@ class TestQuestionScanTracker(unittest.TestCase):
         is_complete, message = self.tracker.validate_questions(questions)
 
         self.assertFalse(is_complete)
-        self.assertIn('空', message)
+        self.assertIn("空", message)
 
     def test_generate_report(self):
         """測試生成掃描報告"""
@@ -260,16 +257,16 @@ class TestQuestionScanTracker(unittest.TestCase):
         report = self.tracker.end_scan()
 
         # 驗證報告結構
-        self.assertIn('scan_summary', report)
-        self.assertIn('missing_questions', report)
-        self.assertIn('parser_statistics', report)
-        self.assertIn('question_details', report)
+        self.assertIn("scan_summary", report)
+        self.assertIn("missing_questions", report)
+        self.assertIn("parser_statistics", report)
+        self.assertIn("question_details", report)
 
         # 驗證報告內容
-        self.assertEqual(report['scan_summary']['total_scanned'], 5)
-        self.assertEqual(report['scan_summary']['expected_count'], 5)
-        self.assertTrue(report['scan_summary']['is_complete'])
-        self.assertEqual(len(report['missing_questions']), 0)
+        self.assertEqual(report["scan_summary"]["total_scanned"], 5)
+        self.assertEqual(report["scan_summary"]["expected_count"], 5)
+        self.assertTrue(report["scan_summary"]["is_complete"])
+        self.assertEqual(len(report["missing_questions"]), 0)
 
     def test_save_report(self):
         """測試保存掃描報告"""
@@ -281,7 +278,7 @@ class TestQuestionScanTracker(unittest.TestCase):
         self.tracker.end_scan()
 
         # 保存到臨時文件
-        with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as f:
+        with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".json") as f:
             temp_path = f.name
 
         try:
@@ -290,11 +287,11 @@ class TestQuestionScanTracker(unittest.TestCase):
             # 驗證文件存在且內容正確
             self.assertTrue(os.path.exists(temp_path))
 
-            with open(temp_path, 'r', encoding='utf-8') as f:
+            with open(temp_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
-            self.assertIn('scan_summary', data)
-            self.assertEqual(data['scan_summary']['total_scanned'], 3)
+            self.assertIn("scan_summary", data)
+            self.assertEqual(data["scan_summary"]["total_scanned"], 3)
         finally:
             # 清理臨時文件
             if os.path.exists(temp_path):
@@ -311,10 +308,10 @@ class TestQuestionScanTracker(unittest.TestCase):
 
         report = self.tracker.end_scan()
 
-        stats = report['parser_statistics']
-        self.assertEqual(stats['Parser1'], 2)
-        self.assertEqual(stats['Parser2'], 1)
+        stats = report["parser_statistics"]
+        self.assertEqual(stats["Parser1"], 2)
+        self.assertEqual(stats["Parser2"], 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

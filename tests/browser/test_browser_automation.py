@@ -6,17 +6,17 @@
 """
 
 import asyncio
+import json
 import sys
 import time
 from pathlib import Path
 from typing import Dict, List, Optional
-import json
 
 # 添加項目根目錄到路徑
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
-from playwright.async_api import async_playwright, Page, Browser, BrowserContext
+from playwright.async_api import Browser, BrowserContext, Page, async_playwright
 
 
 class BrowserTestConfig:
@@ -26,9 +26,9 @@ class BrowserTestConfig:
         self,
         base_url: str = "http://127.0.0.1:5000",
         headless: bool = False,  # 預設顯示瀏覽器，方便觀察
-        slow_mo: int = 500,      # 每個操作延遲 500ms，方便觀察
-        timeout: int = 30000,    # 30秒超時
-        browser_type: str = "chromium"  # chromium, firefox, webkit
+        slow_mo: int = 500,  # 每個操作延遲 500ms，方便觀察
+        timeout: int = 30000,  # 30秒超時
+        browser_type: str = "chromium",  # chromium, firefox, webkit
     ):
         self.base_url = base_url
         self.headless = headless
@@ -65,25 +65,16 @@ class BrowserAutomationTester:
 
         # 選擇瀏覽器
         if self.config.browser_type == "firefox":
-            self.browser = await playwright.firefox.launch(
-                headless=self.config.headless,
-                slow_mo=self.config.slow_mo
-            )
+            self.browser = await playwright.firefox.launch(headless=self.config.headless, slow_mo=self.config.slow_mo)
         elif self.config.browser_type == "webkit":
-            self.browser = await playwright.webkit.launch(
-                headless=self.config.headless,
-                slow_mo=self.config.slow_mo
-            )
+            self.browser = await playwright.webkit.launch(headless=self.config.headless, slow_mo=self.config.slow_mo)
         else:  # chromium
-            self.browser = await playwright.chromium.launch(
-                headless=self.config.headless,
-                slow_mo=self.config.slow_mo
-            )
+            self.browser = await playwright.chromium.launch(headless=self.config.headless, slow_mo=self.config.slow_mo)
 
         # 創建上下文（支持保存 cookies）
         self.context = await self.browser.new_context(
             viewport={"width": 1920, "height": 1080},
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
         )
 
         # 創建頁面
@@ -106,12 +97,7 @@ class BrowserAutomationTester:
 
     def log_result(self, test_name: str, status: str, message: str = ""):
         """記錄測試結果"""
-        result = {
-            "test": test_name,
-            "status": status,
-            "message": message,
-            "timestamp": time.time()
-        }
+        result = {"test": test_name, "status": status, "message": message, "timestamp": time.time()}
         self.test_results.append(result)
 
         emoji = "✅" if status == "PASS" else "❌" if status == "FAIL" else "⚠️"
@@ -154,12 +140,7 @@ class BrowserAutomationTester:
 
             # 檢查導航連結
             print("\n🔗 檢查導航連結...")
-            links = [
-                ("爬蟲下載", "/crawler"),
-                ("OCR", "/ocr"),
-                ("PDF", "/upload"),
-                ("監控", "/monitor")
-            ]
+            links = [("爬蟲下載", "/crawler"), ("OCR", "/ocr"), ("PDF", "/upload"), ("監控", "/monitor")]
 
             for name, href in links:
                 link = self.page.locator(f"a[href*='{href}']").first
@@ -296,7 +277,9 @@ class BrowserAutomationTester:
                 print(f"   接受的文件類型: {accept}")
 
             # 檢查處理按鈕
-            submit_btn = self.page.locator("button[type='submit'], button:has-text('處理'), button:has-text('上傳')").first
+            submit_btn = self.page.locator(
+                "button[type='submit'], button:has-text('處理'), button:has-text('上傳')"
+            ).first
             if await submit_btn.count() > 0:
                 is_enabled = await submit_btn.is_enabled()
                 print(f"   ✓ 處理按鈕: {'啟用' if is_enabled else '禁用'}")
@@ -360,12 +343,7 @@ class BrowserAutomationTester:
             await self.page.goto(self.config.base_url)
 
             # 依次點擊各個功能
-            pages = [
-                ("爬蟲下載", "/crawler"),
-                ("OCR", "/ocr"),
-                ("上傳", "/upload"),
-                ("監控", "/monitor")
-            ]
+            pages = [("爬蟲下載", "/crawler"), ("OCR", "/ocr"), ("上傳", "/upload"), ("監控", "/monitor")]
 
             for i, (name, href) in enumerate(pages, 1):
                 print(f"\n{i}. 導航到 {name}...")
@@ -405,11 +383,7 @@ class BrowserAutomationTester:
 
         try:
             # 測試不同視窗大小
-            viewports = [
-                ("Desktop", 1920, 1080),
-                ("Tablet", 768, 1024),
-                ("Mobile", 375, 667)
-            ]
+            viewports = [("Desktop", 1920, 1080), ("Tablet", 768, 1024), ("Mobile", 375, 667)]
 
             for device, width, height in viewports:
                 print(f"\n📱 測試 {device} ({width}x{height})...")
@@ -534,43 +508,24 @@ async def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="瀏覽器自動化測試 - 考古題處理系統",
-        formatter_class=argparse.RawDescriptionHelpFormatter
+        description="瀏覽器自動化測試 - 考古題處理系統", formatter_class=argparse.RawDescriptionHelpFormatter
     )
 
-    parser.add_argument(
-        "--url",
-        default="http://127.0.0.1:5000",
-        help="測試的基礎 URL (默認: http://127.0.0.1:5000)"
-    )
+    parser.add_argument("--url", default="http://127.0.0.1:5000", help="測試的基礎 URL (默認: http://127.0.0.1:5000)")
 
     parser.add_argument(
-        "--browser",
-        choices=["chromium", "firefox", "webkit"],
-        default="chromium",
-        help="瀏覽器類型 (默認: chromium)"
+        "--browser", choices=["chromium", "firefox", "webkit"], default="chromium", help="瀏覽器類型 (默認: chromium)"
     )
 
-    parser.add_argument(
-        "--headless",
-        action="store_true",
-        help="無頭模式（不顯示瀏覽器窗口）"
-    )
+    parser.add_argument("--headless", action="store_true", help="無頭模式（不顯示瀏覽器窗口）")
 
-    parser.add_argument(
-        "--fast",
-        action="store_true",
-        help="快速模式（不延遲操作）"
-    )
+    parser.add_argument("--fast", action="store_true", help="快速模式（不延遲操作）")
 
     args = parser.parse_args()
 
     # 創建配置
     config = BrowserTestConfig(
-        base_url=args.url,
-        browser_type=args.browser,
-        headless=args.headless,
-        slow_mo=0 if args.fast else 500
+        base_url=args.url, browser_type=args.browser, headless=args.headless, slow_mo=0 if args.fast else 500
     )
 
     # 創建測試器

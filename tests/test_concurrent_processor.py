@@ -5,16 +5,17 @@
 測試多線程/多進程批量處理功能
 """
 
-import unittest
-import time
-import tempfile
 import os
+import tempfile
+import time
+import unittest
+
 from src.utils.concurrent_processor import (
     ConcurrentProcessor,
     ProcessingTask,
-    TaskResult,
     ProgressTracker,
-    create_processor
+    TaskResult,
+    create_processor,
 )
 
 
@@ -62,12 +63,12 @@ class TestProgressTracker(unittest.TestCase):
 
         summary = tracker.get_summary()
 
-        self.assertEqual(summary['total_tasks'], 10)
-        self.assertEqual(summary['completed'], 10)
-        self.assertEqual(summary['successful'], 7)
-        self.assertEqual(summary['failed'], 3)
-        self.assertEqual(summary['success_rate'], 70.0)
-        self.assertGreater(summary['total_time'], 0)
+        self.assertEqual(summary["total_tasks"], 10)
+        self.assertEqual(summary["completed"], 10)
+        self.assertEqual(summary["successful"], 7)
+        self.assertEqual(summary["failed"], 3)
+        self.assertEqual(summary["success_rate"], 70.0)
+        self.assertGreater(summary["total_time"], 0)
 
 
 class TestConcurrentProcessor(unittest.TestCase):
@@ -98,38 +99,25 @@ class TestConcurrentProcessor(unittest.TestCase):
 
     def test_process_single_task_success(self):
         """測試處理單個成功任務"""
-        def mock_processor(task):
-            return {
-                'success': True,
-                'questions_count': 50,
-                'message': 'Success'
-            }
 
-        task = ProcessingTask(
-            task_id=1,
-            pdf_path="test.pdf",
-            output_dir="output"
-        )
+        def mock_processor(task):
+            return {"success": True, "questions_count": 50, "message": "Success"}
+
+        task = ProcessingTask(task_id=1, pdf_path="test.pdf", output_dir="output")
 
         results = self.processor.process_batch([task], mock_processor)
 
         self.assertEqual(len(results), 1)
         self.assertTrue(results[0].success)
-        self.assertEqual(results[0].result['questions_count'], 50)
+        self.assertEqual(results[0].result["questions_count"], 50)
 
     def test_process_single_task_failure(self):
         """測試處理單個失敗任務"""
-        def mock_processor(task):
-            return {
-                'success': False,
-                'message': 'Failed to process'
-            }
 
-        task = ProcessingTask(
-            task_id=1,
-            pdf_path="test.pdf",
-            output_dir="output"
-        )
+        def mock_processor(task):
+            return {"success": False, "message": "Failed to process"}
+
+        task = ProcessingTask(task_id=1, pdf_path="test.pdf", output_dir="output")
 
         results = self.processor.process_batch([task], mock_processor)
 
@@ -139,18 +127,13 @@ class TestConcurrentProcessor(unittest.TestCase):
 
     def test_process_multiple_tasks(self):
         """測試處理多個任務"""
+
         def mock_processor(task):
             # 模擬處理延遲
             time.sleep(0.1)
-            return {
-                'success': True,
-                'questions_count': task.task_id * 10
-            }
+            return {"success": True, "questions_count": task.task_id * 10}
 
-        tasks = [
-            ProcessingTask(task_id=i, pdf_path=f"test_{i}.pdf", output_dir="output")
-            for i in range(5)
-        ]
+        tasks = [ProcessingTask(task_id=i, pdf_path=f"test_{i}.pdf", output_dir="output") for i in range(5)]
 
         start_time = time.time()
         results = self.processor.process_batch(tasks, mock_processor)
@@ -166,17 +149,15 @@ class TestConcurrentProcessor(unittest.TestCase):
 
     def test_process_mixed_results(self):
         """測試處理混合結果（成功和失敗）"""
+
         def mock_processor(task):
             # 奇數任務失敗，偶數任務成功
             if task.task_id % 2 == 0:
-                return {'success': True, 'questions_count': 50}
+                return {"success": True, "questions_count": 50}
             else:
-                return {'success': False, 'message': 'Failed'}
+                return {"success": False, "message": "Failed"}
 
-        tasks = [
-            ProcessingTask(task_id=i, pdf_path=f"test_{i}.pdf", output_dir="output")
-            for i in range(10)
-        ]
+        tasks = [ProcessingTask(task_id=i, pdf_path=f"test_{i}.pdf", output_dir="output") for i in range(10)]
 
         results = self.processor.process_batch(tasks, mock_processor)
 
@@ -188,15 +169,13 @@ class TestConcurrentProcessor(unittest.TestCase):
 
     def test_process_with_exception(self):
         """測試處理拋出異常的任務"""
+
         def mock_processor(task):
             if task.task_id == 2:
                 raise ValueError("Test exception")
-            return {'success': True}
+            return {"success": True}
 
-        tasks = [
-            ProcessingTask(task_id=i, pdf_path=f"test_{i}.pdf", output_dir="output")
-            for i in range(5)
-        ]
+        tasks = [ProcessingTask(task_id=i, pdf_path=f"test_{i}.pdf", output_dir="output") for i in range(5)]
 
         results = self.processor.process_batch(tasks, mock_processor)
 
@@ -208,16 +187,14 @@ class TestConcurrentProcessor(unittest.TestCase):
 
     def test_fail_fast_mode(self):
         """測試快速失敗模式"""
+
         def mock_processor(task):
             if task.task_id == 2:
-                return {'success': False, 'message': 'Critical error'}
+                return {"success": False, "message": "Critical error"}
             time.sleep(0.1)
-            return {'success': True}
+            return {"success": True}
 
-        tasks = [
-            ProcessingTask(task_id=i, pdf_path=f"test_{i}.pdf", output_dir="output")
-            for i in range(10)
-        ]
+        tasks = [ProcessingTask(task_id=i, pdf_path=f"test_{i}.pdf", output_dir="output") for i in range(10)]
 
         results = self.processor.process_batch(tasks, mock_processor, fail_fast=True)
 
@@ -227,9 +204,10 @@ class TestConcurrentProcessor(unittest.TestCase):
 
     def test_task_duration_tracking(self):
         """測試任務耗時追蹤"""
+
         def mock_processor(task):
             time.sleep(0.1)
-            return {'success': True}
+            return {"success": True}
 
         task = ProcessingTask(task_id=1, pdf_path="test.pdf", output_dir="output")
 
@@ -253,12 +231,9 @@ class TestConcurrentProcessor(unittest.TestCase):
 
         def mock_processor(task):
             time.sleep(0.05)
-            return {'success': True}
+            return {"success": True}
 
-        tasks = [
-            ProcessingTask(task_id=i, pdf_path=f"test_{i}.pdf", output_dir="output")
-            for i in range(4)
-        ]
+        tasks = [ProcessingTask(task_id=i, pdf_path=f"test_{i}.pdf", output_dir="output") for i in range(4)]
 
         start_time = time.time()
         results = processor.process_batch(tasks, mock_processor)
@@ -272,9 +247,7 @@ class TestConcurrentProcessor(unittest.TestCase):
         """測試處理空目錄"""
         with tempfile.TemporaryDirectory() as temp_dir:
             results, summary = self.processor.process_directory(
-                input_dir=temp_dir,
-                output_dir=temp_dir,
-                processor_func=lambda task: {'success': True}
+                input_dir=temp_dir, output_dir=temp_dir, processor_func=lambda task: {"success": True}
             )
 
             self.assertEqual(len(results), 0)
@@ -301,7 +274,7 @@ class TestProcessingTask(unittest.TestCase):
             pdf_path="test.pdf",
             answer_pdf_path="answer.pdf",
             corrected_answer_pdf_path="corrected.pdf",
-            output_dir="custom_output"
+            output_dir="custom_output",
         )
 
         self.assertEqual(task.task_id, 1)
@@ -316,28 +289,18 @@ class TestTaskResult(unittest.TestCase):
 
     def test_init(self):
         """測試初始化"""
-        result = TaskResult(
-            task_id=1,
-            pdf_path="test.pdf",
-            success=True,
-            result={'questions_count': 50}
-        )
+        result = TaskResult(task_id=1, pdf_path="test.pdf", success=True, result={"questions_count": 50})
 
         self.assertEqual(result.task_id, 1)
         self.assertEqual(result.pdf_path, "test.pdf")
         self.assertTrue(result.success)
-        self.assertEqual(result.result['questions_count'], 50)
+        self.assertEqual(result.result["questions_count"], 50)
         self.assertIsNone(result.error)
 
     def test_with_error(self):
         """測試包含錯誤的結果"""
         result = TaskResult(
-            task_id=1,
-            pdf_path="test.pdf",
-            success=False,
-            result={},
-            error="Processing failed",
-            duration=1.5
+            task_id=1, pdf_path="test.pdf", success=False, result={}, error="Processing failed", duration=1.5
         )
 
         self.assertFalse(result.success)
@@ -345,5 +308,5 @@ class TestTaskResult(unittest.TestCase):
         self.assertEqual(result.duration, 1.5)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

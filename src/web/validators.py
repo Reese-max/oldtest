@@ -5,9 +5,10 @@
 提供安全的輸入驗證和數據清理功能
 """
 
-import re
 import os
+import re
 from typing import Any, List, Optional, Tuple, Union
+
 from werkzeug.utils import secure_filename
 
 
@@ -15,7 +16,7 @@ class InputValidator:
     """輸入驗證器"""
 
     # 允許的文件擴展名
-    ALLOWED_EXTENSIONS = {'pdf'}
+    ALLOWED_EXTENSIONS = {"pdf"}
 
     # 最大文件大小（50MB）
     MAX_FILE_SIZE = 50 * 1024 * 1024
@@ -102,7 +103,7 @@ class InputValidator:
             return False, f"關鍵字長度不能超過 {InputValidator.MAX_KEYWORD_LENGTH} 個字符"
 
         # 檢查是否包含危險字符
-        dangerous_chars = ['<', '>', '"', "'", ';', '&', '|', '`', '\n', '\r']
+        dangerous_chars = ["<", ">", '"', "'", ";", "&", "|", "`", "\n", "\r"]
         if any(char in keyword for char in dangerous_chars):
             return False, "關鍵字包含非法字符"
 
@@ -148,7 +149,7 @@ class InputValidator:
         Returns:
             (是否有效, 錯誤訊息, 清理後的路徑)
         """
-        if path is None or path == '':
+        if path is None or path == "":
             return True, None, None
 
         if not isinstance(path, str):
@@ -158,14 +159,14 @@ class InputValidator:
             return False, f"路徑長度不能超過 {InputValidator.MAX_PATH_LENGTH} 個字符", None
 
         # 檢查路徑遍歷攻擊
-        if '..' in path or path.startswith('/'):
+        if ".." in path or path.startswith("/"):
             return False, "路徑包含非法字符", None
 
         # 清理路徑
         cleaned_path = os.path.normpath(path)
 
         # 再次檢查清理後的路徑
-        if '..' in cleaned_path:
+        if ".." in cleaned_path:
             return False, "路徑包含非法字符", None
 
         return True, None, cleaned_path
@@ -191,10 +192,10 @@ class InputValidator:
             return False, "文件名包含非法字符", None
 
         # 檢查文件擴展名
-        if '.' not in cleaned_filename:
+        if "." not in cleaned_filename:
             return False, "文件缺少擴展名", None
 
-        ext = cleaned_filename.rsplit('.', 1)[1].lower()
+        ext = cleaned_filename.rsplit(".", 1)[1].lower()
         if ext not in InputValidator.ALLOWED_EXTENSIONS:
             return False, f"不支持的文件類型（僅支持: {', '.join(InputValidator.ALLOWED_EXTENSIONS)}）", None
 
@@ -219,10 +220,10 @@ class InputValidator:
         text = text[:max_length]
 
         # 移除危險字符
-        text = re.sub(r'[<>\"\'&]', '', text)
+        text = re.sub(r"[<>\"\'&]", "", text)
 
         # 移除控制字符（保留換行和製表符）
-        text = re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]', '', text)
+        text = re.sub(r"[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]", "", text)
 
         return text.strip()
 
@@ -241,7 +242,7 @@ class InputValidator:
             return False, "任務 ID 必須是字符串"
 
         # UUID 格式驗證（簡化版）
-        uuid_pattern = r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
+        uuid_pattern = r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
         if not re.match(uuid_pattern, task_id.lower()):
             return False, "任務 ID 格式無效"
 

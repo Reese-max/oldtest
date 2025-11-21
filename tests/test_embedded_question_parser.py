@@ -9,7 +9,7 @@ import sys
 import unittest
 
 # 添加專案根目錄到路徑
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from src.core.embedded_question_parser import EmbeddedQuestionParser
 
@@ -171,9 +171,11 @@ class TestEmbeddedQuestionParser(unittest.TestCase):
 
         options = []
         for i in range(1, 11):
-            options.append(f"""
+            options.append(
+                f"""
             {i}. (A) option A  (B) option B  (C) option C  (D) option D
-            """)
+            """
+            )
 
         text = passage + "\n".join(options)
 
@@ -256,5 +258,5 @@ class TestEmbeddedQuestionParserEdgeCases(unittest.TestCase):
         self.assertIsInstance(questions, list)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

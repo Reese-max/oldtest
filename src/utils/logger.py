@@ -6,19 +6,19 @@
 """
 
 import logging
-import sys
-from typing import Optional
-from datetime import datetime
 import os
+import sys
+from datetime import datetime
+from typing import Optional
 
 
 class Logger:
     """統一日誌管理器"""
-    
-    _instance: Optional['Logger'] = None
+
+    _instance: Optional["Logger"] = None
     _logger: Optional[logging.Logger] = None
-    
-    def __new__(cls) -> 'Logger':
+
+    def __new__(cls) -> "Logger":
         """
         實現單例模式的 __new__ 方法
 
@@ -40,39 +40,37 @@ class Logger:
         """
         if self._logger is None:
             self._setup_logger()
-    
+
     def _setup_logger(self):
         """設置日誌器"""
-        self._logger = logging.getLogger('archaeology_questions')
+        self._logger = logging.getLogger("archaeology_questions")
         self._logger.setLevel(logging.INFO)
-        
+
         # 清除現有的處理器
         self._logger.handlers.clear()
-        
+
         # 創建控制台處理器
         console_handler = logging.StreamHandler(sys.stdout)
         console_handler.setLevel(logging.INFO)
-        
+
         # 創建文件處理器
-        os.makedirs('logs', exist_ok=True)
+        os.makedirs("logs", exist_ok=True)
         file_handler = logging.FileHandler(
-            f'logs/archaeology_questions_{datetime.now().strftime("%Y%m%d")}.log',
-            encoding='utf-8'
+            f'logs/archaeology_questions_{datetime.now().strftime("%Y%m%d")}.log', encoding="utf-8"
         )
         file_handler.setLevel(logging.DEBUG)
-        
+
         # 設置格式
         formatter = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-            datefmt='%Y-%m-%d %H:%M:%S'
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S"
         )
         console_handler.setFormatter(formatter)
         file_handler.setFormatter(formatter)
-        
+
         # 添加處理器
         self._logger.addHandler(console_handler)
         self._logger.addHandler(file_handler)
-    
+
     def info(self, message: str, **kwargs) -> None:
         """記錄信息日誌"""
         self._logger.info(message, **kwargs)

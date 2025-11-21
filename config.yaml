@@ -3,26 +3,67 @@
 
 # PDF 處理配置
 processing:
-  max_pages: 200              # 最大處理頁數
-  memory_cleanup_interval: 50  # 記憶體清理間隔（頁）
-  output_encoding: utf-8-sig   # 輸出編碼
-  csv_delimiter: ","           # CSV 分隔符
+  # 文本處理限制
+  max_text_length: 1000000      # 最大文本長度
+  min_question_length: 10       # 最小題目長度
+  max_question_length: 1000     # 最大題目長度
+  max_pages: 200                # 最大處理頁數
+  memory_cleanup_interval: 50   # 記憶體清理間隔（頁）
+
+  # AI 處理設定
+  ai_model: "gemini-1.5-flash"  # AI 模型
+  ai_temperature: 0.1           # AI 溫度參數
+  ai_max_tokens: 4000           # AI 最大 token 數
+
+  # 答案模式（正則表達式）
+  answer_patterns:
+    - '(\d+)\.\s*([ABCD])'      # 1. A
+    - '(\d+)\s*([ABCD])'        # 1 A
+    - '第(\d+)題\s*([ABCD])'    # 第1題 A
+    - '(\d+)\s*：\s*([ABCD])'   # 1：A
+
+  corrected_answer_patterns:
+    - '更正\s*(\d+)\.\s*([ABCD])'      # 更正 1. B
+    - '更正答案\s*(\d+)\.\s*([ABCD])'  # 更正答案 1. B
+    - '更正\s*第(\d+)題\s*([ABCD])'    # 更正 第1題 B
+    - '更正\s*(\d+)\s*：\s*([ABCD])'   # 更正 1：B
+
+  # 輸出設定
+  output_encoding: utf-8-sig    # 輸出編碼
+  csv_delimiter: ","            # CSV 分隔符
 
 # Google 表單配置
 google_form:
-  enable_auto_score: true      # 啟用自動評分
-  shuffle_options: false       # 隨機選項順序
-  required: true               # 必填題目
-  form_title: "考古題測驗"     # 表單標題
+  # 表單設定
+  form_title: "考古題練習表單"    # 表單標題
+  form_description: "此表單包含 {total_questions} 題考古題，用於練習和自測"  # 表單描述
+  collect_email: true            # 收集電子郵件
+  require_login: false           # 要求登入
+
+  # 評分設定
+  enable_auto_scoring: true      # 啟用自動評分（新名稱：enable_auto_score）
+  show_answers_after_submit: true  # 提交後顯示答案
+
+  # 題目設定
+  default_question_type: "選擇題"  # 預設題目類型
+  enable_question_groups: true   # 啟用題目分組
+  shuffle_options: false         # 隨機選項順序
+  required: true                 # 必填題目
 
 # OCR 配置
 ocr:
+  # OCR 啟用設定
+  enable_ocr: false            # 是否啟用 OCR
+  ocr_fallback: true           # OCR 失敗時是否降級到傳統方法
+
   # 基礎設置
   pdf_to_image_dpi: 300        # PDF 轉圖片 DPI
   pdf_to_image_zoom: 2.0       # PDF 轉圖片縮放
   confidence_threshold: 0.5    # 信心度閾值
+  min_quality_score: 0.6       # 最低品質分數
   use_gpu: false               # 使用 GPU 加速
-  lang: ch                     # 語言設置
+  lang: ch                     # 語言設置（'ch'=中英文, 'chinese_cht'=繁體中文, 'en'=英文）
+  use_structure: false         # 是否使用結構化分析（PP-Structure）
 
   # 增強功能 (優先級2: OCR深度整合)
   enable_enhanced_ocr: true    # 啟用增強型 OCR

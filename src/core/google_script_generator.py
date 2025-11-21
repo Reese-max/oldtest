@@ -6,11 +6,23 @@ Google Apps Script生成器（優化版）
 """
 
 import os
+from typing import Any, Dict, List, Optional
+
 import pandas as pd
-from typing import List, Dict, Any, Optional
-from ..utils.logger import logger
-from ..utils.exceptions import GoogleFormError
+
 from ..utils.config import config_manager
+from ..utils.constants import (
+    CSV_COLUMN_CORRECT_ANSWER,
+    CSV_COLUMN_FINAL_ANSWER,
+    CSV_COLUMN_OPTION_A,
+    CSV_COLUMN_OPTION_B,
+    CSV_COLUMN_OPTION_C,
+    CSV_COLUMN_OPTION_D,
+    CSV_COLUMN_QUESTION_NUM,
+    CSV_COLUMN_QUESTION_TEXT,
+)
+from ..utils.exceptions import GoogleFormError
+from ..utils.logger import logger
 
 
 class GoogleScriptGenerator:
@@ -42,7 +54,7 @@ class GoogleScriptGenerator:
                 raise GoogleFormError(f"CSV檔案不存在: {csv_path}")
 
             # 讀取CSV檔案
-            df = pd.read_csv(csv_path, encoding='utf-8-sig')
+            df = pd.read_csv(csv_path, encoding="utf-8-sig")
 
             if df.empty:
                 raise GoogleFormError("CSV檔案為空")
@@ -59,7 +71,7 @@ class GoogleScriptGenerator:
             output_dir = os.path.dirname(output_path)
             if output_dir:
                 os.makedirs(output_dir, exist_ok=True)
-            with open(output_path, 'w', encoding='utf-8') as f:
+            with open(output_path, "w", encoding="utf-8") as f:
                 f.write(script_content)
 
             self.logger.success(f"Google Apps Script生成完成: {output_path}")
@@ -72,14 +84,21 @@ class GoogleScriptGenerator:
 
     def _validate_csv_columns(self, df: pd.DataFrame) -> None:
         """驗證CSV檔案必要欄位"""
-        required_columns = ['題號', '題目', '選項A', '選項B', '選項C', '選項D']
+        required_columns = [
+            CSV_COLUMN_QUESTION_NUM,
+            CSV_COLUMN_QUESTION_TEXT,
+            CSV_COLUMN_OPTION_A,
+            CSV_COLUMN_OPTION_B,
+            CSV_COLUMN_OPTION_C,
+            CSV_COLUMN_OPTION_D,
+        ]
         missing_columns = [col for col in required_columns if col not in df.columns]
 
         if missing_columns:
             raise GoogleFormError(f"CSV檔案缺少必要欄位: {', '.join(missing_columns)}")
 
         # 檢查是否有題目
-        if df['題目'].isna().all():
+        if df[CSV_COLUMN_QUESTION_TEXT].isna().all():
             raise GoogleFormError("CSV檔案中沒有題目內容")
 
     def _generate_script_content(self, df: pd.DataFrame) -> str:
@@ -91,9 +110,7 @@ class GoogleScriptGenerator:
 
         # 安全處理 form_description 格式化
         try:
-            form_description = self.google_form_config.form_description.format(
-                total_questions=total_questions
-            )
+            form_description = self.google_form_config.form_description.format(total_questions=total_questions)
         except (KeyError, AttributeError):
             form_description = f"{self.google_form_config.form_description} (共 {total_questions} 題)"
 
@@ -277,19 +294,20 @@ function testFormStructure() {{
         for _, row in df.iterrows():
             # 安全獲取並轉換值
             question = {
-                'title': self._safe_get_and_escape(row, '題目'),
-                'optionA': self._safe_get_and_escape(row, '選項A'),
-                'optionB': self._safe_get_and_escape(row, '選項B'),
-                'optionC': self._safe_get_and_escape(row, '選項C'),
-                'optionD': self._safe_get_and_escape(row, '選項D'),
-                'category': str(row.get('分類', '其他')),
-                'difficulty': str(row.get('難度', '簡單')),
-                'isGroup': bool(row.get('題組', False))
+                "title": self._safe_get_and_escape(row, CSV_COLUMN_QUESTION_TEXT),
+                "optionA": self._safe_get_and_escape(row, CSV_COLUMN_OPTION_A),
+                "optionB": self._safe_get_and_escape(row, CSV_COLUMN_OPTION_B),
+                "optionC": self._safe_get_and_escape(row, CSV_COLUMN_OPTION_C),
+                "optionD": self._safe_get_and_escape(row, CSV_COLUMN_OPTION_D),
+                "category": str(row.get("分類", "其他")),
+                "difficulty": str(row.get("難度", "簡單")),
+                "isGroup": bool(row.get("題組", False)),
             }
             questions.append(question)
 
         # 轉換為JavaScript陣列格式（使用JSON格式更安全）
         import json
+
         return json.dumps(questions, ensure_ascii=False, indent=2)
 
     def _generate_answers_data(self, df: pd.DataFrame) -> str:
@@ -299,32 +317,33 @@ function testFormStructure() {{
         for index, row in df.iterrows():
             question_number = index + 1
             # 優先使用最終答案，其次正確答案
-            answer = str(row.get('最終答案', row.get('正確答案', '')))
+            answer = str(row.get(CSV_COLUMN_FINAL_ANSWER, row.get(CSV_COLUMN_CORRECT_ANSWER, "")))
 
             # 驗證答案格式
-            if answer and answer.upper() in ['A', 'B', 'C', 'D']:
+            if answer and answer.upper() in ["A", "B", "C", "D"]:
                 answers[question_number] = answer.upper()
             else:
                 self.logger.warning(f"第 {question_number} 題沒有有效答案: {answer}")
 
         # 轉換為JavaScript物件格式
         import json
+
         return json.dumps(answers, ensure_ascii=False, indent=2)
 
     def _safe_get_and_escape(self, row: pd.Series, column: str) -> str:
         """安全獲取並轉義字串值"""
-        value = row.get(column, '')
+        value = row.get(column, "")
 
         # 處理 NaN, None, 空值
         if pd.isna(value) or value is None:
-            return ''
+            return ""
 
         # 轉換為字串並轉義
         text = str(value).strip()
 
         # 過濾明顯的無效值
-        if text.lower() in ['nan', 'none', 'null', '']:
-            return ''
+        if text.lower() in ["nan", "none", "null", ""]:
+            return ""
 
         return self._escape_js_string(text)
 
@@ -334,12 +353,12 @@ function testFormStructure() {{
             return ""
 
         # 轉義特殊字元
-        text = text.replace('\\', '\\\\')  # 反斜線
-        text = text.replace('"', '\\"')    # 雙引號
-        text = text.replace('\n', '\\n')   # 換行
-        text = text.replace('\r', '\\r')   # 回車
-        text = text.replace('\t', '\\t')   # Tab
-        text = text.replace("'", "\\'")    # 單引號（增加）
+        text = text.replace("\\", "\\\\")  # 反斜線
+        text = text.replace('"', '\\"')  # 雙引號
+        text = text.replace("\n", "\\n")  # 換行
+        text = text.replace("\r", "\\r")  # 回車
+        text = text.replace("\t", "\\t")  # Tab
+        text = text.replace("'", "\\'")  # 單引號（增加）
 
         return text
 
@@ -361,7 +380,7 @@ function testFormStructure() {{
             raise GoogleFormError("csv_path 不能為空字串")
 
         # 驗證 CSV 文件擴展名
-        if not csv_path.lower().endswith('.csv'):
+        if not csv_path.lower().endswith(".csv"):
             raise GoogleFormError(f"csv_path 必須是 CSV 檔案（.csv），收到: {csv_path}")
 
         # 驗證 output_path 類型和值
