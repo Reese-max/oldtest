@@ -13,6 +13,13 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
 from src.core.enhanced_pdf_processor import EnhancedPDFProcessor
 
+# Check if fitz (PyMuPDF) is available
+try:
+    import fitz
+    FITZ_AVAILABLE = True
+except ImportError:
+    FITZ_AVAILABLE = False
+
 
 class TestEnhancedPDFProcessor(unittest.TestCase):
     """增強PDF處理器測試"""
@@ -33,6 +40,7 @@ class TestEnhancedPDFProcessor(unittest.TestCase):
 
         self.assertEqual(result, "測試內容")
 
+    @unittest.skipUnless(FITZ_AVAILABLE, "PyMuPDF (fitz) not installed")
     @patch("fitz.open")
     def test_extract_with_pymupdf_success(self, mock_open):
         """測試使用pymupdf (fitz)提取成功"""
@@ -65,6 +73,7 @@ class TestEnhancedPDFProcessor(unittest.TestCase):
         self.assertGreaterEqual(score, 0.0)
         self.assertLessEqual(score, 1.0)
 
+    @unittest.skipUnless(FITZ_AVAILABLE, "PyMuPDF (fitz) not installed")
     @patch("pdfplumber.open")
     @patch("fitz.open")
     def test_extract_with_best_method_fallback(self, mock_fitz, mock_pdfplumber):

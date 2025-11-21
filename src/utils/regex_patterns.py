@@ -107,6 +107,7 @@ NEXT_GROUP_PATTERN: Pattern = re.compile(
 # ==================== 過濾模式 ====================
 
 # 非題目內容過濾關鍵詞
+# Note: These should be specific enough to filter instructions but not question text
 NON_QUESTION_KEYWORDS = [
     "代號",
     "頁次",
@@ -114,26 +115,13 @@ NON_QUESTION_KEYWORDS = [
     "科目",
     "時間",
     "座號",
-    "注意",
-    "禁止",
-    "使用",
-    "本試題",
-    "單一選擇題",
-    "選出",
-    "正確",
-    "適當",
-    "答案",
-    "共",
-    "每題",
-    "須用",
-    "鉛筆",
-    "試卡",
-    "依題號",
-    "清楚",
-    "劃記",
-    "作答者",
-    "不予",
-    "計分",
+    "注意事項",  # Changed from "注意" to be more specific
+    "禁止攜帶",  # Changed from "禁止" to be more specific
+    "使用說明",  # Changed from "使用" to be more specific
+    "本試題共",  # Changed from "本試題" to be more specific
+    "須用2B鉛筆",  # Changed from "須用" to be more specific
+    "劃記於試卡",  # Changed from "劃記" to be more specific
+    "作答者不予計分",  # Changed from "作答者" to be more specific
 ]
 
 # ==================== 輔助函數 ====================

@@ -21,7 +21,7 @@ from src.core.mixed_format_parser import MixedFormatParser
 from src.core.pdf_processor import PDFProcessor
 from src.core.question_parser import QuestionParser
 from src.core.ultimate_question_parser import UltimateQuestionParser
-from src.utils.concurrent_processor import ConcurrentProcessor
+from src.utils.concurrent_processor import ConcurrentProcessor, ProcessingTask
 
 
 class PerformanceBenchmark:
@@ -150,7 +150,7 @@ class TestQuestionParserPerformance:
         parser = QuestionParser()
 
         def parse_questions():
-            return parser.parse(sample_pdf_content)
+            return parser.parse_questions(sample_pdf_content)
 
         results = benchmark.run_multiple_times(parse_questions, iterations=10)
 
@@ -171,7 +171,7 @@ class TestQuestionParserPerformance:
         parser = QuestionParser()
 
         def parse_large():
-            return parser.parse(large_pdf_content)
+            return parser.parse_questions(large_pdf_content)
 
         results = benchmark.run_multiple_times(parse_large, iterations=5)
 
@@ -242,7 +242,15 @@ class TestConcurrentProcessingPerformance:
         # 測試並發處理
         def concurrent_processing():
             processor = ConcurrentProcessor(max_workers=4)
-            return processor.process_batch(test_files, process_file)
+            # Convert file paths to ProcessingTask objects with task_id
+            tasks = [ProcessingTask(task_id=i, pdf_path=f, output_dir=str(tmp_path)) 
+                    for i, f in enumerate(test_files)]
+            
+            # Create a wrapper function that accepts ProcessingTask
+            def task_processor(task: ProcessingTask):
+                return process_file(task.pdf_path)
+            
+            return processor.process_batch(tasks, task_processor)
 
         # 測量性能
         _, seq_time, _ = benchmark.measure_time(sequential_processing)
@@ -270,7 +278,7 @@ class TestMemoryUsage:
 
         # 多次執行
         for _ in range(100):
-            parser.parse(sample_pdf_content)
+            parser.parse_questions(sample_pdf_content)
 
         final_memory = benchmark.process.memory_info().rss / 1024 / 1024
         memory_increase = final_memory - initial_memory
@@ -290,7 +298,7 @@ class TestMemoryUsage:
         """
         parser = QuestionParser()
 
-        _, exec_time, memory_used = benchmark.measure_time(parser.parse, large_pdf_content)
+        _, exec_time, memory_used = benchmark.measure_time(parser.parse_questions, large_pdf_content)
 
         print(f"\n📊 大文件記憶體效率 (100題):")
         print(f"  執行時間: {exec_time:.3f}s")
@@ -313,15 +321,13 @@ class TestCSVGeneratorPerformance:
         # 創建測試數據
         test_questions = [
             {
-                "question_number": i,
-                "question_text": f"測試題目 {i}",
-                "options": {
-                    "A": f"選項 A {i}",
-                    "B": f"選項 B {i}",
-                    "C": f"選項 C {i}",
-                    "D": f"選項 D {i}",
-                },
-                "answer": "A",
+                "題號": i,
+                "題目": f"測試題目 {i}",
+                "題型": "選擇題",
+                "選項A": f"選項 A {i}",
+                "選項B": f"選項 B {i}",
+                "選項C": f"選項 C {i}",
+                "選項D": f"選項 D {i}",
             }
             for i in range(1, 101)
         ]
@@ -329,7 +335,9 @@ class TestCSVGeneratorPerformance:
         output_file = tmp_path / "test_output.csv"
 
         def generate_csv():
-            generator.generate(test_questions, str(output_file))
+            # Use the correct method - generate_questions_csv
+            answers = {str(i): "A" for i in range(1, 101)}
+            generator.generate_questions_csv(test_questions, answers, str(output_file))
 
         results = benchmark.run_multiple_times(generate_csv, iterations=5)
 
@@ -355,7 +363,7 @@ class TestPerformanceRegression:
         """確保沒有性能回歸"""
         parser = QuestionParser()
 
-        results = benchmark.run_multiple_times(parser.parse, sample_pdf_content, iterations=10)
+        results = benchmark.run_multiple_times(parser.parse_questions, iterations=10, text=sample_pdf_content)
 
         baseline = self.BENCHMARKS["question_parsing"]
 
@@ -384,7 +392,7 @@ class TestThroughput:
         """
         parser = QuestionParser()
 
-        _, exec_time, _ = benchmark.measure_time(parser.parse, large_pdf_content)
+        _, exec_time, _ = benchmark.measure_time(parser.parse_questions, large_pdf_content)
 
         throughput = 100 / exec_time  # 100題的吞吐量
 
