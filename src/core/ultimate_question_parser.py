@@ -80,7 +80,7 @@ class UltimateQuestionParser:
         questions.extend(group_questions)
 
         # 2. 處理標準題（1-50題）
-        question_pattern = r"^(\d+)\s+(.+?)(?=^\d+\s+|$)"
+        question_pattern = r"^\s*(\d+)\.?\s+(.+?)(?=^\s*\d+\.?\s+|$)"
         matches = re.finditer(question_pattern, test_section, re.MULTILINE | re.DOTALL)
 
         for match in matches:
@@ -136,7 +136,8 @@ class UltimateQuestionParser:
         # 找到題目所在的行
         question_line_idx = -1
         for i, line in enumerate(lines):
-            if line.strip().startswith(f"{question_num} "):
+            # Handle both "1. " and "1 " formats
+            if line.strip().startswith(f"{question_num}. ") or line.strip().startswith(f"{question_num} "):
                 question_line_idx = i
                 break
 
@@ -150,7 +151,7 @@ class UltimateQuestionParser:
             line = lines[i].strip()
 
             # 如果遇到下一題，停止
-            if re.match(r"^\d+\s+", line):
+            if re.match(r"^\d+\.?\s+", line):
                 break
 
             if not line:
@@ -260,6 +261,16 @@ class UltimateQuestionParser:
     def _parse_option_line(self, line: str) -> List[str]:
         """解析選項行"""
         options = []
+
+        # 首先檢查標準格式: (A) 選項內容 or （A） 選項內容
+        standard_pattern = r'[（(]([ABCD])[）)]\s*([^（(]+)'
+        standard_matches = list(re.finditer(standard_pattern, line))
+        if standard_matches:
+            for match in standard_matches:
+                content = match.group(2).strip()
+                if content:
+                    options.append(content)
+            return options
 
         # 定義選項符號（使用Unicode碼點）
         option_symbols = ["\ue18c", "\ue18d", "\ue18e", "\ue18f"]

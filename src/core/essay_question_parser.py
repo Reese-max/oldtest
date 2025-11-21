@@ -92,7 +92,14 @@ class EssayQuestionParser:
             r"應使用本國文字作答",
         ]
 
+        # Count pattern types that match
         essay_count = sum(1 for pattern in essay_patterns if re.search(pattern, text))
+        
+        # Special case: if we have multiple Chinese numeral questions, it's likely an essay
+        chinese_numeral_pattern = r"[一二三四五六七八九十]+、"
+        chinese_matches = list(re.finditer(chinese_numeral_pattern, text))
+        if len(chinese_matches) >= 2:
+            return QuestionType.ESSAY
 
         # 選擇題特徵
         choice_patterns = [
@@ -148,8 +155,8 @@ class EssayQuestionParser:
             # 移除多餘空白
             content = " ".join(content.split())
 
-            # 跳過過短的內容
-            if len(content) < 10:
+            # 跳過過短的內容 (但如果有分數標記，則保留)
+            if len(content) < 10 and not score:
                 self.logger.warning(f"題目 {question_num} 內容過短，跳過")
                 continue
 
@@ -205,8 +212,8 @@ class EssayQuestionParser:
 
             content = " ".join(content.split())
 
-            # 跳過過短的內容
-            if len(content) < 10:
+            # 跳過過短的內容 (但如果有分數標記，則保留)
+            if len(content) < 10 and not score:
                 self.logger.warning(f"題目 {question_num} 內容過短，跳過")
                 continue
 
