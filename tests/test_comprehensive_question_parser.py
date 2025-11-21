@@ -9,7 +9,7 @@ import sys
 import unittest
 
 # 添加專案根目錄到路徑
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from src.core.comprehensive_question_parser import ComprehensiveQuestionParser
 
@@ -233,13 +233,15 @@ class TestComprehensiveQuestionParserEdgeCases(unittest.TestCase):
         # 創建包含100題的長文本
         questions_text = ["甲、測驗題部分\n"]
         for i in range(1, 101):
-            questions_text.append(f"""
+            questions_text.append(
+                f"""
             {i}. 第{i}題？
             (A) 選項A
             (B) 選項B
             (C) 選項C
             (D) 選項D
-            """)
+            """
+            )
 
         text = "\n".join(questions_text)
 
@@ -331,5 +333,5 @@ class TestComprehensiveQuestionParserEdgeCases(unittest.TestCase):
         self.assertIsInstance(questions, list)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

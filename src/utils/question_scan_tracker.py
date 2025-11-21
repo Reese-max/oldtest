@@ -6,8 +6,9 @@
 """
 
 import json
-from typing import Dict, List, Any, Set, Tuple, Optional
 from datetime import datetime
+from typing import Any, Dict, List, Optional, Set, Tuple
+
 from .logger import logger
 
 
@@ -29,38 +30,28 @@ class QuestionScanStatus:
         self.parser_used = parser_name
         self.scan_time = datetime.now().isoformat()
         self.content_preview = content[:50] if content else ""
-        self.scan_attempts.append({
-            'parser': parser_name,
-            'time': self.scan_time,
-            'success': True
-        })
+        self.scan_attempts.append({"parser": parser_name, "time": self.scan_time, "success": True})
 
     def add_attempt(self, parser_name: str, success: bool, error: str = ""):
         """記錄掃描嘗試"""
-        self.scan_attempts.append({
-            'parser': parser_name,
-            'time': datetime.now().isoformat(),
-            'success': success,
-            'error': error
-        })
+        self.scan_attempts.append(
+            {"parser": parser_name, "time": datetime.now().isoformat(), "success": success, "error": error}
+        )
 
     def add_warning(self, message: str):
         """添加警告訊息"""
-        self.warnings.append({
-            'message': message,
-            'time': datetime.now().isoformat()
-        })
+        self.warnings.append({"message": message, "time": datetime.now().isoformat()})
 
     def to_dict(self) -> Dict[str, Any]:
         """轉換為字典"""
         return {
-            'question_num': self.question_num,
-            'scanned': self.scanned,
-            'parser_used': self.parser_used,
-            'scan_time': self.scan_time,
-            'content_preview': self.content_preview,
-            'scan_attempts': self.scan_attempts,
-            'warnings': self.warnings
+            "question_num": self.question_num,
+            "scanned": self.scanned,
+            "parser_used": self.parser_used,
+            "scan_time": self.scan_time,
+            "content_preview": self.content_preview,
+            "scan_attempts": self.scan_attempts,
+            "warnings": self.warnings,
         }
 
 
@@ -115,7 +106,9 @@ class QuestionScanTracker:
         if question_num in self.scan_status:
             if self.scan_status[question_num].scanned:
                 self.duplicate_questions.append(question_num)
-                self.logger.warning(f"⚠️  重複掃描: 第{question_num}題 (已由 {self.scan_status[question_num].parser_used} 掃描)")
+                self.logger.warning(
+                    f"⚠️  重複掃描: 第{question_num}題 (已由 {self.scan_status[question_num].parser_used} 掃描)"
+                )
                 return
 
         # 創建或更新掃描狀態
@@ -213,9 +206,7 @@ class QuestionScanTracker:
         # 如果設定了預期題數，也檢查總數
         if self.expected_count:
             if len(scanned_nums) < self.expected_count:
-                self.logger.warning(
-                    f"⚠️  掃描題數不足: 預期 {self.expected_count} 題，實際 {len(scanned_nums)} 題"
-                )
+                self.logger.warning(f"⚠️  掃描題數不足: 預期 {self.expected_count} 題，實際 {len(scanned_nums)} 題")
 
     def _log_summary(self):
         """輸出掃描摘要"""
@@ -280,27 +271,24 @@ class QuestionScanTracker:
             duration = (self.scan_end_time - self.scan_start_time).total_seconds()
 
         report = {
-            'scan_summary': {
-                'total_scanned': len(scanned_nums),
-                'expected_count': self.expected_count,
-                'question_range': f"{min(scanned_nums)} ~ {max(scanned_nums)}" if scanned_nums else "N/A",
-                'is_complete': len(self.missing_questions) == 0,
-                'missing_count': len(self.missing_questions),
-                'duplicate_count': len(self.duplicate_questions),
-                'scan_duration': duration
+            "scan_summary": {
+                "total_scanned": len(scanned_nums),
+                "expected_count": self.expected_count,
+                "question_range": f"{min(scanned_nums)} ~ {max(scanned_nums)}" if scanned_nums else "N/A",
+                "is_complete": len(self.missing_questions) == 0,
+                "missing_count": len(self.missing_questions),
+                "duplicate_count": len(self.duplicate_questions),
+                "scan_duration": duration,
             },
-            'missing_questions': self.missing_questions,
-            'duplicate_questions': list(set(self.duplicate_questions)),
-            'parser_statistics': parser_stats,
-            'parsers_used': list(self.parsers_used),
-            'question_details': {
-                num: status.to_dict()
-                for num, status in sorted(self.scan_status.items())
+            "missing_questions": self.missing_questions,
+            "duplicate_questions": list(set(self.duplicate_questions)),
+            "parser_statistics": parser_stats,
+            "parsers_used": list(self.parsers_used),
+            "question_details": {num: status.to_dict() for num, status in sorted(self.scan_status.items())},
+            "scan_times": {
+                "start": self.scan_start_time.isoformat() if self.scan_start_time else None,
+                "end": self.scan_end_time.isoformat() if self.scan_end_time else None,
             },
-            'scan_times': {
-                'start': self.scan_start_time.isoformat() if self.scan_start_time else None,
-                'end': self.scan_end_time.isoformat() if self.scan_end_time else None
-            }
         }
 
         return report
@@ -314,7 +302,7 @@ class QuestionScanTracker:
         """
         report = self.generate_report()
 
-        with open(output_path, 'w', encoding='utf-8') as f:
+        with open(output_path, "w", encoding="utf-8") as f:
             json.dump(report, f, ensure_ascii=False, indent=2)
 
         self.logger.success(f"✅ 掃描報告已保存: {output_path}")
@@ -347,7 +335,7 @@ class QuestionScanTracker:
         # 提取題號並轉換為整數（跳過非數字題號如"申論題"）
         question_nums = []
         for q in questions:
-            q_num = q.get('題號', 0)
+            q_num = q.get("題號", 0)
             # 嘗試轉換為整數
             try:
                 if isinstance(q_num, str):

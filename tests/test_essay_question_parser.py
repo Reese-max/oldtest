@@ -6,6 +6,7 @@
 """
 
 import unittest
+
 from src.core.essay_question_parser import EssayQuestionParser
 from src.core.pdf_structure_analyzer import QuestionType
 
@@ -32,23 +33,23 @@ class TestEssayQuestionParser(unittest.TestCase):
         self.assertEqual(len(questions), 4)
 
         # 檢查題號
-        self.assertEqual(questions[0]['題號'], 1)
-        self.assertEqual(questions[1]['題號'], 2)
-        self.assertEqual(questions[2]['題號'], 3)
-        self.assertEqual(questions[3]['題號'], 4)
+        self.assertEqual(questions[0]["題號"], 1)
+        self.assertEqual(questions[1]["題號"], 2)
+        self.assertEqual(questions[2]["題號"], 3)
+        self.assertEqual(questions[3]["題號"], 4)
 
         # 檢查題型
         for q in questions:
-            self.assertEqual(q['題型'], '申論題')
+            self.assertEqual(q["題型"], "申論題")
 
         # 檢查題目內容包含關鍵字
-        self.assertIn('軟體工程', questions[0]['題目'])
-        self.assertIn('敏捷開發', questions[1]['題目'])
-        self.assertIn('設計模式', questions[2]['題目'])
-        self.assertIn('測試驅動開發', questions[3]['題目'])
+        self.assertIn("軟體工程", questions[0]["題目"])
+        self.assertIn("敏捷開發", questions[1]["題目"])
+        self.assertIn("設計模式", questions[2]["題目"])
+        self.assertIn("測試驅動開發", questions[3]["題目"])
 
         # 檢查備註包含分數
-        self.assertIn('25', questions[0]['備註'])
+        self.assertIn("25", questions[0]["備註"])
 
     def test_parse_arabic_numerals(self):
         """測試解析阿拉伯數字編號的申論題"""
@@ -64,9 +65,9 @@ class TestEssayQuestionParser(unittest.TestCase):
         self.assertEqual(len(questions), 3)
 
         # 檢查題號
-        self.assertEqual(questions[0]['題號'], 1)
-        self.assertEqual(questions[1]['題號'], 2)
-        self.assertEqual(questions[2]['題號'], 3)
+        self.assertEqual(questions[0]["題號"], 1)
+        self.assertEqual(questions[1]["題號"], 2)
+        self.assertEqual(questions[2]["題號"], 3)
 
     def test_detect_essay_type(self):
         """測試檢測申論題類型"""
@@ -99,45 +100,38 @@ class TestEssayQuestionParser(unittest.TestCase):
 
     def test_validate_coverage_complete(self):
         """測試驗證完整題目覆蓋"""
-        questions = [
-            {'題號': 1, '題目': '問題一'},
-            {'題號': 2, '題目': '問題二'},
-            {'題號': 3, '題目': '問題三'}
-        ]
+        questions = [{"題號": 1, "題目": "問題一"}, {"題號": 2, "題目": "問題二"}, {"題號": 3, "題目": "問題三"}]
 
         is_valid, message = self.parser.validate_coverage(questions)
 
         # 應該是完整的
         self.assertTrue(is_valid)
-        self.assertIn('完整', message)
+        self.assertIn("完整", message)
 
     def test_validate_coverage_incomplete(self):
         """測試驗證不完整題目覆蓋"""
         questions = [
-            {'題號': 1, '題目': '問題一'},
-            {'題號': 3, '題目': '問題三'},  # 缺少題號2
-            {'題號': 4, '題目': '問題四'}
+            {"題號": 1, "題目": "問題一"},
+            {"題號": 3, "題目": "問題三"},  # 缺少題號2
+            {"題號": 4, "題目": "問題四"},
         ]
 
         is_valid, message = self.parser.validate_coverage(questions)
 
         # 應該是不完整的
         self.assertFalse(is_valid)
-        self.assertIn('遺漏', message)
-        self.assertIn('2', message)
+        self.assertIn("遺漏", message)
+        self.assertIn("2", message)
 
     def test_validate_coverage_expected_count_mismatch(self):
         """測試驗證預期題目數量不符"""
-        questions = [
-            {'題號': 1, '題目': '問題一'},
-            {'題號': 2, '題目': '問題二'}
-        ]
+        questions = [{"題號": 1, "題目": "問題一"}, {"題號": 2, "題目": "問題二"}]
 
         is_valid, message = self.parser.validate_coverage(questions, expected_count=3)
 
         # 應該是不符的
         self.assertFalse(is_valid)
-        self.assertIn('不符', message)
+        self.assertIn("不符", message)
 
     def test_parse_empty_text(self):
         """測試解析空文本"""
@@ -157,7 +151,7 @@ class TestEssayQuestionParser(unittest.TestCase):
 
         # 只有第二題應該被保留（第一題太短）
         self.assertEqual(len(questions), 1)
-        self.assertEqual(questions[0]['題號'], 2)
+        self.assertEqual(questions[0]["題號"], 2)
 
     def test_difficulty_classification(self):
         """測試難度分類"""
@@ -168,7 +162,7 @@ class TestEssayQuestionParser(unittest.TestCase):
         questions = self.parser.parse_essay_questions(text)
 
         # 申論題通常被標記為困難
-        self.assertEqual(questions[0]['難度'], '困難')
+        self.assertEqual(questions[0]["難度"], "困難")
 
     def test_category_classification(self):
         """測試分類"""
@@ -179,7 +173,7 @@ class TestEssayQuestionParser(unittest.TestCase):
         questions = self.parser.parse_essay_questions(text)
 
         # 申論題的分類應該是申論
-        self.assertEqual(questions[0]['分類'], '申論')
+        self.assertEqual(questions[0]["分類"], "申論")
 
     def test_no_question_group(self):
         """測試申論題不應該被標記為題組"""
@@ -190,7 +184,7 @@ class TestEssayQuestionParser(unittest.TestCase):
         questions = self.parser.parse_essay_questions(text)
 
         # 題組欄位應該為 False
-        self.assertFalse(questions[0]['題組'])
+        self.assertFalse(questions[0]["題組"])
 
     def test_options_empty_for_essay(self):
         """測試申論題選項欄位應為空"""
@@ -201,12 +195,12 @@ class TestEssayQuestionParser(unittest.TestCase):
         questions = self.parser.parse_essay_questions(text)
 
         # 所有選項欄位應該為空
-        self.assertEqual(questions[0]['選項A'], '')
-        self.assertEqual(questions[0]['選項B'], '')
-        self.assertEqual(questions[0]['選項C'], '')
-        self.assertEqual(questions[0]['選項D'], '')
-        self.assertEqual(questions[0]['正確答案'], '')
+        self.assertEqual(questions[0]["選項A"], "")
+        self.assertEqual(questions[0]["選項B"], "")
+        self.assertEqual(questions[0]["選項C"], "")
+        self.assertEqual(questions[0]["選項D"], "")
+        self.assertEqual(questions[0]["正確答案"], "")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

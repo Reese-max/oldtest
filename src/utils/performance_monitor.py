@@ -5,21 +5,24 @@
 提供完整的性能監控、統計和分析功能
 """
 
-import time
 import functools
-import psutil
+import json
 import os
-from typing import Dict, List, Any, Optional, Callable
+import time
+from collections import defaultdict
 from dataclasses import dataclass, field
 from datetime import datetime
-from collections import defaultdict
-import json
+from typing import Any, Callable, Dict, List, Optional
+
+import psutil
+
 from .logger import logger
 
 
 @dataclass
 class PerformanceMetrics:
     """性能指標"""
+
     function_name: str
     start_time: float
     end_time: float
@@ -36,14 +39,14 @@ class PerformanceMetrics:
     def to_dict(self) -> Dict[str, Any]:
         """轉換為字典"""
         return {
-            'function_name': self.function_name,
-            'duration': round(self.duration, 4),
-            'memory_delta_mb': round(self.memory_delta_mb, 2),
-            'cpu_percent': round(self.cpu_percent, 2),
-            'timestamp': self.timestamp,
-            'success': self.success,
-            'error_message': self.error_message,
-            'metadata': self.metadata
+            "function_name": self.function_name,
+            "duration": round(self.duration, 4),
+            "memory_delta_mb": round(self.memory_delta_mb, 2),
+            "cpu_percent": round(self.cpu_percent, 2),
+            "timestamp": self.timestamp,
+            "success": self.success,
+            "error_message": self.error_message,
+            "metadata": self.metadata,
         }
 
 
@@ -124,7 +127,7 @@ class PerformanceMonitor:
         *,
         log_result: bool = True,
         track_memory: bool = True,
-        track_cpu: bool = True
+        track_cpu: bool = True,
     ):
         """
         性能監控裝飾器
@@ -147,6 +150,7 @@ class PerformanceMonitor:
             # 自動記錄性能指標
             ```
         """
+
         def decorator(f):
             @functools.wraps(f)
             def wrapper(*args, **kwargs):
@@ -198,7 +202,7 @@ class PerformanceMonitor:
                         cpu_percent=cpu_percent,
                         timestamp=datetime.now().isoformat(),
                         success=success,
-                        error_message=error_message
+                        error_message=error_message,
                     )
 
                     # 記錄指標
@@ -214,10 +218,7 @@ class PerformanceMonitor:
                                 f"CPU: {cpu_percent:.1f}%"
                             )
                         else:
-                            self.logger.error(
-                                f"❌ {f.__name__}: 失敗 ({error_message}), "
-                                f"耗時: {duration:.4f}秒"
-                            )
+                            self.logger.error(f"❌ {f.__name__}: 失敗 ({error_message}), " f"耗時: {duration:.4f}秒")
 
             return wrapper
 
@@ -250,21 +251,21 @@ class PerformanceMonitor:
 
         if not durations:
             return {
-                'function_name': function_name,
-                'call_count': 0,
-                'total_time': 0,
-                'avg_time': 0,
-                'min_time': 0,
-                'max_time': 0
+                "function_name": function_name,
+                "call_count": 0,
+                "total_time": 0,
+                "avg_time": 0,
+                "min_time": 0,
+                "max_time": 0,
             }
 
         return {
-            'function_name': function_name,
-            'call_count': len(durations),
-            'total_time': sum(durations),
-            'avg_time': sum(durations) / len(durations),
-            'min_time': min(durations),
-            'max_time': max(durations)
+            "function_name": function_name,
+            "call_count": len(durations),
+            "total_time": sum(durations),
+            "avg_time": sum(durations) / len(durations),
+            "min_time": min(durations),
+            "max_time": max(durations),
         }
 
     def get_all_stats(self) -> Dict[str, Dict[str, Any]]:
@@ -274,10 +275,7 @@ class PerformanceMonitor:
         Returns:
             所有函數的統計信息
         """
-        return {
-            func_name: self.get_function_stats(func_name)
-            for func_name in self.function_stats.keys()
-        }
+        return {func_name: self.get_function_stats(func_name) for func_name in self.function_stats.keys()}
 
     def get_metrics_summary(self) -> Dict[str, Any]:
         """
@@ -287,13 +285,7 @@ class PerformanceMonitor:
             總結信息
         """
         if not self.metrics:
-            return {
-                'total_metrics': 0,
-                'total_duration': 0,
-                'total_memory_delta': 0,
-                'avg_cpu': 0,
-                'success_rate': 0
-            }
+            return {"total_metrics": 0, "total_duration": 0, "total_memory_delta": 0, "avg_cpu": 0, "success_rate": 0}
 
         total_duration = sum(m.duration for m in self.metrics)
         total_memory_delta = sum(m.memory_delta_mb for m in self.metrics)
@@ -301,11 +293,11 @@ class PerformanceMonitor:
         success_count = sum(1 for m in self.metrics if m.success)
 
         return {
-            'total_metrics': len(self.metrics),
-            'total_duration': total_duration,
-            'total_memory_delta': total_memory_delta,
-            'avg_cpu': avg_cpu,
-            'success_rate': (success_count / len(self.metrics)) * 100
+            "total_metrics": len(self.metrics),
+            "total_duration": total_duration,
+            "total_memory_delta": total_memory_delta,
+            "avg_cpu": avg_cpu,
+            "success_rate": (success_count / len(self.metrics)) * 100,
         }
 
     def generate_report(self, output_file: Optional[str] = None) -> str:
@@ -338,11 +330,7 @@ class PerformanceMonitor:
         report_lines.append("## 函數統計")
         all_stats = self.get_all_stats()
 
-        for func_name, stats in sorted(
-            all_stats.items(),
-            key=lambda x: x[1]['total_time'],
-            reverse=True
-        ):
+        for func_name, stats in sorted(all_stats.items(), key=lambda x: x[1]["total_time"], reverse=True):
             report_lines.append(f"\n### {func_name}")
             report_lines.append(f"  調用次數: {stats['call_count']}")
             report_lines.append(f"  總耗時: {stats['total_time']:.4f}秒")
@@ -357,7 +345,7 @@ class PerformanceMonitor:
 
         # 輸出到文件
         if output_file:
-            with open(output_file, 'w', encoding='utf-8') as f:
+            with open(output_file, "w", encoding="utf-8") as f:
                 f.write(report)
             self.logger.info(f"性能報告已保存到: {output_file}")
 
@@ -372,7 +360,7 @@ class PerformanceMonitor:
         """
         metrics_data = [m.to_dict() for m in self.metrics]
 
-        with open(output_file, 'w', encoding='utf-8') as f:
+        with open(output_file, "w", encoding="utf-8") as f:
             json.dump(metrics_data, f, ensure_ascii=False, indent=2)
 
         self.logger.info(f"性能指標已導出到: {output_file}")
@@ -388,11 +376,7 @@ class PerformanceMonitor:
 global_monitor = PerformanceMonitor()
 
 
-def monitor_performance(
-    func: Optional[Callable] = None,
-    *,
-    log_result: bool = True
-):
+def monitor_performance(func: Optional[Callable] = None, *, log_result: bool = True):
     """
     便捷的性能監控裝飾器（使用全局監控器）
 

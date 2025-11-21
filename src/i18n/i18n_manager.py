@@ -5,24 +5,19 @@
 負責管理多語言翻譯和語言切換
 """
 
-import os
 import json
-from typing import Dict, Optional, Any
+import os
 from pathlib import Path
+from typing import Any, Dict, Optional
 
 
 class I18nManager:
     """國際化管理器"""
 
     # 支持的語言
-    SUPPORTED_LANGUAGES = {
-        'zh-TW': '繁體中文',
-        'zh-CN': '简体中文',
-        'en': 'English',
-        'ja': '日本語'
-    }
+    SUPPORTED_LANGUAGES = {"zh-TW": "繁體中文", "zh-CN": "简体中文", "en": "English", "ja": "日本語"}
 
-    def __init__(self, default_language: str = 'zh-TW'):
+    def __init__(self, default_language: str = "zh-TW"):
         """
         初始化國際化管理器
 
@@ -34,7 +29,7 @@ class I18nManager:
         self.translations: Dict[str, Dict[str, str]] = {}
 
         # 獲取語言檔案目錄
-        self.locales_dir = Path(__file__).parent / 'locales'
+        self.locales_dir = Path(__file__).parent / "locales"
 
         # 載入所有語言
         self._load_all_languages()
@@ -51,11 +46,11 @@ class I18nManager:
         Args:
             lang_code: 語言代碼
         """
-        lang_file = self.locales_dir / f'{lang_code}.json'
+        lang_file = self.locales_dir / f"{lang_code}.json"
 
         if lang_file.exists():
             try:
-                with open(lang_file, 'r', encoding='utf-8') as f:
+                with open(lang_file, "r", encoding="utf-8") as f:
                     self.translations[lang_code] = json.load(f)
             except Exception as e:
                 print(f"⚠️  載入語言檔案失敗 ({lang_code}): {e}")
@@ -93,17 +88,11 @@ class I18nManager:
             翻譯後的文本
         """
         # 獲取當前語言的翻譯
-        translation = self._get_nested_value(
-            self.translations.get(self.current_language, {}),
-            key
-        )
+        translation = self._get_nested_value(self.translations.get(self.current_language, {}), key)
 
         # 如果當前語言沒有翻譯，嘗試使用默認語言
         if translation is None and self.current_language != self.default_language:
-            translation = self._get_nested_value(
-                self.translations.get(self.default_language, {}),
-                key
-            )
+            translation = self._get_nested_value(self.translations.get(self.default_language, {}), key)
 
         # 如果還是沒有翻譯，返回鍵值本身
         if translation is None:
@@ -126,7 +115,7 @@ class I18nManager:
         Returns:
             對應的值，如果不存在則返回 None
         """
-        keys = key.split('.')
+        keys = key.split(".")
         value = data
 
         for k in keys:

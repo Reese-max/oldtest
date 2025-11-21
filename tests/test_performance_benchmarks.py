@@ -3,22 +3,24 @@
 測試各個組件的性能表現並建立基準線，用於檢測性能回歸
 """
 
-import pytest
-import time
-import psutil
 import os
-import tempfile
-from pathlib import Path
-from typing import Dict, List, Callable
 import statistics
+import tempfile
+import time
+from pathlib import Path
+from typing import Callable, Dict, List
+
+import psutil
+import pytest
+
+from src.core.csv_generator import CSVGenerator
+from src.core.essay_question_parser import EssayQuestionParser
+from src.core.mixed_format_parser import MixedFormatParser
 
 # 導入要測試的模組
 from src.core.pdf_processor import PDFProcessor
 from src.core.question_parser import QuestionParser
-from src.core.essay_question_parser import EssayQuestionParser
-from src.core.mixed_format_parser import MixedFormatParser
 from src.core.ultimate_question_parser import UltimateQuestionParser
-from src.core.csv_generator import CSVGenerator
 from src.utils.concurrent_processor import ConcurrentProcessor
 
 
@@ -58,13 +60,13 @@ class PerformanceBenchmark:
             memories.append(memory_used)
 
         return {
-            'avg_time': statistics.mean(times),
-            'min_time': min(times),
-            'max_time': max(times),
-            'std_time': statistics.stdev(times) if len(times) > 1 else 0,
-            'avg_memory': statistics.mean(memories),
-            'min_memory': min(memories),
-            'max_memory': max(memories),
+            "avg_time": statistics.mean(times),
+            "min_time": min(times),
+            "max_time": max(times),
+            "std_time": statistics.stdev(times) if len(times) > 1 else 0,
+            "avg_memory": statistics.mean(memories),
+            "min_memory": min(memories),
+            "max_memory": max(memories),
         }
 
 
@@ -77,7 +79,8 @@ def benchmark():
 @pytest.fixture
 def sample_pdf_content():
     """提供測試用的 PDF 內容"""
-    return """
+    return (
+        """
     1. 下列何者正確？
     (A) 選項 A
     (B) 選項 B
@@ -89,7 +92,9 @@ def sample_pdf_content():
     (B) 第二個選項
     (C) 第三個選項
     (D) 第四個選項
-    """ * 10  # 重複10次以模擬較大的內容
+    """
+        * 10
+    )  # 重複10次以模擬較大的內容
 
 
 @pytest.fixture
@@ -126,8 +131,8 @@ class TestPDFProcessorPerformance:
         results = benchmark.run_multiple_times(extract_text, iterations=10)
 
         # 斷言性能基準
-        assert results['avg_time'] < 1.0, f"PDF 文字提取太慢: {results['avg_time']:.3f}s"
-        assert results['avg_memory'] < 50, f"記憶體使用過多: {results['avg_memory']:.2f}MB"
+        assert results["avg_time"] < 1.0, f"PDF 文字提取太慢: {results['avg_time']:.3f}s"
+        assert results["avg_memory"] < 50, f"記憶體使用過多: {results['avg_memory']:.2f}MB"
 
         print(f"\n📊 PDF 文字提取性能:")
         print(f"  平均時間: {results['avg_time']:.3f}s")
@@ -150,8 +155,8 @@ class TestQuestionParserPerformance:
         results = benchmark.run_multiple_times(parse_questions, iterations=10)
 
         # 斷言性能基準
-        assert results['avg_time'] < 0.1, f"解析速度太慢: {results['avg_time']:.3f}s"
-        assert results['avg_memory'] < 10, f"記憶體使用過多: {results['avg_memory']:.2f}MB"
+        assert results["avg_time"] < 0.1, f"解析速度太慢: {results['avg_time']:.3f}s"
+        assert results["avg_memory"] < 10, f"記憶體使用過多: {results['avg_memory']:.2f}MB"
 
         print(f"\n📊 標準解析器性能:")
         print(f"  平均時間: {results['avg_time']:.3f}s")
@@ -170,7 +175,7 @@ class TestQuestionParserPerformance:
 
         results = benchmark.run_multiple_times(parse_large, iterations=5)
 
-        assert results['avg_time'] < 1.0, f"大文件解析太慢: {results['avg_time']:.3f}s"
+        assert results["avg_time"] < 1.0, f"大文件解析太慢: {results['avg_time']:.3f}s"
 
         print(f"\n📊 大文件解析性能 (100題):")
         print(f"  平均時間: {results['avg_time']:.3f}s")
@@ -180,12 +185,15 @@ class TestQuestionParserPerformance:
 class TestParserComparison:
     """比較不同解析器的性能"""
 
-    @pytest.mark.parametrize("parser_class,name", [
-        (QuestionParser, "標準解析器"),
-        (EssayQuestionParser, "申論題解析器"),
-        (MixedFormatParser, "混合格式解析器"),
-        (UltimateQuestionParser, "終極解析器"),
-    ])
+    @pytest.mark.parametrize(
+        "parser_class,name",
+        [
+            (QuestionParser, "標準解析器"),
+            (EssayQuestionParser, "申論題解析器"),
+            (MixedFormatParser, "混合格式解析器"),
+            (UltimateQuestionParser, "終極解析器"),
+        ],
+    )
     def test_parser_comparison(self, benchmark, sample_pdf_content, parser_class, name):
         """比較不同解析器的性能"""
         parser = parser_class()
@@ -203,7 +211,7 @@ class TestParserComparison:
         print(f"  記憶體: {results['avg_memory']:.2f}MB")
 
         # 每個解析器都應該在合理時間內完成
-        assert results['avg_time'] < 2.0, f"{name} 性能不達標"
+        assert results["avg_time"] < 2.0, f"{name} 性能不達標"
 
 
 class TestConcurrentProcessingPerformance:
@@ -224,7 +232,7 @@ class TestConcurrentProcessingPerformance:
         def process_file(file_path):
             """模擬處理單個文件"""
             time.sleep(0.1)  # 模擬處理時間
-            with open(file_path, 'r', encoding='utf-8') as f:
+            with open(file_path, "r", encoding="utf-8") as f:
                 return len(f.read())
 
         # 測試順序處理
@@ -282,9 +290,7 @@ class TestMemoryUsage:
         """
         parser = QuestionParser()
 
-        _, exec_time, memory_used = benchmark.measure_time(
-            parser.parse, large_pdf_content
-        )
+        _, exec_time, memory_used = benchmark.measure_time(parser.parse, large_pdf_content)
 
         print(f"\n📊 大文件記憶體效率 (100題):")
         print(f"  執行時間: {exec_time:.3f}s")
@@ -307,15 +313,15 @@ class TestCSVGeneratorPerformance:
         # 創建測試數據
         test_questions = [
             {
-                'question_number': i,
-                'question_text': f'測試題目 {i}',
-                'options': {
-                    'A': f'選項 A {i}',
-                    'B': f'選項 B {i}',
-                    'C': f'選項 C {i}',
-                    'D': f'選項 D {i}',
+                "question_number": i,
+                "question_text": f"測試題目 {i}",
+                "options": {
+                    "A": f"選項 A {i}",
+                    "B": f"選項 B {i}",
+                    "C": f"選項 C {i}",
+                    "D": f"選項 D {i}",
                 },
-                'answer': 'A'
+                "answer": "A",
             }
             for i in range(1, 101)
         ]
@@ -331,7 +337,7 @@ class TestCSVGeneratorPerformance:
         print(f"  平均時間: {results['avg_time']:.3f}s")
         print(f"  吞吐量: {100 / results['avg_time']:.1f} 題/秒")
 
-        assert results['avg_time'] < 0.5, f"CSV 生成太慢: {results['avg_time']:.3f}s"
+        assert results["avg_time"] < 0.5, f"CSV 生成太慢: {results['avg_time']:.3f}s"
 
 
 class TestPerformanceRegression:
@@ -339,41 +345,33 @@ class TestPerformanceRegression:
 
     # 定義性能基準線（這些值應該基於實際測量結果設定）
     BENCHMARKS = {
-        'pdf_extraction': {'max_time': 1.0, 'max_memory': 50},
-        'question_parsing': {'max_time': 0.1, 'max_memory': 10},
-        'large_document': {'max_time': 1.0, 'max_memory': 100},
-        'csv_generation': {'max_time': 0.5, 'max_memory': 20},
+        "pdf_extraction": {"max_time": 1.0, "max_memory": 50},
+        "question_parsing": {"max_time": 0.1, "max_memory": 10},
+        "large_document": {"max_time": 1.0, "max_memory": 100},
+        "csv_generation": {"max_time": 0.5, "max_memory": 20},
     }
 
     def test_no_performance_regression(self, benchmark, sample_pdf_content):
         """確保沒有性能回歸"""
         parser = QuestionParser()
 
-        results = benchmark.run_multiple_times(
-            parser.parse, sample_pdf_content, iterations=10
-        )
+        results = benchmark.run_multiple_times(parser.parse, sample_pdf_content, iterations=10)
 
-        baseline = self.BENCHMARKS['question_parsing']
+        baseline = self.BENCHMARKS["question_parsing"]
 
         # 檢查是否符合基準
-        time_regression = results['avg_time'] > baseline['max_time']
-        memory_regression = results['avg_memory'] > baseline['max_memory']
+        time_regression = results["avg_time"] > baseline["max_time"]
+        memory_regression = results["avg_memory"] > baseline["max_memory"]
 
         print(f"\n📊 性能回歸測試:")
         print(f"  當前時間: {results['avg_time']:.3f}s (基準: {baseline['max_time']}s)")
         print(f"  當前記憶體: {results['avg_memory']:.2f}MB (基準: {baseline['max_memory']}MB)")
 
         if time_regression:
-            pytest.fail(
-                f"⚠️  檢測到時間性能回歸: "
-                f"{results['avg_time']:.3f}s > {baseline['max_time']}s"
-            )
+            pytest.fail(f"⚠️  檢測到時間性能回歸: " f"{results['avg_time']:.3f}s > {baseline['max_time']}s")
 
         if memory_regression:
-            pytest.fail(
-                f"⚠️  檢測到記憶體性能回歸: "
-                f"{results['avg_memory']:.2f}MB > {baseline['max_memory']}MB"
-            )
+            pytest.fail(f"⚠️  檢測到記憶體性能回歸: " f"{results['avg_memory']:.2f}MB > {baseline['max_memory']}MB")
 
 
 class TestThroughput:
@@ -399,10 +397,12 @@ class TestThroughput:
 
 # 運行基準測試的主函數
 if __name__ == "__main__":
-    pytest.main([
-        __file__,
-        "-v",
-        "--tb=short",
-        "-s",  # 顯示 print 輸出
-        "--benchmark-only",  # 僅運行基準測試
-    ])
+    pytest.main(
+        [
+            __file__,
+            "-v",
+            "--tb=short",
+            "-s",  # 顯示 print 輸出
+            "--benchmark-only",  # 僅運行基準測試
+        ]
+    )

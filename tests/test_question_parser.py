@@ -7,10 +7,10 @@
 import os
 import sys
 import unittest
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import MagicMock, Mock, patch
 
 # 添加專案根目錄到路徑
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from src.core.question_parser import QuestionParser
 from src.utils.exceptions import QuestionParsingError
@@ -46,8 +46,8 @@ class TestQuestionParser(unittest.TestCase):
         if questions:
             question = questions[0]
             # 驗證題目結構
-            self.assertIn('題號', question)
-            self.assertIn('題目', question)
+            self.assertIn("題號", question)
+            self.assertIn("題目", question)
 
     def test_parse_multiple_questions(self):
         """測試解析多個題目"""
@@ -297,13 +297,15 @@ class TestQuestionParserEdgeCases(unittest.TestCase):
         # 創建包含100個題目的長文本
         questions_text = []
         for i in range(1, 101):
-            questions_text.append(f"""
+            questions_text.append(
+                f"""
             {i}. 第{i}題題目？
             (A) 選項A
             (B) 選項B
             (C) 選項C
             (D) 選項D
-            """)
+            """
+            )
 
         text = "\n".join(questions_text)
 
@@ -347,5 +349,5 @@ class TestQuestionParserEdgeCases(unittest.TestCase):
         self.assertIsInstance(questions, list)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

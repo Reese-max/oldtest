@@ -9,7 +9,7 @@ import sys
 import unittest
 
 # 添加專案根目錄到路徑
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from src.core.ai_question_parser import AIQuestionParser
 
@@ -349,5 +349,5 @@ class TestAIQuestionParserEdgeCases(unittest.TestCase):
         self.assertIsInstance(questions, list)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

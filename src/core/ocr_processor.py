@@ -6,19 +6,20 @@ OCR處理器 - 整合 PaddleOCR
 """
 
 import os
-import tempfile
 import shutil
-from typing import Optional, List, Dict, Any, Tuple
+import tempfile
 from pathlib import Path
-from ..utils.logger import logger
-from ..utils.exceptions import PDFProcessingError
+from typing import Any, Dict, List, Optional, Tuple
+
 from ..utils.config import config_manager
+from ..utils.exceptions import PDFProcessingError
+from ..utils.logger import logger
 
 
 class OCRProcessor:
     """OCR處理器 - 使用 PaddleOCR 進行文字識別"""
 
-    def __init__(self, use_gpu: bool = False, lang: str = 'ch'):
+    def __init__(self, use_gpu: bool = False, lang: str = "ch"):
         """
         初始化 OCR 處理器
 
@@ -46,9 +47,9 @@ class OCRProcessor:
                     use_gpu=self.use_gpu,
                     show_log=False,
                     enable_mkldnn=True,  # 啟用 Intel CPU 加速
-                    det_db_thresh=0.3,   # 文字檢測閾值
+                    det_db_thresh=0.3,  # 文字檢測閾值
                     det_db_box_thresh=0.5,  # 文字框閾值
-                    rec_batch_num=6,     # 識別批次大小
+                    rec_batch_num=6,  # 識別批次大小
                 )
 
                 self.logger.success("PaddleOCR 引擎初始化成功")
@@ -72,10 +73,10 @@ class OCRProcessor:
                     use_gpu=self.use_gpu,
                     show_log=False,
                     lang=self.lang,
-                    layout=True,        # 啟用版面分析
-                    table=True,         # 啟用表格識別
-                    ocr=True,           # 啟用 OCR
-                    recovery=True,      # 啟用結構恢復
+                    layout=True,  # 啟用版面分析
+                    table=True,  # 啟用表格識別
+                    ocr=True,  # 啟用 OCR
+                    recovery=True,  # 啟用結構恢復
                 )
 
                 self.logger.success("PP-Structure 引擎初始化成功")
@@ -86,9 +87,9 @@ class OCRProcessor:
                 self.logger.warning(f"PP-Structure 引擎初始化失敗: {e}")
                 self._structure_engine = None
 
-    def extract_text_from_pdf(self, pdf_path: str,
-                             use_structure: bool = False,
-                             confidence_threshold: float = 0.5) -> str:
+    def extract_text_from_pdf(
+        self, pdf_path: str, use_structure: bool = False, confidence_threshold: float = 0.5
+    ) -> str:
         """
         從 PDF 提取文字
 
@@ -143,7 +144,7 @@ class OCRProcessor:
             images = []
 
             # 創建臨時目錄並追蹤
-            temp_dir = tempfile.mkdtemp(prefix='ocr_')
+            temp_dir = tempfile.mkdtemp(prefix="ocr_")
             self._temp_dirs.append(temp_dir)
 
             # 打開 PDF（使用 try-finally 確保關閉）
@@ -177,21 +178,17 @@ class OCRProcessor:
                 from pdf2image import convert_from_path
 
                 self.logger.info("使用 pdf2image 轉換...")
-                temp_dir = tempfile.mkdtemp(prefix='ocr_')
+                temp_dir = tempfile.mkdtemp(prefix="ocr_")
                 self._temp_dirs.append(temp_dir)  # 追蹤臨時目錄
 
                 # 使用配置的 DPI 值
                 ocr_config = config_manager.get_ocr_config()
-                images_pil = convert_from_path(
-                    pdf_path,
-                    dpi=ocr_config.pdf_to_image_dpi,  # 使用配置的 DPI
-                    fmt='png'
-                )
+                images_pil = convert_from_path(pdf_path, dpi=ocr_config.pdf_to_image_dpi, fmt="png")  # 使用配置的 DPI
 
                 images = []
                 for i, img in enumerate(images_pil):
                     image_path = os.path.join(temp_dir, f"page_{i + 1}.png")
-                    img.save(image_path, 'PNG')
+                    img.save(image_path, "PNG")
                     images.append(image_path)
 
                 self.logger.success(f"PDF 轉圖片完成，共 {len(images)} 頁")
@@ -207,8 +204,7 @@ class OCRProcessor:
             self.logger.failure(error_msg)
             raise PDFProcessingError(error_msg) from e
 
-    def _extract_with_ocr(self, images: List[str],
-                         confidence_threshold: float) -> str:
+    def _extract_with_ocr(self, images: List[str], confidence_threshold: float) -> str:
         """
         使用基礎 OCR 提取文字
 
@@ -247,16 +243,15 @@ class OCRProcessor:
                                 self.logger.debug(f"過濾低信心度文字: {text} ({confidence:.2f})")
 
                     if page_text:
-                        all_text.append('\n'.join(page_text))
+                        all_text.append("\n".join(page_text))
 
             except Exception as e:
                 self.logger.warning(f"第 {i} 頁 OCR 失敗: {e}")
                 continue
 
-        return '\n'.join(all_text)
+        return "\n".join(all_text)
 
-    def _extract_with_structure(self, images: List[str],
-                               confidence_threshold: float) -> str:
+    def _extract_with_structure(self, images: List[str], confidence_threshold: float) -> str:
         """
         使用結構化分析提取文字
 
@@ -286,36 +281,36 @@ class OCRProcessor:
                     page_elements = []
 
                     for region in result:
-                        region_type = region.get('type', 'text')
+                        region_type = region.get("type", "text")
 
-                        if region_type == 'table':
+                        if region_type == "table":
                             # 表格轉文字
                             table_text = self._parse_table(region)
                             if table_text:
                                 page_elements.append(table_text)
 
-                        elif region_type == 'text':
+                        elif region_type == "text":
                             # 一般文字
-                            text = region.get('res', {}).get('text', '')
-                            confidence = region.get('res', {}).get('confidence', 1.0)
+                            text = region.get("res", {}).get("text", "")
+                            confidence = region.get("res", {}).get("confidence", 1.0)
 
                             if text and confidence >= confidence_threshold:
                                 page_elements.append(text)
 
-                        elif region_type == 'title':
+                        elif region_type == "title":
                             # 標題
-                            text = region.get('res', {}).get('text', '')
+                            text = region.get("res", {}).get("text", "")
                             if text:
                                 page_elements.append(f"\n{text}\n")
 
                     if page_elements:
-                        all_text.append('\n'.join(page_elements))
+                        all_text.append("\n".join(page_elements))
 
             except Exception as e:
                 self.logger.warning(f"第 {i} 頁結構化分析失敗: {e}")
                 continue
 
-        return '\n'.join(all_text)
+        return "\n".join(all_text)
 
     def _parse_table(self, table_region: Dict[str, Any]) -> str:
         """
@@ -328,7 +323,7 @@ class OCRProcessor:
             表格文字內容
         """
         try:
-            table_html = table_region.get('res', {}).get('html', '')
+            table_html = table_region.get("res", {}).get("html", "")
 
             if table_html:
                 # 簡單將 HTML 表格轉為文字
@@ -336,9 +331,9 @@ class OCRProcessor:
                 import re
 
                 # 移除 HTML 標籤
-                text = re.sub(r'<[^>]+>', ' ', table_html)
+                text = re.sub(r"<[^>]+>", " ", table_html)
                 # 清理多餘空白
-                text = re.sub(r'\s+', ' ', text).strip()
+                text = re.sub(r"\s+", " ", text).strip()
 
                 return f"\n[表格]\n{text}\n[/表格]\n"
 
@@ -348,8 +343,7 @@ class OCRProcessor:
             self.logger.warning(f"表格解析失敗: {e}")
             return ""
 
-    def extract_text_from_image(self, image_path: str,
-                               confidence_threshold: float = 0.5) -> str:
+    def extract_text_from_image(self, image_path: str, confidence_threshold: float = 0.5) -> str:
         """
         從圖片提取文字
 
@@ -401,7 +395,7 @@ class OCRProcessor:
             score += 0.1
 
         # 中文字符比例（30%）
-        chinese_chars = len([c for c in text if '\u4e00' <= c <= '\u9fff'])
+        chinese_chars = len([c for c in text if "\u4e00" <= c <= "\u9fff"])
         if text_length > 0:
             chinese_ratio = chinese_chars / text_length
             score += chinese_ratio * 0.3
@@ -413,7 +407,7 @@ class OCRProcessor:
             score += alphanumeric_ratio * 0.2
 
         # 標點符號比例（10%）
-        punctuation = len([c for c in text if c in '。，、；：？！""''（）【】《》'])
+        punctuation = len([c for c in text if c in '。，、；：？！""' "（）【】《》"])
         if text_length > 0:
             punctuation_ratio = punctuation / text_length
             # 適當的標點符號比例（2-10%）
@@ -423,7 +417,7 @@ class OCRProcessor:
                 score += punctuation_ratio * 5  # 0-0.1
 
         # 特殊字符比例懲罰（10%）
-        special_chars = len([c for c in text if not c.isalnum() and c not in ' \n\t。，、；：？！""''（）【】《》'])
+        special_chars = len([c for c in text if not c.isalnum() and c not in ' \n\t。，、；：？！""' "（）【】《》"])
         if text_length > 0:
             special_ratio = special_chars / text_length
             if special_ratio < 0.05:

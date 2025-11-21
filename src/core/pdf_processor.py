@@ -6,10 +6,12 @@ PDF處理器
 """
 
 import os
+from typing import List, Optional
+
 import pdfplumber
-from typing import Optional, List
-from ..utils.logger import logger
+
 from ..utils.exceptions import PDFProcessingError
+from ..utils.logger import logger
 
 # PDF processing constants
 DEFAULT_MAX_PAGES = 200  # Default maximum pages to process (防止大文件記憶體溢出)
@@ -19,10 +21,10 @@ MAX_PAGES_WARNING_THRESHOLD = 10000  # Warn if max_pages exceeds this value
 
 class PDFProcessor:
     """PDF處理器"""
-    
+
     def __init__(self):
         self.logger = logger
-    
+
     def extract_text(self, pdf_path: str, max_pages: int = DEFAULT_MAX_PAGES) -> str:
         """
         從PDF檔案中提取文字內容
@@ -53,9 +55,7 @@ class PDFProcessor:
 
                 # 警告大文件
                 if total_pages > max_pages:
-                    self.logger.warning(
-                        f"⚠️  PDF檔案過大（{total_pages} 頁），僅處理前 {max_pages} 頁"
-                    )
+                    self.logger.warning(f"⚠️  PDF檔案過大（{total_pages} 頁），僅處理前 {max_pages} 頁")
 
                 # 限制處理頁數
                 pages_to_process = min(total_pages, max_pages)
@@ -66,9 +66,9 @@ class PDFProcessor:
                         if page_text:
                             # 處理特殊 Unicode 字符，避免編碼錯誤
                             try:
-                                page_text = page_text.encode('utf-8', errors='ignore').decode('utf-8')
+                                page_text = page_text.encode("utf-8", errors="ignore").decode("utf-8")
                                 # 移除常見的問題字符
-                                page_text = page_text.replace('\x00', '').replace('\ufeff', '')
+                                page_text = page_text.replace("\x00", "").replace("\ufeff", "")
                             except UnicodeError as ue:
                                 self.logger.warning(f"第 {page_num} 頁 Unicode 清理失敗: {ue}")
                             text += page_text + "\n"
@@ -76,6 +76,7 @@ class PDFProcessor:
                         # 每處理 MEMORY_CLEANUP_INTERVAL 頁釋放一次記憶體
                         if page_num % MEMORY_CLEANUP_INTERVAL == 0:
                             import gc
+
                             gc.collect()
                             self.logger.debug(f"已處理 {page_num} 頁，觸發記憶體清理")
 
@@ -84,16 +85,14 @@ class PDFProcessor:
                         self.logger.warning(f"第 {page_num} 頁處理失敗: {e}")
                         continue
 
-                self.logger.success(
-                    f"✅ PDF文字提取完成，共處理 {pages_to_process}/{total_pages} 頁，{len(text)} 字元"
-                )
+                self.logger.success(f"✅ PDF文字提取完成，共處理 {pages_to_process}/{total_pages} 頁，{len(text)} 字元")
                 return text
 
         except Exception as e:
             error_msg = f"PDF處理失敗: {e}"
             self.logger.failure(error_msg)
             raise PDFProcessingError(error_msg) from e
-    
+
     def extract_text_from_pages(self, pdf_path: str, page_numbers: List[int]) -> str:
         """
         從指定頁面提取文字內容
@@ -111,14 +110,14 @@ class PDFProcessor:
 
         if not os.path.exists(pdf_path):
             raise PDFProcessingError(f"PDF檔案不存在: {pdf_path}")
-        
+
         try:
             self.logger.info(f"從指定頁面提取文字: {page_numbers}")
-            
+
             with pdfplumber.open(pdf_path) as pdf:
                 text = ""
                 total_pages = len(pdf.pages)
-                
+
                 for page_num in page_numbers:
                     if 1 <= page_num <= total_pages:
                         try:
@@ -126,9 +125,9 @@ class PDFProcessor:
                             if page_text:
                                 # 處理特殊 Unicode 字符，避免編碼錯誤
                                 try:
-                                    page_text = page_text.encode('utf-8', errors='ignore').decode('utf-8')
+                                    page_text = page_text.encode("utf-8", errors="ignore").decode("utf-8")
                                     # 移除常見的問題字符
-                                    page_text = page_text.replace('\x00', '').replace('\ufeff', '')
+                                    page_text = page_text.replace("\x00", "").replace("\ufeff", "")
                                 except UnicodeError as ue:
                                     self.logger.warning(f"第 {page_num} 頁 Unicode 清理失敗: {ue}")
                                 text += page_text + "\n"
@@ -137,15 +136,15 @@ class PDFProcessor:
                             self.logger.warning(f"第 {page_num} 頁處理失敗: {e}")
                     else:
                         self.logger.warning(f"頁面編號 {page_num} 超出範圍 (1-{total_pages})")
-                
+
                 self.logger.success(f"指定頁面文字提取完成，{len(text)} 字元")
                 return text
-                
+
         except Exception as e:
             error_msg = f"指定頁面PDF處理失敗: {e}"
             self.logger.failure(error_msg)
             raise PDFProcessingError(error_msg) from e
-    
+
     def get_page_count(self, pdf_path: str) -> int:
         """
         取得PDF頁數
@@ -161,7 +160,7 @@ class PDFProcessor:
 
         if not os.path.exists(pdf_path):
             raise PDFProcessingError(f"PDF檔案不存在: {pdf_path}")
-        
+
         try:
             with pdfplumber.open(pdf_path) as pdf:
                 page_count = len(pdf.pages)
@@ -191,7 +190,7 @@ class PDFProcessor:
             raise PDFProcessingError("pdf_path 不能為空字串")
 
         # 驗證副檔名
-        if not pdf_path.lower().endswith('.pdf'):
+        if not pdf_path.lower().endswith(".pdf"):
             raise PDFProcessingError(f"pdf_path 必須是 PDF 檔案（.pdf），收到: {pdf_path}")
 
         # 驗證不是目錄
@@ -240,8 +239,6 @@ class PDFProcessor:
         # 驗證列表內容
         for i, page_num in enumerate(page_numbers):
             if not isinstance(page_num, int):
-                raise PDFProcessingError(
-                    f"page_numbers[{i}] 必須是整數，收到類型: {type(page_num).__name__}"
-                )
+                raise PDFProcessingError(f"page_numbers[{i}] 必須是整數，收到類型: {type(page_num).__name__}")
             if page_num < 1:
                 raise PDFProcessingError(f"page_numbers[{i}] 必須大於 0，收到: {page_num}")

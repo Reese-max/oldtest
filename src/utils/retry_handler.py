@@ -5,9 +5,10 @@
 提供自動重試、指數退避、斷點續傳等功能
 """
 
-import time
 import functools
-from typing import Callable, Any, Optional, Type, Tuple
+import time
+from typing import Any, Callable, Optional, Tuple, Type
+
 from .logger import logger
 
 
@@ -16,7 +17,7 @@ def retry_with_backoff(
     initial_delay: float = 1.0,
     exponential: bool = True,
     exceptions: Tuple[Type[Exception], ...] = (Exception,),
-    on_retry: Optional[Callable] = None
+    on_retry: Optional[Callable] = None,
 ):
     """
     重試裝飾器（支持指數退避）
@@ -36,6 +37,7 @@ def retry_with_backoff(
             pass
         ```
     """
+
     def decorator(func: Callable) -> Callable:
         @functools.wraps(func)
         def wrapper(*args, **kwargs) -> Any:
@@ -51,13 +53,11 @@ def retry_with_backoff(
                     if attempt < max_retries:
                         # 計算延遲時間
                         if exponential:
-                            delay = initial_delay * (2 ** attempt)
+                            delay = initial_delay * (2**attempt)
                         else:
                             delay = initial_delay
 
-                        logger.warning(
-                            f"⚠️  {func.__name__} 失敗 (嘗試 {attempt + 1}/{max_retries + 1}): {e}"
-                        )
+                        logger.warning(f"⚠️  {func.__name__} 失敗 (嘗試 {attempt + 1}/{max_retries + 1}): {e}")
                         logger.info(f"   等待 {delay:.1f} 秒後重試...")
 
                         # 調用重試回調
@@ -66,14 +66,13 @@ def retry_with_backoff(
 
                         time.sleep(delay)
                     else:
-                        logger.error(
-                            f"❌ {func.__name__} 失敗 (已達最大重試次數): {e}"
-                        )
+                        logger.error(f"❌ {func.__name__} 失敗 (已達最大重試次數): {e}")
 
             # 所有重試都失敗
             raise last_exception
 
         return wrapper
+
     return decorator
 
 
@@ -100,7 +99,7 @@ class CheckpointManager:
         import json
 
         try:
-            with open(self.checkpoint_file, 'w', encoding='utf-8') as f:
+            with open(self.checkpoint_file, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
             self.logger.debug(f"💾 斷點已保存: {self.checkpoint_file}")
@@ -122,7 +121,7 @@ class CheckpointManager:
             return None
 
         try:
-            with open(self.checkpoint_file, 'r', encoding='utf-8') as f:
+            with open(self.checkpoint_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
             self.logger.info(f"📂 斷點已載入: {self.checkpoint_file}")
@@ -160,12 +159,7 @@ class ErrorRecovery:
         self.logger = logger
         self.checkpoint = CheckpointManager()
 
-    def process_with_recovery(
-        self,
-        tasks: list,
-        process_func: Callable,
-        save_interval: int = 10
-    ) -> Tuple[list, list]:
+    def process_with_recovery(self, tasks: list, process_func: Callable, save_interval: int = 10) -> Tuple[list, list]:
         """
         帶錯誤恢復的批量處理
 
@@ -181,7 +175,7 @@ class ErrorRecovery:
         checkpoint_data = self.checkpoint.load_checkpoint()
 
         if checkpoint_data:
-            completed = set(checkpoint_data.get('completed', []))
+            completed = set(checkpoint_data.get("completed", []))
             self.logger.info(f"📂 從斷點恢復，已完成 {len(completed)} 個任務")
         else:
             completed = set()
@@ -191,7 +185,7 @@ class ErrorRecovery:
 
         for idx, task in enumerate(tasks):
             # 跳過已完成的任務
-            task_id = getattr(task, 'task_id', idx)
+            task_id = getattr(task, "task_id", idx)
 
             if task_id in completed:
                 self.logger.debug(f"⏭️  跳過已完成任務: {task_id}")
@@ -208,11 +202,9 @@ class ErrorRecovery:
 
             # 定期保存斷點
             if (idx + 1) % save_interval == 0:
-                self.checkpoint.save_checkpoint({
-                    'completed': list(completed),
-                    'total': len(tasks),
-                    'timestamp': time.time()
-                })
+                self.checkpoint.save_checkpoint(
+                    {"completed": list(completed), "total": len(tasks), "timestamp": time.time()}
+                )
 
         # 清除斷點
         if not failed:
@@ -221,11 +213,7 @@ class ErrorRecovery:
 
         return results, failed
 
-    def _process_with_retry(
-        self,
-        task: Any,
-        process_func: Callable
-    ) -> Tuple[bool, Any]:
+    def _process_with_retry(self, task: Any, process_func: Callable) -> Tuple[bool, Any]:
         """
         處理單個任務（帶重試）
 
@@ -247,11 +235,9 @@ class ErrorRecovery:
                 last_error = e
 
                 if attempt < self.max_retries:
-                    delay = self.retry_delay * (2 ** attempt)  # 指數退避
+                    delay = self.retry_delay * (2**attempt)  # 指數退避
 
-                    self.logger.warning(
-                        f"⚠️  任務失敗 (嘗試 {attempt + 1}/{self.max_retries + 1}): {e}"
-                    )
+                    self.logger.warning(f"⚠️  任務失敗 (嘗試 {attempt + 1}/{self.max_retries + 1}): {e}")
                     self.logger.info(f"   等待 {delay:.1f} 秒後重試...")
 
                     time.sleep(delay)
@@ -261,13 +247,7 @@ class ErrorRecovery:
         return False, last_error
 
 
-def safe_execute(
-    func: Callable,
-    *args,
-    default=None,
-    log_error: bool = True,
-    **kwargs
-) -> Any:
+def safe_execute(func: Callable, *args, default=None, log_error: bool = True, **kwargs) -> Any:
     """
     安全執行函數（捕獲所有異常）
 

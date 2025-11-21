@@ -7,17 +7,19 @@
 
 import os
 import time
-from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor, as_completed
-from typing import List, Dict, Any, Callable, Optional, Tuple
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import datetime
 from threading import Lock
+from typing import Any, Callable, Dict, List, Optional, Tuple
+
 from .logger import logger
 
 
 @dataclass
 class ProcessingTask:
     """處理任務"""
+
     task_id: int
     pdf_path: str
     answer_pdf_path: Optional[str] = None
@@ -28,6 +30,7 @@ class ProcessingTask:
 @dataclass
 class TaskResult:
     """任務結果"""
+
     task_id: int
     pdf_path: str
     success: bool
@@ -75,13 +78,13 @@ class ProgressTracker:
         """獲取摘要"""
         total_time = time.time() - self.start_time
         return {
-            'total_tasks': self.total_tasks,
-            'completed': self.completed,
-            'successful': self.successful,
-            'failed': self.failed,
-            'success_rate': (self.successful / self.total_tasks * 100) if self.total_tasks > 0 else 0,
-            'total_time': total_time,
-            'avg_time_per_task': total_time / self.completed if self.completed > 0 else 0
+            "total_tasks": self.total_tasks,
+            "completed": self.completed,
+            "successful": self.successful,
+            "failed": self.failed,
+            "success_rate": (self.successful / self.total_tasks * 100) if self.total_tasks > 0 else 0,
+            "total_time": total_time,
+            "avg_time_per_task": total_time / self.completed if self.completed > 0 else 0,
         }
 
 
@@ -106,16 +109,14 @@ class ConcurrentProcessor:
         self.logger = logger
 
         self.logger.info(
-            f"初始化並發處理器: "
-            f"{'多進程' if use_processes else '多線程'} 模式, "
-            f"{self.max_workers} 個 worker"
+            f"初始化並發處理器: " f"{'多進程' if use_processes else '多線程'} 模式, " f"{self.max_workers} 個 worker"
         )
 
     def process_batch(
         self,
         tasks: List[ProcessingTask],
         processor_func: Callable[[ProcessingTask], Dict[str, Any]],
-        fail_fast: bool = False
+        fail_fast: bool = False,
     ) -> List[TaskResult]:
         """
         批量處理任務
@@ -159,8 +160,7 @@ class ConcurrentProcessor:
             with ExecutorClass(max_workers=self.max_workers) as executor:
                 # 提交所有任務
                 future_to_task = {
-                    executor.submit(self._process_single_task, task, processor_func): task
-                    for task in tasks
+                    executor.submit(self._process_single_task, task, processor_func): task for task in tasks
                 }
 
                 # 收集結果
@@ -184,11 +184,7 @@ class ConcurrentProcessor:
 
                         # 記錄失敗結果
                         result = TaskResult(
-                            task_id=task.task_id,
-                            pdf_path=task.pdf_path,
-                            success=False,
-                            result={},
-                            error=str(e)
+                            task_id=task.task_id, pdf_path=task.pdf_path, success=False, result={}, error=str(e)
                         )
                         results.append(result)
                         progress.update(False)
@@ -208,9 +204,7 @@ class ConcurrentProcessor:
         return results
 
     def _process_single_task(
-        self,
-        task: ProcessingTask,
-        processor_func: Callable[[ProcessingTask], Dict[str, Any]]
+        self, task: ProcessingTask, processor_func: Callable[[ProcessingTask], Dict[str, Any]]
     ) -> TaskResult:
         """
         處理單個任務（內部方法）
@@ -236,12 +230,12 @@ class ConcurrentProcessor:
             return TaskResult(
                 task_id=task.task_id,
                 pdf_path=task.pdf_path,
-                success=result.get('success', False),
+                success=result.get("success", False),
                 result=result,
-                error=result.get('message') if not result.get('success') else None,
+                error=result.get("message") if not result.get("success") else None,
                 duration=duration,
                 start_time=start_timestamp,
-                end_time=end_time.isoformat()
+                end_time=end_time.isoformat(),
             )
 
         except Exception as e:
@@ -258,7 +252,7 @@ class ConcurrentProcessor:
                 error=str(e),
                 duration=duration,
                 start_time=start_timestamp,
-                end_time=end_time.isoformat()
+                end_time=end_time.isoformat(),
             )
 
     def _log_summary(self, summary: Dict[str, Any]):
@@ -274,8 +268,8 @@ class ConcurrentProcessor:
         self.logger.info(f"總耗時: {summary['total_time']:.2f} 秒")
         self.logger.info(f"平均耗時: {summary['avg_time_per_task']:.2f} 秒/任務")
 
-        if summary['successful'] > 0:
-            speedup = summary['total_time'] / (summary['avg_time_per_task'] * summary['total_tasks'])
+        if summary["successful"] > 0:
+            speedup = summary["total_time"] / (summary["avg_time_per_task"] * summary["total_tasks"])
             self.logger.info(f"加速比: {1/speedup:.2f}x (並發 vs 串行)")
 
         self.logger.info("=" * 60)
@@ -286,7 +280,7 @@ class ConcurrentProcessor:
         output_dir: str,
         processor_func: Callable[[ProcessingTask], Dict[str, Any]],
         pattern: str = "*.pdf",
-        recursive: bool = True
+        recursive: bool = True,
     ) -> Tuple[List[TaskResult], Dict[str, Any]]:
         """
         處理目錄中的所有 PDF 文件
@@ -330,7 +324,7 @@ class ConcurrentProcessor:
                 pdf_path=pdf_path,
                 answer_pdf_path=answer_pdf if os.path.exists(answer_pdf) else None,
                 corrected_answer_pdf_path=corrected_answer_pdf if os.path.exists(corrected_answer_pdf) else None,
-                output_dir=output_dir
+                output_dir=output_dir,
             )
             tasks.append(task)
 
@@ -347,22 +341,19 @@ class ConcurrentProcessor:
         successful_results = [r for r in results if r.success]
         failed_results = [r for r in results if not r.success]
 
-        total_questions = sum(
-            r.result.get('questions_count', 0)
-            for r in successful_results
-        )
+        total_questions = sum(r.result.get("questions_count", 0) for r in successful_results)
 
         total_time = sum(r.duration for r in results)
 
         summary = {
-            'total_files': len(results),
-            'successful': len(successful_results),
-            'failed': len(failed_results),
-            'total_questions': total_questions,
-            'total_time': total_time,
-            'avg_time_per_file': total_time / len(results) if results else 0,
-            'failed_files': [r.pdf_path for r in failed_results],
-            'success_rate': (len(successful_results) / len(results) * 100) if results else 0
+            "total_files": len(results),
+            "successful": len(successful_results),
+            "failed": len(failed_results),
+            "total_questions": total_questions,
+            "total_time": total_time,
+            "avg_time_per_file": total_time / len(results) if results else 0,
+            "failed_files": [r.pdf_path for r in failed_results],
+            "success_rate": (len(successful_results) / len(results) * 100) if results else 0,
         }
 
         return summary

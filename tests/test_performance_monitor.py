@@ -4,22 +4,22 @@
 測試性能監控器
 """
 
+import json
 import os
 import sys
-import unittest
-import time
 import tempfile
-import json
+import time
+import unittest
 
 # 添加專案根目錄到路徑
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from src.utils.performance_monitor import (
+    PerformanceMetrics,
     PerformanceMonitor,
     PerformanceTimer,
-    PerformanceMetrics,
+    global_monitor,
     monitor_performance,
-    global_monitor
 )
 
 
@@ -94,7 +94,7 @@ class TestPerformanceMetrics(unittest.TestCase):
             memory_delta_mb=10.0,
             cpu_percent=50.0,
             timestamp="2025-11-17T12:00:00",
-            success=True
+            success=True,
         )
 
         self.assertEqual(metrics.function_name, "test_func")
@@ -113,16 +113,16 @@ class TestPerformanceMetrics(unittest.TestCase):
             memory_after_mb=105.0,
             memory_delta_mb=5.0,
             cpu_percent=30.0,
-            timestamp="2025-11-17"
+            timestamp="2025-11-17",
         )
 
         metrics_dict = metrics.to_dict()
 
-        self.assertIn('function_name', metrics_dict)
-        self.assertIn('duration', metrics_dict)
-        self.assertIn('memory_delta_mb', metrics_dict)
-        self.assertIn('cpu_percent', metrics_dict)
-        self.assertEqual(metrics_dict['function_name'], "test_func")
+        self.assertIn("function_name", metrics_dict)
+        self.assertIn("duration", metrics_dict)
+        self.assertIn("memory_delta_mb", metrics_dict)
+        self.assertIn("cpu_percent", metrics_dict)
+        self.assertEqual(metrics_dict["function_name"], "test_func")
 
 
 class TestPerformanceMonitor(unittest.TestCase):
@@ -134,6 +134,7 @@ class TestPerformanceMonitor(unittest.TestCase):
 
     def test_decorator_basic(self):
         """測試基本裝飾器功能"""
+
         @self.monitor.monitor()
         def sample_function():
             time.sleep(0.01)
@@ -152,6 +153,7 @@ class TestPerformanceMonitor(unittest.TestCase):
 
     def test_decorator_with_exception(self):
         """測試處理異常的裝飾器"""
+
         @self.monitor.monitor()
         def failing_function():
             raise ValueError("Test error")
@@ -168,6 +170,7 @@ class TestPerformanceMonitor(unittest.TestCase):
 
     def test_function_stats(self):
         """測試函數統計"""
+
         @self.monitor.monitor()
         def repeated_function():
             time.sleep(0.01)
@@ -179,14 +182,15 @@ class TestPerformanceMonitor(unittest.TestCase):
         # 獲取統計
         stats = self.monitor.get_function_stats("repeated_function")
 
-        self.assertEqual(stats['call_count'], 5)
-        self.assertGreater(stats['total_time'], 0.05)
-        self.assertGreater(stats['avg_time'], 0.01)
-        self.assertGreater(stats['min_time'], 0)
-        self.assertGreater(stats['max_time'], 0)
+        self.assertEqual(stats["call_count"], 5)
+        self.assertGreater(stats["total_time"], 0.05)
+        self.assertGreater(stats["avg_time"], 0.01)
+        self.assertGreater(stats["min_time"], 0)
+        self.assertGreater(stats["max_time"], 0)
 
     def test_get_all_stats(self):
         """測試獲取所有統計"""
+
         @self.monitor.monitor()
         def func1():
             time.sleep(0.01)
@@ -202,11 +206,12 @@ class TestPerformanceMonitor(unittest.TestCase):
 
         # 應該有兩個函數的統計
         self.assertEqual(len(all_stats), 2)
-        self.assertIn('func1', all_stats)
-        self.assertIn('func2', all_stats)
+        self.assertIn("func1", all_stats)
+        self.assertIn("func2", all_stats)
 
     def test_metrics_summary(self):
         """測試性能指標總結"""
+
         @self.monitor.monitor()
         def test_function():
             time.sleep(0.01)
@@ -217,12 +222,13 @@ class TestPerformanceMonitor(unittest.TestCase):
 
         summary = self.monitor.get_metrics_summary()
 
-        self.assertEqual(summary['total_metrics'], 2)
-        self.assertGreater(summary['total_duration'], 0.02)
-        self.assertEqual(summary['success_rate'], 100.0)
+        self.assertEqual(summary["total_metrics"], 2)
+        self.assertGreater(summary["total_duration"], 0.02)
+        self.assertEqual(summary["success_rate"], 100.0)
 
     def test_generate_report(self):
         """測試生成報告"""
+
         @self.monitor.monitor()
         def test_function():
             time.sleep(0.01)
@@ -239,6 +245,7 @@ class TestPerformanceMonitor(unittest.TestCase):
 
     def test_export_metrics(self):
         """測試導出性能指標"""
+
         @self.monitor.monitor()
         def test_function():
             return "result"
@@ -246,24 +253,25 @@ class TestPerformanceMonitor(unittest.TestCase):
         test_function()
 
         # 導出到臨時文件
-        with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as f:
+        with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".json") as f:
             temp_file = f.name
 
         try:
             self.monitor.export_metrics(temp_file)
 
             # 讀取並驗證
-            with open(temp_file, 'r') as f:
+            with open(temp_file, "r") as f:
                 data = json.load(f)
 
             self.assertEqual(len(data), 1)
-            self.assertEqual(data[0]['function_name'], "test_function")
+            self.assertEqual(data[0]["function_name"], "test_function")
 
         finally:
             os.unlink(temp_file)
 
     def test_clear_metrics(self):
         """測試清除性能指標"""
+
         @self.monitor.monitor()
         def test_function():
             pass
@@ -291,7 +299,7 @@ class TestPerformanceMonitor(unittest.TestCase):
             memory_after_mb=105.0,
             memory_delta_mb=5.0,
             cpu_percent=30.0,
-            timestamp="2025-11-17"
+            timestamp="2025-11-17",
         )
 
         self.monitor.record_metric(metrics)
@@ -310,6 +318,7 @@ class TestGlobalMonitor(unittest.TestCase):
 
     def test_global_decorator(self):
         """測試全局裝飾器"""
+
         @monitor_performance
         def global_test_function():
             time.sleep(0.01)
@@ -382,5 +391,5 @@ class TestPerformanceMonitorIntegration(unittest.TestCase):
         self.assertIn("process_step3", report)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

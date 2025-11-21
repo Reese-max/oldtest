@@ -5,11 +5,11 @@
 提供多語言支持功能
 """
 
-from .i18n_manager import I18nManager, get_text, set_language, get_current_language
+from .i18n_manager import I18nManager, get_current_language, get_text, set_language
 
 __all__ = [
-    'I18nManager',
-    'get_text',
-    'set_language',
-    'get_current_language',
+    "I18nManager",
+    "get_text",
+    "set_language",
+    "get_current_language",
 ]

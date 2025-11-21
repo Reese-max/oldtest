@@ -5,16 +5,17 @@
 實現記憶體高效的流式PDF處理，避免大文件記憶體溢出
 """
 
-import os
 import gc
-import psutil
-from typing import Iterator, Optional, Callable, Any, Dict, List
-from dataclasses import dataclass
+import os
 from contextlib import contextmanager
-import pdfplumber
-from .logger import logger
-from ..utils.exceptions import PDFProcessingError
+from dataclasses import dataclass
+from typing import Any, Callable, Dict, Iterator, List, Optional
 
+import pdfplumber
+import psutil
+
+from ..utils.exceptions import PDFProcessingError
+from .logger import logger
 
 # Memory monitoring constants
 DEFAULT_MEMORY_LIMIT_MB = 512  # Default memory limit in MB
@@ -25,6 +26,7 @@ GC_THRESHOLD_MB = 256  # Trigger GC when memory exceeds this
 @dataclass
 class StreamConfig:
     """流式處理配置"""
+
     chunk_size: int = 10  # 每次處理的頁數
     memory_limit_mb: int = DEFAULT_MEMORY_LIMIT_MB  # 記憶體限制（MB）
     enable_monitoring: bool = True  # 啟用記憶體監控
@@ -35,6 +37,7 @@ class StreamConfig:
 @dataclass
 class PageChunk:
     """頁面區塊"""
+
     pages: List[int]  # 頁面編號列表
     text: str  # 提取的文字
     metadata: Dict[str, Any]  # 元數據
@@ -78,9 +81,7 @@ class MemoryMonitor:
         exceeded = current_mb > self.limit_mb
 
         if exceeded:
-            logger.warning(
-                f"⚠️  記憶體使用超過限制: {current_mb:.1f}MB / {self.limit_mb}MB"
-            )
+            logger.warning(f"⚠️  記憶體使用超過限制: {current_mb:.1f}MB / {self.limit_mb}MB")
 
         return exceeded
 
@@ -103,10 +104,7 @@ class MemoryMonitor:
         after_mb = self.get_current_memory_mb()
         freed_mb = before_mb - after_mb
 
-        logger.debug(
-            f"🧹 執行垃圾回收: {before_mb:.1f}MB → {after_mb:.1f}MB "
-            f"(釋放 {freed_mb:.1f}MB)"
-        )
+        logger.debug(f"🧹 執行垃圾回收: {before_mb:.1f}MB → {after_mb:.1f}MB " f"(釋放 {freed_mb:.1f}MB)")
 
         return freed_mb
 
@@ -119,10 +117,10 @@ class MemoryMonitor:
         """
         current_mb = self.get_current_memory_mb()
         return {
-            'current_mb': current_mb,
-            'peak_mb': self.peak_memory,
-            'limit_mb': self.limit_mb,
-            'usage_percent': (current_mb / self.limit_mb) * 100 if self.limit_mb > 0 else 0
+            "current_mb": current_mb,
+            "peak_mb": self.peak_memory,
+            "limit_mb": self.limit_mb,
+            "usage_percent": (current_mb / self.limit_mb) * 100 if self.limit_mb > 0 else 0,
         }
 
 
@@ -140,12 +138,7 @@ class StreamingPDFProcessor:
         self.memory_monitor = MemoryMonitor(self.config.memory_limit_mb)
         self.logger = logger
 
-    def stream_pages(
-        self,
-        pdf_path: str,
-        start_page: int = 1,
-        end_page: Optional[int] = None
-    ) -> Iterator[PageChunk]:
+    def stream_pages(self, pdf_path: str, start_page: int = 1, end_page: Optional[int] = None) -> Iterator[PageChunk]:
         """
         流式處理 PDF 頁面（生成器）
 
@@ -177,10 +170,7 @@ class StreamingPDFProcessor:
                 end_page = end_page or total_pages
                 end_page = min(end_page, total_pages)
 
-                self.logger.info(
-                    f"PDF總頁數: {total_pages}, "
-                    f"處理範圍: {start_page}-{end_page}"
-                )
+                self.logger.info(f"PDF總頁數: {total_pages}, " f"處理範圍: {start_page}-{end_page}")
 
                 # 按區塊處理
                 for chunk_start in range(start_page - 1, end_page, self.config.chunk_size):
@@ -223,11 +213,11 @@ class StreamingPDFProcessor:
                         pages=chunk_pages,
                         text=chunk_text,
                         metadata={
-                            'total_pages': total_pages,
-                            'chunk_start': chunk_start + 1,
-                            'chunk_end': chunk_end,
-                            'memory_mb': self.memory_monitor.get_current_memory_mb()
-                        }
+                            "total_pages": total_pages,
+                            "chunk_start": chunk_start + 1,
+                            "chunk_end": chunk_end,
+                            "memory_mb": self.memory_monitor.get_current_memory_mb(),
+                        },
                     )
 
                     yield chunk
@@ -249,11 +239,7 @@ class StreamingPDFProcessor:
             raise PDFProcessingError(error_msg) from e
 
     def process_with_callback(
-        self,
-        pdf_path: str,
-        callback: Callable[[PageChunk], Any],
-        start_page: int = 1,
-        end_page: Optional[int] = None
+        self, pdf_path: str, callback: Callable[[PageChunk], Any], start_page: int = 1, end_page: Optional[int] = None
     ) -> List[Any]:
         """
         使用回調函數處理 PDF
@@ -291,11 +277,7 @@ class StreamingPDFProcessor:
 
         return results
 
-    def extract_text_streaming(
-        self,
-        pdf_path: str,
-        output_callback: Optional[Callable[[str], None]] = None
-    ) -> str:
+    def extract_text_streaming(self, pdf_path: str, output_callback: Optional[Callable[[str], None]] = None) -> str:
         """
         流式提取文字（適合大文件）
 
@@ -333,8 +315,8 @@ class StreamingPDFProcessor:
             清理後的文字
         """
         try:
-            text = text.encode('utf-8', errors='ignore').decode('utf-8')
-            text = text.replace('\x00', '').replace('\ufeff', '')
+            text = text.encode("utf-8", errors="ignore").decode("utf-8")
+            text = text.replace("\x00", "").replace("\ufeff", "")
         except UnicodeError as e:
             self.logger.warning(f"Unicode 清理失敗: {e}")
 
@@ -378,9 +360,7 @@ def memory_efficient_processing(memory_limit_mb: int = DEFAULT_MEMORY_LIMIT_MB):
 
 
 def create_streaming_processor(
-    chunk_size: int = 10,
-    memory_limit_mb: int = DEFAULT_MEMORY_LIMIT_MB,
-    enable_monitoring: bool = True
+    chunk_size: int = 10, memory_limit_mb: int = DEFAULT_MEMORY_LIMIT_MB, enable_monitoring: bool = True
 ) -> StreamingPDFProcessor:
     """
     創建流式處理器的便捷函數
@@ -393,9 +373,5 @@ def create_streaming_processor(
     Returns:
         流式處理器實例
     """
-    config = StreamConfig(
-        chunk_size=chunk_size,
-        memory_limit_mb=memory_limit_mb,
-        enable_monitoring=enable_monitoring
-    )
+    config = StreamConfig(chunk_size=chunk_size, memory_limit_mb=memory_limit_mb, enable_monitoring=enable_monitoring)
     return StreamingPDFProcessor(config)
